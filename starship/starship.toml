@@ -4,8 +4,15 @@
 
 
 
+# ----------- Prompt -----------
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
 # Use custom format
 format = '$all$directory$character'
+
+# ----------- END -----------
 
 
 
