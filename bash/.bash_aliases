@@ -13,6 +13,7 @@ alias x='exit'
 alias cls='clear'
 
 # Fetch
+alias fetch="fastfetch"
 alias ifetch="uwufetch -i"
 
 # Date and Time
@@ -20,6 +21,8 @@ alias now='date "+%Y-%m-%d %H:%M:%S"'
 
 # Editting and Refreshing the Bash files
 alias edit-bash="nvim ~/.bashrc"
+alias edit-bash-aliases="nvim ~/.bash_aliases"
+alias edit-bash-functions="nvim ~/.bash_functions"
 alias reload-bash="source ~/.bashrc"
 
 # Mirrors
@@ -173,42 +176,39 @@ alias .5='cd ../../../../..'
 
 # ----------- Git Commands -----------
 
-alias g="git status"
-alias ga="git add"
-alias gaa="git add ."
-alias gau="git add -u"
-alias gc="git commit -m"
-alias gca="git commit -am"
-alias gb="git branch"
-alias gbd="git branch -d"
-alias gco="git checkout"
-alias gcob="git checkout -b"
-alias gt="git stash"
-alias gta="git stash apply"
-alias gm="git merge"
-alias gr="git rebase"
-alias gl="git log --oneline --decorate --graph"
-alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-alias glga="git log --graph --oneline --all --decorate"
-alias gb="git branch"
-alias gs="git show"
-alias gd="diff --color --color-words --abbrev"
-alias gdc="git diff --cached"
-alias gbl="git blame"
-alias gps="git push"
-alias gpl="git pull"
-alias gb="git branch"
-alias gc="git commit"
-alias gd="git diff"
-alias go="git checkout "
-alias gk="gitk --all&"
-alias gx="gitx --all"
+alias gitst="git status"
+alias gita="git add"
+alias gitaa="git add ."
+alias gitau="git add -u"
+alias gitc="git commit"
+alias gitcm="git commit -m"
+alias gitca="git commit -am"
+alias gitb="git branch"
+alias gitbd="git branch -d"
+alias gitco="git checkout"
+alias gitcob="git checkout -b"
+alias gitt="git stash"
+alias gitta="git stash apply"
+alias gitm="git merge"
+alias gitr="git rebase"
+alias gitl="git log --oneline --decorate --graph"
+alias gitlog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+alias gitlga="git log --graph --oneline --all --decorate"
+alias gitsh="git show"
+alias gitd="git diff"
+alias gitdclr="git diff --color --color-words --abbrev"
+alias gitdc="git diff --cached"
+alias gitbl="git blame"
+alias gitps="git push"
+alias gitpl="git pull"
+alias gitk="gitk --all&"
+alias gitx="gitx --all"
 
 # show ignored files by git
-alias gx="ign = ls-files -o -i --exclude-standard"
+alias gitsignf="ls-files -o -i --exclude-standard"
 
 # Untrack Files without deleting them
-alias grmc="git rm -r --cached"
+alias gitrmc="git rm -r --cached"
 
 # ----------- END -----------
 
