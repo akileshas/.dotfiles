@@ -37,6 +37,7 @@ eval "$(zoxide init bash)"
 # ----------- Starship Initialization -----------
 
 eval "$(starship init bash)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # ----------- END -----------
 
