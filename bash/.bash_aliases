@@ -20,10 +20,10 @@ alias ifetch="uwufetch -i"
 alias now='date "+%Y-%m-%d %H:%M:%S"'
 
 # Editting and Refreshing the Bash files
-alias edit-bash="nvim ~/.bashrc"
+alias edit-bashrc="nvim ~/.bashrc"
 alias edit-bash-aliases="nvim ~/.bash_aliases"
 alias edit-bash-functions="nvim ~/.bash_functions"
-alias reload-bash="source ~/.bashrc"
+alias reload-bashrc="source ~/.bashrc"
 
 # Mirrors
 alias update-mirror="sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
