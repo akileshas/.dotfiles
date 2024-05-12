@@ -113,6 +113,14 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 
 
+# ----------- Git Configuration -----------
+
+#export GIT_CONFIG=$HOME/Documents/Github Repository/dotfiles/git/.gitconfig
+
+# ----------- END -----------
+
+
+
 #################################################
 #                      END                      #
 #################################################
