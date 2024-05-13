@@ -91,6 +91,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
 # Setup the fzf-git
+# Navigate to your home directory: "cd"
+# Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git"
 source ~/fzf-git.sh/fzf-git.sh
 
 # Setup the fzf theme

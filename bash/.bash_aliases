@@ -32,7 +32,7 @@ alias list-mirror="bat /etc/pacman.d/mirrorlist"
 # Managing Packages
 alias update="sudo pacman -Syu && yay -Syu && flatpak update"
 alias force-update="sudo pacman -Syyu && yay -Syyu && flatpak update"
-alias clean="sudo pacman -Scc && yay -Scc"
+alias clean="sudo pacman -Scc && yay -Scc && flatpak uninstall --unused && sudo rm -rfv /var/tmp/flatpak-cache-*"
 
 # Ping
 alias pg="ping google.com -c 5"
@@ -99,6 +99,7 @@ alias pacqkk="sudo pacman -Qkk"
 alias pacqkq="sudo pacman -Qkq"
 alias pacquq="sudo pacman -Qii"
 alias pacqoq="sudo pacman -Qii"
+alias pacdk="sudo pacman -Dk"
 alias pacu="sudo pacman -U"
 alias pacf="sudo pacman -F"
 
@@ -152,6 +153,7 @@ alias yayqkk="yay -Qkk"
 alias yayqkq="yay -Qkq"
 alias yayquq="yay -Qii"
 alias yayqoq="yay -Qii"
+alias yaydk="yay -Dk"
 alias yayu="yay -U"
 alias yayf="yay -F"
 
