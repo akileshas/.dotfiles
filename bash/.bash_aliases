@@ -12,6 +12,9 @@
 alias x='exit'
 alias cls='clear'
 
+# Editor
+alias edit="nvim"
+
 # Fetch
 alias fetch="fastfetch"
 alias ifetch="uwufetch -i"
