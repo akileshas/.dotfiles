@@ -14,6 +14,7 @@ alias cls='clear'
 
 # Editor
 alias edit="nvim"
+alias code="code-insiders"
 
 # Fetch
 alias fetch="fastfetch"
