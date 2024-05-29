@@ -13,6 +13,7 @@ alias x='exit'
 alias cls='clear'
 
 # Editor
+alias open="nvim"
 alias edit="nvim"
 alias code="code-insiders"
 
@@ -34,9 +35,9 @@ alias update-mirror="sudo reflector --verbose --latest 10 --protocol https --sor
 alias list-mirror="bat /etc/pacman.d/mirrorlist"
 
 # Managing Packages
-alias update="sudo pacman -Syu && yay -Syu && flatpak update"
-alias force-update="sudo pacman -Syyu && yay -Syyu && flatpak update"
-alias clean="sudo pacman -Scc && yay -Scc && flatpak uninstall --unused && sudo rm -rfv /var/tmp/flatpak-cache-* && sudo journalctl --vacuum-size=100M"
+alias update="sudo pacman -Syu && yay -Syu && paru -Syu && flatpak update"
+alias force-update="sudo pacman -Syyu && yay -Syyu && paru -Syyu && flatpak update"
+alias clean="sudo pacman -Sc && sudo pacman -Scc && yay -Sc && yay -Scc && paru -Sc && paru -Scc && flatpak uninstall --unused && sudo rm -rfv /var/tmp/flatpak-cache-* && sudo journalctl --vacuum-size=100M"
 alias clean-orphan="sudo pacman -Rs $(pacman -Qdtq)"
 
 # Ping
@@ -163,6 +164,61 @@ alias yayqoq="yay -Qii"
 alias yaydk="yay -Dk"
 alias yayu="yay -U"
 alias yayf="yay -F"
+
+# ----------- END -----------
+#
+#
+#
+# # ----------- Paru Commands -----------
+
+alias parus="paru -S"
+alias paruss="paru -Ss"
+alias parusss="paru -Sss"
+alias parusw="paru -Sw"
+alias parusy="paru -Sy"
+alias parusyy="paru -Syy"
+alias parusu="paru -Su"
+alias parusyu="paru -Syu"
+alias parusyyu="paru -Syyu"
+alias parusd="paru -Sd"
+alias parusdd="paru -Sdd"
+alias parusg="paru -Sg"
+alias parusc="paru -Sc"
+alias paruscc="paru -Scc"
+alias parusi="paru -Si"
+alias parusii="paru -Sii"
+alias parur="paru -R"
+alias parurc="paru -Rc"
+alias parurs="paru -Rs"
+alias parurn="paru -Rn"
+alias parurd="paru -Rd"
+alias parurns="paru -Rns"
+alias parurnn="paru -Rnn"
+alias parurdd="paru -Rdd"
+alias paruq="paru -Q"
+alias paruqe="paru -Qe"
+alias paruql="paru -Ql"
+alias paruqi="paru -Qi"
+alias paruqs="paru -Qs"
+alias paruqo="paru -Qo"
+alias paruqu="paru -Qu"
+alias paruqg="paru -Qg"
+alias paruqm="paru -Qm"
+alias paruqk="paru -Qk"
+alias paruqr="paru -Qr"
+alias paruqd="paru -Qd"
+alias paruqdt="paru -Qdt"
+alias paruqdtq="paru -Qdtq"
+alias paruqip="paru -Qip"
+alias paruqii="paru -Qii"
+alias paruqil="paru -Qil"
+alias paruqkk="paru -Qkk"
+alias paruqkq="paru -Qkq"
+alias paruquq="paru -Qii"
+alias paruqoq="paru -Qii"
+alias parudk="paru -Dk"
+alias paruu="paru -U"
+alias paruf="paru -F"
 
 # ----------- END -----------
 
