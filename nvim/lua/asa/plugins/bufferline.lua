@@ -4,8 +4,19 @@ return {
   version = "*",
   opts = {
     options = {
+      offsets = {
+        {
+          filetype = "NvimTree",
+          text = "File Explorer",
+          highlight = "Directory",
+          text_align = "center",
+        },
+      },
       mode = "tabs",
-      separator_style = "slant",
+      diagnostics = "nvim_lsp",
+      numbers = function(opts)
+        return string.format("%s|%s", opts.id, opts.raise(opts.ordinal))
+      end,
     },
   },
 }
