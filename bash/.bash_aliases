@@ -28,7 +28,9 @@ alias now='date "+%Y-%m-%d %H:%M:%S"'
 alias edit-bashrc="nvim ~/.bashrc"
 alias edit-bash-aliases="nvim ~/.bash_aliases"
 alias edit-bash-functions="nvim ~/.bash_functions"
+alias edit-bash-variables="nvim ~/.bash_variables"
 alias reload-bashrc="source ~/.bashrc"
+alias reload-bash-profile="nvim ~/.bash_profile"
 
 # Mirrors
 alias update-mirror="sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
@@ -38,7 +40,8 @@ alias list-mirror="bat /etc/pacman.d/mirrorlist"
 alias update="sudo pacman -Syu && yay -Syu && paru -Syu && flatpak update"
 alias force-update="sudo pacman -Syyu && yay -Syyu && paru -Syyu && flatpak update"
 alias clean="sudo pacman -Sc && sudo pacman -Scc && yay -Sc && yay -Scc && paru -Sc && paru -Scc && flatpak uninstall --unused && sudo rm -rfv /var/tmp/flatpak-cache-* && sudo journalctl --vacuum-size=100M"
-alias clean-orphan="sudo pacman -Rs $(pacman -Qdtq)"
+alias list-orphan="sudo pacman -Qdt"
+alias clean-orphan="sudo pacman -Rns $(pacman -Qdtq)"
 
 # Ping
 alias pg="ping google.com -c 5"
@@ -46,6 +49,7 @@ alias ping="ping -c 5"
 alias fastping="ping -c 100 -s.2"
 
 # Reboot
+alias again="sudo reboot"
 alias restart="sudo reboot"
 alias reboot="sudo reboot"
 alias sysreboot="sudo systemctl reboot"
