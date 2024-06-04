@@ -18,8 +18,8 @@ alias edit="nvim"
 alias code="code-insiders"
 
 # Fetch
-alias fetch="fastfetch"
-alias ifetch="uwufetch -i"
+alias fetch="neofetch --off"
+alias ifetch="neofetch"
 
 # Date and Time
 alias now='date "+%Y-%m-%d %H:%M:%S"'
