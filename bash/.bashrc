@@ -22,9 +22,13 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+# Check if the ~/.bash_variables file exists and if so, source it
 if [ -f ~/.bash_variables ]; then
   source ~/.bash_variables
 fi
+
+# Executing the pfetch command to show the system info
+PF_ASCII=linux pfetch
 
 # ----------- END -----------
 
