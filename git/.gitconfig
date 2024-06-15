@@ -1,6 +1,6 @@
 [user]
-	name = Akilesh A S
-	email = akilesh.ml.engineer@gmail.com
+	  name = Akilesh-ML-Engineer
+    email = akilesh.ml.engineer@gmail.com
 
 [core]
     pager = delta
@@ -11,7 +11,6 @@
 [delta]
     navigate = true    # use n and N to move between diff sections
     side-by-side = true
-
 
     # delta detects terminal colors automatically; set one of these to disable auto-detection
     # dark = true
@@ -24,11 +23,10 @@
     colorMoved = default
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	  clean = git-lfs clean -- %f
+	  smudge = git-lfs smudge -- %f
+	  process = git-lfs filter-process
+    required = true
 
 [init]
-  defaultBranch = master
-
+    defaultBranch = master
