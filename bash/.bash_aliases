@@ -32,6 +32,10 @@ alias edit-bash-variables="nvim ~/.bash_variables"
 alias reload-bashrc="source ~/.bashrc"
 alias reload-bash-profile="nvim ~/.bash_profile"
 
+# Editting and Refreshing the Kwin files
+alias edit-kwinrc="nvim ~/.config/kwinrc"
+alias reload-kwinrc="qdbus org.kde.KWin /KWin reconfigure"
+
 # Mirrors
 alias update-mirror="sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias list-mirror="bat /etc/pacman.d/mirrorlist"
