@@ -13,13 +13,13 @@
 PS1='[\u@\h \W]\$ '
 
 # Check if the ~/.bash_aliases file exists and if so, source it
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.dotfiles/bash/.bash_aliases ]; then
+    . ~/.dotfiles/bash/.bash_aliases
 fi
 
 # Check if the ~/.bash_functions file exists and if so, source it
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
+if [ -f ~/.dotfiles/bash/.bash_functions ]; then
+    . ~/.dotfiles/bash/.bash_functions
 fi
 
 # Check if the ~/.bash_variables file exists and if so, source it
@@ -103,7 +103,7 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 # Setup the fzf-git
 # Navigate to your home directory: "cd"
 # Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git"
-source ~/fzf-git.sh/fzf-git.sh
+source ~/.config/fzf-git.sh/fzf-git.sh
 
 # Setup the fzf theme
 fg="#CBE0F0"
@@ -128,7 +128,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # ----------- Git Configuration -----------
 
-#export GIT_CONFIG=$HOME/.gitconfig
+export GIT_CONFIG=$HOME/.dotfiles/git/.gitconfig
 
 # ----------- END -----------
 

@@ -26,8 +26,8 @@ alias now='date "+%Y-%m-%d %H:%M:%S"'
 
 # Editting and Refreshing the Bash files
 alias edit-bashrc="nvim ~/.bashrc"
-alias edit-bash-aliases="nvim ~/.bash_aliases"
-alias edit-bash-functions="nvim ~/.bash_functions"
+alias edit-bash-aliases="nvim ~/.dotfiles/bash/.bash_aliases"
+alias edit-bash-functions="nvim ~/.dotfiles/bash/.bash_functions"
 alias edit-bash-variables="nvim ~/.bash_variables"
 alias reload-bashrc="source ~/.bashrc"
 alias reload-bash-profile="nvim ~/.bash_profile"
