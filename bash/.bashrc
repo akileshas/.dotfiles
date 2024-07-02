@@ -128,7 +128,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 # ----------- Git Configuration -----------
 
-export GIT_CONFIG=$HOME/.dotfiles/git/.gitconfig
+# export GIT_CONFIG=$HOME/.dotfiles/git/.gitconfig
 
 # ----------- END -----------
 
