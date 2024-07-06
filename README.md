@@ -19,7 +19,7 @@ Feel free to explore and customize these configurations to suit your preferences
 ```bash
 # Adding some dependencies
 # For Archlinux
-sudo pacman -Syu neovim nodejs npm cargo unzip ripgrep
+sudo pacman -Syu neovim nodejs npm cargo unzip ripgrep lazygit
 
 cd
 
