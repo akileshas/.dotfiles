@@ -17,6 +17,10 @@ Feel free to explore and customize these configurations to suit your preferences
 ## Setting up the neovim configurations:
 
 ```bash
+# Adding some dependencies
+# For Archlinux
+sudo pacman -Syu neovim nodejs npm cargo unzip ripgrep
+
 cd
 
 # Cloning the repository in the home directory
