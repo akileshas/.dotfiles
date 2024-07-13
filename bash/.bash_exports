@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#################################################
+#                 Bash Exports                  #
+#################################################
+
+
+
+# ----------- Cuda & Cudnn's Path ----------
+
+export CUDA_PATH=/opt/cuda
+export PATH=$CUDA_PATH/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_PATH/lib64:/usr/lib64:$LD_LIBRARY_PATH
+export CPATH=$CUDA_PATH/include:/usr/include:$CPATH
+export LIBRARY_PATH=$CUDA_PATH/lib64:/usr/lib64:$LIBRARY_PATH
+
+# ----------- END -----------
+
+
+
+# ----------- Tensorflow's Environmental Path -----------
+
+
+
+# ----------- END -----------
+
+
+
+# ----------- Android Studio's Path -----------
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# ----------- END -----------
+
+
+
+#################################################
+#                     END                       #
+#################################################

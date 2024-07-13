@@ -22,9 +22,14 @@ if [ -f ~/.dotfiles/bash/.bash_functions ]; then
     . ~/.dotfiles/bash/.bash_functions
 fi
 
-# Check if the ~/.bash_variables file exists and if so, source it
-if [ -f ~/.bash_variables ]; then
-  source ~/.bash_variables
+# Check if the ~/.bash_keys file exists and if so, source it
+if [ -f ~/.bash_keys ]; then
+  source ~/.bash_keys
+fi
+
+# Check if the ~/.bash_exports file exists and if so, source it
+if [ -f ~/.dotfiles/bash/.bash_exports ]; then
+    . ~/.dotfiles/bash/.bash_exports
 fi
 
 # Executing the pfetch command to show the system info
