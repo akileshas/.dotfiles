@@ -13,9 +13,9 @@ alias x='exit'
 alias cls='clear'
 
 # Editor
+alias v='nvim'
 alias open="nvim"
 alias edit="nvim"
-alias code="code-insiders"
 
 # Fetch
 alias fetch="neofetch --off"
@@ -53,6 +53,8 @@ alias ping="ping -c 5"
 alias fastping="ping -c 100 -s.2"
 
 # Reboot
+alias rb="sudo reboot"
+alias miss-you="sudo reboot"
 alias again="sudo reboot"
 alias restart="sudo reboot"
 alias reboot="sudo reboot"
@@ -174,10 +176,10 @@ alias yayu="yay -U"
 alias yayf="yay -F"
 
 # ----------- END -----------
-#
-#
-#
-# # ----------- Paru Commands -----------
+
+
+
+# ----------- Paru Commands -----------
 
 alias parus="paru -S"
 alias paruss="paru -Ss"
@@ -291,6 +293,7 @@ alias gitrmc="git rm -r --cached"
 # ----------- Eza (better ls) -----------
 
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias la="eza -all"
 alias ll="ls --all"
 alias lt="ls --tree"
 alias ltl="ls --tree --all"
