@@ -9,6 +9,7 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Neovim (nvim)
 - Starship (prompt)
 - Tmux
+- Hyprland
 
 Feel free to explore and customize these configurations to suit your preferences!
 
