@@ -36,6 +36,14 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
 
+# ----------- XDG Config Path -----------
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# ----------- END -----------
+
+
+
 #################################################
 #                     END                       #
 #################################################
