@@ -31,7 +31,4 @@ git clone https://github.com/Akilesh-ML-Engineer/.dotfiles.git
 # Adding the link of the neovim configuration files:
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
-
-# Adding the starship configuration files:
-ln -s ~/.dotfiles/starship ~/.config/starship
 ```
