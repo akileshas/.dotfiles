@@ -41,9 +41,9 @@ alias update-mirror="sudo reflector --verbose --latest 10 --protocol https --sor
 alias list-mirror="bat /etc/pacman.d/mirrorlist"
 
 # Managing Packages
-alias update="sudo pacman -Syu && paru -Syu && flatpak update"
-alias force-update="sudo pacman -Syyu && paru -Syyu && flatpak update"
-alias clean="sudo pacman -Sc && sudo pacman -Scc && paru -Sc && paru -Scc && flatpak uninstall --unused && sudo rm -rfv /var/tmp/flatpak-cache-* && sudo journalctl --vacuum-size=100M"
+alias update="sudo pacman -Syu && paru -Syu"
+alias force-update="sudo pacman -Syyu && paru -Syyu"
+alias clean="sudo pacman -Sc && sudo pacman -Scc && paru -Sc && paru -Scc && sudo journalctl --vacuum-size=100M"
 alias list-orphan="sudo pacman -Qdt"
 alias clean-orphan="sudo pacman -Rns $(pacman -Qdtq)"
 
