@@ -19,6 +19,9 @@ window#waybar {
   border-radius: 15px 0 0 15px;
   margin-top: 2px;
   background: #000000;
+  border-left: 2px solid #1793d1;
+  border-top: 2px solid #1793d1;
+  border-bottom: 2px solid #1793d1;
 }
 
 .modules-center {
@@ -26,12 +29,16 @@ window#waybar {
   margin-top: 2px;
   border-radius: 15px 15px 15px 15px;
   background: #000000;
+  border: 2px solid #1793d1;
 }
 
 .modules-left {
   border-radius: 0 15px 15px 0;
   margin-top: 2px;
   background: #000000;
+  border-right: 2px solid #1793d1;
+  border-top: 2px solid #1793d1;
+  border-bottom: 2px solid #1793d1;
 }
 
 #battery,
