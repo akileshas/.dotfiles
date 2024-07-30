@@ -79,8 +79,8 @@
       "",
       "",
     ],
-    "on-scroll-down": "light -A 10",
-    "on-scroll-up": "light -U 10",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "on-scroll-up": "brightnessctl set +5%",
     "smooth-scrolling-threshold": 1,
     "tooltip": false
   },
