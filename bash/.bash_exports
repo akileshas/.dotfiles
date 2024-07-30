@@ -6,6 +6,14 @@
 
 
 
+# ------------ Editor's Path ------------
+
+export EDITOR=nvim
+
+# ------------ END ------------
+
+
+
 # ----------- Cuda & Cudnn's Path ----------
 
 export CUDA_PATH=/opt/cuda
