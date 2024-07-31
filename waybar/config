@@ -79,8 +79,8 @@
       "",
       "",
     ],
-    "on-scroll-down": "brightnessctl set 5%-",
-    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set +5%",
+    "on-scroll-up": "brightnessctl set 5%-",
     "smooth-scrolling-threshold": 1,
     "tooltip": false
   },
@@ -124,6 +124,8 @@
       "default": ["🕨","🕩","🕪"]
     },
     "justify": "center",
+    "on-scroll-up": "",
+    "on-scroll-down": "",
     "on-click-right": "pavucontrol",
     "tooltip": false,
   },

@@ -28,7 +28,7 @@ export LIBRARY_PATH=$CUDA_PATH/lib64:/usr/lib64:$LIBRARY_PATH
 
 # ----------- Tensorflow's Environmental Path -----------
 
-
+export TF_CPP_MIN_LOG_LEVEL=1
 
 # ----------- END -----------
 
