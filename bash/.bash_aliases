@@ -29,6 +29,7 @@ alias edit-bashrc="nvim ~/.bashrc"
 alias edit-bash-aliases="nvim ~/.dotfiles/bash/.bash_aliases"
 alias edit-bash-functions="nvim ~/.dotfiles/bash/.bash_functions"
 alias edit-bash-variables="nvim ~/.bash_variables"
+alias edit-bash-exports="nvim ~/.dotfiles/bash/.bash_exports"
 alias reload-bashrc="source ~/.bashrc"
 alias reload-bash-profile="nvim ~/.bash_profile"
 
