@@ -79,8 +79,8 @@
       "",
       "",
     ],
-    "on-scroll-down": "brightnessctl set +5%",
-    "on-scroll-up": "brightnessctl set 5%-",
+    "on-scroll-down": "brightnessctl set +10",
+    "on-scroll-up": "brightnessctl set 10-",
     "smooth-scrolling-threshold": 1,
     "tooltip": false
   },
@@ -106,27 +106,19 @@
     "format-critical": " {temperatureC}°C",
     "interval": 1,
     "critical-threshold": 80,
-    "on-click": "foot btop",
+    "tooltip": false
    },
 
   "pulseaudio": {
     "format": "{volume}% {icon}",
-    "format-bluetooth":"󰂰",
     "format-muted": "<span font='12'></span>",
     "format-icons": {
-      "headphones": "",
-      "bluetooth": "󰥰",
-      "handsfree": "",
-      "headset": "󱡬",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["🕨","🕩","🕪"]
+      "default": ["🕨","🕩 ","🕪 "]
     },
     "justify": "center",
-    "on-scroll-up": "",
-    "on-scroll-down": "",
     "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer --decrease 1",
+    "on-scroll-down": "pamixer --increase 1",
     "tooltip": false,
   },
 
