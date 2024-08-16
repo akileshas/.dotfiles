@@ -10,7 +10,11 @@
 add_newline = false
 
 # Use custom format
-format = '$all$directory$character'
+format = "$all$directory$character"
+
+# Custom format icons
+[directory]
+read_only = " 󰌾"
 
 # ----------- END -----------
 
