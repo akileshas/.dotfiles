@@ -1,3 +1,4 @@
+// clang-format off
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,29 +25,30 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
+// clang-format on
 void solve() {
-    // Your solution logic here
+  // Your solution logic here
 }
 
 int main() {
 #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
 #endif
 
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
 
-    int tc = 1;  // Number of test cases
-    // Uncomment the next line if the number of test cases is provided as input
-    // cin >> tc; 
+  int tc = 1; // Number of test cases
+  // Uncomment the next line if the number of test cases is provided as input
+  // cin >> tc;
 
-    for (int t = 1; t <= tc; t++) {
-        // Uncomment the following line if the case number should be output
-        // cout << "Case #" << t << ": " << endl;
-        solve();
-    }
+  for (int t = 1; t <= tc; t++) {
+    // Uncomment the following line if the case number should be output
+    // cout << "Case #" << t << ": " << endl;
+    solve();
+  }
 
-    return 0;
+  return 0;
 }
