@@ -31,7 +31,7 @@ alias edit-bash-functions="nvim ~/.dotfiles/bash/.bash_functions"
 alias edit-bash-variables="nvim ~/.bash_variables"
 alias edit-bash-exports="nvim ~/.dotfiles/bash/.bash_exports"
 alias reload-bashrc="source ~/.bashrc"
-alias reload-bash-profile="nvim ~/.bash_profile"
+alias reload-bash-profile="source ~/.bash_profile"
 
 # Editting and Refreshing the Kwin files
 alias edit-kwinrc="nvim ~/.config/kwinrc"
