@@ -46,7 +46,7 @@ int main() {
 
   for (int t = 1; t <= tc; t++) {
     // Uncomment the following line if the case number should be output
-    // cout << "Case #" << t << ": " << endl;
+    // cout << "Case #" << t << ": ";
     solve();
   }
 
