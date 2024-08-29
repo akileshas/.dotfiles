@@ -4,9 +4,11 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 
 - Bash
 - Git
+- i3
 - Kitty
 - Neofetch
 - Neovim (nvim)
+- Vim
 - Starship (prompt)
 - Tmux
 - Hyprland
