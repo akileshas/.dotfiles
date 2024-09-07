@@ -8,7 +8,8 @@
 
   "custom/logo": {
     "format": "",
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "xdg-open https://archlinux.org"
   },
 
   "hyprland/workspaces": {
@@ -30,13 +31,14 @@
   "clock": {
     "format": "{:%I:%M:%S %p} ",
     "interval":1,
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %d, %Y}"
   },
 
   "network": {
     "format-wifi": " ",
     "format-ethernet":" ",
-    "format-disconnected": "",
+    "format-disconnected": " ",
     "tooltip-format": "{ipaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
     "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
@@ -66,7 +68,7 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "<span font='12'> <span font='11'>{percent}%</span> {icon}</span>",
+    "format": "<span font='12'><span font='11'>{percent}%</span> {icon}</span>",
     "format-icons": [
       "",
       "",
