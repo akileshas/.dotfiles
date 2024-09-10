@@ -1,7 +1,7 @@
 {
   "layer": "top", 
   "position": "top",
-  "modules-left": ["custom/logo", "clock", "memory", "cpu", "temperature", "hyprland/window" ],
+  "modules-left": ["custom/logo", "custom/clock", "memory", "cpu", "temperature", "hyprland/window" ],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "network",  "battery" ],
   "reload_style_on_change":true,
@@ -33,6 +33,12 @@
     "interval":1,
     "tooltip": true,
     "tooltip-format": "{:%A, %B %d, %Y}"
+  },
+
+  "custom/clock": {
+    "exec": "date +\" %I:%M:%S %p \"",
+    "interval": 1,
+    "tooltip": false,
   },
 
   "network": {
