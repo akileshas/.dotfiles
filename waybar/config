@@ -36,7 +36,7 @@
   },
 
   "custom/clock": {
-    "exec": "date +\" %I:%M:%S %p \"",
+    "exec": "date +\" %I:%M:%S %p  \"",
     "interval": 1,
     "tooltip": false,
   },
