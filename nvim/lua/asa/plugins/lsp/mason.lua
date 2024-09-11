@@ -38,6 +38,7 @@ return {
         "rust_analyzer",
         "bashls",
         "jsonls",
+        "ts_ls"
       },
     })
 
