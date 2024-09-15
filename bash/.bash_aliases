@@ -65,6 +65,9 @@ alias sysreboot="sudo systemctl reboot"
 alias bye="sudo shutdown -h now"
 alias shutdown="sudo shutdown -h now"
 
+# MySQL Path
+alias mysql="/usr/bin/mariadb -u asa -p"
+
 # ----------- END -----------
 
 
