@@ -11,6 +11,7 @@
 # Clean & Exit
 alias x='exit'
 alias cls='clear'
+alias snap='clear'
 
 # Editor
 alias v='nvim'
