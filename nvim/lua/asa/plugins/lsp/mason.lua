@@ -38,7 +38,8 @@ return {
         "rust_analyzer",
         "bashls",
         "jsonls",
-        "ts_ls"
+        "ts_ls",
+        "ast_grep",
       },
     })
 
