@@ -39,7 +39,6 @@ return {
         "bashls",
         "jsonls",
         "ts_ls",
-        "ast_grep",
       },
     })
 
