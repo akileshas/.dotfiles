@@ -23,7 +23,7 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/asa/.dotfiles/sway/images/love.png fill
 #
 # Example configuration:
 #
@@ -57,6 +57,16 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+# Touchpad configuration
+input "2362:14408:PIXA3848:00_093A:3848_Touchpad" {
+    tap enabled
+    natural_scroll enabled
+}
+
+# Keyboard configuration
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_options "ctrl:swapcaps"
+}
 
 ### Key bindings
 #
@@ -66,10 +76,13 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+c kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Start your browser
+    # bindsym $mod+b exec firefox-developer-edition
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -201,7 +214,9 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    # swaybar_command waybar
+
+    position bottom
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -209,9 +224,30 @@ bar {
 
     colors {
         statusline #ffffff
-        background #323232
+        background #000000
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+#
+# windows
+#
+# default_border pixel 1
+# client.focused #4c566a #2e3440 #d8dee9 #4c566a #4c566a
+# client.unfocused #000000 #000000 #4c566a #000000 #000000
+# client.urgent #b48ead #2e3440 #d8dee9 #a3be8c #b48ead
+# for_window [app_id="firefox-developer-edition"] border none
+
+#
+# special keys
+#
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+# screen lock
+bindsym $mod+Escape exec swaylock -i /home/asa/Pictures/Fuck-Society.png 
 
 include /etc/sway/config.d/*
