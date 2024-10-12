@@ -66,6 +66,11 @@ alias sysreboot="sudo systemctl reboot"
 alias bye="sudo shutdown -h now"
 alias shutdown="sudo shutdown -h now"
 
+# Logout
+alias logout="pkill -KILL -u $USER"
+alias byebye="pkill -KILL -u $USER"
+alias out="pkill -KILL -u $USER"
+
 # MySQL Path
 alias mysql="/usr/bin/mariadb -u asa -p"
 
