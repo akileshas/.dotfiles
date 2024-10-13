@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["custom/logo", "custom/clock", "memory", "cpu", "temperature", "hyprland/window" ],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "network",  "battery" ],
+  "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "network",  "battery", "tray" ],
   "reload_style_on_change":true,
 
   "custom/logo": {
