@@ -1,2 +1,1 @@
-require("asa.core")
-require("asa.lazy")
+require("akileshas")

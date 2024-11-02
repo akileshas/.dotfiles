@@ -36,6 +36,20 @@ keymap.set("n", "<C-Left>", [[<cmd>vertical resize -5<cr>]]) -- make the window 
 keymap.set("n", "<C-Up>", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally
 keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally
 
+-- buffer management
+-- switch to next buffer
+keymap.set("n", "<leader>bn", "<cmd>bn<CR>", {
+  desc = "Switch to next buffer",
+})
+-- switch to previous buffer
+keymap.set("n", "<leader>bp", "<cmd>bp<CR>", {
+  desc = "Switch to previous buffer",
+})
+-- close current buffer
+keymap.set("n", "<leader>bd", "<cmd>bd<CR>", {
+  desc = "Close current buffer",
+})
+
 ----------- Custom keymaps for competitive programming -----------
 
 -- Copy the C++ template to a new file
