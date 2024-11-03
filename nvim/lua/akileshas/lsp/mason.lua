@@ -5,17 +5,12 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
-        -- import mason
         local mason = require("mason")
-
-        -- import mason-lspconfig
         local mason_lspconfig = require("mason-lspconfig")
-
-        -- import mason_tool_installer
         local mason_tool_installer = require("mason-tool-installer")
 
-        -- enable mason and configure icons
-         mason.setup({
+        -- Enable mason with icon settings
+        mason.setup({
             ui = {
                 icons = {
                     package_installed = "✓",
@@ -25,48 +20,23 @@ return {
             },
         })
 
+        -- Set up mason-lspconfig to install required servers
         mason_lspconfig.setup({
-            -- list of servers for mason to install
             ensure_installed = {
-                "html",
-                "cssls",
-                "lua_ls",
-                "emmet_ls",
-                "pyright",
-                "clangd",
-                "cmake",
-                "rust_analyzer",
-                "bashls",
-                "jsonls",
-                "ts_ls",
-                "eslint",
-                "jinja_lsp",
-                "dockerls",
-                "docker_compose_language_service",
-                "gopls",
-                "graphql",
-                "ast_grep",
-                "marksman",
-                "asm_lsp",
-                "elixirls",
-                "rnix",
-                "intelephense",
-                "sqlls",
-                "grammarly",
-                "harper_ls",
-                "vimls",
-                "zls",
-                "yamlls",
+                "html", "cssls", "lua_ls", "emmet_ls", "pyright", "clangd",
+                "cmake", "rust_analyzer", "bashls", "jsonls", "ts_ls",
+                "eslint", "dockerls", "docker_compose_language_service",
+                "gopls", "graphql", "marksman", "asm_lsp", "sqlls",
+                "yamlls", "zls", "vimls", "elixirls", "jinja_lsp",
+                "ast_grep", "elixirls", "rnix", "intelephense",
+                "grammarly", "harper_ls", "jedi_language_server"
             },
         })
 
+        -- Install additional tools with mason-tool-installer
         mason_tool_installer.setup({
             ensure_installed = {
-                "prettier", -- prettier formatter
-                "stylua", -- lua formatter
-                "isort", -- python formatter
-                "black", -- python formatter
-                "eslint_d", -- js linter
+                "prettier", "stylua", "isort", "black", "eslint_d"
             },
         })
     end,

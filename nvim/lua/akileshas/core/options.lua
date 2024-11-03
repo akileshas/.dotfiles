@@ -54,7 +54,7 @@ opt.splitbelow = true  -- split horizontal window to the bottom
 opt.termguicolors = true
 opt.background = "dark"  -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
-opt.scrolloff = 11  -- ensures a minimum of 11 lines above and below the cursor
+opt.scrolloff = 7  -- ensures a minimum of 11 lines above and below the cursor
 opt.showmode = true  -- disables the mode display
 
 -- performance and timing
