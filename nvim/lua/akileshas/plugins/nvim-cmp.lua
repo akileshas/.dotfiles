@@ -8,7 +8,7 @@ return {
         {
             "L3MON4D3/LuaSnip",
             -- follow latest release.
-            version = "v2.*", 
+            version = "v2.*",
             -- install jsregexp (optional!).
             build = "make install_jsregexp",
         },
@@ -41,9 +41,9 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                     ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
-                    ["<C-y>"] = cmp.mapping.confirm({ select = false }),
+                    ["<C-i>"] = cmp.mapping.confirm({ select = false }),
                     ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                    ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+                    ["<C-q>"] = cmp.mapping.abort(), -- close completion window
                 }),
 
                 -- sources for autocompletion
