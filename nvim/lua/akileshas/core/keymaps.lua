@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 -- set leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -105,9 +106,41 @@ keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]], {
 })
 
 -- Map to NetRW
--- keymap.set("n", "<leader>pw", vim.cmd.Ex)
-
+-- keymap.set("n", "<leader>pw", vim.cmd.Ex, {
+--    desc = "Open NetRW",
+-- })
 
 -- Keep visual mode selection after indenting
-vim.keymap.set("v", "<", "<gv", { silent = true })
-vim.keymap.set("v", ">", ">gv", { silent = true })
+keymap.set("v", "<", "<gv", { silent = true }, {
+    desc = "Keep visual mode selection after indenting",
+})
+keymap.set("v", ">", ">gv", { silent = true }, {
+    desc = "Keep visual mode selection after indenting",
+})
+
+-- Centering Navigation
+keymap.set("n", "<C-d>", "<C-d>zz", {
+    desc = "Centering Navigation with <C-d>",
+})
+keymap.set("n", "<C-u>", "<C-u>zz", {
+    desc = "Centering Navigation with <C-u>",
+})
+keymap.set("n", "n", "nzzzv", {
+    desc = "Centering Navigation with n",
+})
+keymap.set("n", "N", "Nzzzv", {
+    desc = "Centering Navigation with N",
+})
+
+-- Move Selected Lines
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", {
+    desc = "Move selected lines down",
+})
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", {
+    desc = "Move selected lines up",
+})
+
+-- Join Lines
+keymap.set("n", "J", "mzJ`z", {
+    desc = "Join lines and keep cursor position",
+})
