@@ -5,7 +5,7 @@ return {
 
     config = function()
         local oil = require("oil")
-        
+
         oil.setup({
             default_file_explorer = true,
             keymaps = {
@@ -19,7 +19,7 @@ return {
                 show_hidden = true,
             },
         })
-        
+
         local keymap = vim.keymap
         keymap.set("n", "<leader>pw", "<cmd>Oil<CR>", { desc = "Open parent directory" })
     end,

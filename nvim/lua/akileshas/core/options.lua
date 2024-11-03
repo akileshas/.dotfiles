@@ -55,7 +55,7 @@ opt.termguicolors = true
 opt.background = "dark"  -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
 opt.scrolloff = 11  -- ensures a minimum of 11 lines above and below the cursor
-opt.showmode = true  -- shows the mode display
+opt.showmode = false  -- disables the mode display
 
 -- performance and timing
 opt.updatetime = 100
@@ -63,3 +63,5 @@ opt.timeoutlen = 1000
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+

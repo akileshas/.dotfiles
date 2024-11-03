@@ -1,16 +1,19 @@
-
 return {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false, -- load during startup
-    priority = 1000, -- load before other plugins
+    "navarasu/onedark.nvim",
+    priority = 1000,
     config = function()
-        require("catppuccin").setup({
-            transparent_background = true,
+        local onedark = require("onedark")
+        onedark.setup({
+            style = "darker",
+            transparent = true,
             term_colors = true,
-        })
 
-        -- Set the colorscheme
-        vim.cmd.colorscheme("catppuccin")
+            lualine = {
+                transparent = true,
+            },
+        })
+        
+        -- Load the theme
+        onedark.load()
     end,
 }

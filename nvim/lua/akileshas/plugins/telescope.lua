@@ -4,6 +4,7 @@ return {
     event = "VimEnter",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "folke/todo-comments.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
@@ -11,14 +12,14 @@ return {
                 return vim.fn.executable("make") == 1
             end,
         },
-        { "nvim-telescope/telescope-ui-select.nvim" },
-        { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-        "folke/todo-comments.nvim",
+        { 
+            "nvim-tree/nvim-web-devicons", 
+            enabled = vim.g.have_nerd_font 
+        },
     },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        local themes = require("telescope.themes")
         
         telescope.setup({
             defaults = {
@@ -43,16 +44,12 @@ return {
                         override_generic_sorter = true,
                         override_file_sorter = true,
                     },
-                    ["ui-select"] = {
-                        themes.get_dropdown(),
-                    },
                 },
             },
         })
 
         -- Load extensions
         telescope.load_extension("fzf")
-        telescope.load_extension("ui-select")
         telescope.load_extension("todo-comments")
 
         -- Set keybindings
@@ -67,10 +64,10 @@ return {
             builtin.live_grep()
         end, { desc = "[F]ind [G]rep" })
         keymap.set("n", "<leader>/", function()
-          require("telescope.builtin").live_grep({
-            grep_open_files = true,
-            prompt_title = "Live Grep in Open Files",
-          })
+            builtin.live_grep({
+                grep_open_files = true,
+                prompt_title = "Live Grep in Open Files",
+            })
         end, { desc = "[S]earch within open files" })
 
         keymap.set("n", "<leader>sf", builtin.git_files, { desc = "[S]earch [F]iles in git" })
