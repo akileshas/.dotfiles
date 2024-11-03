@@ -12,15 +12,15 @@ return {
                 return vim.fn.executable("make") == 1
             end,
         },
-        { 
-            "nvim-tree/nvim-web-devicons", 
-            enabled = vim.g.have_nerd_font 
+        {
+            "nvim-tree/nvim-web-devicons",
+            enabled = vim.g.have_nerd_font
         },
     },
     config = function()
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        
+
         telescope.setup({
             defaults = {
                 path_display = {
@@ -54,7 +54,7 @@ return {
 
         -- Set keybindings
         local keymap = vim.keymap  -- for convenience
-        
+
         local builtin = require("telescope.builtin")
 
         keymap.set("n", "<leader>ff", function()
@@ -75,7 +75,7 @@ return {
         keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch Telescope features" })
         keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
         keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-        keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume last search" })  
+        keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume last search" })
         keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch recent files' })
         keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find open buffers" })
 

@@ -59,7 +59,7 @@ opt.showmode = true  -- disables the mode display
 
 -- performance and timing
 opt.updatetime = 100
-opt.timeoutlen = 1000
+-- opt.timeoutlen = 1000
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

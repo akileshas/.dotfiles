@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -44,7 +45,7 @@ return {
                     ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
                     ["<C-e>"] = cmp.mapping.abort(), -- close completion window
                 }),
-      
+
                 -- sources for autocompletion
                 sources = cmp.config.sources({
                     { name = "nvim_lsp"},

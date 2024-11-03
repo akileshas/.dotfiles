@@ -21,6 +21,6 @@ return {
         })
 
         local keymap = vim.keymap
-        keymap.set("n", "<leader>pw", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+        keymap.set("n", "<leader>lp", "<cmd>Oil<CR>", { desc = "Open parent directory" })
     end,
 }

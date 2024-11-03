@@ -105,7 +105,7 @@ keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]], {
 })
 
 -- Map to NetRW
-keymap.set("n", "<leader>pw", vim.cmd.Ex)
+-- keymap.set("n", "<leader>pw", vim.cmd.Ex)
 
 
 -- Keep visual mode selection after indenting
