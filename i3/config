@@ -31,7 +31,6 @@ font pango:monospace 9
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
 
 
 
@@ -96,11 +95,11 @@ bar {
 
     # colors for the bar
     colors {
-        background #000000
+        background  #000000
         
-        focused_workspace   #0f7db1 #0f7db1 #000000
-        inactive_workspace  #3a3f43 #222831 #EEEEEE
-        urgent_workspace    #ff7070 #D50000 #000000
+        focused_workspace    #0f7db1 #0f7db1 #000000
+        inactive_workspace   #3a3f43 #222831 #EEEEEE
+        urgent_workspace     #ff7070 #D50000 #000000
     }
 }
 
@@ -124,9 +123,12 @@ client.urgent           #ff7070 #D50000 #000000
 # Swap Ctrl and Caps Lock keys
 exec --no-startup-id setxkbmap -option ctrl:swapcaps
 
-# Enable tap-to-click for the touchpad
+# Enable tap-to-click and natural scrolling for the touchpad
 exec --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Tapping Enabled" 1
 exec --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# Start the NetworkManager applet
+exec --no-startup-id nm-applet
 
 # ----------- END -----------
 
@@ -255,8 +257,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
 # For the increase and decrease of the screen brightness
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +3%
+bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
 # # For taking a screenshot
 # bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
