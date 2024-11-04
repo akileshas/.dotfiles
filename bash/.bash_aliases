@@ -74,6 +74,9 @@ alias out="pkill -KILL -u $USER"
 # MySQL Path
 alias mysql="/usr/bin/mariadb -u asa -p"
 
+# Switching the Power Profile
+alias spp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
+
 # ----------- END -----------
 
 
