@@ -30,7 +30,7 @@ sudo pacman -S otf-firamono-nerd ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-s
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Cloning the repository in the home directory
-git clone https://github.com/Akilesh-ML-Engineer/.dotfiles.git
+git clone https://github.com/akileshas/.dotfiles.git
 
 # Going to /home directory
 cd
@@ -64,7 +64,7 @@ nvm use --lts
 cd
 
 # Cloning the repository in the home directory
-git clone https://github.com/Akilesh-ML-Engineer/.dotfiles.git
+git clone https://github.com/akileshas/.dotfiles.git
 
 # Moving/Copying the neovim configuration files to the desired directory:
 rm -rf ~/.config/nvim
