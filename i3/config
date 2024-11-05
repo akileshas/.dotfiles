@@ -7,95 +7,19 @@
 #                                          |___/            #
 #############################################################
 
-
-
-
-
 # Font for window titles. 
 font pango:monospace 9
-
-
-
-# Autostart the following programs
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-
-
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-
-
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-
-
-
-
-
-
-
-
-
-
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-
-
-
-# 
-
-
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-
 
 # ----------- i3blocks Configuration -----------
 
 bar {
+    position top
     status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
 
     # colors for the bar
     colors {
         background  #000000
+        separator   #0f7db1
         
         focused_workspace    #0f7db1 #0f7db1 #000000
         inactive_workspace   #3a3f43 #222831 #EEEEEE
@@ -121,14 +45,25 @@ client.urgent           #ff7070 #D50000 #000000
 # ----------- Startup Applications -----------
 
 # Swap Ctrl and Caps Lock keys
-exec --no-startup-id setxkbmap -option ctrl:swapcaps
+exec_always --no-startup-id setxkbmap -option ctrl:swapcaps
 
 # Enable tap-to-click and natural scrolling for the touchpad
-exec --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "PIXA3848:00 093A:3848 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Start the NetworkManager applet
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec_always --no-startup-id dex --autostart --environment i3
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Starting the picom compositor
+exec_always --no-startup-id picom
 
 # ----------- END -----------
 
@@ -177,17 +112,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# # Volume control using PulseAudio
-# # Refresh i3status after volume changes
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 # Window management
 # Kill the focused window
-bindsym $mod+c kill
+bindsym $mod+q kill
 
 # Start a terminal emulator
 bindsym $mod+Return exec kitty
@@ -260,10 +187,35 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessUp exec brightnessctl set +3%
 bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
-# # For taking a screenshot
-# bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-# bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png
-# bindsym Shift+Print exec grim - | wl-copy --type image/png
-# bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy
+# For taking a screenshot
+
+
+# dmenu launcher
+bindsym $mod+d exec --no-startup-id dmenu_run
+
+# Rofi launcher
+bindsym Mod1+space exec rofi -show drun
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# i3lock screen
+bindsym $mod+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000
+
+# Screenshots
+bindsym Print exec --no-startup-id sh -c 'maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+
+# Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png'
+bindsym Ctrl+$mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png'
+bindsym Ctrl+Shift+Print exec --no-startup-id sh -c 'maim --select | xclip -selection clipboard -t image/png'
 
 # ----------- END -----------
