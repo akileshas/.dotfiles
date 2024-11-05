@@ -17,6 +17,7 @@ alias snap='clear'
 alias v='nvim'
 alias open="nvim"
 alias edit="nvim"
+alias code="code-insiders"
 
 # Fetch
 alias fetch="neofetch --off"
