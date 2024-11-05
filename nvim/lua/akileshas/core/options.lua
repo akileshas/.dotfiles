@@ -9,7 +9,7 @@ opt.guicursor = ""
 opt.cursorline = true
 
 -- clipboard
-opt.clipboard:append("unnamedplus")
+-- opt.clipboard:append("unnamedplus")
 
 -- isfname list
 opt.isfname:append("@-@")

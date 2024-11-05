@@ -144,3 +144,18 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", {
 keymap.set("n", "J", "mzJ`z", {
     desc = "Join lines and keep cursor position",
 })
+
+-- Copy to system clipboard
+keymap.set("v", "<leader>y", '"+y', {
+    desc = "Copy to system clipboard",
+})
+
+-- Paste from system clipboard
+keymap.set("n", "<leader>p", '"+p', {
+    desc = "Paste from system clipboard",
+})
+
+-- Make the file executable
+keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {
+    desc = "Make the file executable",
+})
