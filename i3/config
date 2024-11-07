@@ -14,7 +14,8 @@ font pango:monospace 9
 
 bar {
     position top
-    status_command i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
+    # status_command i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
+    status_command exec bash -c "if [ $(hostnamectl --static) = 'GGS' ]; then i3blocks -c ~/.dotfiles/i3/i3blocks/ggs/i3blocks.conf; else i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf; fi"
 
     # colors for the bar
     colors {
