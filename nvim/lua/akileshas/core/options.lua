@@ -25,10 +25,13 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
+opt.autoindent = true
 
 -- line wrapping
 opt.wrap = true
 opt.breakindent = true
+opt.showbreak = "↪\\"
+opt.linebreak = true
 
 -- turn off swapfiles and backup
 opt.swapfile = false

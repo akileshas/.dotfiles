@@ -1,63 +1,91 @@
-" Add line numbers
-set number
+" ==========================
+" General Settings
+" ==========================
+" Enable line numbers and relative line numbers
+set number               " Absolute line numbers
+set relativenumber       " Relative line numbers
 
-" Disable compatibility with vi which can cause unexpected issues.
-set nocompatible
+" Enable syntax highlighting
+syntax enable
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
-filetype on
+" Set background color (for dark mode)
+set background=dark
 
-" Enable plugins and load plugin for the detected file type.
-filetype plugin on
-
-" Load an indent file for the detected file type.
-filetype indent on
-
-" Turn syntax highlighting on.
-syntax on
-
-" Set shift width to 4 spaces.
-set shiftwidth=4
-
-" Set tab width to 4 columns.
-set tabstop=4
-
-" Use space characters instead of tabs.
-set expandtab
-
-" Do not save backup files.
-set nobackup
-
-" Do not let cursor scroll below or above N number of lines when scrolling.
-set scrolloff=10
-
-" Set Mouse support
-set mouse=a
-
-" Do not wrap lines. Allow long lines to extend as far as the line goes.
-" set nowrap
-
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
-
-" Ignore capital letters during search.
-set ignorecase
-
-" Override the ignorecase option if searching for capital letters.
-" This will allow you to search specifically for capital letters.
-set smartcase
-
-" Show partial command you type in the last line of the screen.
-set showcmd
-
-" Show the mode you are on the last line.
-set showmode
-
-" Show matching words during a search.
-set showmatch
-
-" Use highlighting when doing a search.
+" Highlight search matches
 set hlsearch
 
-" Set the commands to save in history default number is 20.
-set history=1000
+" Enable line break at word boundaries
+set linebreak
+
+" Enable 24-bit RGB color support in the terminal
+set termguicolors
+
+" ==========================
+" Indentation Settings
+" ==========================
+" Set auto-indentation (for programming languages)
+filetype indent on       " Enable file type specific indentation
+set smartindent          " Enable smart indentation
+set autoindent           " Enable auto-indentation
+set tabstop=4            " Set tab width to 4 spaces
+set shiftwidth=4         " Set number of spaces to indent
+set expandtab            " Use spaces instead of tabs
+
+" ==========================
+" Line Wrapping and Indentation
+" ==========================
+" Enable line wrapping
+set wrap
+
+" Enable break indent (for wrapped lines)
+set breakindent
+set showbreak=↪\       " Optional: Use a symbol (e.g., ↪) to indicate wrapped lines
+
+" ==========================
+" Search Settings
+" ==========================
+" Highlight search results as you type
+set incsearch
+
+" Ignore case in searches
+set ignorecase
+
+" Enable smart case in searches
+set smartcase
+
+" ==========================
+" Status Line and Information
+" ==========================
+" Show line and column number in the status line
+set ruler
+
+" Show the current file name, path, and other information in the status line
+set statusline=%f\ %y\ %m\ %=Line\ %l/%L\ Col\ %c
+
+" Show cursor position in the status line
+set laststatus=2
+
+" ==========================
+" Clipboard and File Handling
+" ==========================
+" Enable clipboard support (requires Vim to be compiled with +clipboard)
+set clipboard=unnamedplus
+
+" Disable swap files
+set noswapfile
+
+" Disable backup files
+set nobackup
+set nowritebackup
+
+" Set undo directory
+set undodir=~/.vim/undo//
+
+" Enable persistent undo
+set undofile
+
+" ==========================
+" Mouse Support
+" ==========================
+" Enable mouse support (works in normal, insert, and visual mode)
+set mouse=a
