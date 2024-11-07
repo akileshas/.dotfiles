@@ -58,7 +58,10 @@ return {
         local builtin = require("telescope.builtin")
 
         keymap.set("n", "<leader>ff", function()
-            builtin.find_files({ hidden = true })
+            builtin.find_files({ 
+                hidden = true,
+                no_ignore = true,
+            })
         end, { desc = "[F]ind [F]iles" })
         keymap.set("n", "<leader>fg", function()
             builtin.live_grep()
