@@ -6,7 +6,7 @@ INTERFACE=$(ip -o -4 addr show up | awk '{print $2}' | grep -Ev "^(docker|lo)" |
 
 # Check if there is an active interface
 if [ -z "$INTERFACE" ]; then
-    echo "No Internet"
+    echo " No Internet "
     exit 0
 fi
 
@@ -33,4 +33,4 @@ rx_kbps=$((rx_diff / 1024))
 tx_kbps=$((tx_diff / 1024))
 
 # Display interface name, IP address, download (down) and upload (up) speeds with icons
-echo "$INTERFACE ($IP_ADDRESS):  ${rx_kbps}KB/s  ${tx_kbps}KB/s"
+echo " $INTERFACE ($IP_ADDRESS):  ${rx_kbps} KiB/s  ${tx_kbps} KiB/s "
