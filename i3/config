@@ -14,7 +14,7 @@ font pango:monospace 9
 
 bar {
     position top
-    status_command i3blocks -c ~/.dotfiles/i3/i3blocks.conf
+    status_command i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
 
     # colors for the bar
     colors {
