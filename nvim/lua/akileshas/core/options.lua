@@ -30,7 +30,7 @@ opt.autoindent = true
 -- line wrapping
 opt.wrap = true
 opt.breakindent = true
-opt.showbreak = "↪\\"
+opt.showbreak = "↪\\ "
 opt.linebreak = true
 
 -- turn off swapfiles and backup
