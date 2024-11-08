@@ -15,6 +15,8 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 
 Feel free to explore and customize these configurations to suit your preferences!
 
+My nvim config profile : [nvim-profile](https://dotfyle.com/akileshas/dotfiles-nvim)
+
 ---
 
 ## Setting up the tmux configurations:
