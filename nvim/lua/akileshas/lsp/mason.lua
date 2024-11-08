@@ -51,7 +51,6 @@ return {
 				"elixirls",
 				"rnix",
 				"intelephense",
-				"grammarly",
 				"harper_ls",
 				"jedi_language_server",
 			},
