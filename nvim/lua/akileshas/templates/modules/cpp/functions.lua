@@ -4,7 +4,7 @@ local M = {}
 function M.copy_cpp_basic_template()
 	-- Define the source and target directories
 	local source_file = vim.fn.expand("~/.dotfiles/nvim/lua/akileshas/templates/skeletons/cpp/basics.cpp")
-	local target_dir = "/home/asa/Codes/DSA/"
+	local target_dir = "/home/asa/Personal/DSA/"
 
 	-- Check if the source file exists
 	if vim.fn.filereadable(source_file) == 0 then
