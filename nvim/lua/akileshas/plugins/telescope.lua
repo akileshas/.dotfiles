@@ -61,6 +61,7 @@ return {
             builtin.find_files({ 
                 hidden = true,
                 no_ignore = true,
+                no_ignore_parent = true,
             })
         end, { desc = "[F]ind [F]iles" })
         keymap.set("n", "<leader>fg", function()
