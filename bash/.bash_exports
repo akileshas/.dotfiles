@@ -1,57 +1,63 @@
 #!/bin/bash
 
 #################################################
-#                 Bash Exports                  #
+#                 BASH EXPORTS                  #
 #################################################
 
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
 
+# Set the default pfetch ascii art
+export PF_ASCII=linux
 
-# ------------ Editor's Path ------------
+# Set the path of the statship shell prompt
+export STARSHIP_CONFIG=~/.dotfiles/starship/starship.toml
 
-export EDITOR=nvim
+# Set the path for the git config
+export GIT_CONFIG="$HOME/.dotfiles/git/.gitconfig"
+export GIT_CONFIG_GLOBAL="$HOME/.dotfiles/git/.gitconfig"
 
-# ------------ END ------------
-
-
-
-# ----------- Cuda & Cudnn's Path ----------
-
+# Set the path for the CUDA toolkit and CUDNN library for tensorflow
 export CUDA_PATH=/opt/cuda
 export PATH=$CUDA_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:/usr/lib64:$LD_LIBRARY_PATH
 export CPATH=$CUDA_PATH/include:/usr/include:$CPATH
 export LIBRARY_PATH=$CUDA_PATH/lib64:/usr/lib64:$LIBRARY_PATH
 
-# ----------- END -----------
-
-
-
-# ----------- Tensorflow's Environmental Path -----------
-
+# TensorFlow Environment Variables
 export TF_CPP_MIN_LOG_LEVEL=1
 
-# ----------- END -----------
-
-
-
-# ----------- Android Studio's Path -----------
-
+# Android SDK and Emulator paths
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# ----------- END -----------
+# Expand the history size
+export HISTSIZE=100000
+export HISTFILESIZE=10000000
 
+# Don't put duplicate lines in the history
+export HISTCONTROL=erasedups:ignoredups
 
+# Ignore some common commands from the history
+export HISTIGNORE="ls:ll:lt:ltl:cd:z:clear:cls:exit:x:pwd:v:nvim:update"
 
-# ----------- XDG Config Path -----------
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+shopt -s checkwinsize
 
-export XDG_CONFIG_HOME="$HOME/.config"
+# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+shopt -s histappend
+PROMPT_COMMAND='history -a'
 
-# ----------- END -----------
+# Allow ctrl-S for history navigation (with ctrl-R)
+stty -ixon
+
+# Set the default editor
+export EDITOR=nvim
+export VISUAL=nvim
 
 
 
 #################################################
-#                     END                       #
+#                      END                      #
 #################################################
