@@ -1,9 +1,4 @@
-# ----- Bat (better cat) -----
-
 export BAT_THEME=ansi
-
-# ----------- END -----------
-
 
 # ----------- FZF -----------
 
