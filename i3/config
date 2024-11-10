@@ -65,6 +65,9 @@ exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Starting the picom compositor
 exec_always --no-startup-id picom
 
+# Detect the external monitor and set the display configuration
+exec_always --no-startup-id ~/.dotfiles/i3/scripts/monitor_setup.sh
+
 # Setting the Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 
