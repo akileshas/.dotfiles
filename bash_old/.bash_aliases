@@ -8,16 +8,6 @@
 
 # ----------- Commanly Used Commands -----------
 
-# Clean & Exit
-alias x='exit'
-alias cls='clear'
-alias snap='clear'
-
-# Editor
-alias v='nvim'
-alias open="nvim"
-alias edit="nvim"
-alias code="code-insiders"
 
 # Fetch
 alias fetch="neofetch --off"
@@ -54,31 +44,6 @@ alias clean-orphan="sudo pacman -Rns $(pacman -Qdtq)"
 alias pg="ping google.com -c 5"
 alias ping="ping -c 5"
 alias fastping="ping -c 100 -s.2"
-
-# Reboot
-alias rb="sudo reboot"
-alias miss-you="sudo reboot"
-alias again="sudo reboot"
-alias restart="sudo reboot"
-alias reboot="sudo reboot"
-alias sysreboot="sudo systemctl reboot"
-
-# Shutdown
-alias bye="sudo shutdown -h now"
-alias shutdown="sudo shutdown -h now"
-
-# Logout
-alias logout="pkill -KILL -u $USER"
-alias byebye="pkill -KILL -u $USER"
-alias out="pkill -KILL -u $USER"
-
-# MySQL Path
-alias mysql="/usr/bin/mariadb -u asa -p"
-
-# Switching the Power Profile
-alias spp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
-
-# ----------- END -----------
 
 
 
@@ -193,18 +158,7 @@ alias paruf="paru -F"
 
 
 
-# ----------- More Jump down -----------
 
-alias rt='cd /'
-alias ~="cd ~"
-alias ..='cd ..'
-alias .1='cd ..'
-alias .2='cd ../..'
-alias .3='cd ../../..'
-alias .4='cd ../../../..'
-alias .5='cd ../../../../..'
-
-# ----------- END -----------
 
 
 

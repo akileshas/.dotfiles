@@ -11,7 +11,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PF_ASCII=linux
 
 # Set the path of the statship shell prompt
-export STARSHIP_CONFIG=~/.dotfiles/starship/starship.toml
+export STARSHIP_CONFIG="$HOME/.dotfiles/starship/starship.toml"
 
 # Set the path for the git config
 # export GIT_CONFIG="$HOME/.dotfiles/git/.gitconfig"
@@ -34,28 +34,82 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Expand the history size
-export HISTSIZE=100000
-export HISTFILESIZE=10000000
+export HISTSIZE=1000000
+export HISTFILESIZE=100000000
 
 # Don't put duplicate lines in the history
 export HISTCONTROL=erasedups:ignoredups
 
 # Ignore some common commands from the history
-export HISTIGNORE="ls:ll:lt:ltl:cd:z:clear:cls:exit:x:pwd:v:nvim:update"
+export HISTIGNORE="ls:ll:lt:ltl:cd:z:clear:cls:exit:x:pwd:v:nvim:update:history"
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
 
 # Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+# Append to history instead of overwriting
 shopt -s histappend
-PROMPT_COMMAND='history -a'
+
+# Multiple commands on one line show up as a single line
+# shopt -s cmdhist
+
+# Set up PROMPT_COMMAND to synchronize history
+export PROMPT_COMMAND="history -a; history -c; history -r"
+
+# Set the history time format
+export HISTTIMEFORMAT='%F %T '  # Date as YYYY-MM-DD and time as HH:MM:SS
 
 # Allow ctrl-S for history navigation (with ctrl-R)
 stty -ixon
 
+# Set the color tern
+export COLORTERM="truecolor"
+
 # Set the default editor
 export EDITOR=nvim
 export VISUAL=nvim
+export CODEEDITOR=nvim
+export GIT_EDITOR=nvim
+
+# Set the default pager
+# export PAGER=nvim
+export PAGER=less
+
+# Set the default man pager
+export MANPAGER='nvim +Man!'
+export MANWIDTH=209
+
+# Set the default browser
+export BROWSER=firefox-developer-edition
+
+# Set the default terminal emulator
+export TERMINAL=kitty
+
+# Set the default file manager
+export FILE_MANAGER=yazi
+
+# Set the default image viewer
+export IMAGE_VIEWER=imv
+
+# Set the default video player
+export VIDEO_PLAYER=mpv
+
+# Set the default reader
+export READER=sioyek
+
+# Set the default document viewer
+export DOCUMENT_VIEWER=onlyoffice-desktopeditors
+
+# Set the default PDF viewer
+export PDF_VIEWER=sioyek
+
+# Set the Window Manager
+export WM=i3
+
+# To have colors for ls and all grep commands such as grep, egrep and zgrep
+export CLICOLOR=1
+export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:*.xml=00;31:'
+
 
 
 

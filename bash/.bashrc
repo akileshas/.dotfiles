@@ -30,7 +30,7 @@ if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
 if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
 
 # Show auto-completion list automatically, without double tab
-if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
+# if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Source the custom script for additional configurations
 if [ -f "$HOME/.dotfiles/bash/scripts/bash_sources.sh" ]; then
