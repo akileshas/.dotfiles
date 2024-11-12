@@ -6,6 +6,7 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Git
 - i3
 - Kitty
+- GTK
 - Neofetch
 - Neovim (nvim)
 - Vim
