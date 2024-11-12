@@ -12,6 +12,8 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Starship (prompt)
 - Tmux
 - Hyprland
+- Rofi
+- Waybar
 
 Feel free to explore and customize these configurations to suit your preferences!
 
