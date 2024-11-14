@@ -76,6 +76,10 @@ alias fortune="/usr/bin/fortune | cowsay | lolcat"
 # Set a alias for Bastard Operator From Hell (bofh)
 alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
 
+# Alias for history
+alias hst="history | bat"
+
+
 
 
 

@@ -5,6 +5,14 @@
 #################################################
 
 
+## --- Checking bash --- ##
+# Not bash?
+[ -n "${BASH_VERSION:-}" ] || return 0
+
+# Not an interactive shell?
+[[ $- == *i* ]] || return 0
+
+
 
 ### --- Greeting's --- ###
 
