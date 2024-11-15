@@ -4,7 +4,7 @@ return {
 	config = function()
 		local onedark = require("onedark")
 		onedark.setup({
-			style = "darker",
+			style = "deep",
 			transparent = true,
 			term_colors = true,
 
