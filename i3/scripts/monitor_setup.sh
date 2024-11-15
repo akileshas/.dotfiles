@@ -1,11 +1,17 @@
 #!/bin/bash
 
+# Check if the host is NEXUS
+if [ "$(hostnamectl hostname)" != "NEXUS" ]; then
+    echo "This script is only intended to run on the host 'NEXUS'. Exiting."
+    exit 1
+fi
+
 # Define the internal and external display names
 INTERNAL="eDP-1"
 EXTERNAL=$(xrandr | grep " connected" | grep -v "$INTERNAL" | cut -d " " -f1)
 
 if [ -n "$EXTERNAL" ]; then
-    # TO see the monitior config run `xrandr` command
+    # TO see the monitor config run `xrandr` command
     # External monitor is connected; set it to the right of the internal display
     xrandr --output "$INTERNAL" --mode 1920x1200 --primary --output "$EXTERNAL" --auto --right-of "$INTERNAL"
     feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png 
