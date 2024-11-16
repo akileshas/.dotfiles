@@ -64,6 +64,9 @@ alias mysql="/usr/bin/mariadb -u asa -p"
 # Switching the Power Profile
 alias spp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
 
+# Switching the Monitor Position
+alias chmp="~/.dotfiles/i3/scripts/monitor_position.sh"
+
 # Load the LazyGit
 alias lg="lazygit"
 

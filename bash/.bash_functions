@@ -4,6 +4,8 @@
 #                BASH FUNCTIONS                 #
 #################################################
 
+
+
 # Clean the Compiled Python Files
 cls_pyc() {
     # Remove all .pyc files recursively
