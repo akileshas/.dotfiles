@@ -15,6 +15,7 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Hyprland
 - Rofi
 - Waybar
+- lazygit
 
 Feel free to explore and customize these configurations to suit your preferences!
 
