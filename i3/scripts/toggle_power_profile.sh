@@ -1,25 +1,27 @@
 #!/bin/bash
 
-# Get the current power profile
-current_profile=$(powerprofilesctl get)
+# Define the available power profiles
+options=("  Power Saver" "  Balanced" "  Performance")
 
-# Toggle between power-saver, balanced, and performance
-case "$current_profile" in
-    "power-saver")
-        powerprofilesctl set balanced
-        echo "  Balanced"
-        ;;
-    "balanced")
-        powerprofilesctl set performance
-        echo " Performance"
-        ;;
-    "performance")
+# Use fzf to select the desired profile
+choice=$(printf "%s\n" "${options[@]}" | fzf --prompt="Select Power Profile: " --layout=reverse --height=10%)
+
+# Check the user's selection and apply the corresponding profile
+case "$choice" in
+    "  Power Saver")
         powerprofilesctl set power-saver
         echo "  Power Saver"
         ;;
+    "  Balanced")
+        powerprofilesctl set balanced
+        echo "  Balanced"
+        ;;
+    "  Performance")
+        powerprofilesctl set performance
+        echo " Performance"
+        ;;
     *)
-        # Default to power-saver if an unknown profile is detected
-        powerprofilesctl set power-saver
-        echo "  Power Saver (default)"
+        echo "No selection made or invalid option. Exiting."
+        exit 1
         ;;
 esac

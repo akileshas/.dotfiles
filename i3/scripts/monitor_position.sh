@@ -17,7 +17,7 @@ if [ -z "$EXTERNAL" ]; then
 fi
 
 # Use fzf to prompt the user for the desired configuration
-CHOICE=$(echo -e "Right of the internal monitor\nLeft of the internal monitor\nDuplicate the internal monitor" | fzf --prompt="Choose monitor configuration: ")
+CHOICE=$(echo -e "Right of the internal monitor\nLeft of the internal monitor\nDuplicate the internal monitor\nDisconnect the external monitor" | fzf --prompt="Choose monitor configuration: " --layout=reverse --height=10%)
 
 # Apply the chosen configuration
 case $CHOICE in
@@ -32,6 +32,9 @@ case $CHOICE in
     "Duplicate the internal monitor")
         xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
                --output "$EXTERNAL" --auto --same-as "$INTERNAL"
+        ;;
+    "Disconnect the external monitor")
+        xrandr --output "$EXTERNAL" --off
         ;;
     *)
         echo "Invalid choice or cancelled. Exiting."
