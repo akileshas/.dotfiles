@@ -1,14 +1,13 @@
----@diagnostic disable: redundant-parameter
 -- set leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Setting a flag to indicate that NERD Fonts are available
+-- setting a flag to indicate that NERD Fonts are available
 vim.g.have_nerd_font = true
 
 local keymap = vim.keymap -- for conciseness
 
--- Define the keymaps
+-- define the keymaps
 
 -- use jk to exit insert mode
 keymap.set("i", "jj", "<ESC>", {
@@ -86,6 +85,10 @@ keymap.set("n", "<leader>bp", "<cmd>bp<CR>", {
 keymap.set("n", "<leader>bd", "<cmd>bd<CR>", {
 	desc = "Close current buffer",
 })
+-- close all buffer
+keymap.set("n", "<leader>bq", ":bufdo bdelete<CR>", {
+	desc = "Close all buffer",
+})
 
 -- increment/decrement of window width and height
 -- make the window bigger vertically
@@ -110,52 +113,62 @@ keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]], {
 --    desc = "Open NetRW",
 -- })
 
--- Keep visual mode selection after indenting
+-- keep visual mode selection after indenting
 keymap.set("v", "<", "<gv", { silent = true }, {
-    desc = "Keep visual mode selection after indenting",
+	desc = "Keep visual mode selection after indenting",
 })
 keymap.set("v", ">", ">gv", { silent = true }, {
-    desc = "Keep visual mode selection after indenting",
+	desc = "Keep visual mode selection after indenting",
 })
 
--- Centering Navigation
+-- centering navigation
 keymap.set("n", "<C-d>", "<C-d>zz", {
-    desc = "Centering Navigation with <C-d>",
+	desc = "Centering Navigation with <C-d>",
 })
 keymap.set("n", "<C-u>", "<C-u>zz", {
-    desc = "Centering Navigation with <C-u>",
+	desc = "Centering Navigation with <C-u>",
 })
 keymap.set("n", "n", "nzzzv", {
-    desc = "Centering Navigation with n",
+	desc = "Centering Navigation with n",
 })
 keymap.set("n", "N", "Nzzzv", {
-    desc = "Centering Navigation with N",
+	desc = "Centering Navigation with N",
 })
 
--- Move Selected Lines
+-- move selected lines
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", {
-    desc = "Move selected lines down",
+	desc = "Move selected lines down",
 })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", {
-    desc = "Move selected lines up",
+	desc = "Move selected lines up",
 })
 
--- Join Lines
+-- join lines
 keymap.set("n", "J", "mzJ`z", {
-    desc = "Join lines and keep cursor position",
+	desc = "Join lines and keep cursor position",
 })
 
--- Copy to system clipboard
+-- copy to system clipboard
 keymap.set("v", "<leader>y", '"+y', {
-    desc = "Copy to system clipboard",
+	desc = "Copy to system clipboard",
 })
 
--- Paste from system clipboard
+-- paste from system clipboard
 keymap.set("n", "<leader>p", '"+p', {
-    desc = "Paste from system clipboard",
+	desc = "Paste from system clipboard",
 })
 
--- Make the file executable
+-- make the file executable
 keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {
-    desc = "Make the file executable",
+	desc = "Make the file executable",
+})
+
+-- move up and down through the visual line
+keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {
+	expr = true,
+	desc = "Move Up through the visual line",
+})
+keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {
+	expr = true,
+	desc = "Move Down through the visual line",
 })

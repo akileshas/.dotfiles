@@ -63,8 +63,9 @@ return {
 				"stylua",
 				"isort",
 				"black",
-                "pylint",
+				"pylint",
 				"eslint_d",
+				"shellharden",
 			},
 		})
 	end,
