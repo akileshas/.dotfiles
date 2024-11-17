@@ -75,9 +75,9 @@ end
 
 -- Opening the input.txt and output.txt files
 function M.open_input_output_files()
-	vim.cmd("vsplit input.txt")
-	vim.cmd("split output.txt")
-	vim.cmd("split compile_errors.txt")
+	vim.cmd("vsplit ~/Personal/DSA/input.txt")
+	vim.cmd("split ~/Personal/DSA/output.txt")
+	vim.cmd("split ~/Personal/DSA/compile_errors.txt")
 end
 
 return M
