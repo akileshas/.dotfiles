@@ -6,6 +6,12 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 local keymap = vim.keymap -- for conciseness
+local fn = vim.fn
+local api = vim.api
+local cmd = vim.cmd
+
+-- Importing the functions from functions.lua
+local functions = require("akileshas.core.functions")
 
 -- define the keymaps
 
@@ -136,10 +142,22 @@ keymap.set("n", "N", "Nzzzv", {
 })
 
 -- move selected lines
-keymap.set("v", "J", ":m '>+1<CR>gv=gv", {
+keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi", {
+	desc = "Move selected line down",
+})
+keymap.set("i", "<A-k>", "<Esc>:move .-2<CR>==gi", {
+	desc = "Move selected line up",
+})
+keymap.set("n", "<A-j>", ":move .+1<CR>==", {
+	desc = "Move current line down",
+})
+keymap.set("n", "<A-k>", ":move .-2<CR>==", {
+	desc = "Move current line up",
+})
+keymap.set("v", "<A-j>", ":move '>+1<CR>gv-gv", {
 	desc = "Move selected lines down",
 })
-keymap.set("v", "K", ":m '<-2<CR>gv=gv", {
+keymap.set("v", "<A-k>", ":move '<-2<CR>gv-gv", {
 	desc = "Move selected lines up",
 })
 
@@ -171,4 +189,32 @@ keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {
 	expr = true,
 	desc = "Move Down through the visual line",
+})
+
+-- go to the file under the cursor
+keymap.set("", "gf", ":tabedit <cfile><CR>", {
+	desc = "Go to the file under the cursor",
+})
+
+-- change the default behaviour of the p command
+keymap.set("v", "p", '"_dP', {
+	desc = "Doen't copy the text after pasting",
+})
+
+-- insert ; and , at the end of the line
+keymap.set("i", ";;", "<Esc>A;<Esc>", {
+	desc = "Insert ; at the end of the line",
+})
+keymap.set("i", ",,", "<Esc>A,<Esc>", {
+	desc = "Insert , at the end of the line",
+})
+
+-- open the command line window
+keymap.set("n", "<leader>:", functions.toggle_command_line, {
+	desc = "Toggle the command-line window",
+})
+
+-- open the file the default program
+keymap.set("n", "<leader>o", functions.open_file_default_program, {
+	desc = "Open image or PDF with default program",
 })
