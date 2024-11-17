@@ -29,7 +29,7 @@ nah() {
 
 # Open the default program for the file
 open() {
-    xdg-open $* > /dev/null 2>&1
+    xdg-open $* >/dev/null 2>&1
 }
 
 # Network Information
@@ -69,11 +69,23 @@ netinfo() {
 }
 
 # Returns the last 2 fields of the working directory
-pwdtail ()
-{
-    pwd|awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
+pwdtail() {
+    pwd | awk -F/ '{nlast = NF -1;print $nlast"/"$NF}'
 }
 
+# Goes up a specified number of directories  (i.e. up 4)
+up() {
+    local d=""
+    limit=$1
+    for ((i = 1; i <= limit; i++)); do
+        d=$d/..
+    done
+    d=$(echo $d | sed 's/^\///')
+    if [ -z "$d" ]; then
+        d=..
+    fi
+    cd $d
+}
 
 
 
