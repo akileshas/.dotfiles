@@ -66,6 +66,7 @@ return {
 				"pylint",
 				"eslint_d",
 				"shellharden",
+                "shfmt",
 			},
 		})
 	end,
