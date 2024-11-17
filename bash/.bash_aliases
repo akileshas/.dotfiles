@@ -10,7 +10,7 @@
 alias wtf='sudo $(history -p !!)'
 
 # Correct the last mistake command
-alias fk='thefuck'
+alias fk='fuck'
 
 # Jumping to up directory
 alias rt='cd /'
@@ -62,7 +62,7 @@ alias cls-cache='echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null'
 alias mysql="/usr/bin/mariadb -u asa -p"
 
 # Switching the Power Profile
-alias spp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
+alias chpp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
 
 # Switching the Monitor Position
 alias chmp="~/.dotfiles/i3/scripts/monitor_position.sh"
@@ -82,7 +82,12 @@ alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
 # Alias for history
 alias hst="history | bat"
 
+# Alias to open any file in Hexdump
+alias hexread='function _hexread(){ hexdump -C "$1" | nvim; }; _hexread'
 
+# Copy and Paste aliases
+alias copy="xclip -selection clipboard"
+alias paste="xclip -o -selection clipboard"
 
 
 

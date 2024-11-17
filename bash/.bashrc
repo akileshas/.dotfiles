@@ -5,6 +5,7 @@
 #################################################
 
 
+
 ## --- Checking bash --- ##
 # Not bash?
 [ -n "${BASH_VERSION:-}" ] || return 0
@@ -61,7 +62,7 @@ fi
 ### --- Shell Prompt Customization --- ###
 
 # Setting the Starship prompt
-if command -v starship &>/dev/null; then
+if command -v /bin/starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
@@ -74,14 +75,13 @@ PS1='[\u@\h \W]\$ '
 
 # Activating the `zoxide` tool for directory navigation ( better than `cd` )
 # Check if the zoxide tool is available
-if command -v zoxide &>/dev/null; then
+if command -v /bin/zoxide &>/dev/null; then
     eval "$(zoxide init bash)"
 fi
 
 # Initialing TheFuck
-if command -v thefuck &>/dev/null; then
+if command -v /bin/thefuck &>/dev/null; then
     eval $(thefuck --alias)
-    eval $(thefuck --alias fk) # alias for thefuck command as `fk`
 fi
 
 # Setting the vim mode for the shell

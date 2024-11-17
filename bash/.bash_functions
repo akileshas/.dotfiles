@@ -18,6 +18,20 @@ mcd() {
     [[ "$1" ]] && mkdir -p "$1" && cd "$1";  
 }
 
+# Reset the git repository
+nah() {
+    git reset --hard
+
+    if [[ $1 == "-f" ]]; then
+        git clean -df
+    fi
+}
+
+# Open the default program for the file
+open () {
+    xdg-open $* > /dev/null 2>&1
+}
+
 
 
 #################################################
