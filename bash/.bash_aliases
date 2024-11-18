@@ -135,6 +135,9 @@ alias cp666='chmod -R 666'
 alias cp755='chmod -R 755'
 alias cp777='chmod -R 777'
 
+# Extracting the compressed files
+alias extract="atool"
+
 
 
 #################################################
