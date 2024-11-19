@@ -102,23 +102,23 @@ alias now="date '+%Y-%m-%d %A %I:%M:%S %p %Z'"
 alias bd="cd '$OLDPWD'"
 
 # Reload the bash configuration
-alias rbrc="source ~/.bashrc"
-alias rbpf="source ~/.bash_profile"
-alias rblo="source ~/.bash_logout"
-alias rbal="source ~/.bash_aliases"
-alias rbfn="source ~/.bash_functions"
-alias rbexp="source ~/.bash_exports"
-alias rbvar="source ~/.bash_variables"
+alias rbrc="source ~/.dotfiles/bash/.bashrc"
+alias rbpf="source ~/.dotfiles/bash/.bash_profile"
+alias rblo="source ~/.dotfiles/bash/.bash_logout"
+alias rbal="source ~/.dotfiles/bash/.bash_aliases"
+alias rbfn="source ~/.dotfiles/bash/.bash_functions"
+alias rbexp="source ~/.dotfiles/bash/.bash_exports"
+alias rbvar="source ~/.dotfiles/bash/.bash_variables"
 alias rbkey="source ~/.bash_keys"
 
 # Edit the bash configuration
-alias ebrc="nvim ~/.bashrc"
-alias ebpf="nvim ~/.bash_profile"
-alias eblo="nvim ~/.bash_logout"
-alias ebal="nvim ~/.bash_aliases"
-alias ebfn="nvim ~/.bash_functions"
-alias ebexp="nvim ~/.bash_exports"
-alias ebvar="nvim ~/.bash_variables"
+alias ebrc="nvim ~/.dotfiles/bash/.bashrc"
+alias ebpf="nvim ~/.dotfiles/bash/.bash_profile"
+alias eblo="nvim ~/.dotfiles/bash/.bash_logout"
+alias ebal="nvim ~/.dotfiles/bash/.bash_aliases"
+alias ebfn="nvim ~/.dotfiles/bash/.bash_functions"
+alias ebexp="nvim ~/.dotfiles/bash/.bash_exports"
+alias ebvar="nvim ~/.dotfiles/bash/.bash_variables"
 alias ebkey="nvim ~/.bash_keys"
 
 # Alert for long running commands
@@ -244,7 +244,8 @@ alias parudk="paru -Dk"
 alias paruu="paru -U"
 alias paruf="paru -F"
 
-
+# Open the TODO file
+# alias todo="obsidian ~/Obsidian-Vault/TODO.md"
 
 #################################################
 #                      END                      #
