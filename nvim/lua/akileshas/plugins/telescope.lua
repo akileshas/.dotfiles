@@ -65,12 +65,15 @@ return {
 			})
 		end, { desc = "[F]ind [F]iles" })
 		keymap.set("n", "<leader>fg", function()
-			builtin.live_grep()
+			builtin.live_grep({
+				additional_args = { "--hidden", "--no-ignore", "--no-ignore-parent" },
+			})
 		end, { desc = "[F]ind [G]rep" })
 		keymap.set("n", "<leader>/", function()
 			builtin.live_grep({
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Files",
+				additional_args = { "--hidden", "--no-ignore", "--no-ignore-parent" },
 			})
 		end, { desc = "[S]earch within open files" })
 
