@@ -3,6 +3,7 @@ local M = {}
 local fn = vim.fn
 local api = vim.api
 local cmd = vim.cmd
+local bo = vim.bo
 
 function M.toggle_command_line()
 	if fn.getcmdwintype() == ":" then
@@ -27,6 +28,20 @@ function M.open_file_default_program()
 	else
 		print("Not an image or PDF file!") -- Optional: feedback when it's not an image or PDF
 	end
+end
+
+function M.run_python_script()
+	cmd("w") -- Save the current file
+	local filetype = bo.filetype -- Get the filetype of the current file
+
+	-- Check if the filetype is Python
+	if filetype ~= "python" then
+		print("Not a Python file!") -- Optional: feedback when it's not a Python file
+		return
+	end
+
+	local filename = fn.shellescape(fn.expand("%")) -- Get the full path of the current file
+	cmd("split | terminal python3 " .. filename) -- Run the Python script
 end
 
 return M

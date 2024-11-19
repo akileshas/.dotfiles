@@ -73,7 +73,7 @@ opt.redrawtime = 10000
 opt.backspace = "indent,eol,start"
 
 -- cmd height and width
-opt.cmdheight = 0
+opt.cmdheight = 1
 
 -- alter the listchars
 opt.list = true

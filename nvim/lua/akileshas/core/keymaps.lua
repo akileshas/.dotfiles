@@ -218,3 +218,8 @@ keymap.set("n", "<leader>:", functions.toggle_command_line, {
 keymap.set("n", "<leader>o", functions.open_file_default_program, {
 	desc = "Open image or PDF with default program",
 })
+
+-- run the python script
+keymap.set("n", "<leader>pr", functions.run_python_script, {
+	desc = "Run the Python script",
+})
