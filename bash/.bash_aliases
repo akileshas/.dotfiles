@@ -98,9 +98,6 @@ alias paste="xclip -o -selection clipboard"
 # Current time
 alias now="date '+%Y-%m-%d %A %I:%M:%S %p %Z'"
 
-# cd into the old directory
-alias bd="cd '$OLDPWD'"
-
 # Reload the bash configuration
 alias rbrc="source ~/.dotfiles/bash/.bashrc"
 alias rbpf="source ~/.dotfiles/bash/.bash_profile"
@@ -245,7 +242,10 @@ alias paruu="paru -U"
 alias paruf="paru -F"
 
 # Open the TODO file
-# alias todo="obsidian ~/Obsidian-Vault/TODO.md"
+alias todo="nvim ~/Obsidian-Vault/TODO.md"
+
+
+
 
 #################################################
 #                      END                      #

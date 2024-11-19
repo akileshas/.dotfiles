@@ -106,6 +106,12 @@ cpb() {
     END { print "" }'
 }
 
+# cd to the back directory
+bd() {
+    local backdir=$OLDPWD
+    cd $backdir
+}
+
 
 
 #################################################
