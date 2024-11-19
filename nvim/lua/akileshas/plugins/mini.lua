@@ -6,21 +6,9 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.animate",
-		config = function()
-			require("mini.animate").setup()
-		end,
-	},
-	{
 		"echasnovski/mini.comment",
 		config = function()
 			require("mini.comment").setup()
-		end,
-	},
-	{
-		"echasnovski/mini.indentscope",
-		config = function()
-			require("mini.indentscope").setup()
 		end,
 	},
 	{
