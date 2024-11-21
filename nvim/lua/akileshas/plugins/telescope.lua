@@ -24,7 +24,7 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = {
-					"smart",
+					truncate = 7,
 				},
 				hidden = true,
 				layout_config = {
