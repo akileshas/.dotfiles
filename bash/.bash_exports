@@ -75,7 +75,8 @@ export GIT_EDITOR="nvim"
 
 # Set the default pager
 # export PAGER="nvim"
-export PAGER="less"
+# export PAGER="less"
+export PAGER="most"
 
 # Set the default man pager
 export MANPAGER="nvim +Man!"
