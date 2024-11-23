@@ -22,5 +22,9 @@ return {
 
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>ef", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+
+		local api = vim.api
+		api.nvim_set_hl(0, "OilFileHidden", {})
+		api.nvim_set_hl(0, "OilDirHidden", { link = "OilDir" })
 	end,
 }

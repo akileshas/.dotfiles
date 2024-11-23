@@ -1,0 +1,36 @@
+return {}
+-- return {
+-- 	"romgrk/barbar.nvim",
+-- 	dependencies = {},
+-- 	config = function()
+-- 		local barbar = require("barbar")
+--
+-- 		barbar.setup({
+-- 			auto_hide = 1,
+-- 			animation = false,
+-- 			click_behavior = "focus",
+-- 		})
+--
+-- 		-- Set keybindings
+-- 		local keymap = vim.keymap -- for convenience
+-- 		local opts = { noremap = true, silent = true }
+--
+-- 		-- Using 'n' for normal mode
+-- 		keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
+-- 		keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
+-- 		keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+-- 		keymap.set("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
+--
+-- 		-- For buffers 1 to 9 and last buffer
+-- 		for i = 1, 9 do
+-- 			keymap.set("n", "<A-" .. i .. ">", "<Cmd>BufferGoto " .. i .. "<CR>", opts)
+-- 		end
+--
+-- 		keymap.set("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+--
+-- 		-- Pin, Close, and Restore buffer
+-- 		keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+-- 		keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
+-- 		keymap.set("n", "<A-s-t>", "<Cmd>BufferRestore<CR>", opts)
+-- 	end,
+-- }
