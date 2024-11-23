@@ -16,6 +16,7 @@ opt.isfname:append(".")
 -- title
 opt.title = true
 opt.titlestring = "%f // nvim"
+-- opt.tabline = "%t"
 
 -- line number
 opt.number = true

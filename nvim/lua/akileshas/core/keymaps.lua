@@ -15,7 +15,7 @@ local functions = require("akileshas.core.functions")
 
 -- define the keymaps
 
--- use jk to exit insert mode
+-- use jj to exit insert mode
 keymap.set("i", "jj", "<ESC>", {
 	desc = "Exit insert mode with jk",
 })
@@ -57,25 +57,47 @@ keymap.set("n", "<leader>se", "<C-w>=", {
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", {
 	desc = "Close current split",
 })
+
+-- tab management
 -- open new tab
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", {
+keymap.set("n", "<A-o>", "<cmd>tabnew<CR>", {
 	desc = "Open new tab",
 })
+-- open new tab with current buffer
+keymap.set("n", "<A-f>", "<cmd>tabnew %<CR>", {
+	desc = "Open new tab with current buffer",
+})
 -- close current tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", {
+keymap.set("n", "<A-c>", "<cmd>tabclose<CR>", {
 	desc = "Close current tab",
 })
+-- close all tabs except current tab
+keymap.set("n", "<A-x>", "<cmd>tabonly<CR>", {
+	desc = "Close all tabs except current tab",
+})
 -- move to next tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", {
+keymap.set("n", "<A-.>", "<cmd>tabn<CR>", {
 	desc = "Go to next tab",
 })
 -- move to previous tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", {
+keymap.set("n", "<A-,>", "<cmd>tabp<CR>", {
 	desc = "Go to previous tab",
 })
--- open current buffer in new tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", {
-	desc = "Open current buffer in new tab",
+keymap.set("n", "<A-]>", "<cmd>tabmove +1<CR>", {
+	desc = "Move current tab to the right",
+})
+keymap.set("n", "<A-[>", "<cmd>tabmove -1<CR>", {
+	desc = "Move current tab to the left",
+})
+-- move to specific tab
+for i = 1, 9 do
+	keymap.set("n", "<A-" .. i .. ">", "<cmd>tabnext " .. i .. "<CR>", {
+		desc = "Go to tab " .. i,
+	})
+end
+-- move to last tab
+keymap.set("n", "<A-0>", "<cmd>tablast<CR>", {
+	desc = "Go to last tab",
 })
 
 -- buffer management
@@ -120,11 +142,15 @@ keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]], {
 -- })
 
 -- keep visual mode selection after indenting
-keymap.set("v", "<", "<gv", { silent = true }, {
+keymap.set("v", "<", "<gv", {
 	desc = "Keep visual mode selection after indenting",
+	silent = true,
+	noremap = true,
 })
-keymap.set("v", ">", ">gv", { silent = true }, {
+keymap.set("v", ">", ">gv", {
 	desc = "Keep visual mode selection after indenting",
+	silent = true,
+	noremap = true,
 })
 
 -- centering navigation
@@ -167,12 +193,18 @@ keymap.set("n", "J", "mzJ`z", {
 })
 
 -- copy to system clipboard
+keymap.set("n", "<leader>y", '"+y', {
+	desc = "Copy to system clipboard",
+})
 keymap.set("v", "<leader>y", '"+y', {
 	desc = "Copy to system clipboard",
 })
 
 -- paste from system clipboard
 keymap.set("n", "<leader>p", '"+p', {
+	desc = "Paste from system clipboard",
+})
+keymap.set("v", "<leader>p", '"_d"+p', {
 	desc = "Paste from system clipboard",
 })
 
