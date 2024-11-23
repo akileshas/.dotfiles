@@ -255,3 +255,11 @@ keymap.set("n", "<leader>o", functions.open_file_default_program, {
 keymap.set("n", "<leader>pr", functions.run_python_script, {
 	desc = "Run the Python script",
 })
+
+-- Jump to the previous cursor position
+keymap.set("n", "<C-,>", "<C-o>", {
+	desc = "Jump to the previous cursor position",
+})
+keymap.set("n", "<C-.>", "<C-i>", {
+	desc = "Jump to the next cursor position",
+})
