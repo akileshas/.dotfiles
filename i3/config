@@ -194,7 +194,17 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessUp exec brightnessctl set +3%
 bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
-# For taking a screenshot
+# Screenshots
+bindsym Print exec --no-startup-id sh -c 'maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+
+# Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png'
+bindsym Ctrl+$mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png'
+bindsym Ctrl+Shift+Print exec --no-startup-id sh -c 'maim --select | xclip -selection clipboard -t image/png'
+
+# For Aeroplane mode
 
 
 # dmenu launcher
@@ -214,15 +224,5 @@ floating_modifier $mod
 
 # i3lock screen
 bindsym $mod+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000
-
-# Screenshots
-bindsym Print exec --no-startup-id sh -c 'maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-
-# Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png'
-bindsym Ctrl+$mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png'
-bindsym Ctrl+Shift+Print exec --no-startup-id sh -c 'maim --select | xclip -selection clipboard -t image/png'
 
 # ----------- END -----------
