@@ -89,7 +89,7 @@ alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
 alias hst="history | bat"
 
 # Alias to open any file in Hexdump
-alias hexread="function _hexread(){ hexdump -C '$1' | nvim; }; _hexread"
+# alias hexread="function _hexread(){ hexdump -C '$1' | nvim; }; _hexread"
 
 # Copy and Paste aliases
 alias copy="xclip -selection clipboard"

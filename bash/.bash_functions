@@ -112,6 +112,11 @@ bd() {
     cd $backdir
 }
 
+# reading the hexa value of a file
+hexread() {
+    hexdump -C "$1" | nvim
+}
+
 
 
 #################################################
