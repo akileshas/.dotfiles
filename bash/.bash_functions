@@ -113,7 +113,7 @@ bd() {
 }
 
 # reading the hexa value of a file
-hexread() {
+hexaread() {
     hexdump -C "$1" | nvim
 }
 
