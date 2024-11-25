@@ -12,6 +12,7 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Vim
 - Starship (prompt)
 - Tmux
+- Tmate
 - Hyprland
 - Rofi
 - Waybar
