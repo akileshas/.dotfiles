@@ -244,6 +244,8 @@ alias paruf="paru -F"
 # Open the TODO file
 alias todo="nvim ~/Obsidian-Vault/TODO.md"
 
+# For adb
+alias adb="/home/asa/Android/Sdk/platform-tools/adb"
 
 
 
