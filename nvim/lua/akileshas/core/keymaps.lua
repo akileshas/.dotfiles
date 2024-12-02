@@ -257,9 +257,9 @@ keymap.set("n", "<leader>pr", functions.run_python_script, {
 })
 
 -- Jump to the previous cursor position
-keymap.set("n", "<C-,>", "<C-o>", {
-	desc = "Jump to the previous cursor position",
-})
-keymap.set("n", "<C-.>", "<C-i>", {
-	desc = "Jump to the next cursor position",
-})
+-- keymap.set("n", "<C-[>", "<C-o>", {
+-- 	desc = "Jump to the previous cursor position",
+-- })
+-- keymap.set("n", "<C-]>", "<C-i>", {
+-- 	desc = "Jump to the next cursor position",
+-- })
