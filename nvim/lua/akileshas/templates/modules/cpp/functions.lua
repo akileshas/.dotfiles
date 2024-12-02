@@ -55,7 +55,7 @@ function M.compile_run_cpp_file()
 		local output_name = vim.fn.expand("%:t:r")
 
 		-- Compile the C++ file
-		vim.cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> compile_errors.txt")
+		vim.cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> ~/Personal/DSA/compile_errors.txt")
 
 		-- Check if the compilation was successful
 		local compile_status = vim.fn.system("echo $?")
@@ -67,7 +67,7 @@ function M.compile_run_cpp_file()
 			vim.cmd("!rm " .. output_name)
 		else
 			-- Print compile errors
-			vim.cmd("!cat compile_errors.txt")
+			vim.cmd("!cat ~/Personal/DSA/compile_errors.txt")
 			vim.api.nvim_err_writeln("Compilation failed. Check compile_errors.txt for details.")
 		end
 	end
