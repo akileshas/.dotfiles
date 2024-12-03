@@ -4,8 +4,6 @@
 #                 BASH ALIASES                  #
 #################################################
 
-
-
 # Rectify the last command with sudo
 alias wtf='sudo $(history -p !!)'
 
@@ -68,10 +66,10 @@ alias cls-cache="echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null"
 alias mysql="/usr/bin/mariadb -u asa -p"
 
 # Switching the Power Profile
-alias chpp="~/.dotfiles/i3/scripts/toggle_power_profile.sh"
+alias chpp="~/.dotfiles/bash/scripts/toggle_power_profile.sh"
 
 # Switching the Monitor Position
-alias chmp="~/.dotfiles/i3/scripts/monitor_position.sh"
+alias chmp="~/.dotfiles/bash/scripts/monitor_position.sh"
 
 # Load the LazyGit
 alias lg="lazygit"
@@ -246,8 +244,6 @@ alias todo="nvim ~/Obsidian-Vault/TODO.md"
 
 # For adb
 alias adb="/home/asa/Android/Sdk/platform-tools/adb"
-
-
 
 #################################################
 #                      END                      #
