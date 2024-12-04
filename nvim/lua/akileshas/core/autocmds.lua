@@ -16,3 +16,11 @@ api.nvim_create_autocmd("textyankpost", {
 		vim.highlight.on_yank({ timeout = 300 })
 	end,
 })
+
+-- Keep the cursor in the center
+-- api.nvim_create_autocmd({
+-- 	"CursorMoved",
+-- }, {
+-- 	pattern = "*",
+-- 	command = "normal! zz",
+-- })
