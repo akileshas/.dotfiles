@@ -35,4 +35,10 @@ return {
 			require("mini.surround").setup()
 		end,
 	},
+	-- {
+	-- 	"echasnovski/mini.starter",
+	-- 	config = function()
+	-- 		require("mini.starter").setup()
+	-- 	end,
+	-- },
 }

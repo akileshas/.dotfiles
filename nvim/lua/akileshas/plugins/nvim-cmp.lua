@@ -40,7 +40,7 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 				["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-k>"] = cmp.mapping.confirm({ select = false }),
-				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+				["<C-s>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-q>"] = cmp.mapping.abort(), -- close completion window
 			}),
 
