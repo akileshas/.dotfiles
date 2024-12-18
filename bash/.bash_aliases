@@ -25,6 +25,9 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 
+# Jump to the backward directory
+alias bd="cd -"
+
 # Editor aliases
 alias v="nvim"
 alias sv="sudo nvim"

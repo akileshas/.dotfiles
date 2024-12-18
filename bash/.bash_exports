@@ -33,7 +33,14 @@ export TF_CPP_MIN_LOG_LEVEL=1
 # Android SDK and Emulator paths
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+export PATH=$PATH:/home/asa/Android/Sdk/cmdline-tools/latest/bin
+
+# Java Environment Variables
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+
+# Chrome Environment Variables
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-unstable
 
 # Expand the history size
 export HISTSIZE=1000000
@@ -59,7 +66,7 @@ shopt -s cmdhist
 export PROMPT_COMMAND="history -a; history -c; history -r"
 
 # Set the history time format
-export HISTTIMEFORMAT="%F %T "  # Date as YYYY-MM-DD and time as HH:MM:SS
+export HISTTIMEFORMAT="%F %T " # Date as YYYY-MM-DD and time as HH:MM:SS
 
 # Allow ctrl-S for history navigation (with ctrl-R)
 stty -ixon
@@ -119,8 +126,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
-
 
 
 

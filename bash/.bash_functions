@@ -107,10 +107,10 @@ cpb() {
 }
 
 # cd to the back directory
-bd() {
-    local backdir=$OLDPWD
-    cd $backdir
-}
+# bd() {
+#     local backdir=$OLDPWD
+#     cd $backdir
+# }
 
 # reading the hexa value of a file
 hexaread() {
