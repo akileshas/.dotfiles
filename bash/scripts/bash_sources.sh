@@ -14,12 +14,12 @@ fi
 # Require `bash-completion` package to be installed
 # Enable bash programmable completion features in interactive shells
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
+    . /usr/share/bash-completion/bash_completion
 fi
 
 # Source the bash completion scripts
 if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
+    . /etc/bash_completion
 fi
 
 # Source all bash completion scripts in /etc/bash_completion.d/
