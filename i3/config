@@ -69,7 +69,7 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.dotfiles/i3/scripts/monitor_setup.sh
 
 # Setting the Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
+exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/truth.png
 
 # ----------- END -----------
 
