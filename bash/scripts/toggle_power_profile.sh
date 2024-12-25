@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# Check if powerprofilesctl is installed
+if ! command -v powerprofilesctl &> /dev/null; then
+    echo "powerprofilesctl is not installed. Please install it to continue."
+    exit 1
+fi
+
 # Define the available power profiles
-options=("  Power Saver" "  Balanced" "  Performance")
+options=( "  Power Saver" "  Balanced" "  Performance" )
 
 # Use fzf to select the desired profile
 choice=$(printf "%s\n" "${options[@]}" | fzf --prompt="Select Power Profile: " --layout=reverse --height=10%)

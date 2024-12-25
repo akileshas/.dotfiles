@@ -39,6 +39,10 @@ alias x="exit"
 # Clear the terminal
 alias cls="clear"
 
+# Copying and Moving with progress bar
+alias cp="advcp -gR"
+alias mv="advmv -g"
+
 # Logout
 alias logout="pkill -KILL -u $USER"
 alias boom="pkill -KILL -u $USER"
@@ -67,14 +71,15 @@ alias cls-orph="pacman -Qdqt | sudo pacman -Rns -"
 # Cleaning the cache memory
 alias cls-cache="echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null"
 
-# MySQL Path
-alias mysql="/usr/bin/mariadb -u asa -p"
+# MySQL Path ( only for `GGS` )
+alias mysql='[ "$(hostnamectl hostname)" = "GGS" ] && /usr/bin/mariadb -u asa -p || echo "This command is allowed only on the system with the hostname \"GGS\"."'
 
 # Switching the Power Profile
 alias chpp="~/.dotfiles/bash/scripts/toggle_power_profile.sh"
 
 # Switching the Monitor Position
 alias chmp="~/.dotfiles/bash/scripts/monitor_position.sh"
+alias ggs-chmp="~/.dotfiles/bash/scripts/ggs/monitor_position.sh"
 
 # Load the LazyGit
 alias lg="lazygit"
