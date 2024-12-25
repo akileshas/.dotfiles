@@ -168,7 +168,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -m ' Do you really want to exit i3 ? ' -B ' Yes, exit i3 ' 'i3-msg exit'"
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
@@ -224,5 +224,8 @@ floating_modifier $mod
 
 # i3lock screen
 bindsym $mod+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000
+
+# Lock and Suspend the screen
+bindsym $mod+Shift+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000 && systemctl suspend
 
 # ----------- END -----------
