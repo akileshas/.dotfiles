@@ -98,6 +98,38 @@ hexaread() {
     hexdump -C "$1" | nvim
 }
 
+# Function to get the local IP address
+get-local-ip() {
+    local ips=$(ip addr show | awk '/inet / {print $2}' | cut -d/ -f1)
+    echo "Local IP addresses:"
+    for ip in $ips; do
+        echo "    -> $ip"
+    done
+}
+
+# Function to get the public IP address
+get-public-ip() {
+    local ip=$(curl -s ifconfig.me)
+    echo "Public IP address:"
+    echo "    -> $ip"
+}
+
+# Function to get the ip information
+get-ip() {
+    echo "IP Information:"
+
+    local ips=$(ip addr show | awk '/inet / {print $2}' | cut -d/ -f1)
+    echo "    => Local IP addresses:"
+    for ip in $ips; do
+        echo "        -> $ip"
+    done
+
+    local ip=$(curl -s ifconfig.me)
+    echo "    => Public IP address:"
+    echo "        -> $ip"
+
+}
+
 
 
 #################################################

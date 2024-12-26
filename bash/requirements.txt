@@ -1,0 +1,6 @@
+advcpmv
+powerprofilesctl
+atool
+scc
+cloc
+fzf

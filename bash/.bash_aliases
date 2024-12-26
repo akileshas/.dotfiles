@@ -40,8 +40,8 @@ alias x="exit"
 alias cls="clear"
 
 # Copying and Moving with progress bar
-alias cp="advcp -gR"
-alias mv="advmv -g"
+alias cp="advcp -giR"
+alias mv="advmv -gi"
 
 # Logout
 alias logout="pkill -KILL -u $USER"
@@ -94,7 +94,7 @@ alias fortune="/usr/bin/fortune | cowsay | lolcat"
 alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
 
 # Alias for history
-alias hst="history | bat"
+alias hst="history | nvim"
 
 # Alias to open any file in Hexdump
 # alias hexread="function _hexread(){ hexdump -C '$1' | nvim; }; _hexread"
@@ -129,11 +129,9 @@ alias ebkey="nvim ~/.bash_keys"
 # Alert for long running commands
 alias alert='
 if [ $? -eq 0 ]; then
-    notify-send --urgency=critical -i terminal "✔ Command Succeeded" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )";
-    paplay /usr/share/sounds/freedesktop/stereo/complete.oga;
+    notify-send --urgency=normal -i terminal "✔ Command Succeeded" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )";
 else
-    i3-nagbar -m "✖ Command Failed: $(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )";
-    paplay /usr/share/sounds/freedesktop/stereo/dialog-error.oga;
+    notify-send --urgency=critical -i error "✖ Command Failed" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )";
 fi
 '
 
@@ -255,6 +253,38 @@ alias todo="nvim ~/Obsidian-Vault/TODO.md"
 # For adb
 alias adb="/home/asa/Android/Sdk/platform-tools/adb"
 
+# Ping the Google
+alias pgle="ping google.com -c 11"
+alias ping="ping -c 11"
+
+# For the neofetch
+alias fetch="neofetch --off"
+
+# Review the code
+alias code-count="scc -upw"
+
+# For list the files
+alias ls="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time"
+alias ll="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time"
+alias lt="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time --tree"
+alias ltl="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time --tree"
+alias lf="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time --only-files"
+alias lfl="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time --only-files"
+alias ldir="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time --only-dirs"
+alias ldirl="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time --only-dirs"
+alias la="eza --icons=always --color=always --group-directories-first --long --git --git-repos"
+alias lal="eza --icons=always --color=always --group-directories-first --all --long --git --git-repos"
+alias lst="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time --sort"
+alias llst="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time --sort"
+
+# Process Management
+alias p="procs --tree"
+
+# To see if a command is aliased, a file, or a built-in command
+alias check-cmd="type -a"
+
+# Show open ports
+alias open-ports='netstat -nape --inet'
 
 
 
