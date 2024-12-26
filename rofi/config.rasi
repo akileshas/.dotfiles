@@ -2,6 +2,7 @@ configuration {
     show-icons:      true;
     display-drun:    "Arch BTW ";
     disable-history: false;
+    terminal: "kitty";
 }
 
 * {
