@@ -85,16 +85,32 @@ if command -v /bin/thefuck &>/dev/null; then
     eval $(thefuck --alias)
 fi
 
-# Activating some features of the `bash` shell
-#use extra globing features. See man bash, search extglob.
+
+
+### --- Activating some features of the `bash` shell --- ###
+
+# Enable the `extglob` shell option
+# This will enable the extended pattern matching features
 shopt -s extglob
-#include .files when globbing.
+
+# Enable the `dotglob` shell option
+# This will include the hidden files when globbing
 shopt -s dotglob
-#When a glob expands to nothing, make it an empty string instead of the literal characters.
+
+# Enable the `nullglob` shell option
+# This will make the glob expand to an empty string when it matches nothing
+# instead of the literal characters
 shopt -s nullglob
-# fix spelling errors for cd, only in interactive shell
+
+# Enable the `cdspell` shell option
+# This will fix spelling errors for `cd`, only in interactive shell
 shopt -s cdspell
-# vi mode
+
+# Enable the `noclobber` shell option
+# This will append outputs to the file, don't overwrite it
+shopt -o noclobber
+
+# Enable the `vi` mode
 set -o vi
 
 
