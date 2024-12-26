@@ -50,7 +50,7 @@ export HISTFILESIZE=100000000
 export HISTCONTROL="erasedups:ignoredups"
 
 # Ignore some common commands from the history
-export HISTIGNORE="ls:ll:lt:ltl:cd:z:clear:cls:exit:x:pwd:v:nvim:update:history:hst"
+export HISTIGNORE="ls:ll:lt:ltl:la:lal:cd:z:clear:cls:exit:x:pwd:v:nvim:update:history:hst:bye:srb:rb:sv"
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
@@ -103,13 +103,13 @@ export IMAGE_VIEWER="imv"
 export VIDEO_PLAYER="mpv"
 
 # Set the default reader
-export READER="sioyek"
+export READER="firefox-developer-edition"
 
 # Set the default document viewer
 export DOCUMENT_VIEWER="onlyoffice-desktopeditors"
 
 # Set the default PDF viewer
-export PDF_VIEWER="sioyek"
+export PDF_VIEWER="firefox-developer-edition"
 
 # Set the Window Manager
 export WM="i3"

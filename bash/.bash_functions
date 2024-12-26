@@ -87,25 +87,6 @@ up() {
     cd $d
 }
 
-# Copy file with a progress bar
-cpb() {
-    set -e
-    total_size=$(stat -c '%s' "${1}")
-    dd if="${1}" of="${2}" bs=4K status=none 2>&1 |
-        awk -v total_size="$total_size" '{
-        count += 4096
-        if (count > total_size) count = total_size
-        percent = int(count / total_size * 100)
-        printf "\r%3d%% [", percent
-        for (i = 0; i < percent; i++) printf "="
-        printf ">"
-        for (i = percent; i < 100; i++) printf " "
-        printf "]"
-        fflush()
-    }
-    END { print "" }'
-}
-
 # cd to the back directory
 # bd() {
 #     local backdir=$OLDPWD

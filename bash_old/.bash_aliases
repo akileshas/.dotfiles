@@ -1,28 +1,3 @@
-#!/bin/bash
-
-#################################################
-#                 Bash Aliases                  #
-#################################################
-
-
-
-# ----------- Commanly Used Commands -----------
-
-
-# Fetch
-alias fetch="neofetch --off"
-alias ifetch="neofetch"
-
-# Ping
-alias pg="ping google.com -c 5"
-alias ping="ping -c 5"
-alias fastping="ping -c 100 -s.2"
-
-
-
-
-# ----------- Git Commands -----------
-
 alias gitst="git status"
 alias gita="git add"
 alias gitaa="git add ."
@@ -57,18 +32,3 @@ alias gitsignf="ls-files -o -i --exclude-standard"
 
 # Untrack Files without deleting them
 alias gitrmc="git rm -r --cached"
-
-# ----------- END -----------
-
-
-
-# ----------- Eza (better ls) -----------
-
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias la="eza -all"
-alias ll="ls --all"
-alias lt="ls --tree"
-alias ltl="ls --tree --all"
-
-# ----------- END -----------
-

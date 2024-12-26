@@ -6,11 +6,12 @@
 
 
 
-## --- Checking bash --- ##
-# Not bash?
+### --- Checking bash --- ###
+
+# Not bash ?
 [ -n "${BASH_VERSION:-}" ] || return 0
 
-# Not an interactive shell?
+# Not an interactive shell ?
 [[ $- == *i* ]] || return 0
 
 
@@ -21,7 +22,7 @@
 # Check if the file exists and execute it
 if [ -f "$HOME/.dotfiles/bash/scripts/greeting.sh" ]; then
     bash "$HOME/.dotfiles/bash/scripts/greeting.sh"
-fi 
+fi
 
 
 
@@ -29,17 +30,17 @@ fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-iatest=$(expr index "$-" i)
+interactiveShellTest=$(expr index "$-" i)
 
 # Disable the bell
-if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
+if [[ $interactiveShellTest > 0 ]]; then bind "set bell-style visible"; fi
 
 # Ignore case on auto-completion
 # Note: bind used instead of sticking these in .inputrc
-if [[ $iatest > 0 ]]; then bind "set completion-ignore-case on"; fi
+if [[ $interactiveShellTest > 0 ]]; then bind "set completion-ignore-case on"; fi
 
 # Show auto-completion list automatically, without double tab
-# if [[ $iatest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
+# if [[ $interactiveShellTest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Source the custom script for additional configurations
 if [ -f "$HOME/.dotfiles/bash/scripts/bash_sources.sh" ]; then
