@@ -85,7 +85,16 @@ if command -v /bin/thefuck &>/dev/null; then
     eval $(thefuck --alias)
 fi
 
-# Setting the vim mode for the shell
+# Activating some features of the `bash` shell
+#use extra globing features. See man bash, search extglob.
+shopt -s extglob
+#include .files when globbing.
+shopt -s dotglob
+#When a glob expands to nothing, make it an empty string instead of the literal characters.
+shopt -s nullglob
+# fix spelling errors for cd, only in interactive shell
+shopt -s cdspell
+# vi mode
 set -o vi
 
 
