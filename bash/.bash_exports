@@ -127,6 +127,52 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# Setting the `BAT` theme
+export BAT_THEME=Dracula
+
+# Configure the `fzf` fuzzy finder
+export FZF_COMPLETION_TRIGGER='./'
+
+# Set the default `fzf` options
+GRAY_SHADE_1=#eeeeee
+GRAY_SHADE_2=#292929
+BLUE_SHADE=#0d72cb
+WHITE_SHADE=#ffffff
+BLACK_SHADE=#000000
+export FZF_DEFAULT_OPTS="
+  --color=fg:$GRAY_SHADE_1,bg:$BLACK_SHADE,hl:$BLUE_SHADE
+  --color=fg+:$WHITE_SHADE,bg+:$GRAY_SHADE_2,hl+:$BLUE_SHADE
+  --color=info:$BLUE_SHADE,prompt:$BLUE_SHADE,pointer:$BLUE_SHADE
+  --color=marker:$BLUE_SHADE,spinner:$BLUE_SHADE
+  --color=border:$GRAY_SHADE_2,header:$BLUE_SHADE
+  --prompt ' -> '
+  --info right
+  --height 21%
+  --reverse
+"
+
+# Set the `fzf` preview options
+ltl="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --git --no-permissions --no-filesize --no-user --no-time --tree"
+show_file_or_dir_preview="
+if [ -d {} ]; then
+    ${ltl} {};
+else
+    bat --color=always --number {};
+fi
+"
+export FZF_CTRL_T_OPTS="--preview \"${show_file_or_dir_preview}\""
+export FZF_ALT_C_OPTS="--preview \"${ltl} {}\""
+
+# Using `fd` instead of `fzf`
+export FZF_DEFAULT_COMMAND="
+fd --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
+"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="
+fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --strip-cwd-prefix
+"
+
+
 
 
 #################################################

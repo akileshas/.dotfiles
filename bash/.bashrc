@@ -85,6 +85,16 @@ if command -v /bin/thefuck &>/dev/null; then
     eval $(thefuck --alias)
 fi
 
+# Activating the `fzf` tool for fuzzy search
+# Check if the fzf tool is available
+if command -v /bin/fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+fi
+
+# Setup the fzf-git
+# Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/"
+source ~/.config/fzf-git.sh/fzf-git.sh
+
 
 
 ### --- Activating some features of the `bash` shell --- ###

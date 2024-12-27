@@ -4,3 +4,4 @@ atool
 scc
 cloc
 fzf
+fd
