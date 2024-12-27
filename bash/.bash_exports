@@ -149,10 +149,11 @@ export FZF_DEFAULT_OPTS="
   --info right
   --height 21%
   --reverse
+  --tmux center
 "
 
 # Set the `fzf` preview options
-ltl="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --git --no-permissions --no-filesize --no-user --no-time --tree"
+ltl="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --ignore-glob node_modules --git --no-permissions --no-filesize --no-user --no-time --tree"
 show_file_or_dir_preview="
 if [ -d {} ]; then
     ${ltl} {};
@@ -169,7 +170,7 @@ fd --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git
 "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="
-fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --strip-cwd-prefix
+fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
 "
 
 
