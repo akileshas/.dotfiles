@@ -100,7 +100,7 @@ shopt -s dotglob
 # Enable the `nullglob` shell option
 # This will make the glob expand to an empty string when it matches nothing
 # instead of the literal characters
-shopt -s nullglob
+# shopt -s nullglob
 
 # Enable the `cdspell` shell option
 # This will fix spelling errors for `cd`, only in interactive shell
@@ -108,7 +108,7 @@ shopt -s cdspell
 
 # Enable the `noclobber` shell option
 # This will append outputs to the file, don't overwrite it
-shopt -o noclobber
+set -o noclobber
 
 # Enable the `vi` mode
 set -o vi
