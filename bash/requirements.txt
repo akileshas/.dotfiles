@@ -5,3 +5,4 @@ scc
 cloc
 fzf
 fd
+jq

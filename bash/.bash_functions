@@ -193,25 +193,25 @@ _fzf_comprun() {
     shift
 
     case "$command" in
-        ssh)
-            fzf --preview "$SSH_PREVIEW_CMD" "$@"
-            ;;
-        export|unset)
-            fzf --preview "$EXPORT_UNSET_PREVIEW_CMD" "$@"
-            ;;
-        unalias)
-            fzf --preview "$UNALIAS_PREVIEW_CMD" "$@"
-            ;;
-        *)
-            fzf --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" "$@"
-            ;;
+    ssh)
+        fzf --preview "$SSH_PREVIEW_CMD" "$@"
+        ;;
+    export | unset)
+        fzf --preview "$EXPORT_UNSET_PREVIEW_CMD" "$@"
+        ;;
+    unalias)
+        fzf --preview "$UNALIAS_PREVIEW_CMD" "$@"
+        ;;
+    *)
+        fzf --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" "$@"
+        ;;
     esac
 }
 
 # Function to activate the python virtual environment
 pa() {
     # Check if Conda is installed
-    if ! command -v conda &> /dev/null; then
+    if ! command -v conda &>/dev/null; then
         echo "Conda is not installed. Please install Conda first."
         return 1
     fi
@@ -219,8 +219,8 @@ pa() {
     # Get the list of Conda environments and process it
     choice=$(
         conda env list |
-        sed 's/\*/ /;1,2d' |
-        xargs -I {} bash -c '
+            sed 's/\*/ /;1,2d' |
+            xargs -I {} bash -c '
             env_name_path=({});
             env_path=${env_name_path[1]};
             if [[ -f "$env_path/bin/python" ]]; then
@@ -230,10 +230,10 @@ pa() {
                 echo "Error: Python not found in $env_path";
             fi
         ' |
-        column -t |
-        fzf --border=rounded \
-            --height=21 \
-            --tmux center,50%,50%
+            column -t |
+            fzf --border=rounded \
+                --height=21 \
+                --tmux center,50%,50%
     )
 
     # If the choice is not empty, activate the environment
@@ -258,7 +258,7 @@ pd() {
 # Function to create a new python virtual environment
 pc() {
     # Check if Conda is installed
-    if ! command -v conda &> /dev/null; then
+    if ! command -v conda &>/dev/null; then
         echo "Conda is not installed. Please install Conda first."
         return 1
     fi
@@ -299,7 +299,7 @@ pc() {
 # Function to delete the python virtual environment
 pr() {
     # Check if Conda is installed
-    if ! command -v conda &> /dev/null; then
+    if ! command -v conda &>/dev/null; then
         echo "Conda is not installed. Please install Conda first."
         return 1
     fi
@@ -307,8 +307,8 @@ pr() {
     # Get the list of Conda environments and process it
     choice=$(
         conda env list |
-        sed 's/\*/ /;1,2d' |
-        xargs -I {} bash -c '
+            sed 's/\*/ /;1,2d' |
+            xargs -I {} bash -c '
             env_name_path=({});
             env_path=${env_name_path[1]};
             if [[ -f "$env_path/bin/python" ]]; then
@@ -318,10 +318,10 @@ pr() {
                 echo "Error: Python not found in $env_path";
             fi
         ' |
-        column -t |
-        fzf --border=rounded \
-            --height=21 \
-            --tmux center,50%,50%
+            column -t |
+            fzf --border=rounded \
+                --height=21 \
+                --tmux center,50%,50%
     )
 
     # If the choice is not empty, delete the environment
@@ -331,7 +331,7 @@ pr() {
         if [[ "$confirm" == "y" ]]; then
             # Suppress verbose output during environment deletion
             echo "Deleting environment '$env_name'..."
-            conda env remove --name "$env_name" --yes &> /dev/null
+            conda env remove --name "$env_name" --yes &>/dev/null
 
             # Check if the environment was successfully deleted
             if [[ $? -eq 0 ]]; then
@@ -344,6 +344,57 @@ pr() {
         fi
     else
         echo "No environment selected."
+    fi
+}
+
+# Function to list all the script commands
+fnode() {
+    # Ensure required tools are installed
+    if ! command -v jq &>/dev/null || ! command -v fzf &>/dev/null; then
+        echo "Error: Both 'jq' and 'fzf' must be installed."
+        return 1
+    fi
+
+    # Check if package.json exists in the current directory
+    if [ ! -f package.json ]; then
+        echo "Error: No package.json found in the current directory."
+        return 1
+    fi
+
+    # Extract script names from package.json and display with fzf
+    local script
+    script=$(jq -r '.scripts | keys[]' package.json 2>/dev/null | sort | fzf)
+
+    # If a script was selected
+    if [ -n "$script" ]; then
+        echo "You selected script: $script"
+
+        # Prompt user to choose a package manager
+        echo "Select a package manager:"
+        local pm
+        pm=$(printf "npm\nyarn\nbun" | fzf)
+
+        # Validate the package manager choice
+        case "$pm" in
+        npm)
+            echo "Running with npm: $script"
+            npm run "$script"
+            ;;
+        yarn)
+            echo "Running with yarn: $script"
+            yarn "$script"
+            ;;
+        bun)
+            echo "Running with bun: $script"
+            bun run "$script"
+            ;;
+        *)
+            echo "Error: Invalid package manager selected."
+            return 1
+            ;;
+        esac
+    else
+        echo "No script selected."
     fi
 }
 
