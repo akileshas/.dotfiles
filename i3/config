@@ -149,15 +149,15 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # For the `Scratchpad`
-bindsym $mod+n scratchpad show
-bindsym $mod+Shift+n move scratchpad
+bindsym $mod+a scratchpad show
+bindsym $mod+Shift+a move scratchpad
 
 # Move back and forth between workspaces
 bindsym $mod+p workspace back_and_forth
 
 # Toggle between the `Additonal` workspace
-bindsym $mod+a workspace number $ws11
-bindsym $mod+Shift+a move container to workspace number $ws11
+bindsym $mod+n workspace number $ws11
+bindsym $mod+Shift+n move container to workspace number $ws11
 
 # Move focused window
 bindsym $mod+Shift+h move left
