@@ -1,20 +1,5 @@
 #!/bin/bash
 
-# ----------- FZF -----------
-
-# Setup the fzf theme
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --no-ignore --hidden
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --no-ignore --type=d --hidden
-}
-
 # Setup fzf previews with eza and bat
 # Advanced customization of fzf options via _fzf_comprun function
 # - The first argument to the function is the name of the command.
@@ -30,5 +15,3 @@ _fzf_comprun() {
     *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
   esac
 }
-
-# ----------- END -----------

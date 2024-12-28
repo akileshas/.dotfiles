@@ -130,6 +130,17 @@ get-ip() {
 
 }
 
+# `fzf` configuration function
+# Use `fd` to generate the list for path completion
+_fzf_compgen_path() {
+    fd --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
+}
+
+# Use `fd` to generate the list for directory completion
+_fzf_compgen_dir() {
+    fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
+}
+
 
 
 #################################################
