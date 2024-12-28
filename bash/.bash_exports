@@ -128,6 +128,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Setting the `BAT` theme
+# cmd to list all available themes: `bat --list-themes | fzf --preview="bat --theme={} --color=always /path/to/file"`
 export BAT_THEME=Dracula
 
 # Configure the `fzf` fuzzy finder

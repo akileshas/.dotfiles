@@ -141,6 +141,73 @@ _fzf_compgen_dir() {
     fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
 }
 
+# Advanced `fzf` completion function
+_fzf_comprun() {
+    # Commands for directory and file previews
+    local DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --ignore-glob node_modules --git --no-permissions --no-filesize --no-user --no-time --tree"
+    local FILE_PREVIEW_CMD="bat --color=always --number"
+
+    # Preview command to determine if the selected item is a directory or file
+    local SHOW_FILE_OR_DIR_OR_CMD_PREVIEW="
+    if [ -d '{}' ]; then
+        $DIR_PREVIEW_CMD '{}';
+    elif [ -f '{}' ]; then
+        $FILE_PREVIEW_CMD '{}';
+    else
+        echo '{}';
+    fi
+    "
+
+    # Preview command for SSH connections
+    local SSH_PREVIEW_CMD="
+    echo '### DNS Information ###';
+    dig '{}' 2>/dev/null || echo 'No DNS records found !!!';
+
+    echo; echo '### Ping Test ###'; echo;
+    ping -c 3 '{}' 2>/dev/null || echo 'Host unreachable !!!';
+
+    echo; echo '### SSH Key Fingerprint ###'; echo;
+    ssh-keyscan '{}' 2>/dev/null || echo 'Unable to fetch SSH key fingerprint !!!';
+    "
+
+    # Preview for export/unset
+    local EXPORT_UNSET_PREVIEW_CMD="
+    if env | grep -q '^{}='; then
+        echo '### Variable Name ###';
+        echo '{}';
+
+        echo; echo '### Current Value ###';
+        env | grep '^{}=' | cut -d'=' -f2-;
+    else
+        echo 'Variable not set: {}';
+    fi
+    "
+
+    # Preview for unalias
+    local UNALIAS_PREVIEW_CMD="
+    echo 'alias {}';
+    "
+
+    # Process the first argument to determine the command
+    local command=$1
+    shift
+
+    case "$command" in
+        ssh)
+            fzf --preview "$SSH_PREVIEW_CMD" "$@"
+            ;;
+        export|unset)
+            fzf --preview "$EXPORT_UNSET_PREVIEW_CMD" "$@"
+            ;;
+        unalias)
+            fzf --preview "$UNALIAS_PREVIEW_CMD" "$@"
+            ;;
+        *)
+            fzf --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" "$@"
+            ;;
+    esac
+}
+
 
 
 #################################################
