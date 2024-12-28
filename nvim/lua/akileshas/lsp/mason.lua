@@ -53,6 +53,7 @@ return {
 				"intelephense",
 				"harper_ls",
 				"jedi_language_server",
+				"pylsp",
 			},
 		})
 
