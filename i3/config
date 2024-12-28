@@ -65,6 +65,9 @@ exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Starting the picom compositor
 exec_always --no-startup-id picom
 
+# Starting the dunst notification daemon
+exec_always --no-startup-id dunst
+
 # Detect the external monitor and set the display configuration
 exec_always --no-startup-id ~/.dotfiles/i3/scripts/monitor_setup.sh
 
@@ -91,6 +94,20 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+
+# Rename workspaces
+exec_always --no-startup-id i3-msg "rename workspace 1 to $ws1"
+exec_always --no-startup-id i3-msg "rename workspace 2 to $ws2"
+exec_always --no-startup-id i3-msg "rename workspace 3 to $ws3"
+exec_always --no-startup-id i3-msg "rename workspace 4 to $ws4"
+exec_always --no-startup-id i3-msg "rename workspace 5 to $ws5"
+exec_always --no-startup-id i3-msg "rename workspace 6 to $ws6"
+exec_always --no-startup-id i3-msg "rename workspace 7 to $ws7"
+exec_always --no-startup-id i3-msg "rename workspace 8 to $ws8"
+exec_always --no-startup-id i3-msg "rename workspace 9 to $ws9"
+exec_always --no-startup-id i3-msg "rename workspace 10 to $ws10"
+exec_always --no-startup-id i3-msg "rename workspace 11 to $ws11"
 
 # Switch to workspace
 # Keybindings for switching to workspaces 1-10
@@ -131,6 +148,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+# For the `Scratchpad`
+bindsym $mod+n scratchpad show
+bindsym $mod+Shift+n move scratchpad
+
+# Move back and forth between workspaces
+bindsym $mod+p workspace back_and_forth
+
+# Toggle between the `Additonal` workspace
+bindsym $mod+a workspace number $ws11
+bindsym $mod+Shift+a move container to workspace number $ws11
+
 # Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -145,8 +173,8 @@ bindsym $mod+e layout toggle split
 
 # Split containers
 # Split in horizontal and vertical orientations
-bindsym $mod+p split h
-bindsym $mod+o split v
+bindsym $mod+backslash split h
+bindsym $mod+minus split v
 
 # Fullscreen mode for focused container
 bindsym $mod+m fullscreen toggle
