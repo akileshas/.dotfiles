@@ -85,7 +85,7 @@ export PAGER="nvimpager"
 
 # Set the default man pager
 export MANPAGER="nvim +Man!"
-export MANWIDTH=209
+export MANWIDTH=208
 
 # Set the default browser
 export BROWSER="firefox-developer-edition"
@@ -185,6 +185,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="
 fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --follow --exclude .git --exclude node_modules --strip-cwd-prefix
 "
+
+# Qt Environment Variables
+export QT_STYLE_OVERRIDE=adwaita
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
 
 
 
