@@ -140,7 +140,7 @@ BLUISH_GRAY_SHADE=#21283b
 BLUE_SHADE=#0d72cb
 WHITE_SHADE=#ffffff
 BLACK_SHADE=#000000
-DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --ignore-glob node_modules --git --no-permissions --no-filesize --no-user --no-time --tree"
+DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob 'node_modules|.git' --git --no-permissions --no-filesize --no-user --no-time --tree"
 FILE_PREVIEW_CMD="bat --color=always --number"
 SHOW_FILE_OR_DIR_PREVIEW="
 if [ -d {} ]; then

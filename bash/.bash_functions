@@ -144,7 +144,7 @@ _fzf_compgen_dir() {
 # Advanced `fzf` completion function
 _fzf_comprun() {
     # Commands for directory and file previews
-    local DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob .git --ignore-glob node_modules --git --no-permissions --no-filesize --no-user --no-time --tree"
+    local DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob 'node_modules|.git' --git --no-permissions --no-filesize --no-user --no-time --tree"
     local FILE_PREVIEW_CMD="bat --color=always --number"
 
     # Preview command to determine if the selected item is a directory or file
