@@ -144,7 +144,7 @@ t() {
 
     # Generate session name by replacing dots with underscores
     parent_folder=$(basename "$(dirname "$selected")")
-    selected_name="${parent_folder}___$(basename "$selected" | tr . _)"
+    selected_name="${parent_folder}/$(basename "$selected" | tr . _)"
 
     # Check if Tmux is running
     tmux_running=$(pgrep tmux)
