@@ -188,8 +188,8 @@ fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --foll
 "
 
 # Qt Environment Variables
-export QT_STYLE_OVERRIDE=adwaita
-export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+export QT_STYLE_OVERRIDE=adwaita-dark
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 
 

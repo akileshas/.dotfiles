@@ -1,15 +1,8 @@
-#!/bin/bash
-
 #################################################
-#                BASH PROFILE                   #
+#                 i3WM Variables                #
 #################################################
 
 
-
-# Source the bashrc file
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
 
 # Qt Global Variables
 export QT_STYLE_OVERRIDE=adwaita-dark

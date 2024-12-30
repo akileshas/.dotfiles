@@ -74,6 +74,9 @@ exec_always --no-startup-id ~/.dotfiles/i3/scripts/monitor_setup.sh
 # Setting the Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/truth.png
 
+# Sources the global environment variables
+exec_always --no-startup-id sh -c 'source ~/.dotfiles/i3/variables.sh'
+
 # ----------- END -----------
 
 
