@@ -23,8 +23,8 @@ bar {
         separator   #0f7db1
         
         focused_workspace    #0f7db1 #0f7db1 #000000
-        inactive_workspace   #3a3f43 #222831 #EEEEEE
-        urgent_workspace     #ff7070 #D50000 #000000
+        inactive_workspace   #21283b #21283b #ffffff
+        urgent_workspace     #b10f26 #b10f26 #f5e6e8
     }
 }
 
@@ -36,8 +36,8 @@ bar {
 # Modify the window border colors and sizes
 for_window [class=".*"] border pixel 2
 client.focused          #0f7db1 #0f7db1 #000000
-client.unfocused        #3a3f43 #222831 #EEEEEE
-client.urgent           #ff7070 #D50000 #000000
+client.unfocused        #21283b #21283b #ffffff
+client.urgent           #b10f26 #b10f26 #f5e6e8
 
 # ----------- END -----------
 
