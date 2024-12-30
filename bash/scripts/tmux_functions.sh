@@ -69,7 +69,7 @@ tas() {
 }
 
 # Tmux session Handler
-ts() {
+t() {
     # Inspired by ThePrimeagen & Sarguru AIDS
     # Check if tmux is installed
     if ! command -v tmux &>/dev/null; then
@@ -129,7 +129,6 @@ ts() {
                 fzf --exit-0 \
                     --border \
                     --preview="$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
-                    --prompt="Select a directory:"
         ) || {
             echo "Error: No directory selected."
             return 1
@@ -144,7 +143,8 @@ ts() {
     fi
 
     # Generate session name by replacing dots with underscores
-    selected_name=$(basename "$selected" | tr . _)
+    parent_folder=$(basename "$(dirname "$selected")")
+    selected_name="${parent_folder}___$(basename "$selected" | tr . _)"
 
     # Check if Tmux is running
     tmux_running=$(pgrep tmux)
