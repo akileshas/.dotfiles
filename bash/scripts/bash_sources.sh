@@ -35,7 +35,6 @@ bash_files=(
     "bash_aliases"
     "bash_exports"
     "bash_functions"
-    "bash_variables"
     "bash_bindings"
 )
 
