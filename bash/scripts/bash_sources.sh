@@ -43,3 +43,8 @@ done
 if [ -f "$HOME/.bash_keys" ]; then
     . "$HOME/.bash_keys"
 fi
+
+# Source the python virtual environment activation script
+if [ -f "$HOME/.dotfiles/bash/scripts/conda_functions.sh" ]; then
+    . "$HOME/.dotfiles/bash/scripts/conda_functions.sh"
+fi
