@@ -23,7 +23,7 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/asa/.dotfiles/sway/images/love.png fill
+output * bg ~/.dotfiles/sway/images/love.png fill
 #
 # Example configuration:
 #
@@ -248,6 +248,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # screen lock
-bindsym $mod+Escape exec swaylock -i /home/asa/Pictures/Fuck-Society.png 
+bindsym $mod+Escape exec swaylock -i ~/Pictures/Fuck-Society.png
 
 include /etc/sway/config.d/*

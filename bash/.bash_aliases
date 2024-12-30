@@ -251,7 +251,7 @@ alias paruf="paru -F"
 alias todo="nvim ~/Obsidian-Vault/TODO.md"
 
 # For adb
-alias adb="/home/asa/Android/Sdk/platform-tools/adb"
+alias adb="~/Android/Sdk/platform-tools/adb"
 
 # Ping the Google
 alias pgle="ping google.com -c 11"
