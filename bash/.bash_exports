@@ -169,6 +169,7 @@ export FZF_DEFAULT_OPTS="
   --info right
   --height 21%
   --tabstop=4
+  --border
   --wrap
   --tmux center,80%,80%
 "

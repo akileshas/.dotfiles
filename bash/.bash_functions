@@ -193,14 +193,27 @@ _fzf_comprun() {
     shift
 
     case "$command" in
+    cd)
+        fzf --border \
+            --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
+            --bind "ctrl-o:execute(nvim {})" "$@"
+        ;;
+    nvim|v)
+        fzf --border \
+            --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
+            --bind "ctrl-o:execute(nvim {})" "$@"
+        ;;
     ssh)
-        fzf --preview "$SSH_PREVIEW_CMD" "$@"
+        fzf --border \
+            --preview "$SSH_PREVIEW_CMD" "$@"
         ;;
     export | unset)
-        fzf --preview "$EXPORT_UNSET_PREVIEW_CMD" "$@"
+        fzf --border \
+            --preview "$EXPORT_UNSET_PREVIEW_CMD" "$@"
         ;;
     unalias)
-        fzf --preview "$UNALIAS_PREVIEW_CMD" "$@"
+        fzf --border \
+            --preview "$UNALIAS_PREVIEW_CMD" "$@"
         ;;
     *)
         fzf --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" "$@"
