@@ -113,7 +113,7 @@ alias rblo="source ~/.dotfiles/bash/.bash_logout"
 alias rbal="source ~/.dotfiles/bash/.bash_aliases"
 alias rbfn="source ~/.dotfiles/bash/.bash_functions"
 alias rbexp="source ~/.dotfiles/bash/.bash_exports"
-alias rbvar="source ~/.dotfiles/bash/.bash_variables"
+alias rbbnd="source ~/.dotfiles/bash/.bash_bindings"
 alias rbkey="source ~/.bash_keys"
 
 # Edit the bash configuration
@@ -123,7 +123,7 @@ alias eblo="nvim ~/.dotfiles/bash/.bash_logout"
 alias ebal="nvim ~/.dotfiles/bash/.bash_aliases"
 alias ebfn="nvim ~/.dotfiles/bash/.bash_functions"
 alias ebexp="nvim ~/.dotfiles/bash/.bash_exports"
-alias ebvar="nvim ~/.dotfiles/bash/.bash_variables"
+alias ebbnd="nvim ~/.dotfiles/bash/.bash_bindings"
 alias ebkey="nvim ~/.bash_keys"
 
 # Alert for long running commands

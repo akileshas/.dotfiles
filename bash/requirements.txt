@@ -6,3 +6,16 @@ cloc
 fzf
 fd
 jq
+tmux
+tmate
+tldr
+man
+bat
+exa
+ripgrep
+htop
+btop
+nvtop
+cuda
+cudnn
+xdotool

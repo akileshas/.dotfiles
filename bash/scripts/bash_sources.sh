@@ -31,7 +31,13 @@ fi
 
 # List of files to check and source from ~/.dotfiles/bash
 # Check if the file exists and source it
-bash_files=("bash_aliases" "bash_exports" "bash_functions" "bash_variables")
+bash_files=(
+    "bash_aliases"
+    "bash_exports"
+    "bash_functions"
+    "bash_variables"
+    "bash_bindings"
+)
 
 for file in "${bash_files[@]}"; do
     if [ -f "$HOME/.dotfiles/bash/.$file" ]; then
@@ -47,4 +53,9 @@ fi
 # Source the python virtual environment activation script
 if [ -f "$HOME/.dotfiles/bash/scripts/conda_functions.sh" ]; then
     . "$HOME/.dotfiles/bash/scripts/conda_functions.sh"
+fi
+
+# Source the `tmux` functions
+if [ -f "$HOME/.dotfiles/bash/scripts/tmux_functions.sh" ]; then
+    . "$HOME/.dotfiles/bash/scripts/tmux_functions.sh"
 fi
