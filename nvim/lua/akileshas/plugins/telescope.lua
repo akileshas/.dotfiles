@@ -66,7 +66,11 @@ return {
 		end, { desc = "[F]ind [F]iles" })
 		keymap.set("n", "<leader>fg", function()
 			builtin.live_grep({
-				additional_args = { "--hidden", "--no-ignore", "--no-ignore-parent" },
+				additional_args = {
+					"--hidden",
+					"--no-ignore",
+					"--no-ignore-parent",
+				},
 			})
 		end, { desc = "[F]ind [G]rep" })
 		keymap.set("n", "<leader>/", function()

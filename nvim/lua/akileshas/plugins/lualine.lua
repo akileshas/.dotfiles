@@ -4,6 +4,7 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+
 		lualine.setup({
 			sections = {
 				lualine_x = {

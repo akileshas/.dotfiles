@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = {
@@ -66,6 +65,7 @@ return {
 				"svelte",
 				"vue",
 				"zig",
+				"haskell",
 			},
 			incremental_selection = {
 				enable = true,
@@ -76,6 +76,10 @@ return {
 					node_decremental = "<bs>",
 				},
 			},
+			-- installing modules
+			modules = {},
+			sync_install = false, -- installing asynchronously
+			ignore_install = {}, -- ignore installing these languages
 		})
 	end,
 }

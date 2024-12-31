@@ -2,7 +2,7 @@ return {
 	{
 		"echasnovski/mini.ai",
 		config = function()
-			require("mini.ai").setup({ n_lines = 10000 })
+			require("mini.ai").setup({ n_lines = 10000000000 })
 		end,
 	},
 	{
@@ -35,10 +35,4 @@ return {
 			require("mini.surround").setup()
 		end,
 	},
-	-- {
-	-- 	"echasnovski/mini.starter",
-	-- 	config = function()
-	-- 		require("mini.starter").setup()
-	-- 	end,
-	-- },
 }

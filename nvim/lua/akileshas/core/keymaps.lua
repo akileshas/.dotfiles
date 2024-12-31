@@ -5,7 +5,8 @@ vim.g.maplocalleader = " "
 -- setting a flag to indicate that NERD Fonts are available
 vim.g.have_nerd_font = true
 
-local keymap = vim.keymap -- for conciseness
+-- for convenience
+local keymap = vim.keymap
 local fn = vim.fn
 local api = vim.api
 local cmd = vim.cmd
@@ -26,7 +27,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", {
 })
 
 -- delete single character without copying into register
-keymap.set("n", "x", '"_x', {
+keymap.set("n", "X", '"_x', {
 	desc = "Delete single character without copying",
 })
 
@@ -60,19 +61,19 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", {
 
 -- tab management
 -- open new tab
-keymap.set("n", "<A-o>", "<cmd>tabnew<CR>", {
+keymap.set("n", "<A-t>", "<cmd>tabnew<CR>", {
 	desc = "Open new tab",
 })
 -- open new tab with current buffer
-keymap.set("n", "<A-f>", "<cmd>tabnew %<CR>", {
+keymap.set("n", "<A-y>", "<cmd>tabnew %<CR>", {
 	desc = "Open new tab with current buffer",
 })
 -- close current tab
-keymap.set("n", "<A-c>", "<cmd>tabclose<CR>", {
+keymap.set("n", "<A-w>", "<cmd>tabclose<CR>", {
 	desc = "Close current tab",
 })
 -- close all tabs except current tab
-keymap.set("n", "<A-x>", "<cmd>tabonly<CR>", {
+keymap.set("n", "<A-q>", "<cmd>tabonly<CR>", {
 	desc = "Close all tabs except current tab",
 })
 -- move to next tab
@@ -154,18 +155,18 @@ keymap.set("v", ">", ">gv", {
 })
 
 -- centering navigation
-keymap.set("n", "<C-d>", "<C-d>zz", {
-	desc = "Centering Navigation with <C-d>",
-})
-keymap.set("n", "<C-u>", "<C-u>zz", {
-	desc = "Centering Navigation with <C-u>",
-})
-keymap.set("n", "n", "nzzzv", {
-	desc = "Centering Navigation with n",
-})
-keymap.set("n", "N", "Nzzzv", {
-	desc = "Centering Navigation with N",
-})
+-- keymap.set("n", "<C-d>", "<C-d>zz", {
+-- 	desc = "Centering Navigation with <C-d>",
+-- })
+-- keymap.set("n", "<C-u>", "<C-u>zz", {
+-- 	desc = "Centering Navigation with <C-u>",
+-- })
+-- keymap.set("n", "n", "nzzzv", {
+-- 	desc = "Centering Navigation with n",
+-- })
+-- keymap.set("n", "N", "Nzzzv", {
+-- 	desc = "Centering Navigation with N",
+-- })
 
 -- move selected lines
 keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi", {
@@ -237,7 +238,13 @@ keymap.set("v", "p", '"_dP', {
 keymap.set("i", ";;", "<Esc>A;<Esc>", {
 	desc = "Insert ; at the end of the line",
 })
+keymap.set("n", ";;", "<Esc>A;<Esc>", {
+	desc = "Insert ; at the end of the line",
+})
 keymap.set("i", ",,", "<Esc>A,<Esc>", {
+	desc = "Insert , at the end of the line",
+})
+keymap.set("n", ",,", "<Esc>A,<Esc>", {
 	desc = "Insert , at the end of the line",
 })
 
@@ -255,11 +262,3 @@ keymap.set("n", "<leader>o", functions.open_file_default_program, {
 keymap.set("n", "<leader>pr", functions.run_python_script, {
 	desc = "Run the Python script",
 })
-
--- Jump to the previous cursor position
--- keymap.set("n", "<C-[>", "<C-o>", {
--- 	desc = "Jump to the previous cursor position",
--- })
--- keymap.set("n", "<C-]>", "<C-i>", {
--- 	desc = "Jump to the next cursor position",
--- })

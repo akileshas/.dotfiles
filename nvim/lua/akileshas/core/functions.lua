@@ -8,7 +8,7 @@ local bo = vim.bo
 function M.toggle_command_line()
 	if fn.getcmdwintype() == ":" then
 		-- Close the command-line window
-		cmd("quit")
+		cmd("q")
 	else
 		-- Open the command-line window
 		api.nvim_feedkeys(api.nvim_replace_termcodes(":<C-f>", true, true, true), "n", true)
@@ -24,9 +24,12 @@ function M.open_file_default_program()
 
 	-- Check if the extension is in the list of allowed extensions
 	if vim.tbl_contains(allowed_exts, ext) then
-		cmd("!xdg-open " .. filename) -- Open the file with xdg-open
+		-- Use xdg-open for Linux, open for macOS, and start for Windows
+		local open_cmd = vim.loop.os_uname().sysname == "Windows_NT" and "start"
+			or (vim.loop.os_uname().sysname == "Darwin" and "open" or "xdg-open")
+		cmd("!" .. open_cmd .. " " .. fn.shellescape(filename))
 	else
-		print("Not an image or PDF file!") -- Optional: feedback when it's not an image or PDF
+		vim.notify("Not an image or PDF file!", vim.log.levels.WARN)
 	end
 end
 
@@ -36,7 +39,7 @@ function M.run_python_script()
 
 	-- Check if the filetype is Python
 	if filetype ~= "python" then
-		print("Not a Python file!") -- Optional: feedback when it's not a Python file
+		vim.notify("Not a Python file!", vim.log.levels.WARN)
 		return
 	end
 

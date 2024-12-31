@@ -6,9 +6,14 @@ function M.copy_cpp_basic_template()
 	local source_file = vim.fn.expand("~/.dotfiles/nvim/lua/akileshas/templates/skeletons/cpp/basics.cpp")
 	local target_dir = "~/Personal/DSA/"
 
+	-- for convenience
+	local fn = vim.fn
+	local api = vim.api
+	local cmd = vim.cmd
+
 	-- Check if the source file exists
-	if vim.fn.filereadable(source_file) == 0 then
-		vim.api.nvim_err_writeln("Source file not found: " .. source_file)
+	if fn.filereadable(source_file) == 0 then
+		api.nvim_err_writeln("Source file not found: " .. source_file)
 		return
 	end
 
@@ -16,11 +21,11 @@ function M.copy_cpp_basic_template()
 	local date = os.date("%Y-%m-%d")
 
 	-- Create the target directory if it doesn't exist
-	vim.fn.mkdir(target_dir .. date, "p")
+	fn.mkdir(target_dir .. date, "p")
 
 	-- Find the next available count
 	local count = 1
-	while vim.fn.filereadable(target_dir .. date .. "/" .. count .. ".cpp") == 1 do
+	while fn.filereadable(target_dir .. date .. "/" .. count .. ".cpp") == 1 do
 		count = count + 1
 	end
 
@@ -33,51 +38,58 @@ function M.copy_cpp_basic_template()
 	-- Write the content to the target file
 	local target_file_handle = io.open(target_file, "w")
 	if not target_file_handle then
-		vim.api.nvim_err_writeln("Failed to open target file: " .. target_file)
+		api.nvim_err_writeln("Failed to open target file: " .. target_file)
 		return
 	end
 	target_file_handle:write(source_content)
 	target_file_handle:close()
 
 	-- Open the new file in Neovim
-	vim.cmd("edit " .. target_file)
+	cmd("edit " .. target_file)
 end
 
 -- Compile and run the C++ file
 function M.compile_run_cpp_file()
 	-- Check file type
 	local filetype = vim.bo.filetype
+	local fn = vim.fn
+	local cmd = vim.cmd
+	local api = vim.api
+
 	if filetype == "cpp" then
 		-- Save the file
-		vim.cmd("w")
+		cmd("w")
 
 		-- Define the output binary name
-		local output_name = vim.fn.expand("%:t:r")
+		local output_name = fn.expand("%:t:r")
 
 		-- Compile the C++ file
-		vim.cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> ~/Personal/DSA/compile_errors.txt")
+		cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> ~/Personal/DSA/compile_errors.txt")
 
 		-- Check if the compilation was successful
-		local compile_status = vim.fn.system("echo $?")
+		local compile_status = fn.system("echo $?")
 		if compile_status:match("0") then
 			-- Run the compiled binary
-			vim.cmd("!./" .. output_name)
+			cmd("!./" .. output_name)
 
 			-- Remove the compiled binary
-			vim.cmd("!rm " .. output_name)
+			cmd("!rm " .. output_name)
 		else
 			-- Print compile errors
-			vim.cmd("!cat ~/Personal/DSA/compile_errors.txt")
-			vim.api.nvim_err_writeln("Compilation failed. Check compile_errors.txt for details.")
+			cmd("!cat ~/Personal/DSA/compile_errors.txt")
+			api.nvim_err_writeln("Compilation failed. Check compile_errors.txt for details.")
 		end
 	end
 end
 
 -- Opening the input.txt and output.txt files
 function M.open_input_output_files()
-	vim.cmd("vsplit ~/Personal/DSA/input.txt")
-	vim.cmd("split ~/Personal/DSA/output.txt")
-	vim.cmd("split ~/Personal/DSA/compile_errors.txt")
+	-- for convenience
+	local cmd = vim.cmd
+
+	cmd("vsplit ~/Personal/DSA/input.txt")
+	cmd("split ~/Personal/DSA/output.txt")
+	cmd("split ~/Personal/DSA/compile_errors.txt")
 end
 
 return M

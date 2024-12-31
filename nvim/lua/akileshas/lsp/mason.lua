@@ -48,13 +48,14 @@ return {
 				"elixirls",
 				"jinja_lsp",
 				"ast_grep",
-				"elixirls",
 				"rnix",
 				"intelephense",
 				"harper_ls",
 				"jedi_language_server",
 				"pylsp",
+				"hls",
 			},
+			automatic_installation = true,
 		})
 
 		-- Install additional tools with mason-tool-installer
@@ -68,6 +69,12 @@ return {
 				"eslint_d",
 				"shellharden",
 				"shfmt",
+				"autopep8",
+				"rustfmt",
+				"golines",
+				"goimports",
+				"gofumpt",
+				"ormolu",
 			},
 		})
 	end,

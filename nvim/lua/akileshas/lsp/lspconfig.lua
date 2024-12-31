@@ -10,7 +10,14 @@ return {
 		local lspconfig = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local keymap = vim.keymap -- for conciseness
+
+		-- for convenience
+		local keymap = vim.keymap
+		local api = vim.api
+		local fn = vim.fn
+		local cmd = vim.cmd
+		local diagnostic = vim.diagnostic
+		local lsp = vim.lsp
 
 		-- Set up autocompletion capabilities
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -19,10 +26,14 @@ return {
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			fn.sign_define(hl, {
+				text = icon,
+				texthl = hl,
+				numhl = hl,
+			})
 		end
 
-		vim.diagnostic.config({
+		diagnostic.config({
 			virtual_text = false,
 			signs = true,
 			underline = false,
@@ -31,16 +42,19 @@ return {
 		})
 
 		-- LSP Keymap
-		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+		api.nvim_create_autocmd("LspAttach", {
+			group = api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				local opts = { buffer = ev.buf, silent = true }
+				local opts = {
+					buffer = ev.buf,
+					silent = true,
+				}
 
 				keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {
 					desc = "Show LSP references",
 					unpack(opts),
 				})
-				keymap.set("n", "gD", vim.lsp.buf.declaration, {
+				keymap.set("n", "gD", lsp.buf.declaration, {
 					desc = "Go to declaration",
 					unpack(opts),
 				})
@@ -61,7 +75,7 @@ return {
 					desc = "See available code actions",
 					unpack(opts),
 				})
-				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
+				keymap.set("n", "<leader>rn", lsp.buf.rename, {
 					desc = "Smart rename",
 					unpack(opts),
 				})
@@ -70,20 +84,20 @@ return {
 					desc = "Show buffer diagnostics",
 					unpack(opts),
 				})
-				keymap.set("n", "<leader>d", vim.diagnostic.open_float, {
+				keymap.set("n", "<leader>d", diagnostic.open_float, {
 					desc = "Show line diagnostics",
 					unpack(opts),
 				})
-				keymap.set("n", "[d", vim.diagnostic.goto_prev, {
+				keymap.set("n", "[d", diagnostic.goto_prev, {
 					desc = "Go to previous diagnostic",
 					unpack(opts),
 				})
-				keymap.set("n", "]d", vim.diagnostic.goto_next, {
+				keymap.set("n", "]d", diagnostic.goto_next, {
 					desc = "Go to next diagnostic",
 					unpack(opts),
 				})
 
-				keymap.set("n", "K", vim.lsp.buf.hover, {
+				keymap.set("n", "K", lsp.buf.hover, {
 					desc = "Show documentation",
 					unpack(opts),
 				})

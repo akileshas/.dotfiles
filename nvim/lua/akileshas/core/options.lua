@@ -1,5 +1,7 @@
+-- Style fot the netrw
 vim.cmd("let g:netrw_liststyle = 3")
 
+-- for convenience
 local opt = vim.opt
 
 -- cursor
@@ -46,7 +48,7 @@ opt.backup = false
 
 -- modify the undoing of file
 opt.undofile = true
-opt.undodir = { os.getenv("HOME") .. "/.vim/undodir" }
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- search settings
 opt.ignorecase = true

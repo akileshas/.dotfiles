@@ -6,6 +6,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+				-- JavaScript, TypeScript, JSX, TSX, CSS, HTML, JSON, YAML, Markdown, Liquid
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
@@ -16,11 +17,36 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				liquid = { "prettier" },
+
+				-- Lua
 				lua = { "stylua" },
-				python = { "isort", "black" },
+
+				-- Python
+				python = {
+					"isort",
+					"black",
+					"autopep8",
+				},
+
+				-- Go
+				go = {
+					"golines",
+					"goimports",
+					"gofumpt",
+				},
+
+				-- Rust
+				rust = { "rustfmt" },
+
+				-- Shell scripts
+				sh = { "shfmt" },
+
+				-- Haskell
+				haskell = { "ormolu" },
 			},
 		})
 
+		-- Keybinding to format the current file or selected range (visual mode)
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,
