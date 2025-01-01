@@ -68,7 +68,7 @@ tas() {
     }
 }
 
-# Tmux session Handler
+# `tmux` session handling function
 t() {
     # Inspired by ThePrimeagen & Sarguru AIDS
     # Check if tmux is installed
@@ -78,7 +78,7 @@ t() {
     fi
 
     local selected selected_name tmux_running
-    local required_dirs ignore_dirs dir_list
+    local required_dirs ignore_dirs dir_list fallback_dir invalid_dirs
 
     # Define required directories
     required_dirs=(
@@ -86,10 +86,14 @@ t() {
         ~/Downloads/tmp
         ~/Personal
         ~/.dotfiles
+        ~/Documents
     )
 
     # Define directories to ignore
     ignore_dirs=()
+
+    # Fallback directory if no valid directories are found
+    fallback_dir="$HOME"
 
     # Commands for directory and file previews
     local DIR_PREVIEW_CMD="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob 'node_modules|.git' --git --no-permissions --no-filesize --no-user --no-time --tree"
@@ -110,12 +114,16 @@ t() {
     if [[ $# -eq 1 ]]; then
         selected=$1
     else
-        # Generate the list of directories including required_dirs
+        # Check for valid directories in required_dirs
         dir_list=$(
             {
                 for dir in "${required_dirs[@]}"; do
-                    echo "$dir"
-                    find "$dir" -mindepth 1 -maxdepth 3 -type d 2>/dev/null
+                    if [[ -d $dir ]]; then
+                        echo "$dir"
+                        find "$dir" -mindepth 1 -maxdepth 5 -type d 2>/dev/null
+                    else
+                        invalid_dirs+=("$dir")
+                    fi
                 done
             } |
                 # If ignore_dirs is not empty, filter out the ignored directories
@@ -125,15 +133,30 @@ t() {
                     else
                         cat
                     fi
-                } |
-                fzf --exit-0 \
-                    --border \
-                    --preview="$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
+                }
+        )
+
+        # Notify the user about invalid directories
+        if [[ ${#invalid_dirs[@]} -gt 0 ]]; then
+            echo "Warning: The following directories in 'required_dirs' do not exist:"
+            for invalid_dir in "${invalid_dirs[@]}"; do
+                echo "  - $invalid_dir"
+            done
+        fi
+
+        # If no directories are found, use the fallback directory
+        if [[ -z $dir_list ]]; then
+            echo "No valid directories found in 'required_dirs'. Falling back to $fallback_dir."
+            dir_list="$fallback_dir"
+        fi
+
+        # Prompt the user to select from the directory list
+        selected=$(
+            echo "$dir_list" | fzf --exit-0 --border --preview="$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW"
         ) || {
             echo "Error: No directory selected."
             return 1
         }
-        selected=$dir_list
     fi
 
     # Exit if no selection is made
