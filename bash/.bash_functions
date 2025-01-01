@@ -149,12 +149,12 @@ _fzf_comprun() {
 
     # Preview command to determine if the selected item is a directory or file
     local SHOW_FILE_OR_DIR_OR_CMD_PREVIEW="
-    if [ -d '{}' ]; then
-        $DIR_PREVIEW_CMD '{}';
-    elif [ -f '{}' ]; then
-        $FILE_PREVIEW_CMD '{}';
+    if [ -d {} ]; then
+        ${DIR_PREVIEW_CMD} {};
+    elif [ -f {} ]; then
+        ${FILE_PREVIEW_CMD} {};
     else
-        echo '{}';
+        echo {};
     fi
     "
 
