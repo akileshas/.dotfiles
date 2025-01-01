@@ -80,11 +80,11 @@ return {
 					unpack(opts),
 				})
 
-				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", {
+				keymap.set("n", "<leader>sD", "<cmd>Telescope diagnostics bufnr=0<CR>", {
 					desc = "Show buffer diagnostics",
 					unpack(opts),
 				})
-				keymap.set("n", "<leader>d", diagnostic.open_float, {
+				keymap.set("n", "<leader>D", diagnostic.open_float, {
 					desc = "Show line diagnostics",
 					unpack(opts),
 				})

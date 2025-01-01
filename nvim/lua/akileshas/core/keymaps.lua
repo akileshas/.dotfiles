@@ -31,6 +31,14 @@ keymap.set("n", "X", '"_x', {
 	desc = "Delete single character without copying",
 })
 
+-- delete without copying into register
+keymap.set("n", "<leader>d", [["_d]], {
+	desc = "Delete without copying",
+})
+keymap.set("v", "<leader>d", [["_d]], {
+	desc = "Delete without copying",
+})
+
 -- increment/decrement numbers
 -- increment
 keymap.set("n", "<leader>=", "<C-a>", {
