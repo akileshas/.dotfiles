@@ -67,6 +67,7 @@ opt.signcolumn = "yes:1"
 opt.scrolloff = 7
 opt.sidescrolloff = 7
 opt.showmode = false
+opt.colorcolumn = "108"
 
 -- performance and timing
 opt.updatetime = 100
