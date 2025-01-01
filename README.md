@@ -5,7 +5,9 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Bash
 - Git
 - i3
+- Sway
 - Kitty
+- Qt
 - GTK
 - Neofetch
 - Neovim (nvim)
@@ -17,6 +19,7 @@ Welcome to my dotfiles repository! Here you'll find configurations for:
 - Rofi
 - Waybar
 - lazygit
+- Zed
 
 Feel free to explore and customize these configurations to suit your preferences!
 
@@ -25,6 +28,7 @@ My nvim config profile : [nvim-profile](https://dotfyle.com/akileshas/dotfiles-n
 ---
 
 ## Setting up the tmux configurations:
+
 ```bash
 # Install the git
 sudo pacman -Syu git git-delta github-cli
