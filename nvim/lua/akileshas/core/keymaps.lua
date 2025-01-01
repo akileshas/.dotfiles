@@ -208,6 +208,15 @@ keymap.set("n", "<leader>y", '"+y', {
 keymap.set("v", "<leader>y", '"+y', {
 	desc = "Copy to system clipboard",
 })
+keymap.set("v", "<leader>Y", '"+y', {
+	desc = "Copy to system clipboard",
+})
+keymap.set("n", "<leader>Y", '"+yg_', {
+	desc = "Copy till the end of the line",
+})
+keymap.set("n", "<leader>g", ":%y+<CR>", {
+	desc = "Copy the whole file",
+})
 
 -- paste from system clipboard
 keymap.set("n", "<leader>p", '"+p', {
