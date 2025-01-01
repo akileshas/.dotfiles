@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check if the host is NEXUS
+# Check if the host is GGS
 if [ "$(hostnamectl hostname)" != "GGS" ]; then
     echo "This script is only intended to run on the host 'GGS'. Exiting."
     exit 1

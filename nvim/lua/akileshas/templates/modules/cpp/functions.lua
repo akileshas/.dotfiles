@@ -3,8 +3,8 @@ local M = {}
 -- Copy the C++ template to a new file
 function M.copy_cpp_basic_template()
 	-- Define the source and target directories
-	local source_file = vim.fn.expand("~/.dotfiles/nvim/lua/akileshas/templates/skeletons/cpp/basics.cpp")
-	local target_dir = "~/Personal/DSA/"
+	local source_file = vim.fn.expand("/home/asa/.dotfiles/nvim/lua/akileshas/templates/skeletons/cpp/basics.cpp")
+	local target_dir = "/home/asa/Personal/DSA/"
 
 	-- for convenience
 	local fn = vim.fn
@@ -64,7 +64,7 @@ function M.compile_run_cpp_file()
 		local output_name = fn.expand("%:t:r")
 
 		-- Compile the C++ file
-		cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> ~/Personal/DSA/compile_errors.txt")
+		cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> /home/asa/Personal/DSA/compile_errors.txt")
 
 		-- Check if the compilation was successful
 		local compile_status = fn.system("echo $?")
@@ -76,7 +76,7 @@ function M.compile_run_cpp_file()
 			cmd("!rm " .. output_name)
 		else
 			-- Print compile errors
-			cmd("!cat ~/Personal/DSA/compile_errors.txt")
+			cmd("!cat /home/asa/Personal/DSA/compile_errors.txt")
 			api.nvim_err_writeln("Compilation failed. Check compile_errors.txt for details.")
 		end
 	end
@@ -87,9 +87,9 @@ function M.open_input_output_files()
 	-- for convenience
 	local cmd = vim.cmd
 
-	cmd("vsplit ~/Personal/DSA/input.txt")
-	cmd("split ~/Personal/DSA/output.txt")
-	cmd("split ~/Personal/DSA/compile_errors.txt")
+	cmd("vsplit /home/asa/Personal/DSA/input.txt")
+	cmd("split /home/asa/Personal/DSA/output.txt")
+	cmd("split /home/asa/Personal/DSA/compile_errors.txt")
 end
 
 return M
