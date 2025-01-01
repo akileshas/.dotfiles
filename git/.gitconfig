@@ -1,17 +1,72 @@
 [user]
-	name = akileshas
-	email = akilesh.ml.engineer@gmail.com
+    name = akileshas
+    email = akilesh.ml.engineer@gmail.com
+
+[alias]
+    ps = push
+    pl = pull
+
+    a = add
+    aa = add --all
+    ap = add --patch
+    au = add --update
+
+    b = branch
+    ba = branch --all
+    bd = branch --delete
+    bD = branch --delete --force
+    bm = branch --move
+    bM = branch --move --force
+
+    c = commit
+    ca = commit --amend
+    ci = commit --interactive
+    cm = commit --message
+    cv = commit --verbose
+
+    d = diff
+    dc = diff --cached
+    ds = diff --staged
+    dw = diff --word-diff
+
+    l = log
+    lg = log --graph
+    lk = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+    lo = log --oneline
+    lp = log --patch
+    lt = log --topo-order
+
+    o = checkout
+    ob = checkout -b
+
+    s = status --short --branch
+
+    unstage = reset HEAD
+    undo-commit = reset --soft HEAD^
+
+[color]
+    ui = auto
 
 [init]
-	defaultBranch = master
+    defaultBranch = master
+
+[core]
+    editor = nvim
+    pager = nvimpager
 
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
 
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
