@@ -10,15 +10,26 @@ local keymap = vim.keymap
 local fn = vim.fn
 local api = vim.api
 local cmd = vim.cmd
+local lsp = vim.lsp
 
 -- Importing the functions from functions.lua
 local functions = require("akileshas.core.functions")
 
 -- define the keymaps
 
--- use jj to exit insert mode
-keymap.set("i", "jj", "<ESC>", {
+-- use jk to exit insert mode
+keymap.set("i", "jk", "<ESC>", {
 	desc = "Exit insert mode with jk",
+})
+
+-- Source the current file
+keymap.set("n", "<leader>so", ":source %<CR>", {
+	desc = "Source the current file",
+})
+
+-- format the whole file using the lsp's default formatter
+keymap.set("n", "<leader>mP", lsp.buf.format, {
+	desc = "Format the whole file",
 })
 
 -- clear search highlights
@@ -146,7 +157,7 @@ keymap.set("n", "<C-Down>", [[<cmd>horizontal resize -2<cr>]], {
 })
 
 -- Map to NetRW
--- keymap.set("n", "<leader>pw", vim.cmd.Ex, {
+-- keymap.set("n", "<leader>pw", cmd.Ex, {
 --    desc = "Open NetRW",
 -- })
 
@@ -263,6 +274,17 @@ keymap.set("i", ",,", "<Esc>A,<Esc>", {
 })
 keymap.set("n", ",,", "<Esc>A,<Esc>", {
 	desc = "Insert , at the end of the line",
+})
+
+-- cellular automaton keymaps
+keymap.set({ "n", "v" }, "<leader>fr", "<cmd>CellularAutomaton make_it_rain<CR>", {
+	desc = "Make it rain",
+})
+keymap.set({ "n", "v" }, "<leader>fs", "<cmd>CellularAutomaton scramble<CR>", {
+	desc = "Scramble",
+})
+keymap.set({ "n", "v" }, "<leader>fl", "<cmd>CellularAutomaton game_of_life<CR>", {
+	desc = "Game of life",
 })
 
 -- open the command line window
