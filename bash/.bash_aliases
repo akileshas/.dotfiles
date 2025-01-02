@@ -25,6 +25,9 @@ alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
 
+# Explore the files
+alias ef="yazi"
+
 # Jump to the backward directory
 alias bd="cd -"
 
@@ -42,6 +45,10 @@ alias cls="clear"
 # Copying and Moving with progress bar
 alias cp="advcp -giR"
 alias mv="advmv -gi"
+
+# For rm command
+alias rm="rmtrash -iv"
+alias rmf="rmtrash -rvf"
 
 # Logout
 alias logout="pkill -KILL -u $USER"
@@ -89,9 +96,11 @@ alias ld="lazydocker"
 
 # For the fortune
 alias fortune="/usr/bin/fortune | cowsay | lolcat"
+alias fortune-linux="/usr/bin/fortune | cowsay -f tux | lolcat"
 
 # Set a alias for Bastard Operator From Hell (bofh)
 alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
+alias bofh-linux="/usr/bin/fortune bofh-excuses | cowsay -f tux | lolcat"
 
 # Alias for history
 alias hst="history | nvim"
@@ -100,8 +109,10 @@ alias hst="history | nvim"
 # alias hexread="function _hexread(){ hexdump -C '$1' | nvim; }; _hexread"
 
 # Copy and Paste aliases
-alias copy="xclip -selection clipboard"
-alias paste="xclip -o -selection clipboard"
+# alias copy="xclip -selection clipboard"
+# alias paste="xclip -o -selection clipboard"
+alias copy="xsel --clipboard --input"
+alias paste="xsel --clipboard --output"
 
 # Current time
 alias now="date '+%Y-%m-%d %A %I:%M:%S %p %Z'"
@@ -256,6 +267,10 @@ alias adb="~/Android/Sdk/platform-tools/adb"
 # Ping the Google
 alias pgle="ping google.com -c 11"
 alias ping="ping -c 11"
+alias pgh="gping"
+
+# Speedtest
+alias speedtest="speedtest-cli"
 
 # For the neofetch
 alias fetch="neofetch --off"
@@ -285,6 +300,29 @@ alias check-cmd="type -a"
 
 # Show open ports
 alias open-ports='netstat -nape --inet'
+
+# See the metadata of the file
+alias meta="exiftool"
+
+# For duplicates
+alias dup="fdupes -r"
+
+# For the disk usage
+alias df="duf"
+alias du="ncdu"
+
+# For monitoring the bandwidth
+alias band="sudo bandwhich"
+
+# For train
+alias train="sl"
+
+# For `figlet`
+alias ascii="figlet"
+
+# For mount and unmount the drives
+alias pdm="udisksctl mount -b"
+alias pdum="udisksctl unmount -b"
 
 
 
