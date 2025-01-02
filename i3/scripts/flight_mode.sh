@@ -8,7 +8,7 @@ bluetooth_status=$(rfkill list bluetooth | grep -i "Soft blocked" | awk '{print 
 
 # Check if either Wi-Fi or Bluetooth has a 'yes' for soft block
 if echo "$wifi_status" | grep -q "yes" || echo "$bluetooth_status" | grep -q "yes"; then
-    echo " F "
+    echo "  "
 else
     echo ""
 fi
