@@ -95,6 +95,11 @@ fi
 # Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/"
 source ~/.config/fzf-git.sh/fzf-git.sh
 
+# Source the `broot` shell script
+if [ -f /home/asa/.config/broot/launcher/bash/br ]; then
+    source /home/asa/.config/broot/launcher/bash/br
+fi
+
 
 
 ### --- Activating some features of the `bash` shell --- ###
