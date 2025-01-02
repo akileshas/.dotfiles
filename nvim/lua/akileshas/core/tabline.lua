@@ -32,7 +32,7 @@ function _G.tabline()
 				local icon, _ = require("nvim-web-devicons").get_icon(file_name)
 
 				-- Check if the buffer is modified
-				local modified = fn.getbufvar(fn.tabpagebuflist(i)[1], "&modified") == 1 and " ● " or ""
+				local modified = fn.getbufvar(fn.tabpagebuflist(i)[1], "&modified") == 1 and " ●" or ""
 
 				-- Add space before and after the icon and file name
 				file_name = " " .. (icon or "") .. " " .. file_name .. modified .. " "
