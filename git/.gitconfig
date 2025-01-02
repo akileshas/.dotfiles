@@ -11,6 +11,9 @@
     ap = add --patch
     au = add --update
 
+    cl = clone
+    cp = cherry-pick
+
     b = branch
     ba = branch --all
     bd = branch --delete
@@ -28,6 +31,10 @@
     dc = diff --cached
     ds = diff --staged
     dw = diff --word-diff
+    dp = diff --patch
+    dS = diff --submodule
+    dC = diff --color-words
+    dP = diff --color-words --patch
 
     l = log
     lg = log --graph
@@ -43,6 +50,36 @@
 
     unstage = reset HEAD
     undo-commit = reset --soft HEAD^
+
+    st = stash
+    sta = stash apply
+
+    m = merge
+    ma = merge --abort
+    mc = merge --continue
+    mf = merge --ff-only
+    mF = merge --no-ff
+    mS = merge --squash
+
+    r = rebase
+    ra = rebase --abort
+    rc = rebase --continue
+    ri = rebase --interactive
+    rs = rebase --skip
+
+    sh = show
+    shs = show --stat
+    shw = show --word-diff
+    shp = show --patch
+    shc = show --color-words
+
+    bl = blame
+    blr = blame --root
+
+    ignf = ls-files -o -i --exclude-standard
+
+    rmf = rm --force
+    rmc = rm -r --cached
 
 [color]
     ui = auto
