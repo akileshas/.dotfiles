@@ -257,9 +257,9 @@ bindsym $mod+Shift+space focus mode_toggle
 floating_modifier $mod
 
 # i3lock screen
-bindsym $mod+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000
+bindsym $mod+Escape exec --no-startup-id i3lock -i ~/.dotfiles/pictures/fuck-society.png -c 000000
 
 # Lock and Suspend the screen
-bindsym $mod+Shift+Escape exec --no-startup-id i3lock -i ~/Pictures/Fuck-Society.png -c 000000 && systemctl suspend
+bindsym $mod+Shift+Escape exec --no-startup-id i3lock -i ~/.dotfiles/pictures/fuck-society.png -c 000000 && systemctl suspend
 
 # ----------- END -----------
