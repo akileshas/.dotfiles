@@ -168,3 +168,7 @@ librsync
 gdb
 gdb-common
 gdb-dashboard
+bash-completion
+bun-bin
+nodejs
+go
