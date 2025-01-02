@@ -130,6 +130,15 @@ set -o vi
 
 
 
+### --- Customizing the `bash` shell bindings --- ###
+
+# Finally soucing the `bash_bindings` file
+if [ -f "$HOME/.dotfiles/bash/.bash_bindings" ]; then
+    . "$HOME/.dotfiles/bash/.bash_bindings"
+fi
+
+
+
 #################################################
 #                      END                      #
 #################################################
