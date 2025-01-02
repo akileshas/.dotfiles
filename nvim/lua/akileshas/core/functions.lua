@@ -1,9 +1,12 @@
 local M = {}
 
+-- for convenience
 local fn = vim.fn
 local api = vim.api
 local cmd = vim.cmd
 local bo = vim.bo
+local notify = vim.notify
+local log = vim.log
 
 function M.toggle_command_line()
 	if fn.getcmdwintype() == ":" then
@@ -45,6 +48,13 @@ function M.run_python_script()
 
 	local filename = fn.shellescape(fn.expand("%")) -- Get the full path of the current file
 	cmd("split | terminal python3 " .. filename) -- Run the Python script
+end
+
+function M.copy_whole_file_to_system_clipboard()
+	-- Copy the whole buffer to the system clipboard
+	fn.setreg("+", fn.getline("1", "$"))
+	-- Notify the user
+	notify("Copied the whole buffer to the system clipboard!", log.levels.INFO)
 end
 
 return M

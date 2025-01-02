@@ -225,8 +225,8 @@ keymap.set("v", "<leader>Y", '"+y', {
 keymap.set("n", "<leader>Y", '"+yg_', {
 	desc = "Copy till the end of the line",
 })
-keymap.set("n", "<leader>g", ":%y+<CR>", {
-	desc = "Copy the whole file",
+keymap.set("n", "<leader>G", 'gg0"+yG<C-o>', {
+	desc = "Copy the whole file to system clipboard and register",
 })
 
 -- paste from system clipboard
@@ -287,6 +287,11 @@ keymap.set({ "n", "v" }, "<leader>fl", "<cmd>CellularAutomaton game_of_life<CR>"
 	desc = "Game of life",
 })
 
+-- open the terminal in new tab and go to insert mode
+keymap.set("n", "<leader>;", ":tab terminal<CR>i", {
+	desc = "Open the terminal in new tab and go to insert mode",
+})
+
 -- open the command line window
 keymap.set("n", "<leader>:", functions.toggle_command_line, {
 	desc = "Toggle the command-line window",
@@ -296,6 +301,14 @@ keymap.set("n", "<leader>:", functions.toggle_command_line, {
 keymap.set("n", "<leader>o", functions.open_file_default_program, {
 	desc = "Open image or PDF with default program",
 })
+
+-- copy the whole file to system clipboard
+keymap.set(
+	"n",
+	"<leader>g",
+	functions.copy_whole_file_to_system_clipboard,
+	{ desc = "Copy the whole file to system clipboard" }
+)
 
 -- run the python script
 keymap.set("n", "<leader>pr", functions.run_python_script, {
