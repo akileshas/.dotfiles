@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Check if the host is NEXUS
-if [ "$(hostnamectl hostname)" != "NEXUS" ]; then
-    echo "This script is only intended to run on the host 'NEXUS'. Exiting."
+# Check if the host is ASA
+if [ "$(hostnamectl hostname)" != "ASA" ]; then
+    echo "This script is only intended to run on the host 'ASA'. Exiting."
     exit 1
 fi
 
