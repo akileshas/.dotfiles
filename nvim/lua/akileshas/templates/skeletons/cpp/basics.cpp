@@ -45,8 +45,8 @@ void solve() {
 
 int main() {
 #ifndef ONLINE_JUDGE
-    freopen("/home/asa/Personal/DSA/input.txt", "r", stdin);
-    freopen("/home/asa/Personal/DSA/output.txt", "w", stdout);
+    freopen("/home/akileshas/personal/AlgoX/input.txt", "r", stdin);
+    freopen("/home/akileshas/personal/AlgoX/output.txt", "w", stdout);
 #endif
 
     ios_base::sync_with_stdio(0);

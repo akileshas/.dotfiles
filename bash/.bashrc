@@ -98,8 +98,8 @@ if [ -f ~/.config/fzf-git.sh/fzf-git.sh ]; then
 fi
 
 # Source the `broot` shell script
-if [ -f /home/asa/.config/broot/launcher/bash/br ]; then
-    source /home/asa/.config/broot/launcher/bash/br
+if [ -f /home/akileshas/.config/broot/launcher/bash/br ]; then
+    source /home/akileshas/.config/broot/launcher/bash/br
 fi
 
 

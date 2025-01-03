@@ -262,7 +262,7 @@ alias paruu="paru -U"
 alias paruf="paru -F"
 
 # Open the TODO file
-alias todo="nvim ~/Obsidian-Vault/TODO.md"
+alias todo="nvim ~/obsidian/TODO.md"
 
 # For adb
 alias adb="~/Android/Sdk/platform-tools/adb"
