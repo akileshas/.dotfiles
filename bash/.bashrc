@@ -92,8 +92,10 @@ if command -v /bin/fzf &>/dev/null; then
 fi
 
 # Setup the fzf-git
-# Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/"
-source ~/.config/fzf-git.sh/fzf-git.sh
+# Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/fzf-git.sh/"
+if [ -f ~/.config/fzf-git.sh/fzf-git.sh ]; then
+   source ~/.config/fzf-git.sh/fzf-git.sh
+fi
 
 # Source the `broot` shell script
 if [ -f /home/asa/.config/broot/launcher/bash/br ]; then

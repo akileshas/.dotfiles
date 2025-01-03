@@ -172,3 +172,4 @@ bash-completion
 bun-bin
 nodejs
 go
+ufw
