@@ -11,17 +11,15 @@ pa() {
     # Get the list of Conda environments and process it
     choice=$(
         conda env list |
-            sed 's/\*/ /;1,2d' |
-            xargs -I {} bash -c '
-            env_name_path=({});
-            env_path=${env_name_path[1]};
-            if [[ -f "$env_path/bin/python" ]]; then
-                py_version=$($env_path/bin/python --version 2>&1);
-                echo "${env_name_path[0]} ${py_version#* } ${env_path}";
-            else
-                echo "Error: Python not found in $env_path";
-            fi
-        ' |
+            sed '/^#/d; /^[[:space:]]*$/d; s/\*/ /' |
+            while read -r env_name env_path; do
+                if [[ -f "$env_path/bin/python" ]]; then
+                    py_version=$("$env_path/bin/python" --version 2>&1)
+                    echo "$env_name $py_version $env_path"
+                else
+                    echo "$env_name Error: Python not found in $env_path"
+                fi
+            done |
             column -t |
             fzf --border=rounded \
                 --height=21 \
@@ -30,7 +28,7 @@ pa() {
 
     # If the choice is not empty, activate the environment
     if [[ -n "$choice" ]]; then
-        env_name=$(echo $choice | awk '{print $1}')
+        env_name=$(echo "$choice" | awk '{print $1}')
         # Try activating the environment and handle potential errors
         if conda activate "$env_name"; then
             echo "Activated environment: $env_name"
