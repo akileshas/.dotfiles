@@ -8,7 +8,7 @@
 #############################################################
 
 # Font for window titles.
-font pango:monospace 9
+font pango:Monospace 9
 
 
 
