@@ -173,3 +173,5 @@ bun-bin
 nodejs
 go
 ufw
+bluez-utils
+github-cli

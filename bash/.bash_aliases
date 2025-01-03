@@ -137,6 +137,9 @@ alias ebexp="nvim ~/.dotfiles/bash/.bash_exports"
 alias ebbnd="nvim ~/.dotfiles/bash/.bash_bindings"
 alias ebkey="nvim ~/.bash_keys"
 
+# Bash Notes
+alias bn="nvim ~/.dotfiles/bash/bash_notes.md"
+
 # Alert for long running commands
 alias alert='
 if [ $? -eq 0 ]; then
