@@ -25,6 +25,7 @@ bar {
         separator   #0f7db1
 
         focused_workspace    #0f7db1 #0f7db1 #000000
+        active_workspace     #21283b #21283b #ffffff
         inactive_workspace   #21283b #21283b #ffffff
         urgent_workspace     #b10f26 #b10f26 #f5e6e8
     }
@@ -38,9 +39,10 @@ bar {
 
 # Modify the window border colors and sizes
 for_window [class=".*"] border pixel 2
-client.focused          #0f7db1 #0f7db1 #000000
-client.unfocused        #21283b #21283b #ffffff
-client.urgent           #b10f26 #b10f26 #f5e6e8
+client.focused          #0f7db1 #0f7db1 #000000 #0f7db1 #0f7db1
+client.focused_inactive #21283b #21283b #ffffff #21283b #21283b
+client.unfocused        #21283b #21283b #ffffff #21283b #21283b
+client.urgent           #b10f26 #b10f26 #f5e6e8 #b10f26 #b10f26
 
 # ----------- END -----------
 
@@ -260,6 +262,6 @@ floating_modifier $mod
 bindsym $mod+Escape exec --no-startup-id i3lock -i ~/.dotfiles/pictures/fuck-society.png -c 000000
 
 # Lock and Suspend the screen
-bindsym $mod+Shift+Escape exec --no-startup-id i3lock -i ~/.dotfiles/pictures/fuck-society.png -c 000000 && systemctl suspend
+bindsym $mod+Shift+Escape exec --no-startup-id exec ~/.dotfiles/i3/scripts/suspend.sh
 
 # ----------- END -----------
