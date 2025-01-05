@@ -82,11 +82,15 @@ t() {
 
     # Define required directories
     required_dirs=(
-        ~/Repository
-        ~/Downloads/tmp
-        ~/Personal
+        ~/repositories
+        ~/personal
+        ~/work
+        ~/tmp
+        ~/documents
+        ~/downloads
         ~/.dotfiles
         ~/Documents
+        ~/Downloads/Projects
     )
 
     # Define directories to ignore
