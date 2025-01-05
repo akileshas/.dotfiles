@@ -64,16 +64,20 @@ function M.compile_run_cpp_file()
 		local output_name = fn.expand("%:t:r")
 
 		-- Compile the C++ file
-		cmd("!g++ -DLOCAL -o " .. output_name .. " % 2> /home/akileshas/personal/AlgoX/compiler_error.txt")
+		local compile_command = "g++ -DLOCAL -o "
+			.. fn.shellescape(output_name)
+			.. " "
+			.. fn.shellescape(fn.expand("%:p"))
+			.. " 2> /home/akileshas/personal/AlgoX/compiler_error.txt"
+		local compile_status = fn.system(compile_command)
 
 		-- Check if the compilation was successful
-		local compile_status = fn.system("echo $?")
-		if compile_status:match("0") then
+		if fn.filereadable(output_name) == 1 then
 			-- Run the compiled binary
-			cmd("!./" .. output_name)
+			cmd("!./" .. fn.shellescape(output_name))
 
 			-- Remove the compiled binary
-			cmd("!rm " .. output_name)
+			fn.system("rm " .. fn.shellescape(output_name))
 		else
 			-- Print compile errors
 			cmd("!cat /home/akileshas/personal/AlgoX/compiler_error.txt")
