@@ -41,6 +41,8 @@ const ld EPS = 1e-9;
 
 void solve() {
     // Your solution logic here
+
+    cout << endl;
 }
 
 int main() {
