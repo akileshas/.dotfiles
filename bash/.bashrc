@@ -48,8 +48,10 @@ if [ -f "$HOME/.dotfiles/bash/scripts/bash_sources.sh" ]; then
 fi
 
 # MiniConda initialization
-if [ -f "$HOME/.dotfiles/bash/scripts/miniconda.sh" ]; then
+if [ "$(hostnamectl hostname)" = "ASA" ] && [ -f "$HOME/.dotfiles/bash/scripts/miniconda.sh" ]; then
     . "$HOME/.dotfiles/bash/scripts/miniconda.sh"
+elif [ "$(hostnamectl hostname)" = "GGS" ] && [ -f "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh" ]; then
+    . "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
 fi
 
 # NVM initialization
