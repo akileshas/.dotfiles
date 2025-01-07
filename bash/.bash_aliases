@@ -283,7 +283,7 @@ alias code-count="scc -upw"
 
 # For list the files
 alias ls="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time"
-alias ll="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time"
+alias lls="eza --icons=always --color=always --group-directories-first --all --long --git --no-permissions --no-filesize --no-user --no-time"
 alias lt="eza --icons=always --color=always --group-directories-first --long --ignore-glob 'node_modules|.git' --git --no-permissions --no-filesize --no-user --no-time --tree"
 alias llt="eza --icons=always --color=always --group-directories-first --all --long --ignore-glob 'node_modules|.git' --git --no-permissions --no-filesize --no-user --no-time --tree"
 alias lf="eza --icons=always --color=always --group-directories-first --long --git --no-permissions --no-filesize --no-user --no-time --only-files"
