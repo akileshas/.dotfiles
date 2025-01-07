@@ -11,7 +11,7 @@ keymaps.set("n", "<leader>cp", modules.copy_cpp_basic_template, {
 })
 
 -- Compile and run the C++ file
-keymaps.set("n", "<leader>cc", modules.compile_run_cpp_file, {
+keymaps.set("n", "<leader>cr", modules.compile_run_cpp_file, {
 	desc = "Compile and run the C++ file",
 })
 
