@@ -234,9 +234,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +3%
 bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
 # Screenshots
-bindsym Print exec --no-startup-id sh -c 'maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
-bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Print exec --no-startup-id sh -c 'maim ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
+bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
 
 # Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png'
