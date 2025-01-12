@@ -139,6 +139,9 @@ total_end_time=$(date +%s.%N)
 total_duration=$(echo "$total_end_time - $total_start_time" | bc)
 printf "[\033[1;34mSourced\033[0m](\033[1;32m%.5f\033[0m) %s\n" "$total_duration" "$HOME/.bashrc"
 
+# Clearing the screen
+# clear
+
 #################################################
 #                      END                      #
 #################################################

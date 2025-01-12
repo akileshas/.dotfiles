@@ -4,4 +4,4 @@
 export PF_ASCII=linux
 
 # Display system info using pfetch
-pfetch
+# pfetch
