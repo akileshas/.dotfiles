@@ -4,6 +4,11 @@
 #                     BASH                      #
 #################################################
 
+# Starting the timer
+# This will be used to measure the time taken to source the file
+# The timer will be stopped at the end of the file
+total_start_time=$(date +%s.%N)
+
 ### --- Checking bash --- ###
 
 # Not bash ?
@@ -128,6 +133,11 @@ set -o vi
 
 # Finally soucing the `bash_bindings` file
 time_source "$HOME/.dotfiles/bash/.bash_bindings"
+
+# Stopping the timer
+total_end_time=$(date +%s.%N)
+total_duration=$(echo "$total_end_time - $total_start_time" | bc)
+printf "[\033[1;34mSourced\033[0m](\033[1;32m%.5f\033[0m) %s\n" "$total_duration" "$HOME/.bashrc"
 
 #################################################
 #                      END                      #
