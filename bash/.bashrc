@@ -18,24 +18,19 @@ total_start_time=$(date +%s.%N)
 [[ $- == *i* ]] || return 0
 
 # Function to measure and display sourcing time
-time_source() {
+validate_source() {
     local start end duration source_file="$1"
     if [ -f "$source_file" ]; then
         start=$(date +%s.%N)
         . "$source_file"
         end=$(date +%s.%N)
         duration=$(echo "$end - $start" | bc)
-        printf "[\033[1;34mSourced\033[0m](\033[1;32m%.5f\033[0m) %s\n" "$duration" "$source_file"
+        printf "[\033[1;32m✓\033[0m](\033[1;34m%.5f\033[0m) %s\n" "$duration" "$source_file"
     else
-        printf "[\033[1;31mMissing\033[0m](\033[1;33mSkipped\033[0m) %s\n" "$source_file"
+        printf "[\033[1;31m✗\033[0m](\033[1;33mSkipped\033[0m) %s\n" "$source_file"
+        sleep 5
     fi
 }
-
-### --- Greeting's --- ###
-
-# Executing the Greeting script
-# Check if the file exists and execute it
-time_source "$HOME/.dotfiles/bash/scripts/greeting.sh"
 
 ### --- Initialization and Sourcing the required file  --- ###
 
@@ -54,18 +49,18 @@ if [[ $interactiveShellTest > 0 ]]; then bind "set completion-ignore-case on"; f
 # if [[ $interactiveShellTest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Source the custom script for additional configurations
-time_source "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
+validate_source "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
 
 # MiniConda initialization
 if [ "$(hostnamectl hostname)" = "ASA" ]; then
-    time_source "$HOME/.dotfiles/bash/scripts/miniconda.sh"
+    validate_source "$HOME/.dotfiles/bash/scripts/miniconda.sh"
 elif [ "$(hostnamectl hostname)" = "GGS" ]; then
-    time_source "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
+    validate_source "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
 fi
 
 # NVM initialization
 # Check if the nvm initialization script exists before sourcing
-time_source /usr/share/nvm/init-nvm.sh
+validate_source /usr/share/nvm/init-nvm.sh
 
 ### --- Shell Prompt Customization --- ###
 
@@ -98,10 +93,10 @@ fi
 
 # Setup the fzf-git
 # Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/fzf-git.sh/"
-time_source ~/.config/fzf-git.sh/fzf-git.sh
+validate_source ~/.config/fzf-git.sh/fzf-git.sh
 
 # Source the `broot` shell script
-time_source /home/akileshas/.config/broot/launcher/bash/br
+validate_source /home/akileshas/.config/broot/launcher/bash/br
 
 ### --- Activating some features of the `bash` shell --- ###
 
@@ -132,15 +127,18 @@ set -o vi
 ### --- Customizing the `bash` shell bindings --- ###
 
 # Finally soucing the `bash_bindings` file
-time_source "$HOME/.dotfiles/bash/.bash_bindings"
+validate_source "$HOME/.dotfiles/bash/.bash_bindings"
+
+### --- Greeting's --- ###
+
+# Executing the Greeting script
+# Check if the file exists and execute it
+source "$HOME/.dotfiles/bash/scripts/greeting.sh"
 
 # Stopping the timer
 total_end_time=$(date +%s.%N)
 total_duration=$(echo "$total_end_time - $total_start_time" | bc)
-printf "[\033[1;34mSourced\033[0m](\033[1;32m%.5f\033[0m) %s\n" "$total_duration" "$HOME/.bashrc"
-
-# Clearing the screen
-clear
+printf "[\033[1;32m✓\033[0m](\033[1;34m%.5f\033[0m) %s\n" "$total_duration" "$HOME/.bashrc"
 
 #################################################
 #                      END                      #
