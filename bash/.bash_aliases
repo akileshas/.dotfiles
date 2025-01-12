@@ -4,8 +4,6 @@
 #                 BASH ALIASES                  #
 #################################################
 
-
-
 # Rectify the last command with sudo
 alias wtf='sudo $(history -p !!)'
 
@@ -326,8 +324,6 @@ alias ascii="figlet"
 # For mount and unmount the drives
 alias pdm="udisksctl mount -b"
 alias pdum="udisksctl unmount -b"
-
-
 
 #################################################
 #                      END                      #

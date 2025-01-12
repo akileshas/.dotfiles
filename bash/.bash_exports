@@ -4,8 +4,6 @@
 #                 BASH EXPORTS                  #
 #################################################
 
-
-
 # XDG Base Directory Specification
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -190,8 +188,6 @@ fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --foll
 # Qt Environment Variables
 export QT_STYLE_OVERRIDE=adwaita-dark
 export QT_QPA_PLATFORMTHEME=qt6ct
-
-
 
 #################################################
 #                      END                      #

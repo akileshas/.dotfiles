@@ -4,13 +4,9 @@
 #                  BASH BINDS                   #
 #################################################
 
-
-
 # For `tmux` session manager
 # bind the `t` function to `ctrl + space`
 bind -x '"\C-@": t'
-
-
 
 #################################################
 #                      END                      #

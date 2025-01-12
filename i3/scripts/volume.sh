@@ -10,11 +10,11 @@ if [ "$mute" = "true" ]; then
     echo " "
 else
     if [ "$volume" -ge 80 ]; then
-        icon=" "  # Loud
+        icon=" " # Loud
     elif [ "$volume" -ge 40 ]; then
-        icon=" "  # Medium
+        icon=" " # Medium
     else
-        icon=" "  # Quiet
+        icon=" " # Quiet
     fi
     echo " $icon $volume% "
 fi

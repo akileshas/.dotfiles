@@ -4,8 +4,6 @@
 #                BASH FUNCTIONS                 #
 #################################################
 
-
-
 # Clean the Compiled Python Files
 cls-pyc() {
     # Remove all .pyc files recursively
@@ -198,7 +196,7 @@ _fzf_comprun() {
             --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
             --bind "ctrl-o:execute(nvim {})" "$@"
         ;;
-    nvim|v)
+    nvim | v)
         fzf --border \
             --preview "$SHOW_FILE_OR_DIR_OR_CMD_PREVIEW" \
             --bind "ctrl-o:execute(nvim {})" "$@"
@@ -271,8 +269,6 @@ fnode() {
         echo "No script selected."
     fi
 }
-
-
 
 #################################################
 #                      END                      #

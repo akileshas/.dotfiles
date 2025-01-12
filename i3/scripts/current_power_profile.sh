@@ -4,14 +4,14 @@
 current_profile=$(powerprofilesctl get)
 
 case "$current_profile" in
-    "balanced")
-        echo "  "
-        ;;
-    "performance")
-        echo "  "
-        ;;
-    "power-saver")
-        echo "  "
-        ;;
-    *)
+"balanced")
+    echo "  "
+    ;;
+"performance")
+    echo "  "
+    ;;
+"power-saver")
+    echo "  "
+    ;;
+*) ;;
 esac

@@ -4,8 +4,6 @@
 #                     BASH                      #
 #################################################
 
-
-
 ### --- Checking bash --- ###
 
 # Not bash ?
@@ -14,17 +12,25 @@
 # Not an interactive shell ?
 [[ $- == *i* ]] || return 0
 
-
+# Function to measure and display sourcing time
+time_source() {
+    local start end duration source_file="$1"
+    if [ -f "$source_file" ]; then
+        start=$(date +%s.%N)
+        . "$source_file"
+        end=$(date +%s.%N)
+        duration=$(echo "$end - $start" | bc)
+        printf "[\033[1;34mSourced\033[0m](\033[1;32m%.5f\033[0m) %s\n" "$duration" "$source_file"
+    else
+        printf "[\033[1;31mMissing\033[0m](\033[1;33mSkipped\033[0m) %s\n" "$source_file"
+    fi
+}
 
 ### --- Greeting's --- ###
 
 # Executing the Greeting script
 # Check if the file exists and execute it
-if [ -f "$HOME/.dotfiles/bash/scripts/greeting.sh" ]; then
-    bash "$HOME/.dotfiles/bash/scripts/greeting.sh"
-fi
-
-
+time_source "$HOME/.dotfiles/bash/scripts/greeting.sh"
 
 ### --- Initialization and Sourcing the required file  --- ###
 
@@ -43,24 +49,18 @@ if [[ $interactiveShellTest > 0 ]]; then bind "set completion-ignore-case on"; f
 # if [[ $interactiveShellTest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Source the custom script for additional configurations
-if [ -f "$HOME/.dotfiles/bash/scripts/bash_sources.sh" ]; then
-    . "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
-fi
+time_source "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
 
 # MiniConda initialization
-if [ "$(hostnamectl hostname)" = "ASA" ] && [ -f "$HOME/.dotfiles/bash/scripts/miniconda.sh" ]; then
-    . "$HOME/.dotfiles/bash/scripts/miniconda.sh"
-elif [ "$(hostnamectl hostname)" = "GGS" ] && [ -f "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh" ]; then
-    . "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
+if [ "$(hostnamectl hostname)" = "ASA" ]; then
+    time_source "$HOME/.dotfiles/bash/scripts/miniconda.sh"
+elif [ "$(hostnamectl hostname)" = "GGS" ]; then
+    time_source "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
 fi
 
 # NVM initialization
 # Check if the nvm initialization script exists before sourcing
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
-    source /usr/share/nvm/init-nvm.sh
-fi
-
-
+time_source /usr/share/nvm/init-nvm.sh
 
 ### --- Shell Prompt Customization --- ###
 
@@ -71,8 +71,6 @@ fi
 
 # Setting the PS1 prompt
 PS1='[\u@\h \W]\$ '
-
-
 
 ### --- Useful Cmdline tools --- ###
 
@@ -95,16 +93,10 @@ fi
 
 # Setup the fzf-git
 # Clone the repository: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/fzf-git.sh/"
-if [ -f ~/.config/fzf-git.sh/fzf-git.sh ]; then
-   source ~/.config/fzf-git.sh/fzf-git.sh
-fi
+time_source ~/.config/fzf-git.sh/fzf-git.sh
 
 # Source the `broot` shell script
-if [ -f /home/akileshas/.config/broot/launcher/bash/br ]; then
-    source /home/akileshas/.config/broot/launcher/bash/br
-fi
-
-
+time_source /home/akileshas/.config/broot/launcher/bash/br
 
 ### --- Activating some features of the `bash` shell --- ###
 
@@ -132,16 +124,10 @@ set -o noclobber
 # Enable the `vi` mode
 set -o vi
 
-
-
 ### --- Customizing the `bash` shell bindings --- ###
 
 # Finally soucing the `bash_bindings` file
-if [ -f "$HOME/.dotfiles/bash/.bash_bindings" ]; then
-    . "$HOME/.dotfiles/bash/.bash_bindings"
-fi
-
-
+time_source "$HOME/.dotfiles/bash/.bash_bindings"
 
 #################################################
 #                      END                      #

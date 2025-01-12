@@ -21,25 +21,25 @@ CHOICE=$(echo -e "Right of the internal monitor\nLeft of the internal monitor\nD
 
 # Apply the chosen configuration
 case $CHOICE in
-    "Right of the internal monitor")
-        xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
-               --output "$EXTERNAL" --auto --right-of "$INTERNAL"
-        ;;
-    "Left of the internal monitor")
-        xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
-               --output "$EXTERNAL" --auto --left-of "$INTERNAL"
-        ;;
-    "Duplicate the internal monitor")
-        xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
-               --output "$EXTERNAL" --auto --same-as "$INTERNAL"
-        ;;
-    "Disconnect the external monitor")
-        xrandr --output "$EXTERNAL" --off
-        ;;
-    *)
-        echo "Invalid choice or cancelled. Exiting."
-        exit 1
-        ;;
+"Right of the internal monitor")
+    xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
+        --output "$EXTERNAL" --auto --right-of "$INTERNAL"
+    ;;
+"Left of the internal monitor")
+    xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
+        --output "$EXTERNAL" --auto --left-of "$INTERNAL"
+    ;;
+"Duplicate the internal monitor")
+    xrandr --output "$INTERNAL" --mode 1920x1200 --primary \
+        --output "$EXTERNAL" --auto --same-as "$INTERNAL"
+    ;;
+"Disconnect the external monitor")
+    xrandr --output "$EXTERNAL" --off
+    ;;
+*)
+    echo "Invalid choice or cancelled. Exiting."
+    exit 1
+    ;;
 esac
 
 # Optionally set a wallpaper for the monitors
