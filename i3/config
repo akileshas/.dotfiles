@@ -279,4 +279,10 @@ assign [class="obsidian"] 10
 # For OBS Studio
 assign [class="obs"] 9
 
+# For Qalculate
+for_window [class="Qalculate"] floating enable, move position 949 29
+
+# For ONLYOFFICE Desktop Editors
+assign [class="ONLYOFFICE Desktop Editors"] 8
+
 # ----------- END -----------
