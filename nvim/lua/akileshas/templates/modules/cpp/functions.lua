@@ -55,11 +55,12 @@ function M.compile_run_cpp_file()
 	local fn = vim.fn
 	local cmd = vim.cmd
 	local api = vim.api
+	local log = vim.log
 
 	-- Check if the current directory contains "AlgoX"
 	local cwd = fn.getcwd() -- Get current working directory
 	if not cwd:find("AlgoX") then
-		vim.notify("It's for Competative Programming !", vim.log.levels.WARN)
+		vim.notify("It's for Competative Programming !", log.levels.WARN)
 		return
 	end
 
@@ -90,7 +91,7 @@ function M.compile_run_cpp_file()
 			api.nvim_err_writeln("Compilation failed. Check compiler_error.txt for details.")
 		end
 	else
-		vim.notify("Not a C++ file!", vim.log.levels.WARN)
+		vim.notify("Not a C++ file!", log.levels.WARN)
 	end
 end
 
