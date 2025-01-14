@@ -37,7 +37,7 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
 				["<C-k>"] = cmp.mapping.confirm({ select = false }),
 				["<C-s>"] = cmp.mapping.complete(), -- show completion suggestions
-				["<C-q>"] = cmp.mapping.abort(), -- close completion window
+				["<C-e>"] = cmp.mapping.abort(), -- close completion window
 			}),
 
 			sources = cmp.config.sources({

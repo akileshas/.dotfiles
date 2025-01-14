@@ -38,7 +38,7 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
 # Chrome Environment Variables
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-unstable
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-canary
 
 # Expand the history size
 export HISTSIZE=1000000

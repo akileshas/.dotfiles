@@ -10,6 +10,7 @@ feh
 pavucontrol
 bc
 libqalculate
+qalculate-gtk
 lazygit
 lazydocker
 neovim
