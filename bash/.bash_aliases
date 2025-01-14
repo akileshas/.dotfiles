@@ -328,6 +328,9 @@ alias pdum="udisksctl unmount -b"
 # i3 configuration files
 alias i3cf="nvim ~/.dotfiles/i3/config"
 
+# list the all mounted drives
+alias lmd="lsscsi"
+
 #################################################
 #                      END                      #
 #################################################
