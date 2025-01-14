@@ -11,11 +11,11 @@ keymaps.set("n", "<leader>cp", modules.copy_cpp_basic_template, {
 })
 
 -- Compile and run the C++ file
-keymaps.set("n", "<leader>cr", modules.compile_run_cpp_file, {
+keymaps.set("n", "<leader>cc", modules.compile_run_cpp_file, {
 	desc = "Compile and run the C++ file",
 })
 
 -- Opening the input.txt and output.txt files
-keymaps.set("n", "<leader>sp", modules.open_input_output_files, {
+keymaps.set("n", "<leader>sp", modules.toggle_input_output_files, {
 	desc = "Open the input.txt and output.txt files",
 })
