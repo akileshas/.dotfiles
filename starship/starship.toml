@@ -12,6 +12,12 @@ add_newline = false
 # Use custom format
 format = "$all$directory$character"
 
+# Timeout for commands executed by starship (in milliseconds)
+command_timeout = 5000
+
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 500
+
 # Custom format icons
 [aws]
 symbol = "  "
