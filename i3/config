@@ -265,3 +265,18 @@ bindsym $mod+Escape exec --no-startup-id i3lock -i ~/.dotfiles/pictures/fuck-soc
 bindsym $mod+Shift+Escape exec --no-startup-id exec ~/.dotfiles/i3/scripts/suspend.sh
 
 # ----------- END -----------
+
+
+
+# ----------- Window Rule's -----------
+
+# For Discord
+assign [class="discord"] 11
+
+# For Obsidian
+assign [class="obsidian"] 10
+
+# For OBS Studio
+assign [class="obs"] 9
+
+# ----------- END -----------
