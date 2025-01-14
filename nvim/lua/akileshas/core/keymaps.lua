@@ -314,3 +314,8 @@ keymap.set(
 keymap.set("n", "<leader>pr", functions.run_python_script, {
 	desc = "Run the Python script",
 })
+
+-- run the c/c++ script
+keymap.set("n", "<leader>cr", functions.run_c_cpp_script, {
+	desc = "Run the C/C++ script",
+})

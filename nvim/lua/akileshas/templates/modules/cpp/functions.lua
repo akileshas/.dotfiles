@@ -87,7 +87,6 @@ function M.compile_run_cpp_file()
 			fn.system("rm " .. fn.shellescape(output_name))
 		else
 			-- Print compile errors
-			cmd("!cat /home/akileshas/personal/AlgoX/compiler_error.txt")
 			api.nvim_err_writeln("Compilation failed. Check compiler_error.txt for details.")
 		end
 	else
