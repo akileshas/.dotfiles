@@ -62,11 +62,11 @@ pc() {
 
     # Get the name of the new environment
     read -p "Enter the name of the new environment: " env_name
-    read -p "Enter the Python version ( 3.10 ): " python_version
+    read -p "Enter the Python version ( 3.11 ): " python_version
 
     # Set default Python version if none is provided
     if [[ -z "$python_version" ]]; then
-        python_version="3.10"
+        python_version="3.11"
         echo "No Python version provided. Using default version: $python_version"
     fi
 
