@@ -1,5 +1,26 @@
 #!/bin/bash
 
+pl() {
+    # Check if Conda is installed
+    if ! command -v conda &>/dev/null; then
+        echo "Conda is not installed. Please install Conda first."
+        return 1
+    fi
+
+    # Get the list of Conda environments and display it
+    conda env list |
+        sed '/^#/d; /^[[:space:]]*$/d; s/\*/ /' |
+        while read -r env_name env_path; do
+            if [[ -f "$env_path/bin/python" ]]; then
+                py_version=$("$env_path/bin/python" --version 2>&1)
+                echo "$env_name $py_version $env_path"
+            else
+                echo "$env_name Error: Python not found in $env_path"
+            fi
+        done |
+        column -t
+}
+
 # Function to activate the python virtual environment
 pa() {
     # Check if Conda is installed
