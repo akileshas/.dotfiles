@@ -12,6 +12,8 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion with LuaSnip
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- VS-Code like pictograms
+		"hrsh7th/cmp-nvim-lsp", -- Enables completion from LSP servers
+		"hrsh7th/cmp-nvim-lsp-signature-help", -- Adds signature help (function arguments) in completion popups
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -41,7 +43,8 @@ return {
 			}),
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp_signature_help" }, -- function signature help
+				{ name = "nvim_lsp" }, -- LSP completion
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within the current buffer
 				{ name = "path" }, -- file system paths
