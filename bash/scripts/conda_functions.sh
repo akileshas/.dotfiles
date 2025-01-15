@@ -102,8 +102,26 @@ pc() {
     # Activate the new environment
     if conda activate "$env_name"; then
         echo "Activated environment: $env_name"
+
+        # Ask the user if they want to install packages from the requirements file
+        read -p "Do you want to install packages from the requirements file? (y/N): " install_packages
+        if [[ "$install_packages" == "y" ]]; then
+            # Path to the requirements file
+            requirements_file="/home/akileshas/.dotfiles/python-dev-env/requirements-common.txt"
+
+            # Check if the requirements file exists
+            if [[ -f "$requirements_file" ]]; then
+                echo "Installing packages from $requirements_file..."
+                pip install -r "$requirements_file" && echo "Packages installed successfully."
+            else
+                echo "Requirements file not found: $requirements_file"
+            fi
+        else
+            echo "Skipping package installation."
+        fi
     else
         echo "Failed to activate environment: $env_name"
+        return 1
     fi
 }
 
@@ -118,17 +136,15 @@ pr() {
     # Get the list of Conda environments and process it
     choice=$(
         conda env list |
-            sed 's/\*/ /;1,2d' |
-            xargs -I {} bash -c '
-            env_name_path=({});
-            env_path=${env_name_path[1]};
-            if [[ -f "$env_path/bin/python" ]]; then
-                py_version=$($env_path/bin/python --version 2>&1);
-                echo "${env_name_path[0]} ${py_version#* } ${env_path}";
-            else
-                echo "Error: Python not found in $env_path";
-            fi
-        ' |
+            sed '/^#/d; /^[[:space:]]*$/d; s/\*/ /' |
+            while read -r env_name env_path; do
+                if [[ -f "$env_path/bin/python" ]]; then
+                    py_version=$("$env_path/bin/python" --version 2>&1)
+                    echo "$env_name $py_version $env_path"
+                else
+                    echo "$env_name Error: Python not found in $env_path"
+                fi
+            done |
             column -t |
             fzf --border=rounded \
                 --height=21 \
