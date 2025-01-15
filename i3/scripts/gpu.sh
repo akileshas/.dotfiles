@@ -10,4 +10,4 @@ used_memory=$(echo $gpu_memory_info | cut -d ',' -f 1)
 total_memory=$(echo $gpu_memory_info | cut -d ',' -f 2)
 
 # Display GPU usage and memory usage
-echo " GPU ${gpu_usage}% - ${used_memory} MiB "
+echo "   ${gpu_usage}% - ${used_memory} MiB "

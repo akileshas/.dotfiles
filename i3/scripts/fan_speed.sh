@@ -13,4 +13,4 @@ if [ -z "$FAN2" ]; then
 fi
 
 # Output fan speeds in a compact format with separator
-echo " 󰈐  FAN1: $FAN1 RPM • FAN2: $FAN2 RPM "
+echo " 󰈐  $FAN1 RPM • $FAN2 RPM "

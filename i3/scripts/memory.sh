@@ -10,4 +10,4 @@ used_swap=$(free -b | awk '/^Swap:/ {printf "%.1f", $3/1024/1024/1024}')
 total_swap=$(free -b | awk '/^Swap:/ {printf "%.1f", $2/1024/1024/1024}')
 
 # Display RAM and Swap usage with decorative separators and GiB label
-echo "   RAM: ${used_mem}/${total_mem} GiB • SWAP: ${used_swap}/${total_swap} GiB "
+echo "   ${used_mem}/${total_mem} GiB • ${used_swap}/${total_swap} GiB "
