@@ -107,7 +107,7 @@ pc() {
         read -p "Do you want to install packages from the requirements file? (y/N): " install_packages
         if [[ "$install_packages" == "y" ]]; then
             # Path to the requirements file
-            requirements_file="/home/akileshas/.dotfiles/python-dev-env/requirements-common.txt"
+            requirements_file="/home/akileshas/.dotfiles/env/py/requirements-common.txt"
 
             # Check if the requirements file exists
             if [[ -f "$requirements_file" ]]; then

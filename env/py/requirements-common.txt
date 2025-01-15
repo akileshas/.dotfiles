@@ -67,3 +67,9 @@ build
 optree
 packaging
 kaggle
+ninja
+onnxruntime-genai
+mlflow
+mlflow[extras]
+neptune
+wandb

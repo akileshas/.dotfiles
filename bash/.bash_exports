@@ -18,7 +18,7 @@ export STARSHIP_CONFIG="$HOME/.dotfiles/starship/starship.toml"
 # export GIT_CONFIG_SYSTEM="$HOME/.dotfiles/git/.gitconfig"
 # export GIT_CONFIG_GLOBAL="$HOME/.dotfiles/git/.gitconfig"
 
-# Set the path for the CUDA toolkit and CUDNN library for tensorflow
+# Set the path for the CUDA toolkit and CUDNN library
 export CUDA_PATH=/opt/cuda
 export PATH=$CUDA_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_PATH/lib64:$LD_LIBRARY_PATH

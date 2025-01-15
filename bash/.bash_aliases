@@ -331,6 +331,18 @@ alias i3cf="nvim ~/.dotfiles/i3/config"
 # list the all mounted drives
 alias lmd="lsscsi"
 
+# For editing the python development packages
+alias eprq="nvim ~/.dotfiles/env/py/requirements-common.txt"
+alias eprq-tf="nvim ~/.dotfiles/env/py/requirements-tf-cuda.txt"
+alias eprq-torch="nvim ~/.dotfiles/env/py/requirements-torch-cuda.txt"
+alias eprq-jax="nvim ~/.dotfiles/env/py/requirements-jax-cuda.txt"
+
+# For install the python development packages
+alias iprq="pip install -r ~/.dotfiles/env/py/requirements-common.txt"
+alias iprq-tf="pip install -r ~/.dotfiles/env/py/requirements-tf-cuda.txt"
+alias iprq-torch="pip install -r ~/.dotfiles/env/py/requirements-torch-cuda.txt"
+alias iprq-jax="pip install -r ~/.dotfiles/env/py/requirements-jax-cuda.txt"
+
 #################################################
 #                      END                      #
 #################################################

@@ -1,0 +1,6 @@
+# Tensorflow with cuda support.
+tensorflow[and-cuda]
+# tf2onnx
+transformers
+
+-r requirements-common.txt
