@@ -1,6 +1,5 @@
 # Torch with cuda support.
 --extra-index-url https://download.pytorch.org/whl/cu121
---timeout=10000
 torch
 torchvision 
 torchaudio
