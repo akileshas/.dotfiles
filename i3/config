@@ -233,6 +233,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessUp exec brightnessctl set +3%
 bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
+# For touchpad toggle
+bindsym XF86TouchpadOff exec --no-startup-id ~/.dotfiles/i3/scripts/touchpad_toggle.sh
+bindsym XF86TouchpadOn exec --no-startup-id ~/.dotfiles/i3/scripts/touchpad_toggle.sh
+
 # Screenshots
 bindsym Print exec --no-startup-id sh -c 'maim ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
 bindsym $mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) ~/pictures/screenshots/$(date +%Y-%m-%d-%H-%M-%S).png'
