@@ -6,7 +6,7 @@ INTERFACE=$(ip -o -4 addr show up | awk '{print $2}' | grep -Ev "^(docker|lo)" |
 
 # Check if there is an active interface
 if [ -z "$INTERFACE" ]; then
-    echo " No Internet "
+    echo "  Offline "
     exit 0
 fi
 
@@ -37,7 +37,7 @@ tx_mbps=$(echo "scale=2; $tx_diff * 8 / 1000000" | bc)
 
 # Display interface name, IP address, and network speed
 if [ -n "$IPV6_ADDRESS" ]; then
-    echo "$INTERFACE: $IPV4_ADDRESS • $IPV6_ADDRESS •  ${rx_mbps}/${tx_mbps} Mbps "
+    echo " ${rx_mbps}/${tx_mbps} Mbps • $INTERFACE • $IPV4_ADDRESS • $IPV6_ADDRESS "
 else
-    echo "$INTERFACE: $IPV4_ADDRESS •  ${rx_mbps}/${tx_mbps} Mbps "
+    echo " ${rx_mbps}/${tx_mbps} Mbps • $INTERFACE • $IPV4_ADDRESS "
 fi
