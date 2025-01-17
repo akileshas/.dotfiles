@@ -96,7 +96,7 @@ fi
 validate_source ~/.config/fzf-git.sh/fzf-git.sh
 
 # Source the `broot` shell script
-validate_source /home/akileshas/.config/broot/launcher/bash/br
+validate_source ~/.config/broot/launcher/bash/br
 
 ### --- Activating some features of the `bash` shell --- ###
 
