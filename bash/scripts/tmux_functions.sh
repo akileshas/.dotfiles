@@ -82,7 +82,7 @@ t() {
 
     # Define required directories
     required_dirs=(
-        ~/repositories
+        ~/repos
         ~/personal
         ~/work
         ~/tmp
