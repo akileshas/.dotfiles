@@ -194,3 +194,4 @@ ntfs-3g
 flac
 jasper
 pacman-contrib
+sof-firmware
