@@ -195,3 +195,4 @@ flac
 jasper
 pacman-contrib
 sof-firmware
+lsscsi
