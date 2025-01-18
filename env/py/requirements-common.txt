@@ -74,3 +74,4 @@ mlflow[extras]
 neptune
 wandb
 weave
+xgboost
