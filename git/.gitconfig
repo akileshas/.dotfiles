@@ -1,6 +1,6 @@
 [user]
     name = akileshas
-    email = akilesh.ml.engineer@gmail.com
+    email = akileshas.ai@gmail.com
 
 [alias]
     ps = push
@@ -109,4 +109,4 @@
     helper = !/usr/bin/gh auth git-credential
 
 [credential]
-	helper = store
+    helper = store
