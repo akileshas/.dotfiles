@@ -73,3 +73,155 @@ echo "Activating the paccache timer..."
 sudo systemctl enable paccache.timer
 sudo systemctl start paccache.timer
 echo "Activated the paccache timer"
+
+# Making the required directories
+echo "Making the required directories..."
+mkdir ~/personal
+mkdir ~/work
+mkdir ~/work/gsoc
+mkdir ~/work/ggs
+mkdir ~/work/dev
+mkdir ~/documents
+mkdir ~/documents/books
+mkdir ~/documents/papers
+mkdir ~/downloads
+mkdir ~/repos
+mkdir ~/pictures
+mkdir ~/pictures/screenshots
+mkdir ~/videos
+mkdir ~/videos/obs
+mkdir ~/tmp
+echo "Created the required directories"
+
+# Creating the required symbolic links
+# For `i3`
+if [[ -d ~/.config/i3 ]]; then
+    rm -rf ~/.config/i3
+    echo "Removed the existing i3 directory"
+fi
+ln -s ~/.dotfiles/i3 ~/.config/i3
+echo "Created the symbolic link for i3"
+
+# For `kitty`
+if [[ -d ~/.config/kitty ]]; then
+    rm -rf ~/.config/kitty
+    echo "Removed the existing kitty directory"
+fi
+ln -s ~/.dotfiles/kitty ~/.config/kitty
+echo "Created the symbolic link for kitty"
+
+# For `starship`
+if [[ -d ~/.config/starship ]]; then
+    rm -rf ~/.config/starship
+    echo "Removed the existing starship directory"
+fi
+ln -s ~/.dotfiles/starship ~/.config/starship
+echo "Created the symbolic link for starship"
+
+# For `lazygit`
+if [[ -d ~/.config/lazygit ]]; then
+    rm -rf ~/.config/lazygit
+    echo "Removed the existing lazygit directory"
+fi
+ln -s ~/.dotfiles/lazygit ~/.config/lazygit
+echo "Created the symbolic link for lazygit"
+
+# For `neofetch`
+if [[ -d ~/.config/neofetch ]]; then
+    rm -rf ~/.config/neofetch
+    echo "Removed the existing neofetch directory"
+fi
+ln -s ~/.dotfiles/neofetch ~/.config/neofetch
+echo "Created the symbolic link for neofetch"
+
+# For `gtk`
+if [[ -d ~/.config/gtk-2.0 ]]; then
+    rm -rf ~/.config/gtk-2.0
+    echo "Removed the existing gtk-2.0 directory"
+fi
+if [[ -d ~/.config/gtk-3.0 ]]; then
+    rm -rf ~/.config/gtk-3.0
+    echo "Removed the existing gtk-3.0 directory"
+fi
+if [[ -d ~/.config/gtk-4.0 ]]; then
+    rm -rf ~/.config/gtk-4.0
+    echo "Removed the existing gtk-4.0 directory"
+fi
+ln -s ~/.dotfiles/gtk/gtk-2.0 ~/.config/gtk-2.0
+ln -s ~/.dotfiles/gtk/gtk-3.0 ~/.config/gtk-3.0
+ln -s ~/.dotfiles/gtk/gtk-4.0 ~/.config/gtk-4.0
+echo "Created the symbolic link for gtk"
+
+# For `rofi`
+if [[ -d ~/.config/rofi ]]; then
+    rm -rf ~/.config/rofi
+    echo "Removed the existing rofi directory"
+fi
+ln -s ~/.dotfiles/rofi ~/.config/rofi
+echo "Created the symbolic link for rofi"
+
+# For `formatter`
+if [[ -f ~/.prettierrc ]]; then
+    rm -rf ~/.prettierrc
+    echo "Removed the existing prettierrc file"
+fi
+if [[ -f ~/.clang-format ]]; then
+    rm -rf ~/.clang-format
+    echo "Removed the existing clang-format file"
+fi
+ln -s ~/.dotfiles/formatter/.prettierrc ~/.prettierrc
+ln -s ~/.dotfiles/formatter/.clang-format ~/.clang-format
+echo "Created the symbolic link for formatter"
+
+# For `tmux`
+if [[ -f ~/.tmux.conf ]]; then
+    rm -rf ~/.tmux.conf
+    echo "Removed the existing tmux.conf file"
+fi
+if [[ -f ~/.tmate.conf ]]; then
+    rm -rf ~/.tmate.conf
+    echo "Removed the existing tmate.conf file"
+fi
+ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/tmux/.tmate.conf ~/.tmate.conf
+echo "Created the symbolic link for tmux"
+
+# For `git`
+if [[ -f ~/.gitconfig ]]; then
+    rm -rf ~/.gitconfig
+    echo "Removed the existing gitconfig file"
+fi
+ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
+echo "Created the symbolic link for git"
+
+# For `bash`
+if [[ -f ~/.bashrc ]]; then
+    rm -rf ~/.bashrc
+    echo "Removed the existing bashrc file"
+fi
+if [[ -f ~/.bash_profile ]]; then
+    rm -rf ~/.bash_profile
+    echo "Removed the existing bash_profile file"
+fi
+if [[ -f ~/.bash_logout ]]; then
+    rm -rf ~/.bash_logout
+    echo "Removed the existing bash_logout file"
+fi
+ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/bash/.bash_profile ~/.bash_profile
+ln -s ~/.dotfiles/bash/.bash_logout ~/.bash_logout
+touch ~/.bash_keys
+echo "Created the symbolic link for bash"
+
+# For `nvim`
+read -p "Do you add the $(nvim) config? [y/N] " confirm
+if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
+    if [[ -d ~/.config/nvim ]]; then
+        rm -rf ~/.config/nvim
+        echo "Removed the existing nvim directory"
+    fi
+    ln -s ~/.dotfiles/nvim ~/.config/nvim
+    echo "Created the symbolic link for nvim"
+else
+    echo "Operation canceled."
+fi
