@@ -195,7 +195,7 @@ touch ~/.bash_keys
 echo "Created the symbolic link for bash"
 
 # For `nvim`
-read -p "Do you add the $(nvim) config? [y/N] " confirm
+read -p "Do you add the nvim config? [y/N] " confirm
 if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
     if [[ -d ~/.config/nvim ]]; then
         rm -rf ~/.config/nvim
