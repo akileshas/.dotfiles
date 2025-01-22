@@ -13,9 +13,6 @@ fi
 # Get the IPv4 address of the active interface
 IPV4_ADDRESS=$(ip -o -4 addr show "$INTERFACE" | awk '{print $4}')
 
-# Get the IPv6 address of the active interface, if available
-IPV6_ADDRESS=$(ip -o -6 addr show "$INTERFACE" | awk '{print $4}' | head -n 1)
-
 # Get initial received and transmitted bytes
 initial_rx=$(cat /sys/class/net/"$INTERFACE"/statistics/rx_bytes)
 initial_tx=$(cat /sys/class/net/"$INTERFACE"/statistics/tx_bytes)
@@ -36,8 +33,4 @@ rx_mbps=$(echo "scale=2; $rx_diff * 8 / 1000000" | bc)
 tx_mbps=$(echo "scale=2; $tx_diff * 8 / 1000000" | bc)
 
 # Display interface name, IP address, and network speed
-if [ -n "$IPV6_ADDRESS" ]; then
-    echo " ${rx_mbps}/${tx_mbps} Mbps • $INTERFACE • $IPV4_ADDRESS • $IPV6_ADDRESS "
-else
-    echo " ${rx_mbps}/${tx_mbps} Mbps • $INTERFACE • $IPV4_ADDRESS "
-fi
+echo " ${rx_mbps}/${tx_mbps} Mbps • $INTERFACE • $IPV4_ADDRESS "
