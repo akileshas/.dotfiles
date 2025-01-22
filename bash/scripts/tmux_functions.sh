@@ -68,6 +68,27 @@ tas() {
     }
 }
 
+# List all the Tmux sessions
+tls() {
+    # Check if tmux is installed
+    if ! command -v tmux &>/dev/null; then
+        echo "Error: tmux is not installed."
+        return 1
+    fi
+
+    # Check if there are any existing tmux sessions
+    local sessions_count
+    sessions_count=$(tmux ls 2>/dev/null | wc -l)
+
+    if [[ "$sessions_count" -eq 0 ]]; then
+        echo "No tmux sessions are currently running."
+        return 1
+    fi
+
+    # List all the Tmux sessions
+    tmux ls
+}
+
 # `tmux` session handling function
 t() {
     # Inspired by ThePrimeagen & Sarguru AIDS
