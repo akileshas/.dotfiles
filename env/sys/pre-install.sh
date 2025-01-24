@@ -4,8 +4,6 @@
 echo "Making the required directories..."
 mkdir ~/personal
 mkdir ~/work
-mkdir ~/work/gsoc
-mkdir ~/work/ggs
 mkdir ~/work/dev
 mkdir ~/documents
 mkdir ~/documents/books
