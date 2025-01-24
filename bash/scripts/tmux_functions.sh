@@ -145,7 +145,7 @@ t() {
                 for dir in "${required_dirs[@]}"; do
                     if [[ -d $dir ]]; then
                         echo "$dir"
-                        find "$dir" -mindepth 1 -maxdepth 5 -type d 2>/dev/null
+                        find "$dir" -mindepth 1 -maxdepth 11 -type d 2>/dev/null
                     else
                         invalid_dirs+=("$dir")
                     fi
