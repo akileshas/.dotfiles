@@ -43,6 +43,6 @@ case $CHOICE in
 esac
 
 # Optionally set a wallpaper for the monitors
-feh --bg-fill ~/.dotfiles/i3/wallpaper/truth.png
+feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 
 echo "Configuration applied."

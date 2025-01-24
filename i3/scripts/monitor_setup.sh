@@ -14,7 +14,7 @@ if [ -n "$EXTERNAL" ]; then
     # TO see the monitor config run `xrandr` command
     # External monitor is connected; set it to the right of the internal display
     xrandr --output "$INTERNAL" --mode 1920x1200 --primary --output "$EXTERNAL" --auto --right-of "$INTERNAL"
-    feh --bg-fill ~/.dotfiles/i3/wallpaper/truth.png
+    feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 else
     # Only internal monitor is connected; turn off other outputs
     xrandr --output "$INTERNAL" --auto --output "$EXTERNAL" --off
