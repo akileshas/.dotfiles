@@ -91,7 +91,6 @@ xclip
 xsel
 httpie
 httpie-desktop-bin
-discord
 visual-studio-code-insiders-bin
 thunar
 yazi
@@ -196,3 +195,4 @@ jasper
 pacman-contrib
 sof-firmware
 lsscsi
+npm
