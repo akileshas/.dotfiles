@@ -98,7 +98,6 @@ speech-dispatcher
 firefox-developer-edition
 google-chrome-canary
 docker
-docker-compose
 lazydocker
 aic94xx-firmware
 ast-firmware
