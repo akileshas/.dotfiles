@@ -16,3 +16,5 @@ mkdir ~/videos
 mkdir ~/videos/obs
 mkdir ~/tmp
 echo "Created the required directories"
+
+echo "Completed the Pre Setup !!!"

@@ -8,5 +8,6 @@ pytorch-lightning
 transformers[torch]
 fastai
 timm
+pytorch_tabular[extra]
 
 -r requirements-common.txt

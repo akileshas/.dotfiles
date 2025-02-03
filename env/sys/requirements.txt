@@ -89,16 +89,10 @@ maim
 dunst
 xclip
 xsel
-httpie
-httpie-desktop-bin
-visual-studio-code-insiders-bin
 thunar
 yazi
 speech-dispatcher
 firefox-developer-edition
-google-chrome-canary
-docker
-lazydocker
 aic94xx-firmware
 ast-firmware
 linux-firmware-qlogic
@@ -115,8 +109,6 @@ cudnn
 nccl
 libcutensor
 cusparselt
-ollama-cuda
-nvidia-container-toolkit
 nvm
 nodejs
 bun-bin
@@ -129,11 +121,7 @@ net-tools
 networkmanager
 network-manager-applet
 networkmanager-openvpn
-android-studio-canary
-obs-studio
-obsidian
 jdk21-openjdk
-onlyoffice-bin
 reflector
 speedtest-cli
 bash-completion
@@ -141,7 +129,6 @@ bluez
 bluez-utils
 blueman
 ufw
-ngrok
 fdupes
 most
 less

@@ -1,0 +1,14 @@
+httpie
+httpie-desktop-bin
+visual-studio-code-insiders-bin
+google-chrome-canary
+docker
+lazydocker
+ollama-cuda
+nvidia-container-toolkit
+android-studio-canary
+obs-studio
+obsidian
+onlyoffice-bin
+ngrok
+discord-canary

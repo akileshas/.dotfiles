@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Akilesh A S
 # Created on: 17-01-2025
-# Last modified on: 17-01-2025
+# Last modified on: 03-02-2025
 # Description: A script to install the required packages for my system
 
 # Checking if `paru` is installed
@@ -205,4 +205,4 @@ if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
     echo "Created the symbolic link for nvim"
 fi
 
-echo "Completed the setup !!!"
+echo "Completed the Setup !!!"
