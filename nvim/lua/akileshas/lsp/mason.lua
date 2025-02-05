@@ -75,6 +75,8 @@ return {
 				"goimports",
 				"gofumpt",
 				"ormolu",
+				"hlint",
+				"haskell-debug-adapter",
 			},
 		})
 	end,

@@ -182,3 +182,8 @@ pacman-contrib
 sof-firmware
 lsscsi
 npm
+cabal-fmt
+cabal-install
+cabal-plan
+stack
+haskell-language-server-static
