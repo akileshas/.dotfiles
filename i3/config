@@ -215,6 +215,12 @@ bindsym $mod+Ctrl+r restart
 # Open the firefox-developer-edition browser
 bindsym $mod+b exec firefox-developer-edition
 
+# Open the zen browser
+bindsym $mod+z exec zen-browser
+
+# Open the file manager
+bindsym $mod+f exec thunar
+
 # Special keys
 # For the increase and decrease volume
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
@@ -246,9 +252,6 @@ bindsym Shift+Print exec --no-startup-id sh -c 'maim --select ~/pictures/screens
 bindsym Ctrl+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png'
 bindsym Ctrl+$mod+Print exec --no-startup-id sh -c 'maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png'
 bindsym Ctrl+Shift+Print exec --no-startup-id sh -c 'maim --select | xclip -selection clipboard -t image/png'
-
-# dmenu launcher
-bindsym $mod+d exec --no-startup-id dmenu_run
 
 # Rofi launcher
 bindsym Mod1+space exec rofi -show drun
