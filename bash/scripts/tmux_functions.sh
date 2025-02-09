@@ -106,6 +106,7 @@ t() {
         ~/repos
         ~/personal
         ~/work
+        ~/work/dev
         ~/tmp
         ~/documents
         ~/downloads
