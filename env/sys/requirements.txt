@@ -187,3 +187,6 @@ cabal-install
 cabal-plan
 stack
 haskell-language-server-static
+poppler
+ghostscript
+ueberzugpp

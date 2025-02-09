@@ -141,6 +141,14 @@ fi
 ln -s ~/.dotfiles/rofi ~/.config/rofi
 echo "Created the symbolic link for rofi"
 
+# For `yazi`
+if [[ -d ~/.config/yazi ]]; then
+    rm -rf ~/.config/yazi
+    echo "Removed the existing yazi directory"
+fi
+ln -s ~/.dotfiles/yazi ~/.config/yazi
+echo "Created the symbolic link for yazi"
+
 # For `formatter`
 if [[ -f ~/.prettierrc ]]; then
     rm -rf ~/.prettierrc
