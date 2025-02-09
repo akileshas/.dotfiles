@@ -343,6 +343,9 @@ alias iprq-tf="pip install -r ~/.dotfiles/env/py/requirements-tf-cuda.txt"
 alias iprq-torch="pip install -r ~/.dotfiles/env/py/requirements-torch-cuda.txt"
 alias iprq-jax="pip install -r ~/.dotfiles/env/py/requirements-jax-cuda.txt"
 
+# Tree Grow Live
+alias liv="cbonsai -liv"
+
 #################################################
 #                      END                      #
 #################################################
