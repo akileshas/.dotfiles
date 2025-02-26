@@ -191,3 +191,5 @@ poppler
 ghostscript
 ueberzugpp
 cbonsai
+tectonic
+texlive-core
