@@ -17,17 +17,21 @@ opt.isfname:append(".")
 
 -- title
 opt.title = true
-opt.titlestring = "%f // nvim"
+-- opt.titlestring = "%f // nvim"
+opt.titlelen = 0
+opt.titlestring = "[nvim](%f)"
 -- opt.tabline = "%t"
 
 -- line number
 opt.number = true
+opt.numberwidth = 1
 opt.relativenumber = true
 
 -- tabs & indentation
 opt.tabstop = 4
-opt.shiftwidth = 4
 opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.shiftround = true
 opt.expandtab = true
 opt.smarttab = true
 opt.smartindent = true
@@ -61,17 +65,37 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- appearance
+opt.showcmd = true
+opt.laststatus = 3
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes:1"
-opt.scrolloff = 7
-opt.sidescrolloff = 7
 opt.showmode = false
-opt.colorcolumn = "108"
+opt.scrolloff = 11
+opt.sidescroll = 11
+opt.sidescrolloff = 11
+opt.textwidth = 108
+opt.colorcolumn = "+3"
+
+-- opt.foldcolumn = '0'
+-- opt.foldenable = true
+-- opt.foldlevel = 99
+-- opt.foldlevelstart = 99
+-- opt.foldmethod = 'expr'
+-- opt.foldtext = ''
+-- vim.opt.signcolumn = "yes"
+-- vim.opt.foldcolumn = "1"
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldlevelstart = 99
+-- vim.opt.foldenable = true
+-- vim.wo.foldmethod = "expr" -- Set foldmethod to expr
+-- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.fillchars = { fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 
 -- performance and timing
 opt.updatetime = 100
 -- opt.timeoutlen = 1000
+opt.ttimeoutlen = 0
 opt.redrawtime = 10000
 
 -- backspace
@@ -82,9 +106,19 @@ opt.cmdheight = 1
 
 -- alter the listchars
 opt.list = true
-opt.listchars = { trail = " ", eol = "↩", tab = "▸ " }
-opt.fillchars:append("eob: ")
-
+opt.listchars = {
+	trail = "+",
+	space = "·",
+	nbsp = "␣",
+	eol = "↩",
+	tab = "▸ ",
+	extends = "»",
+	precedes = "«",
+}
+opt.fillchars:append({
+	eob = " ",
+	lastline = "↓",
+})
 -- mouse support
 opt.mouse = "a"
 opt.mousemoveevent = true
