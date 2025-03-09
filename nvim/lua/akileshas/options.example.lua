@@ -1,15 +1,13 @@
--- Style fot the netrw
-vim.cmd("let g:netrw_liststyle = 3")
-
 -- for convenience
 local opt = vim.opt
+local indent = 4
 
 -- cursor
 opt.guicursor = ""
 opt.cursorline = true
 
 -- clipboard
--- opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 
 -- isfname list
 opt.isfname:append("@-@")
@@ -17,10 +15,8 @@ opt.isfname:append(".")
 
 -- title
 opt.title = true
--- opt.titlestring = "%f // nvim"
 opt.titlelen = 0
 opt.titlestring = "[nvim](%f)"
--- opt.tabline = "%t"
 
 -- line number
 opt.number = true
@@ -28,20 +24,18 @@ opt.numberwidth = 1
 opt.relativenumber = true
 
 -- tabs & indentation
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = indent
+opt.softtabstop = indent
+opt.shiftwidth = indent
 opt.shiftround = true
 opt.expandtab = true
 opt.smarttab = true
 opt.smartindent = true
 opt.autoindent = true
 
--- spell checking
--- opt.spell = true
-
 -- line wrapping
 opt.wrap = true
+opt.textwidth = 108
 opt.linebreak = true
 opt.breakindent = true
 opt.showbreak = "↪\\ "
@@ -49,52 +43,44 @@ opt.showbreak = "↪\\ "
 -- turn off swapfiles and backup
 opt.swapfile = false
 opt.backup = false
+opt.writebackup = false
 
 -- modify the undoing of file
 opt.undofile = true
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- search settings
+opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
 
 -- split windows
+opt.splitkeep = "screen"
 opt.splitright = true
 opt.splitbelow = true
+
+-- for markdown
+opt.conceallevel = 0
 
 -- appearance
 opt.showcmd = true
 opt.laststatus = 3
+opt.showtabline = 1
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes:1"
-opt.showmode = false
 opt.scrolloff = 11
 opt.sidescroll = 11
 opt.sidescrolloff = 11
--- opt.textwidth = 108
-opt.colorcolumn = "108"
-
--- opt.foldcolumn = '0'
--- opt.foldenable = true
--- opt.foldlevel = 99
--- opt.foldlevelstart = 99
--- opt.foldmethod = 'expr'
--- opt.foldtext = ''
--- vim.opt.signcolumn = "yes"
--- vim.opt.foldcolumn = "1"
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldenable = true
--- vim.wo.foldmethod = "expr" -- Set foldmethod to expr
--- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- vim.opt.fillchars = { fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
+opt.showmode = false
+opt.ruler = true
+opt.colorcolumn = "+3"
 
 -- performance and timing
 opt.updatetime = 100
--- opt.timeoutlen = 1000
+opt.timeoutlen = 3000
 opt.ttimeoutlen = 0
 opt.redrawtime = 10000
 
@@ -102,13 +88,13 @@ opt.redrawtime = 10000
 opt.backspace = "indent,eol,start"
 
 -- cmd height and width
-opt.cmdheight = 1
+opt.cmdheight = 0
 
 -- alter the listchars
 opt.list = true
 opt.listchars = {
 	trail = "+",
-	space = " ",
+	space = "·",
 	nbsp = "␣",
 	eol = "↩",
 	tab = "▸ ",
@@ -119,9 +105,10 @@ opt.fillchars:append({
 	eob = " ",
 	lastline = "↓",
 })
+opt.iskeyword:append("-")
+
 -- mouse support
 opt.mouse = "a"
-opt.mousemoveevent = true
 
 -- show matching brackets
 opt.showmatch = true
@@ -135,9 +122,9 @@ opt.shortmess:append("I")
 -- completion options
 opt.wildmode = "longest:full,full"
 opt.completeopt = "menuone,longest,preview"
-opt.pumheight = 11
+opt.pumheight = 21
 
--- open local files
+-- setting local config
 opt.exrc = true
 opt.secure = true
 
@@ -147,5 +134,11 @@ opt.shell = "/bin/bash"
 -- set the shell for the terminal
 opt.shellcmdflag = "-c"
 
--- preview of the command
--- opt.inccommand = "split"
+-- scrollback buffer
+opt.scrollback = 10000000
+
+-- navigation
+opt.startofline = true
+opt.jumpoptions = "stack"
+
+return {}
