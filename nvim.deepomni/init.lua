@@ -1,3 +1,0 @@
-require("akileshas")
-
-return {}
