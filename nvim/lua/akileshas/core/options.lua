@@ -24,7 +24,7 @@ opt.titlestring = "[nvim](%f)"
 
 -- line number
 opt.number = true
-opt.numberwidth = 1
+opt.numberwidth = 5
 opt.relativenumber = true
 
 -- tabs & indentation
@@ -134,8 +134,12 @@ opt.shortmess:append("I")
 
 -- completion options
 opt.wildmode = "longest:full,full"
-opt.completeopt = "menuone,longest,preview"
+-- opt.completeopt = "menuone,longest,preview"
+opt.completeopt = "menuone,noselect,preview"
+
 opt.pumheight = 11
+opt.pumblend = 0
+opt.wildmenu = true
 
 -- open local files
 opt.exrc = true

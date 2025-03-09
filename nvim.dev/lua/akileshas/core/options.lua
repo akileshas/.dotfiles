@@ -21,7 +21,7 @@ opt.titlestring = "[nvim](%f)"
 
 -- line number
 opt.number = true
-opt.numberwidth = 5
+opt.numberwidth = 4
 opt.relativenumber = true
 
 -- tabs & indentation
@@ -53,3 +53,45 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
+
+-- split windows
+opt.splitkeep = "screen"
+opt.splitright = true
+opt.splitbelow = true
+
+-- markdown settings
+opt.conceallevel = 0
+
+-- appearance
+opt.termguicolors = true
+opt.background = "dark"
+opt.showcmd = true
+opt.showmode = false
+opt.showmatch = true
+opt.ruler = true
+opt.showtabline = 1
+opt.laststatus = 3
+opt.cmdheight = 0
+opt.scrolloff = 11
+opt.sidescrolloff = 11
+opt.sidescroll = 11
+opt.pumheight = 21
+opt.pumwidth = 21
+opt.pumblend = 0
+opt.wildmenu = true
+opt.winblend = 0
+opt.colorcolumn = "108"
+opt.signcolumn = "yes:1"
+opt.wildmode = "longest:full,full"
+opt.completeopt = "menuone,noselect,preview"
+
+-- completion settings
+opt.complete = ".,w,b,u,t,i"
+
+-- performance and timing
+opt.updatetime = 100
+opt.timeoutlen = 3000
+opt.ttimeoutlen = 0
+opt.redrawtime = 10000
+opt.lazyredraw = true
+opt.ttyfast = true
