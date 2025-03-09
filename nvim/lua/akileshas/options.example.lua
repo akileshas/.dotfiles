@@ -20,7 +20,7 @@ opt.titlestring = "[nvim](%f)"
 
 -- line number
 opt.number = true
-opt.numberwidth = 1
+opt.numberwidth = 5
 opt.relativenumber = true
 
 -- tabs & indentation
