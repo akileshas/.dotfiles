@@ -8,10 +8,10 @@ api.nvim_create_autocmd("FileType", {
 	command = "setlocal filetype=man",
 })
 
--- Highlight yanked text
-api.nvim_create_autocmd("textyankpost", {
+-- highlight yanked text
+api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
-	group = api.nvim_create_augroup("highlight-yank", { clear = true }),
+	group = api.nvim_create_augroup("highlight_yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank({
 			timeout = 300,
