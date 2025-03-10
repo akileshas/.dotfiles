@@ -119,9 +119,11 @@ opt.fillchars:append({
 	eob = " ",
 	lastline = "↓",
 })
+-- opt.iskeyword:append("-")
+
 -- mouse support
-opt.mouse = "a"
-opt.mousemoveevent = true
+opt.mouse = ""
+-- opt.mousemoveevent = true
 
 -- show matching brackets
 opt.showmatch = true
@@ -138,12 +140,13 @@ opt.wildmode = "longest:full,full"
 opt.completeopt = "menuone,noselect,preview"
 
 opt.pumheight = 11
+opt.pumwidth = 11
 opt.pumblend = 0
 opt.wildmenu = true
 
 -- open local files
-opt.exrc = true
-opt.secure = true
+-- opt.exrc = true
+-- opt.secure = true
 
 -- set the shell
 opt.shell = "/bin/bash"
