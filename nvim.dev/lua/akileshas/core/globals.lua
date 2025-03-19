@@ -14,4 +14,7 @@ g.markdown_recommended_style = 0
 -- stabilize buffer
 g.splitkeep = "screen"
 
+-- animate settings
+g.snacks_animate = false
+
 return {}
