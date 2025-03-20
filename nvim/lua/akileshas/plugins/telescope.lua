@@ -57,39 +57,39 @@ return {
 
 		local builtin = require("telescope.builtin")
 
-		keymap.set("n", "<leader>ff", function()
-			builtin.find_files({
-				hidden = true,
-				no_ignore = true,
-				no_ignore_parent = true,
-			})
-		end, { desc = "[F]ind [F]iles" })
-		keymap.set("n", "<leader>fg", function()
-			builtin.live_grep({
-				additional_args = {
-					"--hidden",
-					"--no-ignore",
-					"--no-ignore-parent",
-				},
-			})
-		end, { desc = "[F]ind [G]rep" })
-		keymap.set("n", "<leader>/", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-				additional_args = { "--hidden", "--no-ignore", "--no-ignore-parent" },
-			})
-		end, { desc = "[S]earch within open files" })
-
-		keymap.set("n", "<leader>sf", builtin.git_files, { desc = "[S]earch [F]iles in git" })
-		keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-		keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch Telescope features" })
-		keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume last search" })
-		keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = "[S]earch recent files" })
-		keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find open buffers" })
-
-		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "[F]ind [T]odo comments" })
+		-- keymap.set("n", "<leader>ff", function()
+		-- 	builtin.find_files({
+		-- 		hidden = true,
+		-- 		no_ignore = true,
+		-- 		no_ignore_parent = true,
+		-- 	})
+		-- end, { desc = "[F]ind [F]iles" })
+		-- keymap.set("n", "<leader>fg", function()
+		-- 	builtin.live_grep({
+		-- 		additional_args = {
+		-- 			"--hidden",
+		-- 			"--no-ignore",
+		-- 			"--no-ignore-parent",
+		-- 		},
+		-- 	})
+		-- end, { desc = "[F]ind [G]rep" })
+		-- keymap.set("n", "<leader>/", function()
+		-- 	builtin.live_grep({
+		-- 		grep_open_files = true,
+		-- 		prompt_title = "Live Grep in Open Files",
+		-- 		additional_args = { "--hidden", "--no-ignore", "--no-ignore-parent" },
+		-- 	})
+		-- end, { desc = "[S]earch within open files" })
+		--
+		-- keymap.set("n", "<leader>sf", builtin.git_files, { desc = "[S]earch [F]iles in git" })
+		-- keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+		-- keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch Telescope features" })
+		-- keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		-- keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+		-- keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume last search" })
+		-- keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = "[S]earch recent files" })
+		-- keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Find open buffers" })
+		--
+		-- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "[F]ind [T]odo comments" })
 	end,
 }
