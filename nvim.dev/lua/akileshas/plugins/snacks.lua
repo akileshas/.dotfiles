@@ -127,6 +127,16 @@ local keymaps = {
 
 	-- git keymaps
 	{
+		"<leader>g?",
+		mode = "n",
+		function()
+			Snacks.git.blame_line()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "blame the current line",
+	},
+	{
 		"<leader>gb",
 		mode = "n",
 		function()
@@ -135,6 +145,16 @@ local keymaps = {
 		noremap = true,
 		silent = true,
 		desc = "find the git branches",
+	},
+	{
+		"<leader>gB",
+		mode = { "n", "v" },
+		function()
+			Snacks.gitbrowse()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open the current buffer in the browser",
 	},
 	{
 		"<leader>gl",
@@ -195,16 +215,6 @@ local keymaps = {
 		noremap = true,
 		silent = true,
 		desc = "find the git diff",
-	},
-	{
-		"<leader>gB",
-		mode = { "n", "v" },
-		function()
-			Snacks.gitbrowse()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "open the current buffer in the browser",
 	},
 	{
 		"<leader>gg",
@@ -403,7 +413,7 @@ local keymaps = {
 		desc = "search for diagnostics in the current buffer",
 	},
 	{
-		"<leader>sh",
+		"<leader>s?",
 		mode = "n",
 		function()
 			Snacks.picker.help()
@@ -466,21 +476,21 @@ local keymaps = {
 		"<leader>sm",
 		mode = "n",
 		function()
-			Snacks.picker.marks()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "search for marks",
-	},
-	{
-		"<leader>sM",
-		mode = "n",
-		function()
 			Snacks.picker.man()
 		end,
 		noremap = true,
 		silent = true,
 		desc = "search the man pages",
+	},
+	{
+		"<leader>sM",
+		mode = "n",
+		function()
+			Snacks.picker.marks()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "search for marks",
 	},
 	{
 		"<leader>sp",
@@ -521,6 +531,16 @@ local keymaps = {
 		noremap = true,
 		silent = true,
 		desc = "search for undo history",
+	},
+	{
+		"<leader>sz",
+		mode = "n",
+		function()
+			Snacks.picker.zoxide()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "search for zoxide",
 	},
 
 	-- utility keymaps

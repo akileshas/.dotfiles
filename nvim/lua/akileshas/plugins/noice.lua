@@ -1,7 +1,6 @@
 -- plugin dependencies
 local dependencies = {
 	"MunifTanjim/nui.nvim",
-	"rcarriga/nvim-notify",
 }
 
 -- plugin options
