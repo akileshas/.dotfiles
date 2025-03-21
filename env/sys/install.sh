@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Akilesh A S
 # Created on: 17-01-2025
-# Last modified on: 03-02-2025
+# Last modified on: 21-03-2025
 # Description: A script to install the required packages for my system
 
 # Checking if `paru` is installed
@@ -107,14 +107,6 @@ fi
 ln -s ~/.dotfiles/lazygit ~/.config/lazygit
 echo "Created the symbolic link for lazygit"
 
-# For `neofetch`
-if [[ -d ~/.config/neofetch ]]; then
-    rm -rf ~/.config/neofetch
-    echo "Removed the existing neofetch directory"
-fi
-ln -s ~/.dotfiles/neofetch ~/.config/neofetch
-echo "Created the symbolic link for neofetch"
-
 # For `gtk`
 if [[ -d ~/.config/gtk-2.0 ]]; then
     rm -rf ~/.config/gtk-2.0
@@ -140,14 +132,6 @@ if [[ -d ~/.config/rofi ]]; then
 fi
 ln -s ~/.dotfiles/rofi ~/.config/rofi
 echo "Created the symbolic link for rofi"
-
-# For `yazi`
-if [[ -d ~/.config/yazi ]]; then
-    rm -rf ~/.config/yazi
-    echo "Removed the existing yazi directory"
-fi
-ln -s ~/.dotfiles/yazi ~/.config/yazi
-echo "Created the symbolic link for yazi"
 
 # For `formatter`
 if [[ -f ~/.prettierrc ]]; then
@@ -201,16 +185,5 @@ ln -s ~/.dotfiles/bash/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/bash/.bash_logout ~/.bash_logout
 touch ~/.bash_keys
 echo "Created the symbolic link for bash"
-
-# For `nvim`
-read -p "Do you add the nvim config? [y/N] " confirm
-if [[ "$confirm" == "y" || "$confirm" == "Y" ]]; then
-    if [[ -d ~/.config/nvim ]]; then
-        rm -rf ~/.config/nvim
-        echo "Removed the existing nvim directory"
-    fi
-    ln -s ~/.dotfiles/nvim ~/.config/nvim
-    echo "Created the symbolic link for nvim"
-fi
 
 echo "Completed the Setup !!!"
