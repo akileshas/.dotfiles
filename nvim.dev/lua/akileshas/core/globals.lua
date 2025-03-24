@@ -17,4 +17,7 @@ g.splitkeep = "screen"
 -- animate settings
 g.snacks_animate = false
 
+-- font settings
+g.have_nerd_font = true
+
 return {}
