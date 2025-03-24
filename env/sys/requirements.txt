@@ -101,8 +101,6 @@ linux-firmware-liquidio
 linux-firmware-mellanox
 linux-firmware-nfp
 wd719x-firmware
-upd72020x-fw
-mkinitcpio-firmware
 cuda
 cuda-tools
 cudnn
