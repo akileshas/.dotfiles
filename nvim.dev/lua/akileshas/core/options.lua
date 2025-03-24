@@ -93,7 +93,7 @@ opt.updatetime = 100
 opt.timeoutlen = 3000
 opt.ttimeoutlen = 0
 opt.redrawtime = 10000
-opt.lazyredraw = true
+opt.lazyredraw = false
 opt.ttyfast = true
 
 -- backspace settings
