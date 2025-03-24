@@ -1,33 +1,25 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
--- for convenience
-local fn = vim.fn
-local loop = vim.loop
-local opt = vim.opt
-
-if not loop.fs_stat(lazypath) then
-	fn.system({
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
+		"--branch=stable", -- latest stable release
 		lazypath,
 	})
 end
-
-opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ import = "akileshas.plugins" },
 	{ import = "akileshas.lsp" },
 }, {
 	checker = {
+		enabled = true,
 		notify = false,
 	},
 	change_detection = {
 		notify = false,
 	},
 })
-
-return {}

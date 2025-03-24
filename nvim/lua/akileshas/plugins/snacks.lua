@@ -105,7 +105,7 @@ local keymaps = {
 		desc = "open the picker",
 	},
 	{
-		"<leader>an",
+		"<leader>nh",
 		mode = "n",
 		function()
 			Snacks.picker.notifications()

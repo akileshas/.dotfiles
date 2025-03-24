@@ -1,5 +1,6 @@
 require("akileshas.core")
+require("akileshas.lazy")
 require("akileshas.plugins")
 require("akileshas.lsp")
-require("akileshas.templates")
-require("akileshas.lazy")
+
+return {}
