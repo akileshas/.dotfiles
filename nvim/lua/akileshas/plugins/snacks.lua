@@ -495,6 +495,16 @@ local keymaps = {
 	{
 		"<leader>sp",
 		mode = "n",
+		function ()
+			Snacks.picker()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "search for picker options",
+	},
+	{
+		"<leader>sP",
+		mode = "n",
 		function()
 			Snacks.picker.lazy()
 		end,
