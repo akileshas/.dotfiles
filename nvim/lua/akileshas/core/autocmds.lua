@@ -2,12 +2,6 @@ local api = vim.api
 local cmd = vim.cmd
 local highlight = vim.highlight
 
--- Automatically set the filetype for man pages
-api.nvim_create_autocmd("FileType", {
-	pattern = "man",
-	command = "setlocal filetype=man",
-})
-
 -- highlight yanked text
 api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
