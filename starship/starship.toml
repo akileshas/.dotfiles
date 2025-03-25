@@ -10,7 +10,7 @@
 add_newline = false
 
 # Use custom format
-format = "$all$directory$character"
+format = "$all$character$directory "
 
 # Timeout for commands executed by starship (in milliseconds)
 command_timeout = 5000
@@ -19,6 +19,10 @@ command_timeout = 5000
 scan_timeout = 500
 
 # Custom format icons
+[character]
+success_symbol = '[](bold green) '
+error_symbol = '[](bold red) '
+
 [aws]
 symbol = "  "
 
@@ -29,7 +33,7 @@ symbol = " "
 symbol = " "
 
 [conda]
-symbol = "󰯲 "
+symbol = " "
 
 [crystal]
 symbol = " "
