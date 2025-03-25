@@ -87,7 +87,13 @@ local options = {
 	words = {
 		enabled = true,
 	},
-	zen = {},
+	zen = {
+		toggles = {
+			dim = false,
+			git_signs = true,
+			mini_diff_signs = true,
+		},
+	},
 	styles = {},
 }
 
