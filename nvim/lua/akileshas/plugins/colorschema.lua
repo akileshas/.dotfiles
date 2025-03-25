@@ -23,7 +23,7 @@ local options = {
 		strings = 'none',
 	},
 	lualine = {
-		transparent = false,
+		transparent = true,
 	},
 	diagnostics = {
 		darker = true,
