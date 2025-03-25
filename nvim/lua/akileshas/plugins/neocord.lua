@@ -6,7 +6,7 @@ local options = {
 -- plugin keymaps
 local keymaps = {}
 
--- plugin configuration
+-- plugin configurations
 return {
 	"IogaMaster/neocord",
 	lazy = true,

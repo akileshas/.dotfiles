@@ -16,7 +16,7 @@ local keymaps = {
 	},
 }
 
--- plugin configuration
+-- plugin configurations
 return {
 	"arnamak/stay-centered.nvim",
 	lazy = false,

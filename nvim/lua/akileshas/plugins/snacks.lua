@@ -636,7 +636,7 @@ local function init()
 	})
 end
 
--- plugin configuration
+-- plugin configurations
 return {
 	"folke/snacks.nvim",
 	priority = 1000,

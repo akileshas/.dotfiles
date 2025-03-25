@@ -58,7 +58,7 @@ table.insert(keymaps, {
 	desc = "navigate to harpoon file 10",
 })
 
--- plugin configuration
+-- plugin configurations
 return {
 	"theprimeagen/harpoon",
 	lazy = true,
