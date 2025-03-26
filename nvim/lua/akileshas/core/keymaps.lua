@@ -9,6 +9,12 @@ keymap.set("i", "jj", "<Esc>", {
 	desc = "exit insert mode with jj",
 })
 
+keymap.set("t", "jj", '<C-\\><C-n>', {
+	noremap = true,
+	silent = true,
+	desc = "exit insert mode with jj",
+})
+
 keymap.set({ "n", "v", "x" }, "<leader>cl", "<cmd>nohlsearch<CR>", {
 	noremap = true,
 	silent = true,
@@ -103,6 +109,20 @@ keymap.set({ "n", "v", "x" }, "d", [["_d]], {
 	noremap = true,
 	silent = true,
 	desc = "do not copy on delete",
+})
+
+keymap.set({ "n", "v", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", {
+	noremap = true,
+	silent = true,
+	expr = true,
+	desc = "Move Down through the visual line",
+})
+
+keymap.set({ "n", "v", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", {
+	noremap = true,
+	silent = true,
+	expr = true,
+	desc = "Move Up through the visual line",
 })
 
 return {}
