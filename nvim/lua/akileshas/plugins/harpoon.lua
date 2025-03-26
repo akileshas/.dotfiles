@@ -32,7 +32,7 @@ local keymaps = {
 	},
 	-- keymap to toggle harpoon quick menu
 	{
-		"<c-a>",
+		"<C-a>",
 		mode = "n",
 		function()
 			require("harpoon.ui").toggle_quick_menu()

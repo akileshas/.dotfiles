@@ -573,7 +573,7 @@ local keymaps = {
 
 	-- utility keymaps
 	{
-		"<leader>z",
+		"<leader>wz",
 		mode = "n",
 		function()
 			Snacks.zen()
@@ -583,7 +583,7 @@ local keymaps = {
 		desc = "toggle zen mode",
 	},
 	{
-		"<leader>Z",
+		"<leader>wZ",
 		mode = "n",
 		function()
 			Snacks.zen.zoom()
