@@ -74,7 +74,7 @@ local options = {
 		enabled = true,
 	},
 	scope = {
-		enabled = true,
+		enabled = false,
 	},
 	scratch = {},
 	scroll = {
