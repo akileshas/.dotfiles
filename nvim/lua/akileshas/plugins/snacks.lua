@@ -23,6 +23,7 @@ local dashboard_header = [[
 -- for convenience
 local fn = vim.fn
 local api = vim.api
+local v = vim.v
 
 -- plugin options
 local options = {
@@ -615,7 +616,7 @@ local keymaps = {
 		"]]",
 		mode = { "n", "t" },
 		function()
-			Snacks.words.jump(vim.v.count1)
+			Snacks.words.jump(v.count1)
 		end,
 		noremap = true,
 		silent = true,
@@ -625,7 +626,7 @@ local keymaps = {
 		"[[",
 		mode = { "n", "t" },
 		function()
-			Snacks.words.jump(-vim.v.count1)
+			Snacks.words.jump(-v.count1)
 		end,
 		noremap = true,
 		silent = true,
