@@ -43,7 +43,8 @@ local options = {
 	},
 	dim = {},
 	explorer = {
-		enabled = false,
+		enabled = true,
+		replace_netrw = false,
 	},
 	gitbrowse = {},
 	image = {
@@ -129,6 +130,16 @@ local keymaps = {
 		noremap = true,
 		silent = true,
 		desc = "hide the notification",
+	},
+	{
+		"<leader>ee",
+		mode = "n",
+		function()
+			Snacks.explorer()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "toggle the snacks explorer",
 	},
 
 	-- git keymaps
