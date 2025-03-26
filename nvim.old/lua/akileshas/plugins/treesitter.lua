@@ -1,10 +1,4 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	event = {
-		"BufReadPre",
-		"BufNewFile",
-	},
-	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 	},
@@ -13,73 +7,11 @@ return {
 		local treesitter = require("nvim-treesitter.configs")
 
 		-- configure treesitter
-		treesitter.setup({ -- enable syntax highlighting
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-			-- enable indentation
-			indent = {
-				enable = true,
-			},
+		treesitted.setup({
 			-- enable autotagging (w/ nvim-ts-autotag plugin)
 			autotag = {
-				enable = true,
+				enabe = true,
 			},
-			auto_install = true,
-			-- ensure these language parsers are installed
-			ensure_installed = {
-				"json",
-				"javascript",
-				"typescript",
-				"tsx",
-				"yaml",
-				"html",
-				"css",
-				"prisma",
-				"markdown",
-				"markdown_inline",
-				"bash",
-				"lua",
-				"luadoc",
-				"vim",
-				"dockerfile",
-				"gitignore",
-				"query",
-				"vimdoc",
-				"c",
-				"cpp",
-				"java",
-				"go",
-				"python",
-				"rust",
-				"r",
-				"ruby",
-				"php",
-				"graphql",
-				"scss",
-				"jsonc",
-				"toml",
-				"swift",
-				"regex",
-				"svelte",
-				"vue",
-				"zig",
-				"haskell",
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
-			-- installing modules
-			modules = {},
-			sync_install = false, -- installing asynchronously
-			ignore_install = {}, -- ignore installing these languages
 		})
 	end,
 }
