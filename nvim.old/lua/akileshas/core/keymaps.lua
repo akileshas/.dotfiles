@@ -113,16 +113,6 @@ keymap.set("n", "<leader>x", ":!chmod +x %<CR>", {
 	desc = "Make the file executable",
 })
 
--- move up and down through the visual line
-keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {
-	expr = true,
-	desc = "Move Up through the visual line",
-})
-keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {
-	expr = true,
-	desc = "Move Down through the visual line",
-})
-
 -- go to the file under the cursor
 keymap.set("", "gf", ":tabedit <cfile><CR>", {
 	desc = "Go to the file under the cursor",
