@@ -9,16 +9,6 @@ local notify = vim.notify
 local log = vim.log
 local loop = vim.loop
 
-function M.toggle_command_line()
-	if fn.getcmdwintype() == ":" then
-		-- Close the command-line window
-		cmd("q")
-	else
-		-- Open the command-line window
-		api.nvim_feedkeys(api.nvim_replace_termcodes(":<C-f>", true, true, true), "n", true)
-	end
-end
-
 function M.open_file_default_program()
 	local filename = fn.expand("%:p") -- Get the full path of the current file
 	local ext = fn.fnamemodify(filename, ":e") -- Get the file extension
