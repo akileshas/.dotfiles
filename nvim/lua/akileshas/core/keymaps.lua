@@ -76,15 +76,33 @@ keymap.set({ "n", "v", "x" }, "<C-Down>", [[<cmd>horizontal resize -2<CR>]], {
 })
 
 keymap.set("v", "<", "<gv", {
-	silent = true,
 	noremap = true,
+	silent = true,
 	desc = "Keep visual mode selection after indenting",
 })
 
 keymap.set("v", ">", ">gv", {
-	silent = true,
 	noremap = true,
+	silent = true,
 	desc = "Keep visual mode selection after indenting",
+})
+
+keymap.set({ "n", "v", "x" }, "x", [["_x]], {
+	noremap = true,
+	silent = true,
+	desc = "do not copy on x",
+})
+
+keymap.set({ "v", "x" }, "p", [["_dP]], {
+	noremap = true,
+	silent = true,
+	desc = "do not copy on paste",
+})
+
+keymap.set({ "n", "v", "x" }, "d", [["_d]], {
+	noremap = true,
+	silent = true,
+	desc = "do not copy on delete",
 })
 
 return {}
