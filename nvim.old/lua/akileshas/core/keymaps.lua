@@ -18,19 +18,6 @@ keymap.set("n", "<leader>mP", lsp.buf.format, {
 	desc = "Format the whole file",
 })
 
--- delete single character without copying into register
-keymap.set("n", "X", '"_x', {
-	desc = "Delete single character without copying",
-})
-
--- delete without copying into register
-keymap.set("n", "<leader>d", [["_d]], {
-	desc = "Delete without copying",
-})
-keymap.set("v", "<leader>d", [["_d]], {
-	desc = "Delete without copying",
-})
-
 -- tab management
 -- open new tab
 keymap.set("n", "<A-t>", "<cmd>tabnew<CR>", {
@@ -91,11 +78,6 @@ keymap.set("n", "<leader>bq", ":bufdo bdelete<CR>", {
 	desc = "Close all buffer",
 })
 
--- Map to NetRW
--- keymap.set("n", "<leader>pw", cmd.Ex, {
---    desc = "Open NetRW",
--- })
-
 -- move selected lines
 keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi", {
 	desc = "Move selected line down",
@@ -122,28 +104,8 @@ keymap.set("n", "J", "mzJ`z", {
 })
 
 -- copy to system clipboard
-keymap.set("n", "<leader>y", '"+y', {
-	desc = "Copy to system clipboard",
-})
-keymap.set("v", "<leader>y", '"+y', {
-	desc = "Copy to system clipboard",
-})
-keymap.set("v", "<leader>Y", '"+y', {
-	desc = "Copy to system clipboard",
-})
-keymap.set("n", "<leader>Y", '"+yg_', {
-	desc = "Copy till the end of the line",
-})
 keymap.set("n", "<leader>G", 'gg0"+yG<C-o>', {
 	desc = "Copy the whole file to system clipboard and register",
-})
-
--- paste from system clipboard
-keymap.set("n", "<leader>p", '"+p', {
-	desc = "Paste from system clipboard",
-})
-keymap.set("v", "<leader>p", '"_d"+p', {
-	desc = "Paste from system clipboard",
 })
 
 -- make the file executable
@@ -164,11 +126,6 @@ keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {
 -- go to the file under the cursor
 keymap.set("", "gf", ":tabedit <cfile><CR>", {
 	desc = "Go to the file under the cursor",
-})
-
--- change the default behaviour of the p command
-keymap.set("v", "p", '"_dP', {
-	desc = "Doen't copy the text after pasting",
 })
 
 -- insert ; and , at the end of the line
@@ -199,11 +156,6 @@ keymap.set({ "n", "v" }, "<leader>fl", "<cmd>CellularAutomaton game_of_life<CR>"
 -- open the terminal in new tab and go to insert mode
 keymap.set("n", "<leader>;", ":tab terminal<CR>i", {
 	desc = "Open the terminal in new tab and go to insert mode",
-})
-
--- open the command line window
-keymap.set("n", "<leader>:", functions.toggle_command_line, {
-	desc = "Toggle the command-line window",
 })
 
 -- open the file the default program
