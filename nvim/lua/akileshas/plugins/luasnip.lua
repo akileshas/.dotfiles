@@ -30,9 +30,12 @@ local config =  function(_, opts)
 	-- for convenience
 	local ls = require("luasnip")
 
-	if opts then
-		ls.config.setup(opts)
+	if opts == nil then
+		opts = {}
 	end
+
+	-- configure luasnip
+	ls.config.setup(opts)
 
 	-- dynamically load snippet formats
 	local snippet_types = {
