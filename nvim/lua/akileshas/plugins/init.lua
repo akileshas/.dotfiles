@@ -16,6 +16,10 @@ return {
 		lazy = true,
 	},
 	{
+		"moyiz/blink-emoji.nvim",
+		lazy = true,
+	},
+	{
 		"giuxtaposition/blink-cmp-copilot",
 		lazy = true,
 	},
