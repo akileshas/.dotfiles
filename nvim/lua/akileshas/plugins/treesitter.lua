@@ -206,8 +206,8 @@ local refactor_options = {
 	},
 }
 
--- treesitter options
-local treesitter_options = {
+-- plugin options
+local options = {
 	ensure_installed = ensure_installed,
 	sync_install = false,
 	auto_install = true,
@@ -236,9 +236,6 @@ local treesitter_options = {
 	refactor = refactor_options,
 }
 
--- plugin options
-local options = {}
-
 -- plugin config function
 local config = function(_, opts)
 	-- for convenience
@@ -246,8 +243,12 @@ local config = function(_, opts)
 	local treesitter_textsubjects = require('nvim-treesitter-textsubjects')
 	local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
+	-- if opts == nil then
+	-- 	opts = {}
+	-- end
+
 	-- configure treesitter
-	treesitter.setup(treesitter_options)
+	treesitter.setup(opts)
 
 	-- configure textsubjects
 	treesitter_textsubjects.configure(textsubjects_options)
@@ -262,8 +263,8 @@ return {
 	build = ":TSUpdate",
 	lazy = true,
 	event = {
-		'BufReadPost',
-		'BufNewFile'
+		"BufReadPost",
+		"BufNewFile",
 	},
 	dependencies = dependencies,
 	opts = options,

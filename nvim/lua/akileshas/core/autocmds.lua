@@ -1,6 +1,6 @@
 -- for convenience
 local api = vim.api
-local highlight = vim.highlight
+local highlight = vim.hl
 local cmd = vim.cmd
 local loop = vim.loop
 
