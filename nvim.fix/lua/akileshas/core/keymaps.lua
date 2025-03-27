@@ -1,7 +1,9 @@
 -- for convenience
 local keymap = vim.keymap
 
-keymap.set({ "i" }, "jj", "<ESC>", {
+local module = require("akileshas.core.modules")
+
+keymap.set("i", "jj", "<Esc>", {
 	noremap = true,
 	silent = true,
 	desc = "exit insert mode with jj",
@@ -16,73 +18,73 @@ keymap.set({ "n", "v", "x" }, "<leader>cl", "<cmd>nohlsearch<CR>", {
 keymap.set({ "n", "v", "x" }, "=", "<C-a>", {
 	noremap = true,
 	silent = true,
-	desc = "increment number",
+	desc = "Increment number",
 })
 
 keymap.set({ "n", "v", "x" }, "-", "<C-x>", {
 	noremap = true,
 	silent = true,
-	desc = "decrement number",
+	desc = "Decrement number",
 })
 
 keymap.set({ "n", "v", "x" }, "<leader>sv", "<C-w>v", {
 	noremap = true,
 	silent = true,
-	desc = "split window vertically",
+	desc = "Split window vertically",
 })
 
 keymap.set({ "n", "v", "x" }, "<leader>sh", "<C-w>s", {
 	noremap = true,
 	silent = true,
-	desc = "split window horizontally",
+	desc = "Split window horizontally",
 })
 
 keymap.set({ "n", "v", "x" }, "<leader>se", "<C-w>=", {
 	noremap = true,
 	silent = true,
-	desc = "make splits equal size",
+	desc = "Make splits equal size",
 })
 
 keymap.set({ "n", "v", "x" }, "<leader>sx", "<cmd>close<CR>", {
 	noremap = true,
 	silent = true,
-	desc = "close current split",
+	desc = "Close current split",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize +5<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-Left>", [[<cmd>vertical resize +5<CR>]], {
 	noremap = true,
 	silent = true,
-	desc = "make the window bigger vertically",
+	desc = "Make the window bigger vertically",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-right>", "<cmd>vertical resize -5<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-Right>", [[<cmd>vertical resize -5<CR>]], {
 	noremap = true,
 	silent = true,
-	desc = "make the window smaller vertically",
+	desc = "Make the window smaller vertically",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-up>", "<cmd>horizontal resize +2<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-Up>", [[<cmd>horizontal resize +2<CR>]], {
 	noremap = true,
 	silent = true,
-	desc = "make the window bigger horizontally",
+	desc = "Make the window bigger horizontally",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-down>", "<cmd>horizontal resize -2<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-Down>", [[<cmd>horizontal resize -2<CR>]], {
 	noremap = true,
 	silent = true,
-	desc = "make the window smaller horizontally",
+	desc = "Make the window smaller horizontally",
 })
 
-keymap.set({ "v", "x" }, "<", "<gv", {
+keymap.set("v", "<", "<gv", {
 	noremap = true,
 	silent = true,
-	desc = "keep visual mode selection after indenting",
+	desc = "Keep visual mode selection after indenting",
 })
 
-keymap.set({ "v", "x" }, ">", ">gv", {
+keymap.set("v", ">", ">gv", {
 	noremap = true,
 	silent = true,
-	desc = "keep visual mode selection after indenting",
+	desc = "Keep visual mode selection after indenting",
 })
 
 keymap.set({ "n", "v", "x" }, "x", [["_x]], {
@@ -107,14 +109,14 @@ keymap.set({ "n", "v", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", {
 	noremap = true,
 	silent = true,
 	expr = true,
-	desc = "move down through the visual line",
+	desc = "Move Down through the visual line",
 })
 
 keymap.set({ "n", "v", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", {
 	noremap = true,
 	silent = true,
 	expr = true,
-	desc = "move up through the visual line",
+	desc = "Move Up through the visual line",
 })
 
 return {}

@@ -1,10 +1,10 @@
 -- for convenience
-local api = vim.api
 local fn = vim.fn
 local loop = vim.loop
-local opt = vim.opt
 local uv = vim.uv
 local v = vim.v
+local api = vim.api
+local opt = vim.opt
 
 -- bootstrap lazy.nvim
 local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -32,21 +32,13 @@ opt.rtp:prepend(lazypath)
 
 -- lazy options
 local options = {
-	defaults = {
-		lazy = false,
-	},
 	spec = {
 		{ import = "akileshas.plugins" },
-	},
-	local_spec = true,
-	install = {
-		missing = true,
-		colorscheme = { "habamax" },
+		{ import = "akileshas.lsp" },
 	},
 	checker = {
 		enabled = true,
 		notify = false,
-		check_pinned = false,
 	},
 	change_detection = {
 		enabled = true,

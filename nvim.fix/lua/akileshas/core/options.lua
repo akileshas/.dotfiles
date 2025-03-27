@@ -1,7 +1,7 @@
+local indent = 4
+
 -- for convenience
 local opt = vim.opt
-
-local indent = 4
 
 -- cursor settings
 opt.guicursor = ""
