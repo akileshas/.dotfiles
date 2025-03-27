@@ -15,4 +15,8 @@ return {
 		"rafamadriz/friendly-snippets",
 		lazy = true,
 	},
+	{
+		"giuxtaposition/blink-cmp-copilot",
+		lazy = true,
+	},
 }
