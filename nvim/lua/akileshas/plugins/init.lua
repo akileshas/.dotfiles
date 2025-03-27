@@ -11,4 +11,8 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},
+	{
+		"rafamadriz/friendly-snippets",
+		lazy = true,
+	},
 }
