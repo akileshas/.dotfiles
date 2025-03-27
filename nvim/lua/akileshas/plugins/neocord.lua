@@ -10,7 +10,9 @@ local keymaps = {}
 return {
 	"IogaMaster/neocord",
 	lazy = true,
-	event = "VeryLazy",
+	event = {
+		"VeryLazy",
+	},
 	opts = options,
 	keys = keymaps,
 }

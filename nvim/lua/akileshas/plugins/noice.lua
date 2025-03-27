@@ -25,7 +25,9 @@ local keymaps = {}
 return {
 	"folke/noice.nvim",
 	lazy = true,
-	event = "VeryLazy",
+	event = {
+		"VeryLazy"
+	},
 	dependencies = dependencies,
 	opts = options,
 	keys = keymaps,

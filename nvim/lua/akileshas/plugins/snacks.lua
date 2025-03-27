@@ -81,7 +81,7 @@ local options = {
 		enabled = false,
 	},
 	statuscolumn = {
-		enabled = true,
+		enabled = false,
 	},
 	terminal = {},
 	toggle = {},
@@ -513,7 +513,7 @@ local keymaps = {
 	{
 		"<leader>sp",
 		mode = "n",
-		function ()
+		function()
 			Snacks.picker()
 		end,
 		noremap = true,
@@ -635,7 +635,7 @@ local keymaps = {
 }
 
 -- plugin init function
-local function init()
+local init = function()
 	-- autocmd for the lazy event
 	api.nvim_create_autocmd("User", {
 		pattern = "VeryLazy",

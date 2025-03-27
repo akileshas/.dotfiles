@@ -5,7 +5,7 @@ local cmd = vim.cmd
 local loop = vim.loop
 
 -- create nvim autocommand group
-local function augroup(name)
+local augroup = function(name)
 	return api.nvim_create_augroup(
 		'akileshas_' .. name,
 		{ clear = true }

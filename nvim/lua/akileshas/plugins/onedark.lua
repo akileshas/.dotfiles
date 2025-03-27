@@ -36,7 +36,7 @@ local options = {
 local keymaps = {}
 
 -- plugin init function
-local function init()
+local init = function()
 	local onedark = require("onedark")
 
 	-- load the theme

@@ -99,7 +99,7 @@ keymap.set({ "v", "x" }, "p", [["_dP]], {
 	desc = "do not copy on paste",
 })
 
-keymap.set({ "n", "v", "x" }, "d", [["_d]], {
+keymap.set({ "n", "v", "x" }, "<leader>d", [["_d]], {
 	noremap = true,
 	silent = true,
 	desc = "do not copy on delete",

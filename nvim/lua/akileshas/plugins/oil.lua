@@ -1,6 +1,6 @@
 -- toggle file/directory details
 local details_shown = true
-function toggle_details()
+local toggle_details = function()
 	if details_shown then
 		require("oil").set_columns({
 			{

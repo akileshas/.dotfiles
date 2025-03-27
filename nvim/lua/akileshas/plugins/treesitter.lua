@@ -236,8 +236,11 @@ local treesitter_options = {
 	refactor = refactor_options,
 }
 
+-- plugin options
+local options = {}
+
 -- plugin config function
-local function config()
+local config = function(_, opts)
 	-- for convenience
 	local treesitter = require("nvim-treesitter.configs")
 	local treesitter_textsubjects = require('nvim-treesitter-textsubjects')
@@ -250,6 +253,9 @@ local function config()
 	treesitter_textsubjects.configure(textsubjects_options)
 end
 
+-- plugin keymaps
+local keymaps = {}
+
 -- plugin configurations
 return {
 	"nvim-treesitter/nvim-treesitter",
@@ -260,5 +266,7 @@ return {
 		'BufNewFile'
 	},
 	dependencies = dependencies,
+	opts = options,
 	config = config,
+	keys = keymaps,
 }

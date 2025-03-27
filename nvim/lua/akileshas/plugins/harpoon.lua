@@ -2,7 +2,7 @@
 local options = {}
 
 -- helper function to define keymaps for harpoon navigation
-local function keymaps_for_navigation(keymaps, num)
+local keymaps_for_navigation = function(keymaps, num)
 	for i = 1, num do
 		table.insert(keymaps, {
 			"<leader>" .. i,
