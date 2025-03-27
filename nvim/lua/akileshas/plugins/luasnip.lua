@@ -25,22 +25,6 @@ local options = {
 	enable_autosnippets = true,
 }
 
--- plugin keymaps
-local keymaps = {
-	{
-		mode = "n",
-		"<leader>ls",
-		function()
-			require("luasnip.extras.snippet_list").open({
-				snip_info = snip_info,
-			})
-		end,
-		noremap = true,
-		silent = true,
-		desc = "open luasnip snippet list",
-	},
-}
-
 -- plugin config function
 local config =  function(_, opts)
 	-- for convenience
@@ -80,6 +64,22 @@ local config =  function(_, opts)
 		ls.filetype_extend(filetype, extensions)
 	end
 end
+
+-- plugin keymaps
+local keymaps = {
+	{
+		mode = "n",
+		"<leader>ls",
+		function()
+			require("luasnip.extras.snippet_list").open({
+				snip_info = snip_info,
+			})
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open luasnip snippet list",
+	},
+}
 
 -- plugin configurations
 return {
