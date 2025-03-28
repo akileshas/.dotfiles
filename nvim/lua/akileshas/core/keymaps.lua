@@ -49,28 +49,28 @@ keymap.set({ "n", "v", "x" }, "<leader>sx", "<cmd>close<CR>", {
 	desc = "close current split",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize +5<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize -5<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "make the window bigger vertically",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-right>", "<cmd>vertical resize -5<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-right>", "<cmd>vertical resize +5<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "make the window smaller vertically",
-})
-
-keymap.set({ "n", "v", "x" }, "<C-up>", "<cmd>horizontal resize +2<CR>", {
-	noremap = true,
-	silent = true,
-	desc = "make the window bigger horizontally",
 })
 
 keymap.set({ "n", "v", "x" }, "<C-down>", "<cmd>horizontal resize -2<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "make the window smaller horizontally",
+})
+
+keymap.set({ "n", "v", "x" }, "<C-up>", "<cmd>horizontal resize +2<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "make the window bigger horizontally",
 })
 
 keymap.set({ "v", "x" }, "<", "<gv", {
@@ -103,14 +103,14 @@ keymap.set({ "n", "v", "x" }, "<leader>d", [["_d]], {
 	desc = "do not copy on delete",
 })
 
-keymap.set({ "n", "v", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", {
+keymap.set({ "n", "v", "x" }, "j", [[v:count == 0 ? "gj" : "j"]], {
 	noremap = true,
 	silent = true,
 	expr = true,
 	desc = "move down through the visual line",
 })
 
-keymap.set({ "n", "v", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", {
+keymap.set({ "n", "v", "x" }, "k", [[v:count == 0 ? "gk" : k"]], {
 	noremap = true,
 	silent = true,
 	expr = true,
