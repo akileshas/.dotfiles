@@ -41,7 +41,7 @@ local dependencies = {
 	},
 }
 
--- plugin options
+-- plugin opts
 local opts = {
 	default_file_explorer = true,
 	columns = {
@@ -104,7 +104,7 @@ local opts = {
 	},
 }
 
--- plugin keymaps
+-- plugin keys
 local keys = {
 	{
 		"<leader>ef",

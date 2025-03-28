@@ -1,14 +1,14 @@
 -- plugin dependencies
 local dependencies = {}
 
--- plugin options
+-- plugin opts
 local opts = {
 	auto_save = nil,
 	disable_on_zoom = true,
 	mux = "auto",
 }
 
--- plugin keymaps
+-- plugin keys
 local keys = {
 	{
 		"<C-h>",
