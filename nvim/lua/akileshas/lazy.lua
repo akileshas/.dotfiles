@@ -46,6 +46,7 @@ local options = {
 	checker = {
 		enabled = true,
 		notify = false,
+		frequency = 3600,
 		check_pinned = false,
 	},
 	change_detection = {

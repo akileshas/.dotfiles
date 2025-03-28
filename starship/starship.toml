@@ -24,7 +24,7 @@ success_symbol = '[](bold green) '
 error_symbol = '[](bold red) '
 
 [aws]
-symbol = "  "
+symbol = " "
 
 [buf]
 symbol = " "
@@ -33,7 +33,7 @@ symbol = " "
 symbol = " "
 
 [conda]
-symbol = " "
+symbol = " "
 
 [crystal]
 symbol = " "
