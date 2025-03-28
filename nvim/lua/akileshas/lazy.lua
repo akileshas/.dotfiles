@@ -41,7 +41,7 @@ local options = {
 	local_spec = true,
 	install = {
 		missing = true,
-		colorscheme = { "habamax" },
+		colorscheme = { "onedark" },
 	},
 	checker = {
 		enabled = true,
