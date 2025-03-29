@@ -44,6 +44,13 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 # Chrome Environment Variables
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-canary
 
+# pnpm path
+export PNPM_HOME="/home/akileshas/.local/share/pnpm"
+case ":$PATH:" in
+	*":$PNPM_HOME:"*) ;;
+	*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # luarocks path
 export PATH="$HOME/.local/share/nvim/lazy-rocks/hererocks/bin:$PATH"
 
