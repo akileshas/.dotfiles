@@ -1,6 +1,15 @@
 -- plugin dependencies
 local dependencies = {}
 
+-- plugin init function
+local init = function()
+	-- for convenience
+	local onedark = require("onedark")
+
+	-- load the theme
+	onedark.load()
+end
+
 -- plugin opts
 local opts = {
 	style = "deep",
@@ -37,15 +46,6 @@ local opts = {
 
 -- plugin keys
 local keys = {}
-
--- plugin init function
-local init = function()
-	-- for convenience
-	local onedark = require("onedark")
-
-	-- load the theme
-	onedark.load()
-end
 
 -- plugin configurations
 return {

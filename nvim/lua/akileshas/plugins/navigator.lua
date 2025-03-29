@@ -1,6 +1,9 @@
 -- plugin dependencies
 local dependencies = {}
 
+-- plugin init function
+local init = function() end
+
 -- plugin opts
 local opts = {
 	auto_save = nil,
@@ -61,9 +64,6 @@ local keys = {
 		desc = "move to the previous mux pane",
 	},
 }
-
--- plugin init function
-local init = function() end
 
 -- plugin configurations
 return {

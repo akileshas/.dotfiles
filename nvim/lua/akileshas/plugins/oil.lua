@@ -41,6 +41,9 @@ local dependencies = {
 	},
 }
 
+-- plugin init function
+local init = function() end
+
 -- plugin opts
 local opts = {
 	default_file_explorer = true,
@@ -117,9 +120,6 @@ local keys = {
 		desc = "open parent directory",
 	},
 }
-
--- plugin init function
-local init = function() end
 
 -- plugin configurations
 return {

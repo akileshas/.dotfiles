@@ -1,6 +1,9 @@
 -- plugin dependencies
 local dependencies = {}
 
+-- plugin init function
+local init = function() end
+
 -- plugin opts
 local opts = {
 	skip_filetypes = {},
@@ -22,9 +25,6 @@ local keys = {
 		desc = "toggle stay-centered.nvim",
 	},
 }
-
--- plugin init function
-local init = function() end
 
 -- plugin configurations
 return {

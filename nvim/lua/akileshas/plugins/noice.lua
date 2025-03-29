@@ -5,6 +5,9 @@ local dependencies = {
 	},
 }
 
+-- plugin init function
+local init = function() end
+
 -- plugin opts
 local opts = {
 	lsp = {
@@ -25,9 +28,6 @@ local opts = {
 
 -- plugin keys
 local keys = {}
-
--- plugin init function
-local init = function() end
 
 -- plugin configurations
 return {
