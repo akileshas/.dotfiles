@@ -44,6 +44,12 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 # Chrome Environment Variables
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-canary
 
+# luarocks path
+export PATH="$HOME/.local/share/nvim/lazy-rocks/hererocks/bin:$PATH"
+
+# gem path
+export PATH="$PATH:/home/akileshas/.local/share/gem/ruby/3.3.0/bin"
+
 # Expand the history size
 export HISTSIZE=1000000
 export HISTFILESIZE=100000000
