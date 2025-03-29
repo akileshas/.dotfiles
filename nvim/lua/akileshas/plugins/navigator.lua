@@ -54,7 +54,7 @@ local keys = {
 		desc = "move to the up mux pane",
 	},
 	{
-		"<C-p>",
+		"<C-\\>",
 		mode = { "" },
 		function()
 			require("Navigator").previous()

@@ -68,10 +68,6 @@ local opts = {
 				horizontal = true,
 			},
 		},
-		["<C-p>"] = {},
-		["<C-d>"] = {
-			"actions.preview",
-		},
 		["<C-l>"] = {},
 		["<C-u>"] = {
 			"actions.refresh",
