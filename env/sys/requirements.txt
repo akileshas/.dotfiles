@@ -192,3 +192,4 @@ cbonsai
 tectonic
 texlive-core
 binutils
+pnpm
