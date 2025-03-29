@@ -11,4 +11,8 @@ return {
 		"MunifTanjim/nui.nvim",
 		lazy = true,
 	},
+	{
+		"rafamadriz/friendly-snippets",
+		lazy = true,
+	},
 }
