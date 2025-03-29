@@ -1,5 +1,6 @@
 -- for convenience
 local api = vim.api
+local bo = vim.bo
 local cmd = vim.cmd
 local highlight = vim.hl
 
@@ -39,7 +40,9 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
 	group = augroup("strip_space"),
 	pattern = { "*" },
 	callback = function()
-		cmd([[ %s/\s\+$//e ]])
+		if bo.filetype ~= "oil" then
+			cmd([[ %s/\s\+$//e ]])
+		end
 	end
 })
 
