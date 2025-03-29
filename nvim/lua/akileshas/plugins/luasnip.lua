@@ -1,3 +1,15 @@
+-- custom snip_info
+local snip_info = function(snippet)
+	return {
+		name = snippet.name,
+		trigger = snippet.trigger,
+		docstring = snippet.docstring,
+		description = snippet.description,
+		regTrig = snippet.regTrig,
+		wordTrig = snippet.wordTrig,
+	}
+end
+
 -- plugin dependencies
 local dependencies = {
 	{
@@ -62,7 +74,20 @@ local config = function(_, opts)
 end
 
 -- plugin keys
-local keys = {}
+local keys = {
+	{
+		"<leader>ls",
+		mode = { "n" },
+		function()
+			require("luasnip.extras.snippet_list").open({
+				snip_info = snip_info,
+			})
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open luasnip snippet list",
+	},
+}
 
 -- plugin configurations
 return {
