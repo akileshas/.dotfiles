@@ -4,10 +4,6 @@ return {
 		lazy = false,
 	},
 	{
-		"rafamadriz/friendly-snippets",
-		lazy = true,
-	},
-	{
 		"moyiz/blink-emoji.nvim",
 		lazy = true,
 	},
