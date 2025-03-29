@@ -121,6 +121,7 @@ local keys = {
 -- plugin init function
 local init = function() end
 
+-- plugin configurations
 return {
 	"stevearc/oil.nvim",
 	version = "*",
