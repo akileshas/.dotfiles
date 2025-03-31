@@ -47,3 +47,11 @@
 - use `ripgrep` to search files instead of `grep`
 - use `fd` to search files instead of `find`
 - use `gdb-dashboard` to view `gdb` output
+
+
+for luarocks support in nvim use the cmd:
+```bash
+pip install hererocks
+npm list -g neovim
+hererocks ~/.local/share/nvim/lazy-rocks/hererocks -r^ --lua=5.1
+```
