@@ -1,46 +1,5 @@
 return {
-	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
-	},
 	config = function()
-		local lspconfig = require("lspconfig")
-		local mason_lspconfig = require("mason-lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		-- for convenience
-		local keymap = vim.keymap
-		local api = vim.api
-		local fn = vim.fn
-		local cmd = vim.cmd
-		local diagnostic = vim.diagnostic
-		local lsp = vim.lsp
-
-		-- Set up autocompletion capabilities
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		-- Custom diagnostic signs
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			fn.sign_define(hl, {
-				text = icon,
-				texthl = hl,
-				numhl = hl,
-			})
-		end
-
-		diagnostic.config({
-			virtual_text = false,
-			signs = true,
-			underline = false,
-			update_in_insert = false,
-			severity_sort = true,
-		})
-
 		-- LSP Keymap
 		api.nvim_create_autocmd("LspAttach", {
 			group = api.nvim_create_augroup("UserLspConfig", {}),
@@ -105,15 +64,6 @@ return {
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", {
 					desc = "Restart LSP",
 					unpack(opts),
-				})
-			end,
-		})
-
-		-- Automatically setup each server installed by mason
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
 				})
 			end,
 		})
