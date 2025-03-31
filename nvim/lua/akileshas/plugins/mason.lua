@@ -75,7 +75,9 @@ return {
 	enabled = true,
 	lazy = true,
 	event = {},
-	cmd = {},
+	cmd = {
+		"Mason",
+	},
 	ft = {},
 	build = {},
 	dependencies = dependencies,
