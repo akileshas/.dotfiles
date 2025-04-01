@@ -1,68 +1,5 @@
--- dashboard header
-local dashboard_header = [[
-   ____________________________________
-  /   Cook your code with precision,   \
-  |    spice it with logic,              |
-  |    and serve it with clarity,        |
-  |    so that no reviewer,              |
-  |    dares to reject your              |
-  \    masterpiece !!!                  /
-  -------------------------------------
-\
-  \
-   \
-        ___
-       (.. |
-       (<> |
-       / __  \
-       ( /  \ /|
-      _/\ __)/_)
-      \/-_____\/
-]]
-
--- for convenience
-local fn = vim.fn
-local api = vim.api
-local v = vim.v
-
 -- plugin options
 local options = {
-	animate = {},
-	bigfile = {
-		enabled = true,
-	},
-	dashboard = {
-		enabled = true,
-		row = 1,
-		preset = {
-			keys = {},
-			header = dashboard_header,
-		},
-		sections = {
-			{ section = "header" },
-		},
-	},
-	dim = {},
-	explorer = {
-		enabled = true,
-		replace_netrw = false,
-	},
-	gitbrowse = {},
-	image = {
-		enabled = true,
-	},
-	indent = {
-		enabled = false,
-	},
-	input = {
-		enabled = true,
-	},
-	layout = {},
-	lazygit = {},
-	notifier = {
-		enabled = true,
-		timeout = 3000,
-	},
 	picker = {
 		enabled = true,
 		matcher = {
@@ -653,13 +590,3 @@ local init = function()
 		end,
 	})
 end
-
--- plugin configurations
-return {
-	"folke/snacks.nvim",
-	priority = 1000,
-	lazy = false,
-	opts = options,
-	keys = keymaps,
-	init = init,
-}
