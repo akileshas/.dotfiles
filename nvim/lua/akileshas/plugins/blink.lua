@@ -7,6 +7,9 @@ local dependencies = {
 		"rafamadriz/friendly-snippets",
 	},
 	{
+		"folke/lazydev.nvim",
+	},
+	{
 		"moyiz/blink-emoji.nvim",
 	},
 	{
@@ -90,6 +93,7 @@ local opts = {
 	},
 	sources = {
 		default = {
+			"lazydev",
 			"lsp",
 			"path",
 			"snippets",
@@ -98,11 +102,17 @@ local opts = {
 			"copilot",
 		},
 		providers = {
+			lazydev = {
+				name = "lazydev",
+				enabled = true,
+				module = "lazydev.integrations.blink",
+				score_offset = 100,
+			},
 			lsp = {
 				name = "lsp",
 				enabled = true,
 				module = "blink.cmp.sources.lsp",
-				score_offset = 90,
+				score_offset = 95,
 			},
 			path = {
 				name = "path",
@@ -137,7 +147,7 @@ local opts = {
 				name = "emoji",
 				enabled = true,
 				module = "blink-emoji",
-				score_offset = 95,
+				score_offset = 90,
 				opts = {
 					insert = true,
 				},
