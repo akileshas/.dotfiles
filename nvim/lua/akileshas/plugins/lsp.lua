@@ -69,7 +69,26 @@ local config = function(_, opts)
 
 	-- automatically setup each server installed by mason
 	local handlers = {
-		default_setup
+		default_setup,
+		lua_ls = function()
+			local lua_ls_config = {
+				settings = {
+					Lua = {
+						runtime = {
+							"LuaJIT",
+						},
+						diagnostics = {
+							"vim",
+						},
+						workspace = {
+							library = api.nvim_get_runtime_file("", true),
+						},
+					},
+				},
+			}
+
+			lspconfig.lua_ls.setup(lua_ls_config)
+		end
 	}
 	mason_lspconfig.setup_handlers(handlers)
 end
