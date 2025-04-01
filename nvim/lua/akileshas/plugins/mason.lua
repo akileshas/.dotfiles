@@ -77,6 +77,7 @@ return {
 	event = {},
 	cmd = {
 		"Mason",
+		"MasonUpdate",
 	},
 	ft = {},
 	build = {},
