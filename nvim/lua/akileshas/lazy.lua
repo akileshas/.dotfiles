@@ -50,6 +50,7 @@ local options = {
 		},
 		wrap = true,
 		border = "rounded",
+		backdrop = 60,
 		pills = true,
 	},
 	checker = {
