@@ -30,7 +30,7 @@ local opts = {
 		floats = "transparent",
 	},
 	dim_inactive = false,
-	lualine_bold = false,
+	lualine_bold = true,
 	cache = true,
 	on_colors = on_colors,
 	on_highlights = on_highlights,
