@@ -1,6 +1,7 @@
 -- for convenience
 local api = vim.api
 local fn = vim.fn
+local log = vim.log
 local v = vim.v
 
 -- dashboard header
@@ -47,8 +48,10 @@ local opts = {
 	},
 	dashboard = {
 		enabled = true,
+		width = 60,
 		row = 1,
 		col = nil,
+		pane_gap = 4,
 		preset = {
 			keys = {},
 			header = dashboard_header,
@@ -87,9 +90,72 @@ local opts = {
 	},
 	image = {
 		enabled = true,
+		formats = {
+			"png",
+			"jpg",
+			"jpeg",
+			"gif",
+			"bmp",
+			"webp",
+			"tiff",
+			"heic",
+			"avif",
+			"mp4",
+			"mov",
+			"avi",
+			"mkv",
+			"webm",
+			"pdf",
+		},
+		doc = {
+			enabled = true,
+			inline = true,
+			float = true,
+			max_width = 80,
+			max_height = 40,
+		},
+		wo = {
+			wrap = false,
+			number = false,
+			relativenumber = false,
+			cursorcolumn = false,
+			signcolumn = "no",
+			foldcolumn = "0",
+			list = false,
+			spell = false,
+			statuscolumn = "",
+		},
 	},
 	indent = {
-		enabled = false,
+		enabled = true,
+		indent = {
+			enabled = true,
+			priority = 1,
+			only_scope = false,
+			only_current = false,
+			char = "┆",
+		},
+		scope = {
+			enabled = true,
+			priority = 200,
+			underline = false,
+			only_current = false,
+			char = "┆",
+		},
+		chunk = {
+			enabled = false,
+			priority = 200,
+			only_current = false,
+			char = {
+				-- corner_top = "┌",
+				-- corner_bottom = "└",
+				corner_top = "╭",
+				corner_bottom = "╰",
+				horizontal = "─",
+				vertical = "│",
+				arrow = ">",
+			},
+		},
 	},
 	input = {
 		enabled = true,
@@ -104,13 +170,52 @@ local opts = {
 	notifier = {
 		enabled = true,
 		timeout = 3000,
+		width = {
+			min = 40,
+			max = 0.4
+		},
+		height = {
+			min = 1,
+			max = 0.6
+		},
+		margin = {
+			top = 0,
+			right = 1,
+			bottom = 0
+		},
+		padding = true,
+		sort = {
+			"level",
+			"added",
+		},
+		level = log.levels.TRACE,
+		style = "compact",
 		top_down = true,
+		date_format = "%R",
+		more_format = " ↓ %d lines ",
+		refresh = 50,
 	},
 	notify = {
 		enabled = true,
 	},
 	picker = {
 		enabled = true,
+		sources = {},
+		layout = {
+			cycle = true,
+		},
+		matcher = {
+			fuzzy = true,
+			smartcase = true,
+			ignorecase = true,
+			sort_empty = false,
+			filename_bonus = true,
+			file_pos = true,
+			cwd_bonus = false,
+			frecency = true,
+			history_bonus = false,
+		},
+		ui_select = true,
 	},
 }
 
