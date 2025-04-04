@@ -1,11 +1,5 @@
 -- plugin options
 local options = {
-	picker = {
-		enabled = true,
-		matcher = {
-			frecency = true,
-		},
-	},
 	profiler = {},
 	quickfile = {
 		enabled = true,
