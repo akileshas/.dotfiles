@@ -1,6 +1,12 @@
 -- for convenience
 local cmd = vim.cmd
 
+-- custom theme colors
+local on_colors = function(colors) end
+
+-- custom theme highlights
+local on_highlights = function(highlights, colors) end
+
 -- plugin dependencies
 local dependencies = {}
 
@@ -24,9 +30,10 @@ local opts = {
 		floats = "transparent",
 	},
 	dim_inactive = false,
+	lualine_bold = false,
 	cache = true,
-	on_colors = function(colors) end,
-	on_highlights = function(highlights, colors) end,
+	on_colors = on_colors,
+	on_highlights = on_highlights,
 }
 
 -- plugin config function
