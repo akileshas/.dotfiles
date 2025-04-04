@@ -41,7 +41,16 @@ local options = {
 	local_spec = true,
 	install = {
 		missing = true,
-		colorscheme = { "onedark" },
+		colorscheme = { "tokyonight" },
+	},
+	ui = {
+		size = {
+			width = 0.8,
+			height = 0.8
+		},
+		wrap = true,
+		border = "rounded",
+		pills = true,
 	},
 	checker = {
 		enabled = true,
