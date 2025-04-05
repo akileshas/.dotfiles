@@ -442,26 +442,6 @@ local keymaps = {
 
 	-- utility keymaps
 	{
-		"<leader>wz",
-		mode = "n",
-		function()
-			Snacks.zen()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "toggle zen mode",
-	},
-	{
-		"<leader>wZ",
-		mode = "n",
-		function()
-			Snacks.zen.zoom()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "toggle zoom mode",
-	},
-	{
 		"<leader>bd",
 		mode = "n",
 		function()
@@ -470,36 +450,6 @@ local keymaps = {
 		noremap = true,
 		silent = true,
 		desc = "delete the current buffer",
-	},
-	{
-		"<leader>cR",
-		mode = "n",
-		function()
-			Snacks.rename.rename_file()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "rename the current file",
-	},
-	{
-		"]]",
-		mode = { "n", "t" },
-		function()
-			Snacks.words.jump(v.count1)
-		end,
-		noremap = true,
-		silent = true,
-		desc = "jump to the next reference",
-	},
-	{
-		"[[",
-		mode = { "n", "t" },
-		function()
-			Snacks.words.jump(-v.count1)
-		end,
-		noremap = true,
-		silent = true,
-		desc = "jump to the previous reference",
 	},
 }
 
