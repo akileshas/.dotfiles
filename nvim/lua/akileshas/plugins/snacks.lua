@@ -327,6 +327,56 @@ local keys = {
 		silent = true,
 		desc = "open the snacks explorer",
 	},
+	{
+		"<leader>wz",
+		mode = { "n" },
+		function()
+			Snacks.zen.zoom()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "toggle zoom mode",
+	},
+	{
+		"<leader>wZ",
+		mode = { "n" },
+		function()
+			Snacks.zen.zen()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "toggle zen mode",
+	},
+	{
+		"<leader>cR",
+		mode = { "n" },
+		function()
+			Snacks.rename.rename_file()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "rename the current file",
+	},
+	{
+		"]]",
+		mode = { "n", "t" },
+		function()
+			Snacks.words.jump(v.count1)
+		end,
+		noremap = true,
+		silent = true,
+		desc = "jump to the next reference",
+	},
+	{
+		"[[",
+		mode = { "n", "t" },
+		function()
+			Snacks.words.jump(-v.count1)
+		end,
+		noremap = true,
+		silent = true,
+		desc = "jump to the previous reference",
+	},
 }
 
 -- plugin configurations
