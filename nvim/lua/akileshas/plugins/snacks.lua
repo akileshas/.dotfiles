@@ -285,6 +285,129 @@ local opts = {
 
 -- plugin keys
 local keys = {
+	-- git keymaps
+	{
+		"<leader>gb",
+		mode = { "n" },
+		function()
+			Snacks.git.blame_line()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "blame the current line",
+	},
+	{
+		"<leader>gB",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_branches({
+				all = true,
+			})
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git branches",
+	},
+	{
+		"<leader>go",
+		mode = { "n", "v", "x" },
+		function()
+			Snacks.gitbrowse.open()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open the current buffer in the browser",
+	},
+	{
+		"<leader>gl",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_log()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git log",
+	},
+	{
+		"<leader>gL",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_log_line()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git log for the current line",
+	},
+	{
+		"<leader>gf",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_log_file()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git log for the current file",
+	},
+	{
+		"<leader>gs",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_status()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git status",
+	},
+	{
+		"<leader>gS",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_stash()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git stash",
+	},
+	{
+		"<leader>gd",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_diff()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the git diff",
+	},
+	{
+		"<leader>ggo",
+		mode = { "n" },
+		function()
+			Snacks.lazygit.open()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open lazygit",
+	},
+	{
+		"<leader>ggl",
+		mode = { "n" },
+		function()
+			Snacks.lazygit.log()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open lazygit with log view",
+	},
+	{
+		"<leader>ggf",
+		mode = { "n" },
+		function()
+			Snacks.lazygit.log_file()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open lazygit with the log of the current file",
+	},
 
 	-- utilities keymaps
 	{
