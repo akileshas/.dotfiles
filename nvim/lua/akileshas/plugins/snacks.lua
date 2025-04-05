@@ -410,6 +410,91 @@ local keys = {
 		desc = "open lazygit with the log of the current file",
 	},
 
+	-- find files keymaps
+	{
+		"<leader>fb",
+		mode = { "n" },
+		function()
+			Snacks.picker.buffers()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the open buffers",
+	},
+	{
+		"<leader>fs",
+		mode = { "n" },
+		function()
+			Snacks.picker.smart()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open the smart picker",
+	},
+	{
+		"<leader>fc",
+		mode = { "n" },
+		function()
+			Snacks.picker.files({
+				show_empty = true,
+				hidden = true,
+				ignored = true,
+				follow = true,
+				supports_live = true,
+				cwd = fn.stdpath("config"),
+			})
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find files in the nvim configuration directory",
+	},
+	{
+		"<leader>ff",
+		mode = { "n" },
+		function()
+			Snacks.picker.files({
+				show_empty = true,
+				hidden = true,
+				ignored = true,
+				follow = true,
+				supports_live = true,
+			})
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find files in the current working directory",
+	},
+	{
+		"<leader>fg",
+		mode = { "n" },
+		function()
+			Snacks.picker.git_files()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find files in the current git repository",
+	},
+	{
+		"<leader>fp",
+		mode = { "n" },
+		function()
+			Snacks.picker.projects()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the projects",
+	},
+	{
+		"<leader>fr",
+		mode = { "n" },
+		function()
+			Snacks.picker.recent()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "find the recent files",
+	},
+
 	-- utilities keymaps
 	{
 		"<localleader>ss",
