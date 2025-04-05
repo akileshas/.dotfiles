@@ -381,6 +381,7 @@ local keys = {
 	},
 	{
 		"<leader>ggo",
+		"<leader>ggg",
 		mode = { "n" },
 		function()
 			Snacks.lazygit.open()
