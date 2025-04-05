@@ -284,7 +284,50 @@ local opts = {
 }
 
 -- plugin keys
-local keys = {}
+local keys = {
+
+	-- utilities keymaps
+	{
+		"<leader>nh",
+		mode = { "n" },
+		function()
+			Snacks.picker.notifications()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "show all notifications history in picker",
+	},
+	{
+		"<leader>nH",
+		mode = { "n" },
+		function()
+			Snacks.notifier.show_history()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "show all notifications history",
+	},
+	{
+		"<leader>hn",
+		mode = { "n" },
+		function()
+			Snacks.notifier.hide()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "hide all the notifications",
+	},
+	{
+		"<leader>ee",
+		mode = { "n" },
+		function()
+			Snacks.explorer()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "open the snacks explorer",
+	},
+}
 
 -- plugin configurations
 return {
