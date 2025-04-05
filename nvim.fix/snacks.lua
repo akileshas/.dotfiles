@@ -337,18 +337,6 @@ local keymaps = {
 		silent = true,
 		desc = "search for zoxide",
 	},
-
-	-- utility keymaps
-	{
-		"<leader>bd",
-		mode = "n",
-		function()
-			Snacks.bufdelete()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "delete the current buffer",
-	},
 }
 
 -- plugin init function
