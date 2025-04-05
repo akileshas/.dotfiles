@@ -380,7 +380,6 @@ local keys = {
 		desc = "find the git diff",
 	},
 	{
-		"<leader>ggo",
 		"<leader>ggg",
 		mode = { "n" },
 		function()
