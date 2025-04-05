@@ -7,6 +7,12 @@ keymap.set({ "i" }, "jj", "<ESC>", {
 	desc = "exit insert mode with jj",
 })
 
+keymap.set({ "t" }, "<C-e>", "<C-\\><C-n>", {
+	noremap = true,
+	silent = true,
+	desc = "exit terminal mode",
+})
+
 keymap.set({ "n", "v", "x" }, "<leader>cl", "<cmd>nohlsearch<CR>", {
 	noremap = true,
 	silent = true,
