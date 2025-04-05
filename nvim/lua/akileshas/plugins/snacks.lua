@@ -412,6 +412,26 @@ local keys = {
 
 	-- utilities keymaps
 	{
+		"<localleader>ss",
+		mode = { "n" },
+		function()
+			Snacks.scratch()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "toggle the scratch buffer",
+	},
+	{
+		"<localleader>sl",
+		mode = { "n" },
+		function()
+			Snacks.scratch.select()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "select a scratch buffer from a list of scratch buffers",
+	},
+	{
 		"<leader>nh",
 		mode = { "n" },
 		function()
