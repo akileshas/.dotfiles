@@ -201,6 +201,7 @@ local opts = {
 	picker = {
 		enabled = true,
 		sources = {},
+		focus = "input",
 		layout = {
 			cycle = true,
 		},
@@ -444,7 +445,7 @@ local keys = {
 		"<leader>ee",
 		mode = { "n" },
 		function()
-			Snacks.explorer()
+			Snacks.explorer.open()
 		end,
 		noremap = true,
 		silent = true,
@@ -471,6 +472,36 @@ local keys = {
 		desc = "toggle zen mode",
 	},
 	{
+		"<leader>bdd",
+		mode = { "n" },
+		function()
+			Snacks.bufdelete.delete()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "delete the current buffer",
+	},
+	{
+		"<leader>bdo",
+		mode = { "n" },
+		function()
+			Snacks.bufdelete.other()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "delete the buffers except the current one",
+	},
+	{
+		"<leader>bda",
+		mode = { "n" },
+		function()
+			Snacks.bufdelete.all()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "delete all buffers",
+	},
+	{
 		"<leader>cR",
 		mode = { "n" },
 		function()
@@ -479,6 +510,16 @@ local keys = {
 		noremap = true,
 		silent = true,
 		desc = "rename the current file",
+	},
+	{
+		"<C-x>",
+		mode = { "n" },
+		function()
+			Snacks.terminal.toggle()
+		end,
+		noremap = true,
+		silent = true,
+		desc = "toggle terminal",
 	},
 	{
 		"]]",
