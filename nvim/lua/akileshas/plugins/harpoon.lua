@@ -55,7 +55,7 @@ local keys = {
 		desc = "toggle harpoon quick menu",
 	},
 	{
-		"<leader>hn",
+		"<leader>hj",
 		mode = { "n" },
 		function()
 			-- for convenience
@@ -68,7 +68,7 @@ local keys = {
 		desc = "move to the previous buffers stored within harpoon list",
 	},
 	{
-		"<leader>hp",
+		"<leader>hk",
 		mode = { "n" },
 		function()
 			-- for convenience
