@@ -11,36 +11,6 @@ local keymaps = {
 		silent = true,
 		desc = "open the picker",
 	},
-	{
-		"<leader>nh",
-		mode = "n",
-		function()
-			Snacks.picker.notifications()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "show all notifications history",
-	},
-	{
-		"<leader>hn",
-		mode = "n",
-		function()
-			Snacks.notifier.hide()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "hide the notification",
-	},
-	{
-		"<leader>ee",
-		mode = "n",
-		function()
-			Snacks.explorer()
-		end,
-		noremap = true,
-		silent = true,
-		desc = "toggle the snacks explorer",
-	},
 
 	-- git keymaps
 	{
