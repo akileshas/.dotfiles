@@ -217,6 +217,70 @@ local opts = {
 		},
 		ui_select = true,
 	},
+	profiler = {
+		enabled = true,
+	},
+	quickfile = {
+		enabled = true,
+	},
+	rename = {
+		enabled = true,
+	},
+	scope = {
+		enabled = false,
+	},
+	scratch = {
+		enabled = true,
+	},
+	scroll = {
+		enabled = false,
+	},
+	statuscolumn = {
+		enabled = false,
+	},
+	terminal = {
+		enabled = true,
+	},
+	toggle = {
+		enabled = false,
+	},
+	util = {
+		enabled = true,
+	},
+	win = {
+		enabled = true,
+	},
+	words = {
+		enabled = true,
+	},
+	zen = {
+		enabled = true,
+		toggles = {
+			dim = true,
+			git_signs = true,
+			mini_diff_signs = true,
+			diagnostics = true,
+			inlay_hints = true,
+		},
+		show = {
+			statusline = true,
+			tabline = false,
+		},
+		zoom = {
+			toggles = {
+				dim = false,
+				git_signs = true,
+				mini_diff_signs = true,
+				diagnostics = true,
+				inlay_hints = true,
+			},
+			show = {
+				statusline = true,
+				tabline = true,
+			},
+		},
+	},
+	styles = {},
 }
 
 -- plugin keys
