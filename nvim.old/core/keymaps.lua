@@ -69,14 +69,6 @@ keymap.set("n", "<leader>bn", "<cmd>bn<CR>", {
 keymap.set("n", "<leader>bp", "<cmd>bp<CR>", {
 	desc = "Switch to previous buffer",
 })
--- close current buffer
-keymap.set("n", "<leader>bd", "<cmd>bd<CR>", {
-	desc = "Close current buffer",
-})
--- close all buffer
-keymap.set("n", "<leader>bq", ":bufdo bdelete<CR>", {
-	desc = "Close all buffer",
-})
 
 -- move selected lines
 keymap.set("i", "<A-j>", "<Esc>:move .+1<CR>==gi", {
