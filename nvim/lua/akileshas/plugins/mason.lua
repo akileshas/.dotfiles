@@ -1,6 +1,9 @@
 -- list of lsp servers to be installed
 local ensure_installed = {
 	"lua_ls",
+	"clangd",
+	"gopls",
+	"rust_analyzer",
 }
 
 -- plugin dependencies

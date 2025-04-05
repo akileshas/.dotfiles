@@ -72,23 +72,27 @@ local config = function(_, opts)
 		default_setup,
 		lua_ls = function()
 			local lua_ls_config = {
+				capabilities = blink_cmp.get_lsp_capabilities(),
 				settings = {
 					Lua = {
 						runtime = {
-							"LuaJIT",
+							version = "LuaJIT",
 						},
 						diagnostics = {
-							"vim",
+							globals = { "vim" },
 						},
 						workspace = {
 							library = api.nvim_get_runtime_file("", true),
+						},
+						telemetry = {
+							enable = false,
 						},
 					},
 				},
 			}
 
 			lspconfig.lua_ls.setup(lua_ls_config)
-		end
+		end,
 	}
 	mason_lspconfig.setup_handlers(handlers)
 end
