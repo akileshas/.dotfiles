@@ -120,6 +120,7 @@ networkmanager
 network-manager-applet
 networkmanager-openvpn
 jdk21-openjdk
+jdk-openjdk
 reflector
 speedtest-cli
 bash-completion
@@ -193,3 +194,6 @@ tectonic
 texlive-core
 binutils
 pnpm
+inotify-tools
+php
+composer

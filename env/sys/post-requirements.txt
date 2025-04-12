@@ -11,4 +11,4 @@ obs-studio
 obsidian
 onlyoffice-bin
 ngrok
-discord-canary
+discord

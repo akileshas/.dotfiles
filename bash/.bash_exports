@@ -40,6 +40,7 @@ export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 
 # Java Environment Variables
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Chrome Environment Variables
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-canary
