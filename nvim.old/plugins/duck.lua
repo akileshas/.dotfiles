@@ -7,7 +7,7 @@ local keymaps = {
         "<leader>dh",
         mode = "n",
         function()
-            require("duck").hatch("🐤")
+            require("nvim.old.plugins.duck").hatch("🐤")
         end,
         noremap = true,
         silent = true,
@@ -17,7 +17,7 @@ local keymaps = {
         "<leader>dd",
         mode = "n",
         function()
-            require("duck").hatch("🦆")
+            require("nvim.old.plugins.duck").hatch("🦆")
         end,
         noremap = true,
         silent = true,
@@ -27,7 +27,7 @@ local keymaps = {
         "<leader>dc",
         mode = "n",
         function()
-            require("duck").hatch("🐈")
+            require("nvim.old.plugins.duck").hatch("🐈")
         end,
         noremap = true,
         silent = true,
@@ -37,7 +37,7 @@ local keymaps = {
         "<leader>dr",
         mode = "n",
         function()
-            require("duck").hatch("🦀")
+            require("nvim.old.plugins.duck").hatch("🦀")
         end,
         noremap = true,
         silent = true,
@@ -47,7 +47,7 @@ local keymaps = {
         "<leader>dk",
         mode = "n",
         function()
-            require("duck").cook()
+            require("nvim.old.plugins.duck").cook()
         end,
         noremap = true,
         silent = true,
@@ -57,7 +57,7 @@ local keymaps = {
         "<leader>da",
         mode = "n",
         function()
-            require("duck").cook_all()
+            require("nvim.old.plugins.duck").cook_all()
         end,
         noremap = true,
         silent = true,
