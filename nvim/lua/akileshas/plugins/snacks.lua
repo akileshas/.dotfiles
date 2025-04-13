@@ -516,6 +516,26 @@ local keys = {
         desc = "search for command history",
     },
     {
+        [[<leader>s"]],
+        mode = { "n" },
+        function()
+            Snacks.picker.registers()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for registers",
+    },
+    {
+        "<leader>s/",
+        mode = { "n" },
+        function()
+            Snacks.picker.search_history()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for search history",
+    },
+    {
         "<leader>s?",
         mode = { "n" },
         function()
@@ -633,7 +653,7 @@ local keys = {
         end,
         noremap = true,
         silent = true,
-        desc = "search the lazy plugins",
+        desc = "search the lazy plugins specs",
     },
     {
         "<leader>sL",
@@ -702,6 +722,46 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "search for marks",
+    },
+    {
+        "<leader>sq",
+        mode = { "n" },
+        function()
+            Snacks.picker.qflist()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for qflist",
+    },
+    {
+        "<leader>sr",
+        mode = { "n" },
+        function()
+            Snacks.picker.resume()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "resume the last search",
+    },
+    {
+        "<leader>su",
+        mode = { "n" },
+        function()
+            Snacks.picker.undo()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for undo history",
+    },
+    {
+        "<leader>sz",
+        mode = { "n" },
+        function()
+            Snacks.picker.zoxide()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for zoxide directories",
     },
 
     -- utilities keymaps
