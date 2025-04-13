@@ -116,7 +116,7 @@ keymap.set({ "n", "v", "x" }, "j", [[v:count == 0 ? "gj" : "j"]], {
     desc = "move down through the visual line",
 })
 
-keymap.set({ "n", "v", "x" }, "k", [[v:count == 0 ? "gk" : k"]], {
+keymap.set({ "n", "v", "x" }, "k", [[v:count == 0 ? "gk" : "k"]], {
     noremap = true,
     silent = true,
     expr = true,

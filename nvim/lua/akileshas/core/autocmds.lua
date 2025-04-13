@@ -41,7 +41,7 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
     callback = function()
         if bo.filetype ~= "oil" then
-            cmd([[ %s/\s\+$//e ]])
+            cmd([[%s/\s\+$//e]])
             cmd("retab")
         end
     end

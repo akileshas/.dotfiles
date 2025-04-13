@@ -74,7 +74,7 @@ local opts = {
     signature = {
         enabled = true,
         trigger = {
-            show_on_insert = true,
+            show_on_insert = false,
         },
         window = {
             border = "rounded",
