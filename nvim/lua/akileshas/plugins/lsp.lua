@@ -31,9 +31,14 @@ local init = function() end
 local opts = {
     diagnostics = {
         underline = false,
-        update_in_insert = false,
         virtual_text = false,
+        virtual_lines = false,
+        update_in_insert = false,
         severity_sort = true,
+        float = {
+            source = true,
+            border = "rounded",
+        },
         signs = {
             text = {
                 [diagnostic.severity.ERROR] = signs.ERROR,
