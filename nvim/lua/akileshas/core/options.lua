@@ -115,7 +115,7 @@ opt.fillchars = {
 }
 
 -- mouse settings
-opt.mouse = ""
+opt.mouse = "a"
 
 -- confirm dialog settings
 opt.confirm = true
