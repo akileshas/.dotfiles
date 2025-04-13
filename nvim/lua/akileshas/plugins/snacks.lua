@@ -127,20 +127,20 @@ local opts = {
 		},
 	},
 	indent = {
-		enabled = true,
+		enabled = false,
 		indent = {
 			enabled = true,
 			priority = 1,
 			only_scope = false,
 			only_current = false,
-			char = "┆",
+			char = "¦",
 		},
 		scope = {
 			enabled = true,
 			priority = 200,
 			underline = false,
 			only_current = false,
-			char = "┆",
+			char = "¦",
 		},
 		chunk = {
 			enabled = false,
@@ -494,6 +494,8 @@ local keys = {
 		silent = true,
 		desc = "find the recent files",
 	},
+
+	-- search and grep keymaps
 
 	-- utilities keymaps
 	{

@@ -32,6 +32,7 @@ opt.shiftround = true
 opt.smarttab = true
 opt.smartindent = true
 opt.autoindent = true
+opt.expandtab = true
 
 -- line wrapping settings
 opt.wrap = true
@@ -105,7 +106,7 @@ opt.listchars = {
 	space = " ",
 	nbsp = "␣",
 	eol = "↩",
-	tab = "▸ ",
+	tab = "› ",
 	extends = "»",
 	precedes = "«",
 }
