@@ -1,3 +1,6 @@
+-- for convenience
+local cmd = vim.cmd
+
 -- plugin dependencies
 local dependencies = {
     {
@@ -24,7 +27,7 @@ local keys = {
         "<leader>st",
         mode = { "n" },
         function()
-            Snacks.picker.todo_comments()
+            cmd("TodoQuickFix")
         end,
         noremap = true,
         silent = true,
@@ -38,7 +41,9 @@ return {
     version = "*",
     enabled = true,
     lazy = true,
-    event = {},
+    event = {
+        "VeryLazy",
+    },
     cmd = {},
     ft = {},
     build = {},
