@@ -18,7 +18,10 @@ local keys = {
         "<leader>tc",
         mode = { "n", "v", "x" },
         function()
-            require("stay-centered").toggle()
+            -- for convernience
+            local stay_centered = require("stay-centered")
+
+            stay_centered.toggle()
         end,
         noremap = true,
         silent = true,

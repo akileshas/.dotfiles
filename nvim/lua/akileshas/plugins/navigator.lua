@@ -17,7 +17,10 @@ local keys = {
         "<C-h>",
         mode = { "" },
         function()
-            require("Navigator").left()
+            -- for convenience
+            local navigator = require("Navigator")
+
+            navigator.left()
         end,
         noremap = true,
         silent = true,
@@ -27,7 +30,10 @@ local keys = {
         "<C-l>",
         mode = { "" },
         function()
-            require("Navigator").right()
+            -- for convenience
+            local navigator = require("Navigator")
+
+            navigator.right()
         end,
         noremap = true,
         silent = true,
@@ -37,7 +43,10 @@ local keys = {
         "<C-j>",
         mode = { "" },
         function()
-            require("Navigator").down()
+            -- for convenience
+            local navigator = require("Navigator")
+
+            navigator.down()
         end,
         noremap = true,
         silent = true,
@@ -47,7 +56,10 @@ local keys = {
         "<C-k>",
         mode = { "" },
         function()
-            require("Navigator").up()
+            -- for convenience
+            local navigator = require("Navigator")
+
+            navigator.up()
         end,
         noremap = true,
         silent = true,
@@ -57,7 +69,10 @@ local keys = {
         "<C-\\>",
         mode = { "" },
         function()
-            require("Navigator").previous()
+            -- for convenience
+            local navigator = require("Navigator")
+
+            navigator.previous()
         end,
         noremap = true,
         silent = true,

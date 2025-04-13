@@ -4,8 +4,11 @@ local cmd = vim.cmd
 -- toggle file/directory details
 local details_shown = true
 local toggle_details = function()
+    -- for convenience
+    local oil = require("oil")
+
     if details_shown then
-        require("oil").set_columns({
+        oil.set_columns({
             {
                 "icon",
             },
@@ -25,7 +28,7 @@ local toggle_details = function()
         })
         details_shown = false
     else
-        require("oil").set_columns({
+        oil.set_columns({
             {
                 "icon",
             },
