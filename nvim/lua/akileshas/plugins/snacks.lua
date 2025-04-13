@@ -886,6 +886,16 @@ local keys = {
         desc = "rename the current file",
     },
     {
+        "<leader>uC",
+        mode = { "n" },
+        function()
+            Snacks.picker.colorschemes()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "pick a colorscheme",
+    },
+    {
         "<C-x>",
         mode = { "n" },
         function()
