@@ -33,6 +33,32 @@ local keys = {
         silent = true,
         desc = "search for todo comments",
     },
+    {
+        "]t",
+        mode = { "n" },
+        function()
+            -- for convenience
+            local todo_comments = require("todo-comments")
+
+            todo_comments.jump_next()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "jump to next todo comment",
+    },
+    {
+        "[t",
+        mode = { "n" },
+        function()
+            -- for convenience
+            local todo_comments = require("todo-comments")
+
+            todo_comments.jump_prev()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "jump to previous todo comment",
+    },
 }
 
 -- plugin configurations
