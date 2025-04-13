@@ -238,6 +238,11 @@ local opts = {
     },
     statuscolumn = {
         enabled = false,
+        refresh = 50,
+        folds = {
+            open = false,
+            git_hl = false,
+        },
     },
     terminal = {
         enabled = true,
