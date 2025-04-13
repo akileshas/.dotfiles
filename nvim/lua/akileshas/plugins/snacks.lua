@@ -380,7 +380,7 @@ local keys = {
         desc = "find the git diff",
     },
     {
-        "<leader>ggg",
+        "<leader>ggo",
         mode = { "n" },
         function()
             Snacks.lazygit.open()
