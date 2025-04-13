@@ -683,6 +683,26 @@ local keys = {
         silent = true,
         desc = "search for the word under the cursor",
     },
+    {
+        "<leader>sm",
+        mode = { "n" },
+        function()
+            Snacks.picker.man()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search the man pages",
+    },
+    {
+        "<leader>sM",
+        mode = { "n" },
+        function()
+            Snacks.picker.marks()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for marks",
+    },
 
     -- utilities keymaps
     {
