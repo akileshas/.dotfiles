@@ -1,6 +1,3 @@
--- plugin keymaps
-local keymaps = {
-    -- search keymaps
     {
         '<leader>s"',
         mode = "n",
@@ -20,26 +17,6 @@ local keymaps = {
         noremap = true,
         silent = true,
         desc = "search history",
-    },
-    {
-        "<leader>sm",
-        mode = "n",
-        function()
-            Snacks.picker.man()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search the man pages",
-    },
-    {
-        "<leader>sM",
-        mode = "n",
-        function()
-            Snacks.picker.marks()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search for marks",
     },
     {
         "<leader>sP",
@@ -91,7 +68,6 @@ local keymaps = {
         silent = true,
         desc = "search for zoxide",
     },
-}
 
 -- plugin init function
 local init = function()
