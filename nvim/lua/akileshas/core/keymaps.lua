@@ -123,4 +123,28 @@ keymap.set({ "n", "v", "x" }, "k", [[v:count == 0 ? "gk" : "k"]], {
     desc = "move up through the visual line",
 })
 
+keymap.set({ "n" }, "<localleader>fo", "zo", {
+    noremap = true,
+    silent = true,
+    desc = "open the folds",
+})
+
+keymap.set({ "n" }, "<localleader>fc", "zc", {
+    noremap = true,
+    silent = true,
+    desc = "close the folds",
+})
+
+keymap.set({ "n" }, "<localleader>fO", "zR", {
+    noremap = true,
+    silent = true,
+    desc = "open all folds",
+})
+
+keymap.set({ "n" }, "<localleader>fC", "zM", {
+    noremap = true,
+    silent = true,
+    desc = "close all folds",
+})
+
 return {}
