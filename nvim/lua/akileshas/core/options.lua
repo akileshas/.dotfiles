@@ -102,16 +102,16 @@ opt.backspace = "indent,eol,start"
 -- listchars settings
 opt.list = true
 opt.listchars = {
-	trail = "+",
-	space = " ",
-	nbsp = "␣",
-	eol = "↩",
-	tab = "› ",
-	extends = "»",
-	precedes = "«",
+    trail = "+",
+    space = " ",
+    nbsp = "␣",
+    eol = "↩",
+    tab = "› ",
+    extends = "»",
+    precedes = "«",
 }
 opt.fillchars = {
-	eob = " ",
+    eob = " ",
 }
 
 -- mouse settings
