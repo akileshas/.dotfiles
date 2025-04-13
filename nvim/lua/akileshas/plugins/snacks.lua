@@ -506,16 +506,6 @@ local keys = {
 
     -- search and grep keymaps
     {
-        "<leader>:",
-        mode = { "n" },
-        function()
-            Snacks.picker.command_history()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search for command history",
-    },
-    {
         [[<leader>s"]],
         mode = { "n" },
         function()
@@ -556,6 +546,34 @@ local keys = {
         desc = "search for autocmds",
     },
     {
+        "<leader>sg",
+        mode = { "n" },
+        function()
+            Snacks.picker.grep({
+                hidden = true,
+                ignored = true,
+                follow = true,
+                regex = true,
+                live = true,
+                show_empty = true,
+                supports_live = true,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for a string in the cwd",
+    },
+    {
+        "<leader>sw",
+        mode = { "n" },
+        function()
+            Snacks.picker.grep_word()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for the word under the cursor",
+    },
+    {
         "<leader>sb",
         mode = { "n" },
         function()
@@ -574,6 +592,16 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "search for a string in all open buffer",
+    },
+    {
+        "<leader>:",
+        mode = { "n" },
+        function()
+            Snacks.picker.command_history()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for command history",
     },
     {
         "<leader>sc",
@@ -666,24 +694,6 @@ local keys = {
         desc = "search for loclist",
     },
     {
-        "<leader>sg",
-        mode = { "n" },
-        function()
-            Snacks.picker.grep({
-                hidden = true,
-                ignored = true,
-                follow = true,
-                regex = true,
-                live = true,
-                show_empty = true,
-                supports_live = true,
-            })
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search for a string in the cwd",
-    },
-    {
         "<leader>so",
         mode = { "n" },
         function ()
@@ -692,16 +702,6 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "search for picker options",
-    },
-    {
-        "<leader>sw",
-        mode = { "n" },
-        function()
-            Snacks.picker.grep_word()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search for the word under the cursor",
     },
     {
         "<leader>sm",
