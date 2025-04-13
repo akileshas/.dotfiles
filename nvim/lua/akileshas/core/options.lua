@@ -72,7 +72,7 @@ opt.showmatch = true
 opt.ruler = true
 opt.showtabline = 1
 opt.laststatus = 3
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.scrolloff = 11
 opt.sidescrolloff = 11
 opt.sidescroll = 11
@@ -115,13 +115,13 @@ opt.fillchars = {
 }
 
 -- mouse settings
-opt.mouse = "a"
+opt.mouse = ""
 
 -- confirm dialog settings
 opt.confirm = true
 
--- disable splash screen
-opt.shortmess:append("I")
+-- message settings
+opt.shortmess:append("csI")
 
 -- shell settings
 opt.shell = "/bin/bash"
