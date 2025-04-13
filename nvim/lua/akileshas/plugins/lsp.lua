@@ -48,6 +48,12 @@ local opts = {
             },
         },
     },
+    inlay_hints = {
+        enabled = false,
+    },
+    codelens = {
+        enabled = false,
+    },
 }
 
 -- plugin config function
