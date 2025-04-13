@@ -258,6 +258,10 @@ local opts = {
     },
     words = {
         enabled = true,
+        notify_jump = false,
+        notify_end = true,
+        foldopen = true,
+        jumplist = true,
     },
     zen = {
         enabled = true,
@@ -501,6 +505,184 @@ local keys = {
     },
 
     -- search and grep keymaps
+    {
+        "<leader>:",
+        mode = { "n" },
+        function()
+            Snacks.picker.command_history()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for command history",
+    },
+    {
+        "<leader>s?",
+        mode = { "n" },
+        function()
+            Snacks.picker.help()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for help",
+    },
+    {
+        "<leader>sa",
+        mode = { "n" },
+        function()
+            Snacks.picker.autocmds()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for autocmds",
+    },
+    {
+        "<leader>sb",
+        mode = { "n" },
+        function()
+            Snacks.picker.lines()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for a string in the current buffer",
+    },
+    {
+        "<leader>sB",
+        mode = { "n" },
+        function()
+            Snacks.picker.grep_buffers()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for a string in all open buffer",
+    },
+    {
+        "<leader>sc",
+        mode = { "n" },
+        function()
+            Snacks.picker.commands()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for commands",
+    },
+    {
+        "<leader>sd",
+        mode = { "n" },
+        function()
+            Snacks.picker.diagnostics()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for diagnostics",
+    },
+    {
+        "<leader>sD",
+        mode = { "n" },
+        function()
+            Snacks.picker.diagnostics_buffer()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for diagnostics in the current buffer",
+    },
+    {
+        "<leader>sH",
+        mode = { "n" },
+        function()
+            Snacks.picker.highlights()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for highlights",
+    },
+    {
+        "<leader>si",
+        mode = { "n" },
+        function()
+            Snacks.picker.icons()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for icons",
+    },
+    {
+        "<leader>sj",
+        mode = { "n" },
+        function()
+            Snacks.picker.jumps()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for jumps",
+    },
+    {
+        "<leader>sk",
+        mode = { "n" },
+        function()
+            Snacks.picker.keymaps()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for keymaps",
+    },
+    {
+        "<leader>sl",
+        mode = { "n" },
+        function()
+            Snacks.picker.lazy()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search the lazy plugins",
+    },
+    {
+        "<leader>sL",
+        mode = { "n" },
+        function()
+            Snacks.picker.loclist()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for loclist",
+    },
+    {
+        "<leader>sg",
+        mode = { "n" },
+        function()
+            Snacks.picker.grep({
+                hidden = true,
+                ignored = true,
+                follow = true,
+                regex = true,
+                live = true,
+                show_empty = true,
+                supports_live = true,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for a string in the cwd",
+    },
+    {
+        "<leader>so",
+        mode = { "n" },
+        function ()
+            Snacks.picker.pick()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for picker options",
+    },
+    {
+        "<leader>sw",
+        mode = { "n" },
+        function()
+            Snacks.picker.grep_word()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for the word under the cursor",
+    },
 
     -- utilities keymaps
     {
