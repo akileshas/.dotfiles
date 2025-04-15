@@ -68,9 +68,14 @@ return {
     enabled = true,
     lazy = true,
     event = {
-        "VeryLazy",
+        "BufReadPost",
+        "BufNewFile",
+        "BufWritePre",
     },
-    cmd = {},
+    cmd = {
+        "TodoTrouble",
+        "TodoQuickFix",
+    },
     ft = {},
     build = {},
     dependencies = dependencies,
