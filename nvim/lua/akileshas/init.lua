@@ -1,4 +1,4 @@
-require("akileshas.core")
+require("akileshas.config")
 require("akileshas.lazy")
 require("akileshas.plugins")
 
