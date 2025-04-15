@@ -95,6 +95,7 @@ return {
     event = {
         "BufReadPost",
         "BufNewFile",
+        "BufWritePre",
     },
     cmd = {},
     ft = {},

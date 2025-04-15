@@ -124,8 +124,9 @@ return {
     enabled = true,
     lazy = true,
     event = {
-        "BufReadPre",
+        "BufReadPost",
         "BufNewFile",
+        "BufWritePre",
     },
     cmd = {},
     ft = {},
