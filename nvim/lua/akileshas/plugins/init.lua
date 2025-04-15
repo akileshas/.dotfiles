@@ -31,11 +31,4 @@ return {
         "williamboman/mason-lspconfig.nvim",
         lazy = true,
     },
-    {
-        "folke/lazydev.nvim",
-        lazy = true,
-        ft = {
-            "lua",
-        },
-    },
 }
