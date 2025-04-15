@@ -1,16 +1,25 @@
--- list of lsp servers to be installed
+-- for convenience
+local api = vim.api
+local cmd = vim.cmd
+
+-- list of lsp servers and tools to be installed
 local ensure_installed = {
-    "lua_ls",
-    "clangd",
-    "gopls",
-    "rust_analyzer",
+    lsp = {
+        "lua_ls",
+        "clangd",
+        "gopls",
+        "rust_analyzer",
+        "ts_ls",
+    },
+    tools = {
+        "stylua",
+        "shfmt",
+        "black",
+    },
 }
 
 -- plugin dependencies
 local dependencies = {
-    {
-        "saghen/blink.cmp",
-    },
     {
         "neovim/nvim-lspconfig",
     },
@@ -50,13 +59,46 @@ local opts = {
             toggle_help = "g?",
         },
     },
+    ensure_installed = ensure_installed,
 }
 
 -- plugin config function
 local config = function(_, opts)
     -- for convenience
     local mason = require("mason")
+    local mr = require("mason-registry")
     local mason_lspconfig = require("mason-lspconfig")
+
+    local ensure_tools_installed = function()
+        local tools = vim.tbl_deep_extend(
+            "force",
+            {},
+            -- opts.ensure_installed.lsp,
+            opts.ensure_installed.tools
+        )
+        for _, tool in ipairs(tools) do
+            local p = mr.get_package(tool)
+
+            if not p:is_installed() then
+                p:install()
+            end
+        end
+    end
+
+    local queue_filetype_event = function()
+        local event = require("lazy.core.handler.event")
+
+        local trigger_filetype_event = function()
+            local trigger_opts = {
+                event = "FileType",
+                buf = api.nvim_get_current_buf(),
+            }
+
+            event.trigger(trigger_opts)
+        end
+
+        vim.defer_fn(trigger_filetype_event, 100)
+    end
 
     if opts == nil then
         opts = {}
@@ -67,13 +109,30 @@ local config = function(_, opts)
 
     -- configure mason-lspconfig
     mason_lspconfig.setup({
-        ensure_installed = ensure_installed,
+        ensure_installed = opts.ensure_installed.lsp,
         automatic_installation = true,
     })
+
+    -- trigger FileType event to possibly load this newly installed lsp server
+    mr:on("package:install:success", queue_filetype_event)
+
+    -- refresh the mason registry by ensuring the tools are installed
+    mr.refresh(ensure_tools_installed)
 end
 
 -- plugin keys
-local keys = {}
+local keys = {
+    {
+        "<leader>cm",
+        mode = { "n" },
+        function()
+            cmd("Mason")
+        end,
+        noremap = true,
+        silent = true,
+        desc = "open the mason window",
+    },
+}
 
 -- plugin configurations
 return {
@@ -84,10 +143,11 @@ return {
     event = {},
     cmd = {
         "Mason",
-        "MasonUpdate",
     },
     ft = {},
-    build = {},
+    build = {
+        ":MasonUpdate",
+    },
     dependencies = dependencies,
     init = init,
     opts = opts,
