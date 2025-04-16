@@ -66,21 +66,26 @@ local opts = {
 local config = function(_, opts)
     -- for convenience
     local mason = require("mason")
-    local mr = require("mason-registry")
+    local mason_registry = require("mason-registry")
     local mason_lspconfig = require("mason-lspconfig")
 
-    local ensure_tools_installed = function()
-        local tools = vim.tbl_deep_extend(
-            "force",
-            {},
-            -- opts.ensure_installed.lsp,
-            opts.ensure_installed.tools
-        )
-        for _, tool in ipairs(tools) do
-            local p = mr.get_package(tool)
+    local mason_lspconfig_opts = {
+        ensure_installed = opts.ensure_installed.lsp,
+        automatic_installation = true,
+    }
 
-            if not p:is_installed() then
-                p:install()
+    local ensure_tools_installed = function()
+        local tools = {}
+        vim.list_extend(tools, opts.ensure_installed.lsp)
+        vim.list_extend(tools, opts.ensure_installed.tools)
+
+        for _, tool in ipairs(tools) do
+            if mason_registry.has_package(tool) then
+                local p = mason_registry.get_package(tool)
+
+                if not p:is_installed() then
+                    p:install()
+                end
             end
         end
     end
@@ -108,16 +113,13 @@ local config = function(_, opts)
     mason.setup(opts)
 
     -- configure mason-lspconfig
-    mason_lspconfig.setup({
-        ensure_installed = opts.ensure_installed.lsp,
-        automatic_installation = true,
-    })
+    mason_lspconfig.setup(mason_lspconfig_opts)
 
     -- trigger FileType event to possibly load this newly installed lsp server
-    mr:on("package:install:success", queue_filetype_event)
+    mason_registry:on("package:install:success", queue_filetype_event)
 
     -- refresh the mason registry by ensuring the tools are installed
-    mr.refresh(ensure_tools_installed)
+    mason_registry.refresh(ensure_tools_installed)
 end
 
 -- plugin keys
