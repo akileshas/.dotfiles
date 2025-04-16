@@ -35,7 +35,13 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function(plugin)
+    -- for convenience
+    local loader = require("lazy.core.loader")
+
+    loader.add_to_rtp(plugin)
+    require("nvim-treesitter.query_predicates")
+end
 
 -- plugin opts
 local opts = {
@@ -91,13 +97,18 @@ return {
     "nvim-treesitter/nvim-treesitter",
     version = "*",
     enabled = true,
-    lazy = true,
+    lazy = vim.fn.argc(-1) == 0,
+    priority = 50,
     event = {
         "BufReadPost",
         "BufNewFile",
         "BufWritePre",
     },
-    cmd = {},
+    cmd = {
+        "TSUpdateSync",
+        "TSUpdate",
+        "TSInstall",
+    },
     ft = {},
     build = {
         ":TSUpdate",
