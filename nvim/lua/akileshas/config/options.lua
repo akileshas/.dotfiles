@@ -138,6 +138,7 @@ opt.shellxquote = ""
 -- navigation settings
 opt.startofline = true
 opt.jumpoptions = "stack"
+opt.virtualedit = "block"
 
 -- scroll settings
 opt.smoothscroll = true
