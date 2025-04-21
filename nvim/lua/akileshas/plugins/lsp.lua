@@ -19,9 +19,10 @@ local dependencies = {
 -- diagnostics signs
 local signs = {
     ERROR = " ",
-    WARN = " ",
-    HINT = "󰠠 ",
-    INFO = " "
+    WARN  = " ",
+    HINT  = " ",
+    -- HINT = "󰠠 ",
+    INFO  = " ",
 }
 
 -- plugin init function

@@ -41,7 +41,10 @@ local options = {
     local_spec = true,
     install = {
         missing = true,
-        colorscheme = { "tokyonight" },
+        colorscheme = {
+            "tokyonight",
+            "habamax",
+        },
     },
     ui = {
         size = {

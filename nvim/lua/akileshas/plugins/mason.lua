@@ -125,7 +125,7 @@ end
 -- plugin keys
 local keys = {
     {
-        "<leader>cm",
+        "<leader>cM",
         mode = { "n" },
         function()
             cmd("Mason")

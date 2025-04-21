@@ -975,7 +975,7 @@ local keys = {
         desc = "delete all buffers",
     },
     {
-        "<leader>cR",
+        "<leader>cr",
         mode = { "n" },
         function()
             Snacks.rename.rename_file()
