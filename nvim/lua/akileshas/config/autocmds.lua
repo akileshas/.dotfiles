@@ -2,7 +2,7 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
-local highlight = vim.hl
+local hl = vim.hl
 
 -- create nvim autocommand group
 local augroup = function(name)
@@ -22,7 +22,7 @@ api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 api.nvim_create_autocmd({ "TextYankPost" }, {
     group = augroup("highlight_yank"),
     callback = function()
-        highlight.on_yank({
+        hl.on_yank({
             timeout = 300,
         })
     end,

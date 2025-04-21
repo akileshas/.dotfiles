@@ -1,4 +1,5 @@
 -- for convenience
+local fn = vim.fn
 local wo = vim.wo
 
 -- textobject options
@@ -91,7 +92,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     version = "*",
     enabled = true,
-    lazy = vim.fn.argc(-1) == 0,
+    lazy = fn.argc(-1) == 0,
     priority = 50,
     event = {
         "BufReadPost",

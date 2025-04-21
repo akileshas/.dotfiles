@@ -1,5 +1,6 @@
 -- for convenience
 local bo = vim.bo
+local fn = vim.fn
 
 -- plugin dependencies
 local dependencies = {
@@ -124,7 +125,7 @@ local opts = {
                     trailing_slash = true,
                     label_trailing_slash = true,
                     get_cwd = function(context)
-                        return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
+                        return fn.expand(("#%d:p:h"):format(context.bufnr))
                     end,
                     show_hidden_files_by_default = true,
                 },
