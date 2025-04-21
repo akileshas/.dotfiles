@@ -147,7 +147,7 @@ opt.smoothscroll = true
 opt.foldenable = true
 opt.foldlevel = 999
 opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldtext = ""
+opt.foldexpr = [[v:lua.require("akileshas.utils").foldexpr()]]
+opt.foldtext = [[v:lua.require("akileshas.utils").foldtext()]]
 
 return {}
