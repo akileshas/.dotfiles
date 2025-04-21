@@ -46,6 +46,7 @@ opt.backup = false
 
 -- undo settings
 opt.undofile = true
+opt.undolevels = 1000000000
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- search settings
@@ -111,6 +112,11 @@ opt.listchars = {
     precedes = "«",
 }
 opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldsep = " ",
+    diff = "╱",
     eob = " ",
 }
 
@@ -126,9 +132,21 @@ opt.shortmess:append("csI")
 -- shell settings
 opt.shell = "/bin/bash"
 opt.shellcmdflag = "-c"
+opt.shellquote = ""
+opt.shellxquote = ""
 
 -- navigation settings
 opt.startofline = true
 opt.jumpoptions = "stack"
+
+-- scroll settings
+opt.smoothscroll = true
+
+-- fold settings
+opt.foldenable = true
+opt.foldlevel = 999
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""
 
 return {}

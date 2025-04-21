@@ -81,12 +81,6 @@ local config = function(_, opts)
 
     -- configure treesitter
     treesitter.setup(opts)
-
-    -- folding settings
-    wo.foldenable = true
-    wo.foldmethod = "expr"
-    wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    wo.foldlevel = 999
 end
 
 -- plugin keys

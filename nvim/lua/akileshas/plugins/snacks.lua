@@ -865,7 +865,7 @@ local keys = {
 
     -- utilities keymaps
     {
-        "<localleader>ss",
+        "<localleader>so",
         mode = { "n" },
         function()
             Snacks.scratch()
