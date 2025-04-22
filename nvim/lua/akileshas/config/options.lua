@@ -51,6 +51,7 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- search settings
 opt.grepprg = "rg --vimgrep"
+opt.grepformat = "%f:%l:%c:%m"
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
@@ -63,6 +64,7 @@ opt.splitbelow = true
 
 -- markdown settings
 opt.conceallevel = 0
+opt.spelllang = { "en" }
 
 -- appearance settings
 opt.termguicolors = true
@@ -82,10 +84,15 @@ opt.pumwidth = 21
 opt.pumblend = 0
 opt.wildmenu = true
 opt.winblend = 0
+opt.winwidth = 20
+opt.winminwidth = 5
+opt.winheight = 5
+opt.winminheight = 5
 opt.colorcolumn = "108"
 opt.signcolumn = "yes:1"
 opt.wildmode = "longest:full,full"
-opt.completeopt = "menuone,noselect,preview"
+opt.completeopt = "menu,menuone,noselect,preview"
+opt.inccommand = "nosplit"
 
 -- completion settings
 opt.complete = ".,w,b,u,t,i"
@@ -127,7 +134,13 @@ opt.mouse = "a"
 opt.confirm = true
 
 -- message settings
-opt.shortmess:append("csI")
+opt.shortmess:append({
+    c = true,
+    s = true,
+    C = true,
+    I = true,
+    W = true,
+})
 
 -- shell settings
 opt.shell = "/bin/bash"
@@ -137,7 +150,7 @@ opt.shellxquote = ""
 
 -- navigation settings
 opt.startofline = true
-opt.jumpoptions = "stack"
+opt.jumpoptions = "view"
 opt.virtualedit = "block"
 
 -- scroll settings
@@ -149,5 +162,19 @@ opt.foldlevel = 999
 opt.foldmethod = "expr"
 opt.foldexpr = [[v:lua.require("akileshas.utils").foldexpr()]]
 opt.foldtext = [[v:lua.require("akileshas.utils").foldtext()]]
+
+-- session settings
+opt.sessionoptions = {
+    "blank",
+    "buffers",
+    "curdir",
+    "folds",
+    "globals",
+    "help",
+    "skiprtp",
+    "tabpages",
+    "terminal",
+    "winsize",
+}
 
 return {}
