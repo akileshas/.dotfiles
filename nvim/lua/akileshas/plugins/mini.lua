@@ -4,7 +4,9 @@ local dependencies = {
         ai = {},
     },
     flow = {},
-    ui = {},
+    ui = {
+        statusline = {},
+    },
     etc = {},
 }
 
@@ -14,7 +16,9 @@ local init = {
         ai = function() end,
     },
     flow = {},
-    ui = {},
+    ui = {
+        statusline = function() end,
+    },
     etc = {},
 }
 
@@ -37,7 +41,9 @@ local opts = {
         },
     },
     flow = {},
-    ui = {},
+    ui = {
+        statusline = {},
+    },
     etc = {},
 }
 
@@ -47,7 +53,9 @@ local keys = {
         ai = {},
     },
     flow = {},
-    ui = {},
+    ui = {
+        statusline = {},
+    },
     etc = {},
 }
 
@@ -55,24 +63,30 @@ local keys = {
 return {
     -- text editing
     {
-        "echasnovski/mini.ai",
-        version = "*",
-        enabled = true,
-        lazy = true,
-        event = {
-            "VeryLazy",
+        {
+            "echasnovski/mini.ai",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.edit.ai,
+            init = init.edit.ai,
+            opts = opts.edit.ai,
+            keys = keys.edit.ai,
         },
-        cmd = {},
-        ft = {},
-        build = {},
-        dependencies = dependencies.edit.ai,
-        init = init.edit.ai,
-        opts = opts.edit.ai,
-        keys = keys.edit.ai,
     },
+
     -- general workflow
+    {},
 
     -- appearance
+    {},
 
     -- other
+    {},
 }
