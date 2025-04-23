@@ -54,6 +54,15 @@ api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+-- make it easier to close man-files when opened inline
+api.nvim_create_autocmd({ "FileType" }, {
+    group = augroup("man_unlisted"),
+    pattern = { "man" },
+    callback = function(event)
+        bo[event.buf].buflisted = false
+    end,
+})
+
 -- strip trailing spaces before write
 api.nvim_create_autocmd({ "BufWritePre" }, {
     group = augroup("strip_space_and_retab"),
