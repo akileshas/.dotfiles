@@ -1,6 +1,12 @@
 -- for convenience
 local keymap = vim.keymap
 
+keymap.set({ "n" }, "<leader>cL", "<cmd>Lazy<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "open lazy.nvim",
+})
+
 keymap.set({ "i" }, "jj", "<ESC>", {
     noremap = true,
     silent = true,
@@ -31,28 +37,22 @@ keymap.set({ "n", "v", "x" }, "-", "<C-x>", {
     desc = "decrement number",
 })
 
-keymap.set({ "n", "v", "x" }, "<leader>sv", "<C-w>v", {
+keymap.set({ "n", "v", "x" }, "<C-w>v", "<C-w>v", {
     noremap = true,
     silent = true,
     desc = "split window vertically",
 })
 
-keymap.set({ "n", "v", "x" }, "<leader>sh", "<C-w>s", {
+keymap.set({ "n", "v", "x" }, "<C-w>s", "<C-w>s", {
     noremap = true,
     silent = true,
     desc = "split window horizontally",
 })
 
-keymap.set({ "n", "v", "x" }, "<leader>se", "<C-w>=", {
+keymap.set({ "n", "v", "x" }, "<C-w>=", "<C-w>=", {
     noremap = true,
     silent = true,
     desc = "make splits equal size",
-})
-
-keymap.set({ "n", "v", "x" }, "<leader>sx", "<cmd>close<CR>", {
-    noremap = true,
-    silent = true,
-    desc = "close current split",
 })
 
 keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize -5<CR>", {

@@ -354,6 +354,16 @@ local keys = {
         desc = "go to implementation",
     },
     {
+        "grr",
+        mode = { "n" },
+        function()
+            Snacks.picker.lsp_references()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "lsp references",
+    },
+    {
         "<leader>lc",
         mode = { "n" },
         function()
@@ -362,16 +372,6 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "lsp config",
-    },
-    {
-        "<leader>lr",
-        mode = { "n" },
-        function()
-            Snacks.picker.lsp_references()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "lsp references",
     },
     {
         "<leader>ls",
@@ -625,16 +625,6 @@ local keys = {
         desc = "search for search history",
     },
     {
-        "<leader>s?",
-        mode = { "n" },
-        function()
-            Snacks.picker.help()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "search for help",
-    },
-    {
         "<leader>sa",
         mode = { "n" },
         function()
@@ -731,6 +721,16 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "search for diagnostics in the current buffer",
+    },
+    {
+        "<leader>sh",
+        mode = { "n" },
+        function()
+            Snacks.picker.help()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "search for help",
     },
     {
         "<leader>sH",
