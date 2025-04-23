@@ -5,6 +5,8 @@ local cmd = vim.cmd
 local fn = vim.fn
 local hl = vim.hl
 local o = vim.o
+local opt_local = vim.opt_local
+local uv = vim.uv
 
 -- create nvim autocommand group
 local augroup = function(name)
@@ -13,6 +15,20 @@ local augroup = function(name)
         { clear = true }
     )
 end
+
+-- auto create dir when saving a file, in case some intermediate directory does not exist
+api.nvim_create_autocmd({ "BufWritePre" }, {
+    group = augroup("auto_create_dir"),
+    callback = function(event)
+        if event.match:match("^%w%w+:[\\/][\\/]") then
+            return
+        end
+
+        local file = uv.fs_realpath(event.match) or event.match
+
+        fn.mkdir(fn.fnamemodify(file, ":p:h"), "p")
+    end,
+})
 
 -- check if we need to reload the file when it changed
 api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -60,6 +76,15 @@ api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "man" },
     callback = function(event)
         bo[event.buf].buflisted = false
+    end,
+})
+
+-- check for spell in text filetypes
+api.nvim_create_autocmd({ "FileType" }, {
+    group = augroup("spell"),
+    pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+    callback = function()
+        opt_local.spell = true
     end,
 })
 
