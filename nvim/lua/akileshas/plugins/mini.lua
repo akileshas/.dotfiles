@@ -3,6 +3,9 @@ local dependencies = {
     edit = {
         ai = {},
     },
+    flow = {},
+    ui = {},
+    etc = {},
 }
 
 -- plugin init function
@@ -10,6 +13,9 @@ local init = {
     edit = {
         ai = function() end,
     },
+    flow = {},
+    ui = {},
+    etc = {},
 }
 
 -- plugin opts
@@ -30,6 +36,9 @@ local opts = {
             search_method = "cover_or_next",
         },
     },
+    flow = {},
+    ui = {},
+    etc = {},
 }
 
 -- plugin keys
@@ -37,10 +46,14 @@ local keys = {
     edit = {
         ai = {},
     },
+    flow = {},
+    ui = {},
+    etc = {},
 }
 
 -- plugin configurations
 return {
+    -- text editing
     {
         "echasnovski/mini.ai",
         version = "*",
@@ -57,4 +70,9 @@ return {
         opts = opts.edit.ai,
         keys = keys.edit.ai,
     },
+    -- general workflow
+
+    -- appearance
+
+    -- other
 }
