@@ -126,7 +126,7 @@ return {
     version = "*",
     enabled = true,
     lazy = false,
-    priority = 500,
+    priority = 100,
     event = {},
     cmd = {},
     ft = {},

@@ -93,7 +93,7 @@ return {
     version = "*",
     enabled = true,
     lazy = fn.argc(-1) == 0,
-    priority = 50,
+    priority = 500,
     event = {
         "BufReadPost",
         "BufNewFile",
