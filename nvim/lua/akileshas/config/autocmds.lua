@@ -2,7 +2,9 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
+local fn = vim.fn
 local hl = vim.hl
+local o = vim.o
 
 -- create nvim autocommand group
 local augroup = function(name)
@@ -15,7 +17,11 @@ end
 -- check if we need to reload the file when it changed
 api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = augroup("checktime"),
-    command = "checktime",
+    callback = function()
+        if o.buftype ~= "nofile" then
+            cmd("checktime")
+        end
+    end,
 })
 
 -- highlight on yank
@@ -28,11 +34,24 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
     end,
 })
 
+-- resize splits if window got resized
+api.nvim_create_autocmd({ "VimResized" }, {
+    group = augroup("resize_splits"),
+    callback = function()
+        local current_tab = fn.tabpagenr()
+
+        cmd("tabdo wincmd =")
+        cmd("tabnext " .. current_tab)
+    end,
+})
+
 -- set filetype for man pages
 api.nvim_create_autocmd({ "FileType" }, {
     group = augroup("man"),
     pattern = { "man" },
-    command = "setlocal filetype=man",
+    callback = function()
+        bo.filetype = "man"
+    end,
 })
 
 -- strip trailing spaces before write
