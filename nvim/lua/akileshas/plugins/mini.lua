@@ -5,7 +5,11 @@ local dependencies = {
     },
     flow = {},
     ui = {
-        statusline = {},
+        statusline = {
+            {
+                "nvim-tree/nvim-web-devicons",
+            },
+        },
     },
     etc = {},
 }
@@ -85,7 +89,23 @@ return {
     {},
 
     -- appearance
-    {},
+    {
+        {
+            "echasnovski/mini.statusline",
+            version = "*",
+            enabled = true,
+            lazy = false,
+            priority = 100,
+            event = {},
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.ui.statusline,
+            init = init.ui.statusline,
+            opts = opts.ui.statusline,
+            keys = keys.ui.statusline,
+        },
+    },
 
     -- other
     {},
