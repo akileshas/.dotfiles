@@ -98,8 +98,8 @@ local opts = {
             "lsp",
             "omni",
             "emoji",
-            "path",
             "snippets",
+            "path",
             "buffer",
             "copilot",
         },
@@ -138,6 +138,13 @@ local opts = {
                     insert = true,
                 },
             },
+            snippets = {
+                name = "snippets",
+                enabled = true,
+                module = "blink.cmp.sources.snippets",
+                score_offset = 80,
+                max_items = 15,
+            },
             path = {
                 name = "path",
                 enabled = true,
@@ -152,13 +159,6 @@ local opts = {
                     end,
                     show_hidden_files_by_default = true,
                 },
-            },
-            snippets = {
-                name = "snippets",
-                enabled = true,
-                module = "blink.cmp.sources.snippets",
-                score_offset = 80,
-                max_items = 15,
             },
             buffer = {
                 name = "buffer",
