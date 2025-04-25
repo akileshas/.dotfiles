@@ -96,11 +96,11 @@ local opts = {
         default = {
             "lazydev",
             "lsp",
+            "omni",
+            "emoji",
             "path",
             "snippets",
             "buffer",
-            "omni",
-            "emoji",
             "copilot",
         },
         providers = {
@@ -115,6 +115,28 @@ local opts = {
                 enabled = true,
                 module = "blink.cmp.sources.lsp",
                 score_offset = 95,
+            },
+            omni = {
+                name = "omni",
+                enabled = function()
+                    return bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+                end,
+                module = "blink.cmp.sources.complete_func",
+                score_offset = 90,
+                opts = {
+                    complete_func = function()
+                        return bo.omnifunc
+                    end,
+                },
+            },
+            emoji = {
+                name = "emoji",
+                enabled = true,
+                module = "blink-emoji",
+                score_offset = 85,
+                opts = {
+                    insert = true,
+                },
             },
             path = {
                 name = "path",
@@ -144,28 +166,6 @@ local opts = {
                 module = "blink.cmp.sources.buffer",
                 score_offset = 5,
                 max_items = 5,
-            },
-            omni = {
-                name = "omni",
-                enabled = function()
-                    return bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
-                end,
-                module = "blink.cmp.sources.complete_func",
-                score_offset = 90,
-                opts = {
-                    complete_func = function()
-                        return bo.omnifunc
-                    end,
-                },
-            },
-            emoji = {
-                name = "emoji",
-                enabled = true,
-                module = "blink-emoji",
-                score_offset = 85,
-                opts = {
-                    insert = true,
-                },
             },
             copilot = {
                 name = "copilot",
