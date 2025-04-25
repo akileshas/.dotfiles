@@ -99,6 +99,7 @@ local opts = {
             "path",
             "snippets",
             "buffer",
+            "omni",
             "emoji",
             "copilot",
         },
@@ -134,7 +135,7 @@ local opts = {
                 name = "snippets",
                 enabled = true,
                 module = "blink.cmp.sources.snippets",
-                score_offset = 85,
+                score_offset = 80,
                 max_items = 15,
             },
             buffer = {
@@ -144,11 +145,24 @@ local opts = {
                 score_offset = 5,
                 max_items = 5,
             },
+            omni = {
+                name = "omni",
+                enabled = function()
+                    return bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+                end,
+                module = "blink.cmp.sources.complete_func",
+                score_offset = 90,
+                opts = {
+                    complete_func = function()
+                        return bo.omnifunc
+                    end,
+                },
+            },
             emoji = {
                 name = "emoji",
                 enabled = true,
                 module = "blink-emoji",
-                score_offset = 90,
+                score_offset = 85,
                 opts = {
                     insert = true,
                 },
