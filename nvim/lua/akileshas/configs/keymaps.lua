@@ -1,7 +1,7 @@
 -- for convenience
 local keymap = vim.keymap
 
-keymap.set({ "n" }, "<leader>cL", "<cmd>Lazy<CR>", {
+keymap.set({ "n" }, "<leader>cl", "<cmd>Lazy<CR>", {
     noremap = true,
     silent = true,
     desc = "open lazy.nvim",
@@ -19,7 +19,7 @@ keymap.set({ "t" }, "<C-e>", "<C-\\><C-n>", {
     desc = "exit terminal mode",
 })
 
-keymap.set({ "n", "v", "x" }, "<leader>cl", "<cmd>nohlsearch<CR>", {
+keymap.set({ "n", "v", "x" }, "<leader>cs", "<cmd>nohlsearch<CR>", {
     noremap = true,
     silent = true,
     desc = "clear search highlights",
@@ -55,28 +55,28 @@ keymap.set({ "n", "v", "x" }, "<C-w>=", "<C-w>=", {
     desc = "make splits equal size",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize -5<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-up>", "<cmd>horizontal resize +2<CR>", {
     noremap = true,
     silent = true,
-    desc = "make the window bigger vertically",
-})
-
-keymap.set({ "n", "v", "x" }, "<C-right>", "<cmd>vertical resize +5<CR>", {
-    noremap = true,
-    silent = true,
-    desc = "make the window smaller vertically",
+    desc = "increase the window height",
 })
 
 keymap.set({ "n", "v", "x" }, "<C-down>", "<cmd>horizontal resize -2<CR>", {
     noremap = true,
     silent = true,
-    desc = "make the window smaller horizontally",
+    desc = "decrease the window height",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-up>", "<cmd>horizontal resize +2<CR>", {
+keymap.set({ "n", "v", "x" }, "<C-left>", "<cmd>vertical resize -2<CR>", {
     noremap = true,
     silent = true,
-    desc = "make the window bigger horizontally",
+    desc = "decrease the window width",
+})
+
+keymap.set({ "n", "v", "x" }, "<C-right>", "<cmd>vertical resize +2<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "increase the window width",
 })
 
 keymap.set({ "v", "x" }, "<", "<gv", {
