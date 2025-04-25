@@ -183,6 +183,15 @@ local opts = {
                 score_offset = 5,
                 max_items = 5,
             },
+            cmdline = {
+                name = "cmdline",
+                enabled = function()
+                    return fn.has("win32") == 0
+                        or fn.getcmdtype() ~= ":"
+                        or not fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+                end,
+                module = "blink.cmp.sources.cmdline",
+            },
         },
     },
     appearance = {
