@@ -147,4 +147,10 @@ keymap.set({ "n", "v", "x" }, "k", [[v:count == 0 ? "gk" : "k"]], {
     desc = "move up through the visual line",
 })
 
+keymap.set({ "n", "v", "x" }, "<leader>ww", "<cmd>set wrap!<CR>", {
+    noremap = true,
+    silent = true,
+    desc = "toggle word wrap",
+})
+
 return {}
