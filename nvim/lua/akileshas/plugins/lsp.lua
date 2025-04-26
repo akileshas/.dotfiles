@@ -64,13 +64,20 @@ local config = function(_, opts)
     local mason_lspconfig = require("mason-lspconfig")
     local blink_cmp = require("blink.cmp")
 
+    local capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        lsp.protocol.make_client_capabilities(),
+        blink_cmp.get_lsp_capabilities()
+    )
+
     -- on_attach function for lsp server
     local on_attach = function(client, bufnr) end
 
     -- default setup for lsp server
     local default_setup = function(server_name)
         local default_lsp_config = {
-            capabilities = blink_cmp.get_lsp_capabilities(),
+            capabilities = capabilities,
             on_attach = on_attach,
         }
 
@@ -89,7 +96,7 @@ local config = function(_, opts)
         default_setup,
         lua_ls = function()
             local lua_ls_config = {
-                capabilities = blink_cmp.get_lsp_capabilities(),
+                capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
                     Lua = {
