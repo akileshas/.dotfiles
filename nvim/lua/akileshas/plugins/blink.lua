@@ -242,13 +242,13 @@ local opts = {
             },
             ["<Up>"] = {},
             ["<Down>"] = {},
-            ["<Right>"] = {},
             ["<Left>"] = {},
-            ['<C-b>'] = {
+            ["<Right>"] = {},
+            ["<C-b>"] = {
                 "scroll_documentation_up",
                 "fallback",
             },
-            ['<C-f>'] = {
+            ["<C-f>"] = {
                 "scroll_documentation_down",
                 "fallback",
             },
@@ -306,13 +306,13 @@ local opts = {
         },
         ["<Up>"] = {},
         ["<Down>"] = {},
-        ["<Right>"] = {},
         ["<Left>"] = {},
-        ['<C-b>'] = {
+        ["<Right>"] = {},
+        ["<C-b>"] = {
             "scroll_documentation_up",
             "fallback",
         },
-        ['<C-f>'] = {
+        ["<C-f>"] = {
             "scroll_documentation_down",
             "fallback",
         },
