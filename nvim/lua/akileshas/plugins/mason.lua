@@ -81,10 +81,10 @@ local config = function(_, opts)
 
         for _, tool in ipairs(tools) do
             if mason_registry.has_package(tool) then
-                local p = mason_registry.get_package(tool)
+                local pkg = mason_registry.get_package(tool)
 
-                if not p:is_installed() then
-                    p:install()
+                if not pkg:is_installed() then
+                    pkg:install()
                 end
             end
         end
