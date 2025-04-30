@@ -103,11 +103,7 @@ opt.spelllang = { "en" }
 
 -- messages
 opt.shortmess:append({
-    c = true,
-    s = true,
-    C = true,
     I = true,
-    W = true,
 })
 
 -- mouse
