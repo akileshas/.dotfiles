@@ -1,12 +1,11 @@
 httpie
 httpie-desktop-bin
-visual-studio-code-insiders-bin
-google-chrome-canary
+visual-studio-code-bin
 docker
 lazydocker
 ollama-cuda
 nvidia-container-toolkit
-android-studio-canary
+android-studio
 obs-studio
 obsidian
 onlyoffice-bin
