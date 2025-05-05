@@ -1,60 +1,78 @@
 #!/bin/bash
 
-# Checking if `paru` is installed
+# starting the post-installation script
+echo "Post-Installing the required packages for my system..."
+
+# checking if `paru` is installed
 if ! command -v paru &>/dev/null; then
+    echo
     echo "Error: 'paru' is not installed"
     echo "Please install 'paru' and run the script again"
     exit 1
 fi
 
-# Updating and Syncing the system
-echo "Updating and Syncing the system..."
+# updating and syncing the system
+echo && echo "Updating and Syncing the system..."
 sudo pacman -Syu
 paru -Syu
 
-# Path to requirements file
+# path to requirements file
 file_path="/home/$USER/.dotfiles/env/sys/post-requirements.txt"
 
-# Install the required packages for the system
+# function to print a formatted message
+banner() {
+    local message=" $1 "
+    local end="${2,,}"
+    local total_width=108
+    local label_len=${#message}
+    local pad_len=$(( (total_width - label_len) / 2 ))
+    local pad=$(printf "=%.0s" $(seq 1 $pad_len))
+    local extra=$(( (total_width - label_len) % 2 ))
+    local extra_pad=$(printf "=%.0s" $(seq 1 $extra))
+
+    if [[ "$end" == "done" ]]; then
+        echo "${pad}${message}${extra_pad}${pad}"
+    else
+        echo && echo "${pad}${message}${extra_pad}${pad}"
+    fi
+}
+
+# install the required packages
 if [ -f "$file_path" ]; then
-    echo "Installing the required packages..."
+    banner "Installing the required packages !!!"
     sudo pacman -Syu
     paru -Syu
+
     while IFS= read -r package; do
-        # Skip empty lines and comments
         [[ -z "$package" || "$package" =~ ^# ]] && continue
-        echo "Installing: $package"
+        banner "Installing: $package"
         paru -S --noconfirm "$package"
     done <"$file_path"
-    echo "Installed the required packages"
+
+    banner "Installed the required packages !!!" done
+    echo
 else
-    echo "Error: File not found at $file_path"
+    echo && echo "Error: File not found at $file_path"
     exit 1
 fi
 
-# Activating the `ufw` service
-echo "Activating the 'ufw' service..."
+# activating the `ufw` service
+echo && echo "Activating the 'ufw' service..."
 sudo ufw enable
 sudo systemctl enable --now ufw
 sudo systemctl start --now ufw
 sudo ufw status verbose
-echo "Activated the 'ufw' service"
+echo "Activating the 'ufw' service... Done"
 
-# Setting the `nvm` environment
-echo "Setting the nvm environment..."
-nvm install --lts
-nvm use --lts
-echo "Set the nvm environment"
-
-# Setting the `rust` environment
-echo "Setting the rust environment..."
+# setting the `rust` environment
+echo && echo "Setting the rust environment..."
 rustup default stable
 rustup update
-echo "Set the rust environment"
+echo "Setting the rust environment... Done"
 
-# Running the `broot` cmd
+# running the `broot` cmd
 echo "Running the 'broot' cmd..."
 broot
-echo "Ran the 'broot' cmd"
+echo "Running the 'broot' cmd... Done"
 
-echo "Completed the Post Setup !!!"
+echo "Post-Installing the required packages for my system... Done"

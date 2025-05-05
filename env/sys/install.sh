@@ -3,12 +3,12 @@
 
 # Author: Akilesh A S
 # Created on: 17-01-2025
-# Last modified on: 03-05-2025
+# Last modified on: 06-05-2025
 # Description: A script to install the required packages for my system
 
 
 # starting the installation script
-echo "Installling the required packages for my system..."
+echo "Installing the required packages for my system..."
 
 # checking if `paru` is installed
 if ! command -v paru &>/dev/null; then
