@@ -91,11 +91,6 @@ if command -v /bin/fzf &>/dev/null; then
     eval "$(fzf --bash)"
 fi
 
-# Setup the fzf-git
-# Clone the repository using HTTPS: "git clone https://github.com/junegunn/fzf-git.sh.git ~/.config/fzf-git.sh/"
-# Clone the repository using SSH: "git clone git@github.com:junegunn/fzf-git.sh.git ~/.config/fzf-git.sh/"
-validate_source ~/.config/fzf-git.sh/fzf-git.sh
-
 # Source the `broot` shell script
 validate_source ~/.config/broot/launcher/bash/br
 
