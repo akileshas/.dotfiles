@@ -22,7 +22,7 @@ fi
 echo && echo "Updating and Syncing the system..."
 sudo pacman -Syu
 paru -Syu
-echo "Updating and Syncing the system... Done"
+echo "Updating and Syncing the system... Done."
 
 # path to requirements file
 file_path="/home/$USER/.dotfiles/env/sys/requirements.txt"
@@ -72,7 +72,7 @@ sudo pacman -S otf-aurulent-nerd otf-codenewroman-nerd otf-comicshanns-nerd otf-
 banner "Installed the fonts requirements !!!" done
 echo && echo "Updating the font cache..."
 sudo fc-cache -fv
-echo && echo "Updating the font cache... Done"
+echo && echo "Updating the font cache... Done."
 
 # install the Intel microcode
 banner "Installing the Intel microcode !!!"
@@ -89,18 +89,18 @@ fi
 echo && echo "Enabling the bluetooth service..."
 sudo modprobe btusb
 sudo systemctl enable bluetooth && sudo systemctl start bluetooth
-echo && echo "Enabling the bluetooth service... Done"
+echo && echo "Enabling the bluetooth service... Done."
 
 # update the grub
 echo "Updating the grub..."
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-echo "Updating the grub... Done"
+echo "Updating the grub... Done."
 
 # activating the paccache timer
 echo "Activating the paccache timer..."
 sudo systemctl enable paccache.timer
 sudo systemctl start paccache.timer
-echo "Activating the paccache timer... Done"
+echo "Activating the paccache timer... Done."
 
 # creating the required symbolic links
 banner "Creating the required symbolic links !!!"
@@ -112,7 +112,7 @@ if [[ -d ~/.config/i3 ]]; then
     echo "Removed the existing i3 config !"
 fi
 ln -s ~/.dotfiles/i3 ~/.config/i3
-echo "Creating the symbolic link for i3... Done"
+echo "Creating the symbolic link for i3... Done."
 
 # for `kitty`
 echo "Creating the symbolic link for kitty..."
@@ -121,7 +121,7 @@ if [[ -d ~/.config/kitty ]]; then
     echo "Removed the existing kitty config !"
 fi
 ln -s ~/.dotfiles/kitty ~/.config/kitty
-echo "Creating the symbolic link for kitty... Done"
+echo "Creating the symbolic link for kitty... Done."
 
 # for `starship`
 echo "Creating the symbolic link for starship..."
@@ -130,7 +130,7 @@ if [[ -d ~/.config/starship ]]; then
     echo "Removed the existing starship config !"
 fi
 ln -s ~/.dotfiles/starship ~/.config/starship
-echo "Created the symbolic link for starship... Done"
+echo "Created the symbolic link for starship... Done."
 
 # for `lazygit`
 echo "Creating the symbolic link for lazygit..."
@@ -139,7 +139,7 @@ if [[ -d ~/.config/lazygit ]]; then
     echo "Removed the existing lazygit coinfig !"
 fi
 ln -s ~/.dotfiles/lazygit ~/.config/lazygit
-echo "Created the symbolic link for lazygit... Done"
+echo "Created the symbolic link for lazygit... Done."
 
 # for `gtk`
 echo "Creating the symbolic link for gtk..."
@@ -158,7 +158,7 @@ fi
 ln -s ~/.dotfiles/gtk/gtk-2.0 ~/.config/gtk-2.0
 ln -s ~/.dotfiles/gtk/gtk-3.0 ~/.config/gtk-3.0
 ln -s ~/.dotfiles/gtk/gtk-4.0 ~/.config/gtk-4.0
-echo "Created the symbolic link for gtk... Done"
+echo "Created the symbolic link for gtk... Done."
 
 # for `rofi`
 echo "Creating the symbolic link for rofi..."
@@ -167,7 +167,7 @@ if [[ -d ~/.config/rofi ]]; then
     echo "Removed the existing rofi config !"
 fi
 ln -s ~/.dotfiles/rofi ~/.config/rofi
-echo "Created the symbolic link for rofi... Done"
+echo "Created the symbolic link for rofi... Done."
 
 # for `formatter`
 echo "Creating the symbolic link for formatter..."
@@ -181,7 +181,7 @@ if [[ -f ~/.clang-format ]]; then
 fi
 ln -s ~/.dotfiles/formatter/.prettierrc ~/.prettierrc
 ln -s ~/.dotfiles/formatter/.clang-format ~/.clang-format
-echo "Created the symbolic link for formatter... Done"
+echo "Created the symbolic link for formatter... Done."
 
 # for `tmux`
 echo "Creating the symbolic link for tmux..."
@@ -190,7 +190,7 @@ if [[ -f ~/.tmux.conf ]]; then
     echo "Removed the existing tmux config !"
 fi
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-echo "Created the symbolic link for tmux... Done"
+echo "Created the symbolic link for tmux... Done."
 
 # for `git`
 echo "Creating the symbolic link for git..."
@@ -199,7 +199,7 @@ if [[ -f ~/.gitconfig ]]; then
     echo "Removed the existing git config !"
 fi
 ln -s ~/.dotfiles/git/.gitconfig ~/.gitconfig
-echo "Created the symbolic link for git... Done"
+echo "Created the symbolic link for git... Done."
 
 # for `bash`
 echo "Creating the symbolic link for bash..."
@@ -219,8 +219,8 @@ ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/bash/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/bash/.bash_logout ~/.bash_logout
 touch ~/.bash_keys
-echo "Created the symbolic link for bash... Done"
+echo "Created the symbolic link for bash... Done."
 
 banner "Created the required symbolic links !!!" done
 
-echo "Installling the required packages for my system... Done"
+echo "Installling the required packages for my system... Done."

@@ -18,6 +18,6 @@ mkdir -p ~/personal \
          ~/videos \
          ~/videos/obs \
          ~/tmp
-echo "Making the required directories... Done"
+echo "Making the required directories... Done."
 
-echo "Pre-Installing the required packages for my system... Done"
+echo "Pre-Installing the required packages for my system... Done."

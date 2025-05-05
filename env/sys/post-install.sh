@@ -62,17 +62,17 @@ sudo ufw enable
 sudo systemctl enable --now ufw
 sudo systemctl start --now ufw
 sudo ufw status verbose
-echo "Activating the 'ufw' service... Done"
+echo "Activating the 'ufw' service... Done."
 
 # setting the `rust` environment
 echo && echo "Setting the rust environment..."
 rustup default stable
 rustup update
-echo "Setting the rust environment... Done"
+echo "Setting the rust environment... Done."
 
 # running the `broot` cmd
 echo "Running the 'broot' cmd..."
 broot
-echo "Running the 'broot' cmd... Done"
+echo "Running the 'broot' cmd... Done."
 
-echo "Post-Installing the required packages for my system... Done"
+echo "Post-Installing the required packages for my system... Done."
