@@ -2,6 +2,48 @@
 local bo = vim.bo
 local fn = vim.fn
 
+local cmp_keymap = {
+    preset = "none",
+    ["<C-space>"] = {
+        "show_documentation",
+        "hide_documentation",
+    },
+    ["<C-s>"] = {
+        "show",
+    },
+    ["<C-e>"] = {
+        "cancel",
+    },
+    ["<C-y>"] = {},
+    ["<C-k>"] = {
+        "select_and_accept",
+    },
+    ["<C-p>"] = {
+        "select_prev",
+        "snippet_backward",
+    },
+    ["<C-n>"] = {
+        "select_next",
+        "snippet_forward",
+    },
+    ["<Up>"] = {},
+    ["<Down>"] = {},
+    ["<Left>"] = {},
+    ["<Right>"] = {},
+    ["<C-b>"] = {
+        "scroll_documentation_up",
+    },
+    ["<C-f>"] = {
+        "scroll_documentation_down",
+    },
+    ["<Tab>"] = {},
+    ["<S-Tab>"] = {},
+    ["<C-d>"] = {
+        "show_signature",
+        "hide_signature",
+    },
+}
+
 -- plugin dependencies
 local dependencies = {
     {
@@ -214,47 +256,7 @@ local opts = {
                 enabled = false,
             },
         },
-        keymap = {
-            preset = "none",
-            ["<C-space>"] = {
-                "show_documentation",
-                "hide_documentation",
-            },
-            ["<C-s>"] = {
-                "show",
-            },
-            ["<C-e>"] = {
-                "cancel",
-            },
-            ["<C-y>"] = {},
-            ["<C-k>"] = {
-                "select_and_accept",
-            },
-            ["<C-p>"] = {
-                "select_prev",
-                "snippet_backward",
-            },
-            ["<C-n>"] = {
-                "select_next",
-                "snippet_forward",
-            },
-            ["<Up>"] = {},
-            ["<Down>"] = {},
-            ["<Left>"] = {},
-            ["<Right>"] = {},
-            ["<C-b>"] = {
-                "scroll_documentation_up",
-            },
-            ["<C-f>"] = {
-                "scroll_documentation_down",
-            },
-            ["<Tab>"] = {},
-            ["<S-Tab>"] = {},
-            ["<C-d>"] = {
-                "show_signature",
-                "hide_signature",
-            },
-        },
+        keymap = cmp_keymap,
     },
     term = {
         enabled = false,
@@ -273,47 +275,7 @@ local opts = {
             },
         },
     },
-    keymap = {
-        preset = "none",
-        ["<C-space>"] = {
-            "show_documentation",
-            "hide_documentation",
-        },
-        ["<C-s>"] = {
-            "show",
-        },
-        ["<C-e>"] = {
-            "cancel",
-        },
-        ["<C-y>"] = {},
-        ["<C-k>"] = {
-            "select_and_accept",
-        },
-        ["<C-p>"] = {
-            "select_prev",
-            "snippet_backward",
-        },
-        ["<C-n>"] = {
-            "select_next",
-            "snippet_forward",
-        },
-        ["<Up>"] = {},
-        ["<Down>"] = {},
-        ["<Left>"] = {},
-        ["<Right>"] = {},
-        ["<C-b>"] = {
-            "scroll_documentation_up",
-        },
-        ["<C-f>"] = {
-            "scroll_documentation_down",
-        },
-        ["<Tab>"] = {},
-        ["<S-Tab>"] = {},
-        ["<C-d>"] = {
-            "show_signature",
-            "hide_signature",
-        },
-    },
+    keymap = cmp_keymap,
 }
 
 -- plugin keys
