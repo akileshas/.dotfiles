@@ -27,8 +27,4 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         lazy = true,
     },
-    {
-        "mason-org/mason-lspconfig.nvim",
-        lazy = true,
-    },
 }

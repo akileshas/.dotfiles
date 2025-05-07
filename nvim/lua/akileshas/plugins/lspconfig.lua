@@ -11,9 +11,6 @@ local dependencies = {
     {
         "mason-org/mason.nvim",
     },
-    {
-        "mason-org/mason-lspconfig.nvim",
-    },
 }
 
 -- diagnostics signs
@@ -55,13 +52,32 @@ local opts = {
     codelens = {
         enabled = false,
     },
+    servers = {
+        lua_ls = {
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                    workspace = {
+                        library = api.nvim_get_runtime_file("", true),
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        },
+    },
 }
 
 -- plugin config function
 local config = function(_, opts)
     -- for convenience
     local lspconfig = require("lspconfig")
-    local mason_lspconfig = require("mason-lspconfig")
     local blink_cmp = require("blink.cmp")
 
     local capabilities = vim.tbl_deep_extend(
@@ -74,52 +90,12 @@ local config = function(_, opts)
     -- on_attach function for lsp server
     local on_attach = function(client, bufnr) end
 
-    -- default setup for lsp server
-    local default_setup = function(server_name)
-        local default_lsp_config = {
-            capabilities = capabilities,
-            on_attach = on_attach,
-        }
-
-        lspconfig[server_name].setup(default_lsp_config)
-    end
-
     if opts == nil then
         opts = {}
     end
 
     -- configure diagnostics
     diagnostic.config(opts.diagnostics)
-
-    -- automatically setup each server installed by mason
-    local handlers = {
-        default_setup,
-        lua_ls = function()
-            local lua_ls_config = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = "LuaJIT",
-                        },
-                        diagnostics = {
-                            globals = { "vim" },
-                        },
-                        workspace = {
-                            library = api.nvim_get_runtime_file("", true),
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
-                },
-            }
-
-            lspconfig.lua_ls.setup(lua_ls_config)
-        end,
-    }
-    mason_lspconfig.setup_handlers(handlers)
 end
 
 -- plugin keys

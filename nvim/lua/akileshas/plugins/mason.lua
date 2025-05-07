@@ -2,14 +2,16 @@
 local api = vim.api
 local cmd = vim.cmd
 
--- list of lsp servers and tools to be installed
+-- list of lsp servers and tools ( dap, linter, formatter ) to be installed
 local ensure_installed = {
     lsp = {
-        "lua_ls",
+        "lua-language-server",
         "clangd",
         "gopls",
-        "rust_analyzer",
-        "ts_ls",
+        "rust-analyzer",
+        "typescript-language-server",
+        "bash-language-server",
+        "python-lsp-server",
     },
     tools = {
         "stylua",
@@ -22,9 +24,6 @@ local ensure_installed = {
 local dependencies = {
     {
         "neovim/nvim-lspconfig",
-    },
-    {
-        "mason-org/mason-lspconfig.nvim",
     },
 }
 
@@ -67,12 +66,6 @@ local config = function(_, opts)
     -- for convenience
     local mason = require("mason")
     local mason_registry = require("mason-registry")
-    local mason_lspconfig = require("mason-lspconfig")
-
-    local mason_lspconfig_opts = {
-        ensure_installed = opts.ensure_installed.lsp,
-        automatic_installation = true,
-    }
 
     local ensure_tools_installed = function()
         local tools = {}
@@ -111,9 +104,6 @@ local config = function(_, opts)
 
     -- configure mason
     mason.setup(opts)
-
-    -- configure mason-lspconfig
-    mason_lspconfig.setup(mason_lspconfig_opts)
 
     -- trigger FileType event to possibly load this newly installed lsp server
     mason_registry:on("package:install:success", queue_filetype_event)
