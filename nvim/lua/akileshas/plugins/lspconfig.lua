@@ -122,23 +122,7 @@ local config = function(_, opts)
         end
 
         lsp.config(server, server_opts)
-    end
-
-    -- configure diagnostics signs
-    if type(opts.diagnostics.signs) ~= "boolean" then
-        for severity, icon in pairs(opts.diagnostics.signs.text) do
-            local name = diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
-            name = "DiagnosticSign" .. name
-
-            fn.sign_define(
-                name,
-                {
-                    text = icon,
-                    texthl = name,
-                    numhl = ""
-                }
-            )
-        end
+        lsp.enable(server)
     end
 
     -- configure diagnostics
