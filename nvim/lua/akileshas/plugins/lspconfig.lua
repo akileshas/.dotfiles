@@ -18,7 +18,6 @@ local signs = {
     ERROR = " ",
     WARN  = " ",
     HINT  = " ",
-    -- HINT = "󰠠 ",
     INFO  = " ",
 }
 
