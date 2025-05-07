@@ -65,7 +65,7 @@ local opts = {
 local config = function(_, opts)
     -- for convenience
     local mason = require("mason")
-    local registry = require("mason-registry")
+    local mreg = require("mason-registry")
 
     local ensure_tools_installed = function()
         local tools = {}
@@ -73,8 +73,8 @@ local config = function(_, opts)
         vim.list_extend(tools, opts.ensure_installed.tools)
 
         for _, tool in ipairs(tools) do
-            if registry.has_package(tool) then
-                local pkg = registry.get_package(tool)
+            if mreg.has_package(tool) then
+                local pkg = mreg.get_package(tool)
 
                 if not pkg:is_installed() then
                     pkg:install()
@@ -102,10 +102,10 @@ local config = function(_, opts)
     mason.setup(opts)
 
     -- trigger `FileType` event to possibly load this newly installed lsp server
-    registry:on("package:install:success", queue_filetype_event)
+    mreg:on("package:install:success", queue_filetype_event)
 
     -- refresh the mason registry by ensuring the tools are installed
-    registry.refresh(ensure_tools_installed)
+    mreg.refresh(ensure_tools_installed)
 end
 
 -- plugin keys
