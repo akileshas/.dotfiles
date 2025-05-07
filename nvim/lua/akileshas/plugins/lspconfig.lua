@@ -87,12 +87,12 @@ local config = function(_, opts)
         blink_cmp.get_lsp_capabilities()
     )
 
-    -- on_attach function for lsp server
-    local on_attach = function(client, bufnr) end
-
     if opts == nil then
         opts = {}
     end
+
+    -- on_attach function for lsp server
+    local on_attach = function(client, bufnr) end
 
     -- configure diagnostics
     diagnostic.config(opts.diagnostics)
