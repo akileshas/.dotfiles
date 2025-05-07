@@ -62,11 +62,12 @@ local opts = {
                     diagnostics = {
                         globals = { "vim" },
                     },
-                    workspace = {
-                        library = api.nvim_get_runtime_file("", true),
-                    },
                     telemetry = {
                         enable = false,
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = api.nvim_get_runtime_file("", true),
                     },
                 },
             },
@@ -77,8 +78,9 @@ local opts = {
 -- plugin config function
 local config = function(_, opts)
     -- for convenience
-    local lspconfig = require("lspconfig")
     local blink_cmp = require("blink.cmp")
+    local lspconfig = require("lspconfig")
+    local registry = require("mason-registry")
 
     local capabilities = vim.tbl_deep_extend(
         "force",
