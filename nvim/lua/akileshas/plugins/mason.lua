@@ -24,7 +24,7 @@ local dependencies = {
         "neovim/nvim-lspconfig",
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
     },
 }
 
@@ -138,7 +138,7 @@ local keys = {
 
 -- plugin configurations
 return {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     version = "*",
     enabled = true,
     lazy = true,

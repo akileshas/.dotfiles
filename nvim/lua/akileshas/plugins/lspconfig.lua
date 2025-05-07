@@ -9,10 +9,10 @@ local lsp = vim.lsp
 -- plugin dependencies
 local dependencies = {
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
     },
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
     },
 }
 
