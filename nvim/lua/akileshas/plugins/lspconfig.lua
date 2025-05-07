@@ -91,17 +91,14 @@ local config = function(_, opts)
     local lspconfig = require("lspconfig")
     local registry = require("mason-registry")
 
+    -- capabilities for lsp server
     local capabilities = vim.tbl_deep_extend(
         "force",
         {},
         lsp.protocol.make_client_capabilities(),
         blink_cmp.get_lsp_capabilities(),
-        opts.capabilities,
+        opts.capabilities
     )
-
-    if opts == nil then
-        opts = {}
-    end
 
     -- on_attach function for lsp server
     local on_attach = function(client, bufnr)

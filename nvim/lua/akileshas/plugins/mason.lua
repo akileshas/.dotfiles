@@ -98,14 +98,10 @@ local config = function(_, opts)
         vim.defer_fn(trigger_filetype_event, 100)
     end
 
-    if opts == nil then
-        opts = {}
-    end
-
     -- configure mason
     mason.setup(opts)
 
-    -- trigger FileType event to possibly load this newly installed lsp server
+    -- trigger `FileType` event to possibly load this newly installed lsp server
     registry:on("package:install:success", queue_filetype_event)
 
     -- refresh the mason registry by ensuring the tools are installed

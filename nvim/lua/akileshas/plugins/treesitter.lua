@@ -76,10 +76,6 @@ local config = function(_, opts)
     local treesitter = require("nvim-treesitter.configs")
     local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
-    if opts == nil then
-        opts = {}
-    end
-
     -- configure treesitter
     treesitter.setup(opts)
 end
