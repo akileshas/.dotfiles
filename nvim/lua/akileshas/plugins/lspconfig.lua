@@ -101,11 +101,7 @@ local config = function(_, opts)
     )
 
     -- on_attach function for lsp server
-    local on_attach = function(client, bufnr)
-        local on_attach_opts = {
-            buffer = bufnr,
-        }
-    end
+    local on_attach = function(client, bufnr) end
 
     -- function to setup an lsp server
     local setup = function(server)
@@ -113,6 +109,7 @@ local config = function(_, opts)
             "force",
             {
                 capabilities = vim.deepcopy(capabilities),
+                on_attach = on_attach,
             },
             opts.servers[server] or {}
         )
