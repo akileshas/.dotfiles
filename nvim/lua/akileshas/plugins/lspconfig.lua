@@ -107,6 +107,23 @@ local config = function(_, opts)
         }
     end
 
+    -- function to setup an lsp server
+    local setup = function(server)
+        local server_opts = vim.tbl_deep_extend(
+            "force",
+            {
+                capabilities = vim.deepcopy(capabilities),
+            },
+            opts.servers[server] or {}
+        )
+
+        if server_opts.enabled == false then
+            return
+        end
+
+        lsp.config(server, server_opts)
+    end
+
     -- configure diagnostics signs
     if type(opts.diagnostics.signs) ~= "boolean" then
         for severity, icon in pairs(opts.diagnostics.signs.text) do
