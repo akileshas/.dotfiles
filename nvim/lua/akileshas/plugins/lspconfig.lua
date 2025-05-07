@@ -47,9 +47,19 @@ local opts = {
     },
     inlay_hints = {
         enabled = false,
+        exclude = {},
     },
     codelens = {
         enabled = false,
+        exclude = {},
+    },
+    capabilities = {
+        workspace = {
+            fileOperations = {
+                didRename = true,
+                willRename = true,
+            },
+        },
     },
     servers = {
         lua_ls = {
@@ -85,7 +95,8 @@ local config = function(_, opts)
         "force",
         {},
         lsp.protocol.make_client_capabilities(),
-        blink_cmp.get_lsp_capabilities()
+        blink_cmp.get_lsp_capabilities(),
+        opts.capabilities,
     )
 
     if opts == nil then
@@ -93,10 +104,34 @@ local config = function(_, opts)
     end
 
     -- on_attach function for lsp server
-    local on_attach = function(client, bufnr) end
+    local on_attach = function(client, bufnr)
+        local on_attach_opts = {
+            buffer = bufnr,
+        }
+    end
+
+    -- configure diagnostics signs
+    if type(opts.diagnostics.signs) ~= "boolean" then
+        for severity, icon in pairs(opts.diagnostics.signs.text) do
+            local name = diagnostic.severity[severity]:lower():gsub("^%l", string.upper)
+            name = "DiagnosticSign" .. name
+
+            fn.sign_define(
+                name,
+                {
+                    text = icon,
+                    texthl = name,
+                    numhl = ""
+                }
+            )
+        end
+    end
 
     -- configure diagnostics
-    diagnostic.config(opts.diagnostics)
+    diagnostic.config(vim.deepcopy(opts.diagnostics))
+
+    -- configure lsp servers
+
 end
 
 -- plugin keys
