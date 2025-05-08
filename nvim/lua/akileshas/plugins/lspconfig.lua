@@ -89,7 +89,7 @@ local config = function(_, opts)
     -- for convenience
     local blink_cmp = require("blink.cmp")
     local lspconfig = require("lspconfig")
-    local registry = require("mason-registry")
+    local mreg = require("mason-registry")
 
     -- capabilities for lsp server
     local capabilities = vim.tbl_deep_extend(
@@ -97,7 +97,7 @@ local config = function(_, opts)
         {},
         lsp.protocol.make_client_capabilities(),
         blink_cmp.get_lsp_capabilities(),
-        opts.capabilities
+        opts.capabilities or {}
     )
 
     -- on_attach function for lsp server
@@ -111,7 +111,7 @@ local config = function(_, opts)
                 capabilities = vim.deepcopy(capabilities),
                 on_attach = on_attach,
             },
-            opts.servers[server] or {}
+            (opts.servers and opts.servers[server]) or {}
         )
 
         if server_opts.enabled == false then
@@ -122,11 +122,37 @@ local config = function(_, opts)
         lsp.enable(server)
     end
 
+    -- function to configure lsp
+    local configure = function()
+        -- for convenience
+        local package_to_lspconfig = {}
+        local installed_packages = {}
+
+        for _, pkg_name in ipairs(mreg.get_installed_package_names()) do
+            installed_packages[pkg_name] = true
+        end
+
+        for _, pkg_spec in ipairs(mreg.get_all_package_specs()) do
+            local neovim_lspconfig = vim.tbl_get(pkg_spec, "neovim", "lspconfig")
+            if neovim_lspconfig then
+                package_to_lspconfig[pkg_spec.name] = neovim_lspconfig
+            end
+        end
+
+        for package_name, lspconfig_name in pairs(package_to_lspconfig) do
+            if installed_packages[package_name] then
+                setup(lspconfig_name)
+            end
+        end
+    end
+
     -- configure diagnostics
-    diagnostic.config(vim.deepcopy(opts.diagnostics))
+    if opts.diagnostics then
+        diagnostic.config(vim.deepcopy(opts.diagnostics))
+    end
 
     -- configure lsp servers
-
+    configure()
 end
 
 -- plugin keys
