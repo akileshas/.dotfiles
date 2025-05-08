@@ -53,10 +53,10 @@ opt.isfname:append(".")
 
 -- folds
 opt.foldenable = true
-opt.foldexpr = [[v:lua.require("akileshas.utils").foldexpr()]]
+opt.foldexpr = [[v:lua.require("akileshas.utils.ui").foldexpr()]]
 opt.foldlevel = 999
 opt.foldmethod = "expr"
-opt.foldtext = [[v:lua.require("akileshas.utils").foldtext()]]
+opt.foldtext = [[v:lua.require("akileshas.utils.ui").foldtext()]]
 
 -- grep
 opt.grepformat = "%f:%l:%c:%m"
