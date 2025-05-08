@@ -11,6 +11,7 @@ local dependencies = {
     {
         "mason-org/mason.nvim",
     },
+    -- { "mason-org/mason-lspconfig.nvim" }
 }
 
 -- diagnostics signs
@@ -120,7 +121,7 @@ local config = function (_, opts)
         lsp.enable(server)
     end
 
-    -- function to configure lsp
+    -- configure the installed lsp servers
     local configure = function ()
         local installed_packages = {}
 
@@ -136,13 +137,60 @@ local config = function (_, opts)
         end
     end
 
+    -- dynamically handle the installed lsp servers
+    local handler = function ()
+        local enabled_servers = {}
+
+        -- enable an lsp server
+        local enable_server = function (pkg)
+            local pkg_obj
+
+            if type(pkg) == "string" then
+                local ok, result = pcall(function ()
+                    return mreg.get_package(pkg)
+                end)
+
+                if not ok then
+                    Snacks.notify.info("Package " .. pkg .. " not found")
+                    return
+                end
+
+                pkg_obj = result
+            else
+                pkg_obj = pkg
+            end
+
+            local lsp_server = vim.tbl_get(pkg_obj, "spec", "neovim", "lspconfig")
+
+            if not lsp_server or enabled_servers[lsp_server] then
+                return
+            end
+
+            Snacks.notify.info(pkg_obj.name)
+            setup(lsp_server)
+            enabled_servers[lsp_server] = true
+        end
+
+        local enable_server_scheduled = vim.schedule_wrap(enable_server)
+
+        for _, pkg_name in ipairs(mreg.get_installed_package_names()) do
+            enable_server(pkg_name)
+        end
+
+        mreg:off("package:install:success", enable_server_scheduled)
+        mreg:on("package:install:success", enable_server_scheduled)
+    end
+
     -- configure diagnostics
     if opts.diagnostics then
         diagnostic.config(opts.diagnostics)
     end
 
     -- configure lsp servers
-    configure()
+    -- configure()
+    handler()
+
+    -- require("mason-lspconfig").setup({})
 end
 
 -- plugin keys
