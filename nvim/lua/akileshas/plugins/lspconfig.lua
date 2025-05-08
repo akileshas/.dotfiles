@@ -88,7 +88,6 @@ local opts = {
 local config = function(_, opts)
     -- for convenience
     local blink_cmp = require("blink.cmp")
-    local lspconfig = require("lspconfig")
     local mreg = require("mason-registry")
 
     -- capabilities for lsp server
@@ -108,8 +107,7 @@ local config = function(_, opts)
         local server_opts = vim.tbl_deep_extend(
             "force",
             {
-                capabilities = vim.deepcopy(capabilities),
-                on_attach = on_attach,
+                capabilities = capabilities,
             },
             (opts.servers and opts.servers[server]) or {}
         )
@@ -124,8 +122,6 @@ local config = function(_, opts)
 
     -- function to configure lsp
     local configure = function()
-        -- for convenience
-        local package_to_lspconfig = {}
         local installed_packages = {}
 
         for _, pkg_name in ipairs(mreg.get_installed_package_names()) do
@@ -133,22 +129,16 @@ local config = function(_, opts)
         end
 
         for _, pkg_spec in ipairs(mreg.get_all_package_specs()) do
-            local neovim_lspconfig = vim.tbl_get(pkg_spec, "neovim", "lspconfig")
-            if neovim_lspconfig then
-                package_to_lspconfig[pkg_spec.name] = neovim_lspconfig
-            end
-        end
-
-        for package_name, lspconfig_name in pairs(package_to_lspconfig) do
-            if installed_packages[package_name] then
-                setup(lspconfig_name)
+            local lsp_server = vim.tbl_get(pkg_spec, "neovim", "lspconfig")
+            if lsp_server and installed_packages[pkg_spec.name] then
+                setup(lsp_server)
             end
         end
     end
 
     -- configure diagnostics
     if opts.diagnostics then
-        diagnostic.config(vim.deepcopy(opts.diagnostics))
+        diagnostic.config(opts.diagnostics)
     end
 
     -- configure lsp servers
