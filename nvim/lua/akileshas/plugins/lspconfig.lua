@@ -166,7 +166,6 @@ local config = function (_, opts)
                 return
             end
 
-            Snacks.notify.info(pkg_obj.name)
             setup(lsp_server)
             enabled_servers[lsp_server] = true
         end
