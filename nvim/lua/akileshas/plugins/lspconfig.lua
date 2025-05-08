@@ -22,7 +22,7 @@ local signs = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
@@ -85,7 +85,7 @@ local opts = {
 }
 
 -- plugin config function
-local config = function(_, opts)
+local config = function (_, opts)
     -- for convenience
     local blink_cmp = require("blink.cmp")
     local mreg = require("mason-registry")
@@ -100,10 +100,10 @@ local config = function(_, opts)
     )
 
     -- on_attach function for lsp server
-    local on_attach = function(client, bufnr) end
+    local on_attach = function (client, bufnr) end
 
     -- function to setup an lsp server
-    local setup = function(server)
+    local setup = function (server)
         local server_opts = vim.tbl_deep_extend(
             "force",
             {
@@ -121,7 +121,7 @@ local config = function(_, opts)
     end
 
     -- function to configure lsp
-    local configure = function()
+    local configure = function ()
         local installed_packages = {}
 
         for _, pkg_name in ipairs(mreg.get_installed_package_names()) do

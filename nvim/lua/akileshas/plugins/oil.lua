@@ -3,7 +3,7 @@ local cmd = vim.cmd
 
 -- toggle file/directory details
 local details_shown = true
-local toggle_details = function()
+local toggle_details = function ()
     -- for convenience
     local oil = require("oil")
 
@@ -45,7 +45,7 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
@@ -93,7 +93,7 @@ local opts = {
     },
     view_options = {
         show_hidden = true,
-        highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan, bufnr)
+        highlight_filename = function (entry, is_hidden, is_link_target, is_link_orphan, bufnr)
             if is_hidden then
                 if entry.type == "directory" then
                     return "OilDir"
@@ -111,7 +111,7 @@ local keys = {
     {
         "<leader>ef",
         mode = { "n" },
-        function()
+        function ()
             cmd("Oil")
         end,
         noremap = true,

@@ -9,7 +9,7 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
@@ -26,7 +26,7 @@ local keys = {
     {
         "<leader>st",
         mode = { "n" },
-        function()
+        function ()
             cmd("TodoQuickFix")
         end,
         noremap = true,
@@ -36,7 +36,7 @@ local keys = {
     {
         "]t",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local todo_comments = require("todo-comments")
 
@@ -49,7 +49,7 @@ local keys = {
     {
         "[t",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local todo_comments = require("todo-comments")
 

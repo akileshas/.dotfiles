@@ -17,11 +17,11 @@ local dependencies = {
 -- plugin init function
 local init = {
     edit = {
-        ai = function() end,
+        ai = function () end,
     },
     flow = {},
     ui = {
-        statusline = function() end,
+        statusline = function () end,
     },
     etc = {},
 }
@@ -49,7 +49,7 @@ local opts = {
         statusline = {
             use_icons = true,
             content = {
-                active = function()
+                active = function ()
                     local active_opts = {
                         mode = {
                             trunc_width = 120,
@@ -131,7 +131,7 @@ local opts = {
 
                     return MiniStatusline.combine_groups(groups)
                 end,
-                inactive = function()
+                inactive = function ()
                     return "%#MiniStatuslineInactive#%F%="
                 end,
             },

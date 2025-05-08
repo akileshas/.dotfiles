@@ -28,7 +28,7 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
@@ -62,12 +62,12 @@ local opts = {
 }
 
 -- plugin config function
-local config = function(_, opts)
+local config = function (_, opts)
     -- for convenience
     local mason = require("mason")
     local mreg = require("mason-registry")
 
-    local ensure_tools_installed = function()
+    local ensure_tools_installed = function ()
         local tools = {}
         vim.list_extend(tools, opts.ensure_installed.lsp)
         vim.list_extend(tools, opts.ensure_installed.tools)
@@ -83,10 +83,10 @@ local config = function(_, opts)
         end
     end
 
-    local queue_filetype_event = function()
+    local queue_filetype_event = function ()
         local event = require("lazy.core.handler.event")
 
-        local trigger_filetype_event = function()
+        local trigger_filetype_event = function ()
             local trigger_opts = {
                 event = "FileType",
                 buf = api.nvim_get_current_buf(),
@@ -113,7 +113,7 @@ local keys = {
     {
         "<leader>cm",
         mode = { "n" },
-        function()
+        function ()
             cmd("Mason")
         end,
         noremap = true,

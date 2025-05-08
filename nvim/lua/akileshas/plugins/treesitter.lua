@@ -36,7 +36,7 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function(plugin)
+local init = function (plugin)
     -- for convenience
     local loader = require("lazy.core.loader")
 
@@ -71,7 +71,7 @@ local opts = {
 }
 
 -- plugin config function
-local config = function(_, opts)
+local config = function (_, opts)
     -- for convenience
     local treesitter = require("nvim-treesitter.configs")
     local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")

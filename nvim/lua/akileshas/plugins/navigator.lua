@@ -2,7 +2,7 @@
 local dependencies = {}
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
@@ -16,7 +16,7 @@ local keys = {
     {
         "<C-h>",
         mode = { "" },
-        function()
+        function ()
             -- for convenience
             local navigator = require("Navigator")
 
@@ -29,7 +29,7 @@ local keys = {
     {
         "<C-l>",
         mode = { "" },
-        function()
+        function ()
             -- for convenience
             local navigator = require("Navigator")
 
@@ -42,7 +42,7 @@ local keys = {
     {
         "<C-j>",
         mode = { "" },
-        function()
+        function ()
             -- for convenience
             local navigator = require("Navigator")
 
@@ -55,7 +55,7 @@ local keys = {
     {
         "<C-k>",
         mode = { "" },
-        function()
+        function ()
             -- for convenience
             local navigator = require("Navigator")
 
@@ -68,7 +68,7 @@ local keys = {
     {
         "<C-\\>",
         mode = { "" },
-        function()
+        function ()
             -- for convenience
             local navigator = require("Navigator")
 

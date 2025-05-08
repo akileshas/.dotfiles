@@ -30,16 +30,16 @@ local dashboard_header = [[
 local dependencies = {}
 
 -- plugin init function
-local init = function()
+local init = function ()
     -- autocmd for the lazy event
     api.nvim_create_autocmd("User", {
         pattern = "VeryLazy",
-        callback = function()
+        callback = function ()
             -- setup some globals for debugging (lazy-loaded)
-            _G.dd = function(...)
+            _G.dd = function (...)
                 Snacks.debug.inspect(...)
             end
-            _G.bt = function()
+            _G.bt = function ()
                 Snacks.debug.backtrace()
             end
 
@@ -316,7 +316,7 @@ local keys = {
     {
         "gd",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_definitions()
         end,
         noremap = true,
@@ -326,7 +326,7 @@ local keys = {
     {
         "gD",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_declarations()
         end,
         noremap = true,
@@ -336,7 +336,7 @@ local keys = {
     {
         "gt",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_type_definitions()
         end,
         noremap = true,
@@ -346,7 +346,7 @@ local keys = {
     {
         "gi",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_implementations()
         end,
         noremap = true,
@@ -356,7 +356,7 @@ local keys = {
     {
         "grr",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_references()
         end,
         noremap = true,
@@ -366,7 +366,7 @@ local keys = {
     {
         "<leader>lc",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_config()
         end,
         noremap = true,
@@ -376,7 +376,7 @@ local keys = {
     {
         "<leader>ls",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_symbols()
         end,
         noremap = true,
@@ -386,7 +386,7 @@ local keys = {
     {
         "<leader>lS",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lsp_workspace_symbols()
         end,
         noremap = true,
@@ -398,7 +398,7 @@ local keys = {
     {
         "<leader>gb",
         mode = { "n" },
-        function()
+        function ()
             Snacks.git.blame_line()
         end,
         noremap = true,
@@ -408,7 +408,7 @@ local keys = {
     {
         "<leader>gB",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_branches({
                 all = true,
             })
@@ -420,7 +420,7 @@ local keys = {
     {
         "<leader>go",
         mode = { "n", "v", "x" },
-        function()
+        function ()
             Snacks.gitbrowse.open()
         end,
         noremap = true,
@@ -430,7 +430,7 @@ local keys = {
     {
         "<leader>gl",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_log()
         end,
         noremap = true,
@@ -440,7 +440,7 @@ local keys = {
     {
         "<leader>gL",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_log_line()
         end,
         noremap = true,
@@ -450,7 +450,7 @@ local keys = {
     {
         "<leader>gf",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_log_file()
         end,
         noremap = true,
@@ -460,7 +460,7 @@ local keys = {
     {
         "<leader>gs",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_status()
         end,
         noremap = true,
@@ -470,7 +470,7 @@ local keys = {
     {
         "<leader>gS",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_stash()
         end,
         noremap = true,
@@ -480,7 +480,7 @@ local keys = {
     {
         "<leader>gd",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_diff()
         end,
         noremap = true,
@@ -490,7 +490,7 @@ local keys = {
     {
         "<leader>ggo",
         mode = { "n" },
-        function()
+        function ()
             Snacks.lazygit.open()
         end,
         noremap = true,
@@ -500,7 +500,7 @@ local keys = {
     {
         "<leader>ggl",
         mode = { "n" },
-        function()
+        function ()
             Snacks.lazygit.log()
         end,
         noremap = true,
@@ -510,7 +510,7 @@ local keys = {
     {
         "<leader>ggf",
         mode = { "n" },
-        function()
+        function ()
             Snacks.lazygit.log_file()
         end,
         noremap = true,
@@ -522,7 +522,7 @@ local keys = {
     {
         "<leader>fb",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.buffers()
         end,
         noremap = true,
@@ -532,7 +532,7 @@ local keys = {
     {
         "<leader>fs",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.smart()
         end,
         noremap = true,
@@ -542,7 +542,7 @@ local keys = {
     {
         "<leader>fc",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.files({
                 show_empty = true,
                 hidden = true,
@@ -559,7 +559,7 @@ local keys = {
     {
         "<leader>ff",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.files({
                 show_empty = true,
                 hidden = true,
@@ -575,7 +575,7 @@ local keys = {
     {
         "<leader>fg",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.git_files()
         end,
         noremap = true,
@@ -585,7 +585,7 @@ local keys = {
     {
         "<leader>fp",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.projects()
         end,
         noremap = true,
@@ -595,7 +595,7 @@ local keys = {
     {
         "<leader>fr",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.recent()
         end,
         noremap = true,
@@ -607,7 +607,7 @@ local keys = {
     {
         [[<leader>s"]],
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.registers()
         end,
         noremap = true,
@@ -617,7 +617,7 @@ local keys = {
     {
         "<leader>s/",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.search_history()
         end,
         noremap = true,
@@ -627,7 +627,7 @@ local keys = {
     {
         "<leader>sa",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.autocmds()
         end,
         noremap = true,
@@ -637,7 +637,7 @@ local keys = {
     {
         "<leader>sg",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.grep({
                 hidden = true,
                 ignored = true,
@@ -655,7 +655,7 @@ local keys = {
     {
         "<leader>sw",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.grep_word()
         end,
         noremap = true,
@@ -665,7 +665,7 @@ local keys = {
     {
         "<leader>sb",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lines()
         end,
         noremap = true,
@@ -675,7 +675,7 @@ local keys = {
     {
         "<leader>sB",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.grep_buffers()
         end,
         noremap = true,
@@ -685,7 +685,7 @@ local keys = {
     {
         "<leader>:",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.command_history()
         end,
         noremap = true,
@@ -695,7 +695,7 @@ local keys = {
     {
         "<leader>sc",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.commands()
         end,
         noremap = true,
@@ -705,7 +705,7 @@ local keys = {
     {
         "<leader>sd",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.diagnostics()
         end,
         noremap = true,
@@ -715,7 +715,7 @@ local keys = {
     {
         "<leader>sD",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.diagnostics_buffer()
         end,
         noremap = true,
@@ -725,7 +725,7 @@ local keys = {
     {
         "<leader>sh",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.help()
         end,
         noremap = true,
@@ -735,7 +735,7 @@ local keys = {
     {
         "<leader>sH",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.highlights()
         end,
         noremap = true,
@@ -745,7 +745,7 @@ local keys = {
     {
         "<leader>si",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.icons()
         end,
         noremap = true,
@@ -755,7 +755,7 @@ local keys = {
     {
         "<leader>sj",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.jumps()
         end,
         noremap = true,
@@ -765,7 +765,7 @@ local keys = {
     {
         "<leader>sk",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.keymaps()
         end,
         noremap = true,
@@ -775,7 +775,7 @@ local keys = {
     {
         "<leader>sl",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.lazy()
         end,
         noremap = true,
@@ -785,7 +785,7 @@ local keys = {
     {
         "<leader>sL",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.loclist()
         end,
         noremap = true,
@@ -805,7 +805,7 @@ local keys = {
     {
         "<leader>sm",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.man()
         end,
         noremap = true,
@@ -815,7 +815,7 @@ local keys = {
     {
         "<leader>sM",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.marks()
         end,
         noremap = true,
@@ -825,7 +825,7 @@ local keys = {
     {
         "<leader>sq",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.qflist()
         end,
         noremap = true,
@@ -835,7 +835,7 @@ local keys = {
     {
         "<leader>sr",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.resume()
         end,
         noremap = true,
@@ -845,7 +845,7 @@ local keys = {
     {
         "<leader>su",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.undo()
         end,
         noremap = true,
@@ -855,7 +855,7 @@ local keys = {
     {
         "<leader>sz",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.zoxide()
         end,
         noremap = true,
@@ -867,7 +867,7 @@ local keys = {
     {
         "<localleader>so",
         mode = { "n" },
-        function()
+        function ()
             Snacks.scratch()
         end,
         noremap = true,
@@ -877,7 +877,7 @@ local keys = {
     {
         "<localleader>sl",
         mode = { "n" },
-        function()
+        function ()
             Snacks.scratch.select()
         end,
         noremap = true,
@@ -887,7 +887,7 @@ local keys = {
     {
         "<leader>nh",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.notifications()
         end,
         noremap = true,
@@ -897,7 +897,7 @@ local keys = {
     {
         "<leader>nH",
         mode = { "n" },
-        function()
+        function ()
             Snacks.notifier.show_history()
         end,
         noremap = true,
@@ -907,7 +907,7 @@ local keys = {
     {
         "<leader>hn",
         mode = { "n" },
-        function()
+        function ()
             Snacks.notifier.hide()
         end,
         noremap = true,
@@ -917,7 +917,7 @@ local keys = {
     {
         "<leader>ee",
         mode = { "n" },
-        function()
+        function ()
             Snacks.explorer.open()
         end,
         noremap = true,
@@ -927,7 +927,7 @@ local keys = {
     {
         "<leader>wz",
         mode = { "n" },
-        function()
+        function ()
             Snacks.zen.zoom()
         end,
         noremap = true,
@@ -937,7 +937,7 @@ local keys = {
     {
         "<leader>wZ",
         mode = { "n" },
-        function()
+        function ()
             Snacks.zen.zen()
         end,
         noremap = true,
@@ -947,7 +947,7 @@ local keys = {
     {
         "<leader>bdd",
         mode = { "n" },
-        function()
+        function ()
             Snacks.bufdelete.delete()
         end,
         noremap = true,
@@ -957,7 +957,7 @@ local keys = {
     {
         "<leader>bdo",
         mode = { "n" },
-        function()
+        function ()
             Snacks.bufdelete.other()
         end,
         noremap = true,
@@ -967,7 +967,7 @@ local keys = {
     {
         "<leader>bda",
         mode = { "n" },
-        function()
+        function ()
             Snacks.bufdelete.all()
         end,
         noremap = true,
@@ -977,7 +977,7 @@ local keys = {
     {
         "<leader>cr",
         mode = { "n" },
-        function()
+        function ()
             Snacks.rename.rename_file()
         end,
         noremap = true,
@@ -987,7 +987,7 @@ local keys = {
     {
         "<leader>uC",
         mode = { "n" },
-        function()
+        function ()
             Snacks.picker.colorschemes()
         end,
         noremap = true,
@@ -997,7 +997,7 @@ local keys = {
     {
         "<C-x>",
         mode = { "n" },
-        function()
+        function ()
             Snacks.terminal.toggle()
         end,
         noremap = true,
@@ -1007,7 +1007,7 @@ local keys = {
     {
         "]]",
         mode = { "n", "t" },
-        function()
+        function ()
             Snacks.words.jump(v.count1)
         end,
         noremap = true,
@@ -1017,7 +1017,7 @@ local keys = {
     {
         "[[",
         mode = { "n", "t" },
-        function()
+        function ()
             Snacks.words.jump(-v.count1)
         end,
         noremap = true,

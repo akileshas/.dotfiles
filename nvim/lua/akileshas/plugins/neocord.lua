@@ -2,7 +2,7 @@
 local dependencies = {}
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {

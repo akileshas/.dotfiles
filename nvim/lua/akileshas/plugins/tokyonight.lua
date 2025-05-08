@@ -2,16 +2,16 @@
 local cmd = vim.cmd
 
 -- custom theme colors
-local on_colors = function(colors) end
+local on_colors = function (colors) end
 
 -- custom theme highlights
-local on_highlights = function(highlights, colors) end
+local on_highlights = function (highlights, colors) end
 
 -- plugin dependencies
 local dependencies = {}
 
 -- plugin init function
-local init = function()
+local init = function ()
     -- load the tokyonight color scheme
     cmd("colorscheme tokyonight")
 end
@@ -37,7 +37,7 @@ local opts = {
 }
 
 -- plugin config function
-local config = function(_, opts)
+local config = function (_, opts)
     -- for convenience
     local tokyonight = require("tokyonight")
 

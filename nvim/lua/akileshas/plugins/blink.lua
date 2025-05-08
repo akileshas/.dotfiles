@@ -61,11 +61,11 @@ local dependencies = {
 }
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {
-    enabled = function()
+    enabled = function ()
         local filetype = bo[0].filetype
         if filetype == "oil" or filetype == "snacks_picker_input" then
             return false
@@ -160,13 +160,13 @@ local opts = {
             },
             omni = {
                 name = "omni",
-                enabled = function()
+                enabled = function ()
                     return bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
                 end,
                 module = "blink.cmp.sources.complete_func",
                 score_offset = 90,
                 opts = {
-                    complete_func = function()
+                    complete_func = function ()
                         return bo.omnifunc
                     end,
                 },
@@ -193,7 +193,7 @@ local opts = {
                 module = "blink-cmp-copilot",
                 score_offset = 15,
                 async = true,
-                transform_items = function(_, items)
+                transform_items = function (_, items)
                     local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
                     local kind_idx = #CompletionItemKind + 1
                     CompletionItemKind[kind_idx] = "Copilot"
@@ -212,7 +212,7 @@ local opts = {
                 opts = {
                     trailing_slash = true,
                     label_trailing_slash = true,
-                    get_cwd = function(context)
+                    get_cwd = function (context)
                         return fn.expand(("#%d:p:h"):format(context.bufnr))
                     end,
                     show_hidden_files_by_default = true,
@@ -227,7 +227,7 @@ local opts = {
             },
             cmdline = {
                 name = "cmdline",
-                enabled = function()
+                enabled = function ()
                     return fn.has("win32") == 0
                         or fn.getcmdtype() ~= ":"
                         or not fn.getcmdline():match("^[%%0-9,'<>%-]*!")

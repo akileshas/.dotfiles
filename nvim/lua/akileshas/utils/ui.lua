@@ -8,7 +8,7 @@ local v = vim.v
 
 local M = {}
 
-M.foldexpr = function()
+M.foldexpr = function ()
     local buf = api.nvim_get_current_buf()
 
     if b[buf].ts_folds == nil then
@@ -27,7 +27,7 @@ M.foldexpr = function()
     return b[buf].ts_folds and treesitter.foldexpr() or "0"
 end
 
-M.foldtext = function()
+M.foldtext = function ()
     local first_line = fn.getline(v.foldstart)
     local folded_lines = v.foldend - v.foldstart + 1
 

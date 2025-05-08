@@ -1,10 +1,10 @@
 -- helper function to define keymaps for harpoon navigation
-local keys_for_navigation = function(keys, num)
+local keys_for_navigation = function (keys, num)
     for i = 1, num do
         table.insert(keys, {
             "<leader>" .. i,
             mode = { "n" },
-            function()
+            function ()
                 -- for convenience
                 local harpoon = require("harpoon")
 
@@ -21,7 +21,7 @@ end
 local dependencies = {}
 
 -- plugin init function
-local init = function() end
+local init = function () end
 
 -- plugin opts
 local opts = {}
@@ -31,7 +31,7 @@ local keys = {
     {
         "<leader>a",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local harpoon = require("harpoon")
 
@@ -44,7 +44,7 @@ local keys = {
     {
         "<C-a>",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local harpoon = require("harpoon")
 
@@ -57,7 +57,7 @@ local keys = {
     {
         "<leader>hk",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local harpoon = require("harpoon")
 
@@ -70,7 +70,7 @@ local keys = {
     {
         "<leader>hj",
         mode = { "n" },
-        function()
+        function ()
             -- for convenience
             local harpoon = require("harpoon")
 
@@ -89,7 +89,7 @@ keys_for_navigation(keys, 9)
 table.insert(keys, {
     "<leader>0",
     mode = { "n" },
-    function()
+    function ()
         -- for convenience
         local harpoon = require("harpoon")
 
