@@ -83,6 +83,7 @@ local opts = {
 local config = function (_, opts)
     -- for convenience
     local blink_cmp = require("blink.cmp")
+    local lsp_utils = require("akileshas.utils.lsp")
     local mreg = require("mason-registry")
 
     -- capabilities for lsp server
@@ -95,7 +96,9 @@ local config = function (_, opts)
     )
 
     -- on_attach function for lsp server
-    local on_attach = function (client, bufnr) end
+    local on_attach = function (client, buffer)
+
+    end
 
     -- function to setup an lsp server
     local setup = function (server)
@@ -166,6 +169,9 @@ local config = function (_, opts)
 
     -- configure lsp servers
     handler()
+
+    -- setup the keymaps on attach
+    lsp_utils.on_attach(on_attach)
 end
 
 -- plugin keys
