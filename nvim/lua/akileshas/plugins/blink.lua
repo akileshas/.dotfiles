@@ -87,6 +87,13 @@ local opts = {
                 from_top = true,
             },
         },
+        accept = {
+            dot_repeat = true,
+            create_undo_point = true,
+            auto_brackets = {
+                enabled = true,
+            },
+        },
         menu = {
             border = "rounded",
             scrollbar = true,
@@ -274,6 +281,7 @@ local opts = {
                 enabled = false,
             },
         },
+        keymap = cmp_keymap,
     },
     keymap = cmp_keymap,
 }
