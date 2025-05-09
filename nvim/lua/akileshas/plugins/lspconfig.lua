@@ -9,9 +9,12 @@ local lsp = vim.lsp
 -- plugin dependencies
 local dependencies = {
     {
+        "saghen/blink.cmp",
+    },
+    {
         "mason-org/mason.nvim",
     },
-    -- { "mason-org/mason-lspconfig.nvim" }
+    { "mason-org/mason-lspconfig.nvim" }
 }
 
 -- diagnostics signs
@@ -186,10 +189,9 @@ local config = function (_, opts)
     end
 
     -- configure lsp servers
+    -- require("mason-lspconfig").setup({})
     -- configure()
     handler()
-
-    -- require("mason-lspconfig").setup({})
 end
 
 -- plugin keys
