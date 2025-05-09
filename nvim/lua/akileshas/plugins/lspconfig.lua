@@ -116,6 +116,7 @@ local config = function (_, opts)
         )
 
         if server_opts.enabled == false then
+            Snacks.notify.warn("LSP server " .. server .. " is disabled !!!")
             return
         end
 
@@ -137,7 +138,7 @@ local config = function (_, opts)
                 end)
 
                 if not ok then
-                    Snacks.notify.info("Package " .. pkg .. " not found")
+                    Snacks.notify.error("Package " .. pkg .. " not found !!!")
                     return
                 end
 
@@ -166,13 +167,13 @@ local config = function (_, opts)
         mreg:on("package:install:success", enable_server_scheduled)
     end
 
-    -- configure lsp servers
-    handler()
-
     -- configure diagnostics
     if opts.diagnostics then
         diagnostic.config(opts.diagnostics)
     end
+
+    -- configure lsp servers
+    handler()
 end
 
 -- plugin keys
