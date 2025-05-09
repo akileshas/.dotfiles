@@ -177,4 +177,10 @@ keymap.set({ "c" }, "<S-Tab>", "", {
     desc = "hide omni completion",
 })
 
+keymap.set({ "c" }, "<C-d>", "", {
+    noremap = true,
+    silent = true,
+    desc = "hide omni completion",
+})
+
 return {}
