@@ -26,6 +26,7 @@ opt.termguicolors = true
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 opt.winblend = 0
+opt.winborder = "rounded"
 opt.winheight = 1
 opt.winminheight = 1
 opt.winminwidth = 5
