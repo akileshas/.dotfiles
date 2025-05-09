@@ -163,6 +163,14 @@ local config = function (_, opts)
                 end,
                 desc = "lsp symbols in workspace",
             },
+            {
+                "<leader>li",
+                mode = { "n" },
+                function ()
+                    cmd("LspInfo")
+                end,
+                desc = "lsp server info",
+            },
         }
 
         -- mapping all the keys
