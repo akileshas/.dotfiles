@@ -1,9 +1,5 @@
 -- plugin dependencies
-local dependencies = {
-    {
-        "giuxtaposition/blink-cmp-copilot",
-    },
-}
+local dependencies = {}
 
 -- plugin init function
 local init = function () end
