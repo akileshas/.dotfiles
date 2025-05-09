@@ -85,6 +85,7 @@ local config = function (_, opts)
     local blink_cmp = require("blink.cmp")
     local lsp_utils = require("akileshas.utils.lsp")
     local mreg = require("mason-registry")
+    local utils = require("akileshas.utils")
 
     -- capabilities for lsp server
     local capabilities = vim.tbl_deep_extend(
@@ -97,7 +98,75 @@ local config = function (_, opts)
 
     -- on_attach function for lsp server
     local on_attach = function (client, buffer)
+        local keys = {
+            {
+                "gd",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_definitions()
+                end,
+                desc = "go to definitions",
+            },
+            {
+                "gD",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_declarations()
+                end,
+                desc = "go to declarations",
+            },
+            {
+                "gt",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_type_definitions()
+                end,
+                desc = "go to type definitions",
+            },
+            {
+                "gi",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_implementations()
+                end,
+                desc = "go to implementations",
+            },
+            {
+                "grr",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_references()
+                end,
+                desc = "go to references",
+            },
+            {
+                "<leader>lc",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_config()
+                end,
+                desc = "lsp server config",
+            },
+            {
+                "<leader>ls",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_symbols()
+                end,
+                desc = "lsp symbols in current buffer",
+            },
+            {
+                "<leader>lS",
+                mode = { "n" },
+                function ()
+                    Snacks.picker.lsp_workspace_symbols()
+                end,
+                desc = "lsp symbols in workspace",
+            },
+        }
 
+        -- mapping all the keys
+        utils.map_all(keys)
     end
 
     -- function to setup an lsp server
