@@ -153,33 +153,40 @@ keymap.set({ "n", "v", "x" }, "<leader>ww", "<cmd>set wrap!<CR>", {
     desc = "toggle word wrap",
 })
 
-keymap.set({ "i", "c" }, "<C-n>", "", {
+keymap.set({ "i", "c" }, "<C-n>", "<NOP>", {
     noremap = true,
     silent = true,
     desc = "hide omni completion",
 })
 
-keymap.set({ "i", "c" }, "<C-p>", "", {
+keymap.set({ "i", "c" }, "<C-p>", "<NOP>", {
     noremap = true,
     silent = true,
     desc = "hide omni completion",
 })
 
-keymap.set({ "c" }, "<Tab>", "", {
+keymap.set({ "c" }, "<Tab>", "<NOP>", {
     noremap = true,
     silent = true,
     desc = "hide omni completion",
 })
 
-keymap.set({ "c" }, "<S-Tab>", "", {
+keymap.set({ "c" }, "<S-Tab>", "<NOP>", {
     noremap = true,
     silent = true,
     desc = "hide omni completion",
 })
 
-keymap.set({ "c" }, "<C-d>", "", {
+keymap.set({ "c" }, "<C-d>", "<NOP>", {
     noremap = true,
     silent = true,
+    desc = "hide omni completion",
+})
+
+keymap.set({ "i" }, "<C-x>", "<NOP>", {
+    noremap = true,
+    silent = true,
+    nowait = true,
     desc = "hide omni completion",
 })
 
