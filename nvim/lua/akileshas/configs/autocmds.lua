@@ -97,7 +97,7 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
             cmd([[%s/\s\+$//e]])
             cmd("retab")
         end
-    end
+    end,
 })
 
 return {}
