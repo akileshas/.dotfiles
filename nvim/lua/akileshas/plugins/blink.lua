@@ -1,6 +1,7 @@
 -- for convenience
 local bo = vim.bo
 local fn = vim.fn
+local devicons = require("nvim-web-devicons")
 
 local cmp_keymap = {
     preset = "none",
@@ -104,6 +105,23 @@ local opts = {
                     { "kind_icon" },
                     { "label", "label_description", gap = 1 },
                     { "kind" },
+                },
+                components = {
+                    kind_icon = {
+                        text = function (ctx)
+                            local icon = ctx.kind_icon
+                            if
+                                vim.tbl_contains({ "path" }, ctx.source_name)
+                            then
+                                local dev_icon, _ = devicons.get_icon(ctx.label)
+                                if dev_icon then
+                                    icon = dev_icon
+                                end
+                            end
+
+                            return icon .. ctx.icon_gap
+                        end,
+                    },
                 },
             },
         },
