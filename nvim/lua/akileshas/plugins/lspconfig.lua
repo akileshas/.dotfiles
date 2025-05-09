@@ -48,14 +48,6 @@ local opts = {
             },
         },
     },
-    inlay_hints = {
-        enabled = false,
-        exclude = {},
-    },
-    codelens = {
-        enabled = false,
-        exclude = {},
-    },
     capabilities = {
         workspace = {
             fileOperations = {
