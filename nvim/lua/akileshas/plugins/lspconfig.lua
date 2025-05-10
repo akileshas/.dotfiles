@@ -124,7 +124,7 @@ local config = function (_, opts)
                 desc = "go to type definitions",
             },
             {
-                "gi",
+                "gri",
                 mode = { "n" },
                 function ()
                     Snacks.picker.lsp_implementations()
@@ -190,6 +190,14 @@ local config = function (_, opts)
                     })
                 end,
                 desc = "lsp signature help",
+            },
+            {
+                "<C-w><C-d>",
+                mode = { "n" },
+                function ()
+                    diagnostic.open_float()
+                end,
+                desc = "show diagnostic under the cursor",
             },
         }
 
