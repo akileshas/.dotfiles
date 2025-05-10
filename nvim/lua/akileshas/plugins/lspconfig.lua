@@ -219,6 +219,7 @@ local config = function (_, opts)
                 function ()
                     lsp.buf.hover({
                         border = "rounded",
+                        focusable = true,
                     })
                 end,
                 desc = "lsp hover",
@@ -229,6 +230,7 @@ local config = function (_, opts)
                 function ()
                     lsp.buf.signature_help({
                         border = "rounded",
+                        focusable = true,
                     })
                 end,
                 desc = "lsp signature help",
@@ -237,7 +239,9 @@ local config = function (_, opts)
                 "<C-w>d",
                 mode = { "n" },
                 function ()
-                    diagnostic.open_float()
+                    diagnostic.open_float({
+                        border = "rounded",
+                    })
                 end,
                 desc = "show diagnostic under the cursor",
             },
@@ -245,7 +249,9 @@ local config = function (_, opts)
                 "<C-w><C-d>",
                 mode = { "n" },
                 function ()
-                    diagnostic.open_float()
+                    diagnostic.open_float({
+                        border = "rounded",
+                    })
                 end,
                 desc = "show diagnostic under the cursor",
             },
