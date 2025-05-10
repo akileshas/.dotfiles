@@ -5,6 +5,7 @@ local diagnostic = vim.diagnostic
 local fn = vim.fn
 local keymap = vim.keymap
 local lsp = vim.lsp
+local v = vim.v
 
 -- plugin dependencies
 local dependencies = {
@@ -223,11 +224,27 @@ local config = function (_, opts)
                 end,
                 desc = "show diagnostic under the cursor",
             },
+            {
+                "]]",
+                mode = { "n" },
+                function ()
+                    Snacks.words.jump(v.count1, false)
+                end,
+                desc = "jump to next reference",
+            },
+            {
+                "[[",
+                mode = { "n" },
+                function ()
+                    Snacks.words.jump(-v.count1, false)
+                end,
+                desc = "jump to previous reference",
+            },
         }
 
         -- remove the default keymaps
-        pcall(keymap.del, { "n", "x", "o" }, "[[", { buffer = buffer })
         pcall(keymap.del, { "n", "x", "o" }, "]]", { buffer = buffer })
+        pcall(keymap.del, { "n", "x", "o" }, "[[", { buffer = buffer })
         pcall(keymap.del, { "n" }, "K", { buffer = buffer })
         pcall(keymap.del, { "n" }, "<C-w>d")
         pcall(keymap.del, { "x" }, "gra")

@@ -912,26 +912,6 @@ local keys = {
         silent = true,
         desc = "toggle terminal",
     },
-    {
-        "]]",
-        mode = { "n", "t" },
-        function ()
-            Snacks.words.jump(v.count1)
-        end,
-        noremap = true,
-        silent = true,
-        desc = "jump to the next reference",
-    },
-    {
-        "[[",
-        mode = { "n", "t" },
-        function ()
-            Snacks.words.jump(-v.count1)
-        end,
-        noremap = true,
-        silent = true,
-        desc = "jump to the previous reference",
-    },
 }
 
 -- plugin configurations
