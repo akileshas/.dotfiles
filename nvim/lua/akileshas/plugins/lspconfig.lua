@@ -140,12 +140,28 @@ local config = function (_, opts)
                 desc = "go to references",
             },
             {
+                "gra",
+                mode = { "n" },
+                function ()
+                    lsp.buf.code_action()
+                end,
+                desc = "lsp code action",
+            },
+            {
                 "<leader>lc",
                 mode = { "n" },
                 function ()
                     Snacks.picker.lsp_config()
                 end,
                 desc = "lsp server config",
+            },
+            {
+                "<leader>li",
+                mode = { "n" },
+                function ()
+                    cmd("LspInfo")
+                end,
+                desc = "lsp server info",
             },
             {
                 "<leader>ls",
@@ -162,14 +178,6 @@ local config = function (_, opts)
                     Snacks.picker.lsp_workspace_symbols()
                 end,
                 desc = "lsp symbols in workspace",
-            },
-            {
-                "<leader>li",
-                mode = { "n" },
-                function ()
-                    cmd("LspInfo")
-                end,
-                desc = "lsp server info",
             },
             {
                 "K",
