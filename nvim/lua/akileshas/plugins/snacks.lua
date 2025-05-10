@@ -893,16 +893,6 @@ local keys = {
         desc = "delete all buffers",
     },
     {
-        "<leader>cr",
-        mode = { "n" },
-        function ()
-            Snacks.rename.rename_file()
-        end,
-        noremap = true,
-        silent = true,
-        desc = "rename the current file",
-    },
-    {
         "<leader>uC",
         mode = { "n" },
         function ()

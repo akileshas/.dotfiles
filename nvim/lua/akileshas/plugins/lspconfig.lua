@@ -148,6 +148,22 @@ local config = function (_, opts)
                 desc = "lsp code action",
             },
             {
+                "grn",
+                mode = { "n" },
+                function ()
+                    lsp.buf.rename()
+                end,
+                desc = "lsp rename",
+            },
+            {
+                "grN",
+                mode = { "n" },
+                function ()
+                    Snacks.rename.rename_file()
+                end,
+                desc = "lsp file rename",
+            },
+            {
                 "<leader>lc",
                 mode = { "n" },
                 function ()
