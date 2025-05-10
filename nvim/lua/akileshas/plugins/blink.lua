@@ -1,6 +1,7 @@
 -- for convenience
 local bo = vim.bo
 local fn = vim.fn
+
 local devicons = require("nvim-web-devicons")
 
 local cmp_keymap = {

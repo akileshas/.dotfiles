@@ -1,4 +1,5 @@
 -- for convenience
+local api = vim.api
 local keymap = vim.keymap
 
 local M = {}
@@ -33,6 +34,13 @@ M.map_all = function (keymaps)
 
         M.map(mode, lhs, rhs, opts)
     end
+end
+
+M.augroup = function (name)
+    return api.nvim_create_augroup(
+        "akileshas_" .. name,
+        { clear = true }
+    )
 end
 
 return M
