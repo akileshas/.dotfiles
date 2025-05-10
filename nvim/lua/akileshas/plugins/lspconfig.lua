@@ -217,6 +217,14 @@ local config = function (_, opts)
                 desc = "lsp signature help",
             },
             {
+                "<C-w>d",
+                mode = { "n" },
+                function ()
+                    diagnostic.open_float()
+                end,
+                desc = "show diagnostic under the cursor",
+            },
+            {
                 "<C-w><C-d>",
                 mode = { "n" },
                 function ()
@@ -246,7 +254,6 @@ local config = function (_, opts)
         pcall(keymap.del, { "n", "x", "o" }, "]]", { buffer = buffer })
         pcall(keymap.del, { "n", "x", "o" }, "[[", { buffer = buffer })
         pcall(keymap.del, { "n" }, "K", { buffer = buffer })
-        pcall(keymap.del, { "n" }, "<C-w>d")
         pcall(keymap.del, { "x" }, "gra")
 
         -- mapping all the keys
