@@ -171,6 +171,26 @@ local config = function (_, opts)
                 end,
                 desc = "lsp server info",
             },
+            {
+                "K",
+                mode = { "n" },
+                function ()
+                    lsp.buf.hover({
+                        border = "rounded",
+                    })
+                end,
+                desc = "lsp hover",
+            },
+            {
+                "gK",
+                mode = { "n" },
+                function ()
+                    lsp.buf.signature_help({
+                        border = "rounded",
+                    })
+                end,
+                desc = "lsp signature help",
+            },
         }
 
         -- mapping all the keys
