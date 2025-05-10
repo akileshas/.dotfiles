@@ -32,7 +32,7 @@ local dependencies = {}
 -- plugin init function
 local init = function ()
     -- autocmd for the lazy event
-    api.nvim_create_autocmd("User", {
+    api.nvim_create_autocmd({ "User" }, {
         pattern = "VeryLazy",
         callback = function ()
             -- setup some globals for debugging (lazy-loaded)
