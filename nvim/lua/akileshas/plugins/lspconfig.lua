@@ -181,6 +181,23 @@ local config = function (_, opts)
                 desc = "lsp server info",
             },
             {
+                "<leader>lr",
+                mode = { "n" },
+                function ()
+                    cmd("LspRestart")
+                    Snacks.notify.info("LSP server restarted !!!")
+                end,
+                desc = "lsp server restart",
+            },
+            {
+                "<leader>ll",
+                mode = { "n" },
+                function ()
+                    cmd("LspLog")
+                end,
+                desc = "lsp server log",
+            },
+            {
                 "<leader>ls",
                 mode = { "n" },
                 function ()
@@ -231,6 +248,32 @@ local config = function (_, opts)
                     diagnostic.open_float()
                 end,
                 desc = "show diagnostic under the cursor",
+            },
+            {
+                "]d",
+                mode = { "n" },
+                function ()
+                    diagnostic.jump({
+                        count = 1,
+                        float = {
+                            border = "rounded",
+                        },
+                    })
+                end,
+                desc = "jump to next diagnostic",
+            },
+            {
+                "[d",
+                mode = { "n" },
+                function ()
+                    diagnostic.jump({
+                        count = -1,
+                        float = {
+                            border = "rounded",
+                        },
+                    })
+                end,
+                desc = "jump to previous diagnostic",
             },
             {
                 "]]",
