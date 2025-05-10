@@ -5,6 +5,7 @@ local diagnostic = vim.diagnostic
 local fn = vim.fn
 local keymap = vim.keymap
 local lsp = vim.lsp
+local uv = vim.uv
 local v = vim.v
 
 -- plugin dependencies
@@ -83,10 +84,118 @@ local opts = {
 -- plugin config function
 local config = function (_, opts)
     -- for convenience
+    local lsp_enabled = true
+    local attached_buffers_by_client = {}
+    local client_configs = {}
+
     local blink_cmp = require("blink.cmp")
     local lsp_utils = require("akileshas.utils.lsp")
     local mreg = require("mason-registry")
     local utils = require("akileshas.utils")
+
+    local original_buf_attach_client = lsp.buf_attach_client
+
+    local add_buf = function (client_id, buf)
+        if not attached_buffers_by_client[client_id] then
+            attached_buffers_by_client[client_id] = {}
+        end
+
+        local exists = false
+        for _, value in ipairs(attached_buffers_by_client[client_id]) do
+            if value == buf then
+                exists = true
+                break
+             end
+        end
+
+        if not exists then
+            table.insert(attached_buffers_by_client[client_id], buf)
+        end
+    end
+
+    local client_stop = function (client)
+        lsp.stop_client(client.id, false)
+
+        local timer = uv.new_timer()
+        local max_attempts = 50
+        local attempts = 0
+
+        local handle_client_timeout = function ()
+            attempts = attempts + 1
+
+            if client.is_stopped() then
+                timer:stop()
+                timer:close()
+                diagnostic.reset()
+            elseif attempts >= max_attempts then
+                lsp.stop_client(client.id, true)
+                timer:stop()
+                timer:close()
+                diagnostic.reset()
+            end
+        end
+
+        timer:start(100, 100, vim.schedule_wrap(handle_client_timeout))
+    end
+
+    local update_clients_ids = function (ids_map)
+        local new_attached_buffers_by_client = {}
+        local new_client_configs = {}
+
+        for client_id, buffers in pairs(attached_buffers_by_client) do
+            local new_id = ids_map[client_id]
+            new_attached_buffers_by_client[new_id] = buffers
+            new_client_configs[new_id] = client_configs[client_id]
+        end
+
+        attached_buffers_by_client = new_attached_buffers_by_client
+        client_configs = new_client_configs
+    end
+
+    -- function for toggling lsp server
+    local toggle_lsp = function ()
+        if lsp_enabled then
+            attached_buffers_by_client = {}
+            client_configs = {}
+
+            for _, client in ipairs(lsp.get_clients()) do
+                client_configs[client.id] = client.config
+
+                for buf, _ in pairs(client.attached_buffers) do
+                    add_buf(client.id, buf)
+                    lsp.buf_detach_client(buf, client.id)
+                end
+
+                client_stop(client)
+            end
+
+            Snacks.notify.info("LSP servers disabled !!!")
+        else
+            local new_ids = {}
+
+            for client_id, buffers in pairs(attached_buffers_by_client) do
+                local client_config = client_configs[client_id]
+                -- local new_client_id = lsp.start(client_config)
+                local new_client_id, err = lsp.start_client(client_config)
+
+                new_ids[client_id] = new_client_id
+
+                if err then
+                    Snacks.notify.warn("Failed to start LSP client !!!")
+                    return nil
+                end
+
+                for _, buf in ipairs(buffers) do
+                    original_buf_attach_client(buf, new_client_id)
+                end
+            end
+
+            update_clients_ids(new_ids)
+            Snacks.notify.info("LSP servers enabled !!!")
+        end
+
+        lsp_enabled = not lsp_enabled
+    end
 
     -- capabilities for lsp server
     local capabilities = vim.tbl_deep_extend(
@@ -381,6 +490,36 @@ local config = function (_, opts)
 
     -- setup the keymaps on attach
     lsp_utils.on_attach(on_attach)
+
+    -- middleware function to control LSP client attachment to buffers
+    -- prevents LSP client from reattaching if LSP's are disabled
+    lsp.buf_attach_client = function (bufnr, client_id)
+        if not lsp_enabled then
+            if not client_configs[client_id] then
+                local client_config = lsp.get_client_by_id(client_id)
+                client_configs[client_id] = (client_config and client_config.config) or {}
+            end
+
+            add_buf(client_id, bufnr)
+            lsp.stop_client(client_id)
+
+            return false
+        end
+        return original_buf_attach_client(bufnr, client_id)
+    end
+
+    -- setup the keymaps
+    local keys = {
+        {
+            "<leader>lt",
+            mode = { "n" },
+            function ()
+                toggle_lsp()
+            end,
+            desc = "toggle lsp servers",
+        },
+    }
+    utils.map_all(keys)
 end
 
 -- plugin keys
