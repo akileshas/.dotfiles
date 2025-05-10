@@ -12,7 +12,7 @@ local utils = require("akileshas.utils")
 
 -- auto create dir when saving a file, in case some intermediate directory does not exist
 api.nvim_create_autocmd({ "BufWritePre" }, {
-    group = utils.augroup("auto_create_dir"),
+    group = utils.reset_augroup("auto_create_dir"),
     callback = function (event)
         if event.match:match("^%w%w+:[\\/][\\/]") then
             return
@@ -26,7 +26,7 @@ api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- check if we need to reload the file when it changed
 api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    group = utils.augroup("checktime"),
+    group = utils.reset_augroup("checktime"),
     callback = function ()
         if o.buftype ~= "nofile" then
             cmd("checktime")
@@ -36,7 +36,7 @@ api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 
 -- highlight on yank
 api.nvim_create_autocmd({ "TextYankPost" }, {
-    group = utils.augroup("highlight_yank"),
+    group = utils.reset_augroup("highlight_yank"),
     callback = function ()
         hl.on_yank({
             timeout = 300,
@@ -46,7 +46,7 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
 
 -- resize splits if window got resized
 api.nvim_create_autocmd({ "VimResized" }, {
-    group = utils.augroup("resize_splits"),
+    group = utils.reset_augroup("resize_splits"),
     callback = function ()
         local current_tab = fn.tabpagenr()
 
@@ -57,7 +57,7 @@ api.nvim_create_autocmd({ "VimResized" }, {
 
 -- set filetype for man pages
 api.nvim_create_autocmd({ "FileType" }, {
-    group = utils.augroup("man"),
+    group = utils.reset_augroup("man"),
     pattern = { "man" },
     callback = function ()
         bo.filetype = "man"
@@ -66,7 +66,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 -- make it easier to close man-files when opened inline
 api.nvim_create_autocmd({ "FileType" }, {
-    group = utils.augroup("man_unlisted"),
+    group = utils.reset_augroup("man_unlisted"),
     pattern = { "man" },
     callback = function (event)
         bo[event.buf].buflisted = false
@@ -75,7 +75,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 -- check for spell in text filetypes
 api.nvim_create_autocmd({ "FileType" }, {
-    group = utils.augroup("spell"),
+    group = utils.reset_augroup("spell"),
     pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
     callback = function ()
         opt_local.spell = true
@@ -84,7 +84,7 @@ api.nvim_create_autocmd({ "FileType" }, {
 
 -- strip trailing spaces before write
 api.nvim_create_autocmd({ "BufWritePre" }, {
-    group = utils.augroup("strip_space_and_retab"),
+    group = utils.reset_augroup("strip_space_and_retab"),
     pattern = { "*" },
     callback = function ()
         if bo.filetype ~= "oil" then

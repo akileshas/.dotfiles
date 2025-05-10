@@ -36,10 +36,21 @@ M.map_all = function (keymaps)
     end
 end
 
-M.augroup = function (name)
+M.augroup = function (name, opts)
     return api.nvim_create_augroup(
         "akileshas_" .. name,
-        { clear = true }
+        opts or {}
+    )
+end
+
+M.reset_augroup = function (name, opts)
+    opts = vim.tbl_deep_extend("force", {
+        clear = true,
+    }, opts or {})
+
+    return api.nvim_create_augroup(
+        "akileshas_" .. name,
+        opts
     )
 end
 
