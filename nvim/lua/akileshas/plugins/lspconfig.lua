@@ -225,6 +225,13 @@ local config = function (_, opts)
             },
         }
 
+        -- remove the default keymaps
+        pcall(keymap.del, { "n", "x", "o" }, "[[", { buffer = buffer })
+        pcall(keymap.del, { "n", "x", "o" }, "]]", { buffer = buffer })
+        pcall(keymap.del, { "n" }, "K", { buffer = buffer })
+        pcall(keymap.del, { "n" }, "<C-w>d")
+        pcall(keymap.del, { "x" }, "gra")
+
         -- mapping all the keys
         utils.map_all(keys)
     end
