@@ -189,7 +189,6 @@ local config = function (_, opts)
 
             for client_id, buffers in pairs(attached_buffers_by_client) do
                 local client = client_configs[client_id]
-                Snacks.notify.info(vim.inspect(client))
 
                 local new_client_id, err = lsp.start_client(client)
 
