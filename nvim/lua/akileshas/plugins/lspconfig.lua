@@ -59,6 +59,18 @@ local opts = {
         },
     },
     servers = {
+        denols = {
+            root_dir = function (bufnr, on_dir)
+                local lspconfig_util = require("lspconfig.util")
+
+                local fname = api.nvim_buf_get_name(bufnr)
+                local root = lspconfig_util.root_pattern("deno.json", "deno.jsonc")(fname)
+
+                if root then
+                    on_dir(root)
+                end
+            end,
+        },
         lua_ls = {
             settings = {
                 Lua = {
@@ -78,6 +90,18 @@ local opts = {
                 },
             },
         },
+        vtsls = {
+            root_dir = function (bufnr, on_dir)
+                local lspconfig_util = require("lspconfig.util")
+
+                local fname = api.nvim_buf_get_name(bufnr)
+                local is_deno = lspconfig_util.root_pattern("deno.json", "deno.jsonc")
+
+                if not is_deno(fname) then
+                    on_dir(fn.getcwd())
+                end
+            end,
+        },
     },
 }
 
@@ -90,13 +114,10 @@ local config = function (_, opts)
 
     local blink_cmp = require("blink.cmp")
     local lsp_utils = require("akileshas.utils.lsp")
-    local lspconfig = require("lspconfig")
-    local lspconfig_utils = require("lspconfig.util")
     local mreg = require("mason-registry")
     local utils = require("akileshas.utils")
 
     local original_buf_attach_client = lsp.buf_attach_client
-    local is_deno = lspconfig_utils.root_pattern("deno.json", "deno.jsonc")
 
     local is_copilot = function (client)
         return client and client.name == "copilot"
@@ -525,27 +546,6 @@ local config = function (_, opts)
 
         return original_buf_attach_client(bufnr, client_id)
     end
-
-    -- handle the conflict between `vtsls` and `denols` lsp servers
-    lsp.config("denols", {
-        root_dir = function (bufnr, on_dir)
-            local fname = api.nvim_buf_get_name(bufnr)
-            local root = lspconfig_utils.root_pattern("deno.json", "deno.jsonc")(fname)
-
-            if root then
-                on_dir(root)
-            end
-        end,
-    })
-    lsp.config("vtsls", {
-        root_dir = function (bufnr, on_dir)
-            local fname = api.nvim_buf_get_name(bufnr)
-
-            if not is_deno(fname) then
-                on_dir(fn.getcwd())
-            end
-        end,
-    })
 
     -- global keymaps for lsp server
     local keys = {
