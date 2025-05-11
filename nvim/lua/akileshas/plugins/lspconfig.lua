@@ -95,30 +95,34 @@ local config = function (_, opts)
 
     local original_buf_attach_client = lsp.buf_attach_client
 
-    local add_buf = function (client_id, buf)
+    local is_copilot = function (client)
+        return client and client.name == "copilot"
+    end
+
+    local add_buf = function (client_id, bufnr)
         if not attached_buffers_by_client[client_id] then
             attached_buffers_by_client[client_id] = {}
         end
 
-        local exists = false
         for _, value in ipairs(attached_buffers_by_client[client_id]) do
-            if value == buf then
-                exists = true
-                break
+            if value == bufnr then
+                return
              end
         end
 
-        if not exists then
-            table.insert(attached_buffers_by_client[client_id], buf)
-        end
+        table.insert(attached_buffers_by_client[client_id], bufnr)
     end
 
     local client_stop = function (client)
+        if client.is_stopped() then
+            return
+        end
+
         lsp.stop_client(client.id, false)
 
-        local timer = uv.new_timer()
-        local max_attempts = 50
         local attempts = 0
+        local max_attempts = 50
+        local timer = uv.new_timer()
 
         local handle_client_timeout = function ()
             attempts = attempts + 1
@@ -144,8 +148,10 @@ local config = function (_, opts)
 
         for client_id, buffers in pairs(attached_buffers_by_client) do
             local new_id = ids_map[client_id]
-            new_attached_buffers_by_client[new_id] = buffers
-            new_client_configs[new_id] = client_configs[client_id]
+            if new_id then
+                new_attached_buffers_by_client[new_id] = buffers
+                new_client_configs[new_id] = client_configs[client_id]
+            end
         end
 
         attached_buffers_by_client = new_attached_buffers_by_client
@@ -159,14 +165,22 @@ local config = function (_, opts)
             client_configs = {}
 
             for _, client in ipairs(lsp.get_clients()) do
+                if is_copilot(client) then
+                    goto continue
+                end
+
                 client_configs[client.id] = client.config
 
-                for buf, _ in pairs(client.attached_buffers) do
-                    add_buf(client.id, buf)
-                    lsp.buf_detach_client(buf, client.id)
+                for bufnr, _ in pairs(client.attached_buffers or {}) do
+                    add_buf(client.id, bufnr)
+                    if lsp.buf_is_attached(bufnr, client.id) then
+                        lsp.buf_detach_client(bufnr, client.id)
+                    end
                 end
 
                 client_stop(client)
+
+                ::continue::
             end
 
             Snacks.notify.info("LSP servers disabled !!!")
@@ -174,19 +188,20 @@ local config = function (_, opts)
             local new_ids = {}
 
             for client_id, buffers in pairs(attached_buffers_by_client) do
-                local client_config = client_configs[client_id]
-                -- local new_client_id = lsp.start(client_config)
-                local new_client_id, err = lsp.start_client(client_config)
+                local client = client_configs[client_id]
+                Snacks.notify.info(vim.inspect(client))
 
-                new_ids[client_id] = new_client_id
+                local new_client_id, err = lsp.start_client(client)
 
                 if err then
-                    Snacks.notify.warn("Failed to start LSP client !!!")
+                    Snacks.notify.warn("Failed to start LSP client: " .. tostring(err))
                     return nil
                 end
 
-                for _, buf in ipairs(buffers) do
-                    original_buf_attach_client(buf, new_client_id)
+                new_ids[client_id] = new_client_id
+
+                for _, bufnr in ipairs(buffers) do
+                    original_buf_attach_client(bufnr, new_client_id)
                 end
             end
 
@@ -494,10 +509,15 @@ local config = function (_, opts)
     -- middleware function to control LSP client attachment to buffers
     -- prevents LSP client from reattaching if LSP's are disabled
     lsp.buf_attach_client = function (bufnr, client_id)
+        local client = lsp.get_client_by_id(client_id)
+
+        if is_copilot(client) then
+            return original_buf_attach_client(bufnr, client_id)
+        end
+
         if not lsp_enabled then
             if not client_configs[client_id] then
-                local client_config = lsp.get_client_by_id(client_id)
-                client_configs[client_id] = (client_config and client_config.config) or {}
+                client_configs[client_id] = (client and client.config) or {}
             end
 
             add_buf(client_id, bufnr)
@@ -505,6 +525,7 @@ local config = function (_, opts)
 
             return false
         end
+
         return original_buf_attach_client(bufnr, client_id)
     end
 
@@ -519,6 +540,7 @@ local config = function (_, opts)
             desc = "toggle lsp servers",
         },
     }
+
     utils.map_all(keys)
 end
 
