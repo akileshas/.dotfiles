@@ -21,7 +21,7 @@ local opts = {
         },
         {
             path = "lazy.nvim",
-            words = { "LazyVim" }
+            words = { "vim", "lazy" }
         },
     },
 }
