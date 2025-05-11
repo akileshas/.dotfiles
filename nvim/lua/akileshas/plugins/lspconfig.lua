@@ -100,9 +100,7 @@ local config = function (_, opts)
     end
 
     local add_buf = function (client_id, bufnr)
-        if not attached_buffers_by_client[client_id] then
-            attached_buffers_by_client[client_id] = {}
-        end
+        attached_buffers_by_client[client_id] = attached_buffers_by_client[client_id] or {}
 
         for _, value in ipairs(attached_buffers_by_client[client_id]) do
             if value == bufnr then
@@ -146,11 +144,11 @@ local config = function (_, opts)
         local new_attached_buffers_by_client = {}
         local new_client_configs = {}
 
-        for client_id, buffers in pairs(attached_buffers_by_client) do
-            local new_id = ids_map[client_id]
-            if new_id then
-                new_attached_buffers_by_client[new_id] = buffers
-                new_client_configs[new_id] = client_configs[client_id]
+        for old_client_id, buffers in pairs(attached_buffers_by_client) do
+            local new_client_id = ids_map[old_client_id]
+            if new_client_id then
+                new_attached_buffers_by_client[new_client_id] = buffers
+                new_client_configs[new_client_id] = client_configs[old_client_id]
             end
         end
 
@@ -185,26 +183,25 @@ local config = function (_, opts)
 
             Snacks.notify.info("LSP servers disabled !!!")
         else
-            local new_ids = {}
+            local ids_map = {}
 
-            for client_id, buffers in pairs(attached_buffers_by_client) do
-                local client = client_configs[client_id]
+            for old_client_id, buffers in pairs(attached_buffers_by_client) do
+                local client = client_configs[old_client_id]
+                local new_client_id, error = lsp.start_client(client)
 
-                local new_client_id, err = lsp.start_client(client)
-
-                if err then
-                    Snacks.notify.warn("Failed to start LSP client: " .. tostring(err))
+                if error then
+                    Snacks.notify.error("Failed to start LSP client: " .. tostring(error))
                     return nil
                 end
 
-                new_ids[client_id] = new_client_id
+                ids_map[old_client_id] = new_client_id
 
                 for _, bufnr in ipairs(buffers) do
                     original_buf_attach_client(bufnr, new_client_id)
                 end
             end
 
-            update_clients_ids(new_ids)
+            update_clients_ids(ids_map)
             Snacks.notify.info("LSP servers enabled !!!")
         end
 
@@ -515,9 +512,7 @@ local config = function (_, opts)
         end
 
         if not lsp_enabled then
-            if not client_configs[client_id] then
-                client_configs[client_id] = (client and client.config) or {}
-            end
+            client_configs[client_id] = client_configs[client_id] or (client and client.config) or {}
 
             add_buf(client_id, bufnr)
             lsp.stop_client(client_id)
