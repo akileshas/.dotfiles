@@ -7,7 +7,7 @@ local v = vim.v
 -- dashboard header
 local dashboard_header = [[
    ____________________________________
-  /   Cook your code with precision,   \
+  /    cook your code with precision,   \
   |    spice it with logic,              |
   |    and serve it with clarity,        |
   |    so that no reviewer,              |
