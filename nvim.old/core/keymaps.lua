@@ -1,8 +1,5 @@
 -- for convenience
 local keymap = vim.keymap
-local fn = vim.fn
-local api = vim.api
-local cmd = vim.cmd
 local lsp = vim.lsp
 
 -- Importing the functions from functions.lua
