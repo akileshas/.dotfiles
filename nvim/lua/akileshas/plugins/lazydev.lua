@@ -19,6 +19,18 @@ local opts = {
             path = "lazy.nvim",
             words = { "vim", "lazy" }
         },
+        {
+            path = "mini.ai",
+            words = { "MiniAi" },
+        },
+        {
+            path = "mini.comment",
+            words = { "MiniComment" },
+        },
+        {
+            path = "mini.move",
+            words = { "MiniMove" },
+        },
     },
 }
 
