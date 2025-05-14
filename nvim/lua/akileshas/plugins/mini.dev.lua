@@ -1,7 +1,6 @@
 -- plugin dependencies
 local dependencies = {
     edit = {
-        comment = {},
         move = {},
     },
 }
@@ -9,7 +8,6 @@ local dependencies = {
 -- plugin init function
 local init = {
     edit = {
-        comment = function () end,
         move = function () end,
     },
 }
@@ -17,20 +15,6 @@ local init = {
 -- plugin opts
 local opts = {
     edit = {
-        comment = {
-            options = {
-                custom_commentstring = nil,
-                ignore_blank_line = false,
-                start_of_line = false,
-                pad_comment_parts = true,
-            },
-            mappings = {
-                comment = "gc",
-                comment_line = "gcc",
-                comment_visual = "gc",
-                textobject = "gc",
-            },
-        },
         move = {
             mappings = {
                 left = "<M-h>",
@@ -102,22 +86,6 @@ return {
     -- text editing
     {
         {
-            "echasnovski/mini.comment",
-            version = "*",
-            enabled = true,
-            lazy = true,
-            event = {
-                "VeryLazy",
-            },
-            cmd = {},
-            ft = {},
-            build = {},
-            dependencies = dependencies.edit.comment,
-            init = init.edit.comment,
-            opts = opts.edit.comment,
-            keys = keys.edit.comment,
-        },
-        {
             "echasnovski/mini.move",
             version = "*",
             enabled = true,
@@ -134,13 +102,4 @@ return {
             keys = keys.edit.move,
         },
     },
-
-    -- general workflow
-    {},
-
-    -- appearance
-    {},
-
-    -- other
-    {},
 }
