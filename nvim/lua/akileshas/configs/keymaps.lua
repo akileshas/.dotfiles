@@ -190,4 +190,16 @@ keymap.set({ "i" }, "<C-x>", "<NOP>", {
     desc = "hide omni completion",
 })
 
+keymap.set({ "i", "s" }, "<Tab>", "<Tab>", {
+    noremap = true,
+    silent = true,
+    desc = "overwrite the jump to next snippet",
+})
+
+keymap.set({ "i", "s" }, "<S-Tab>", "<S-Tab>", {
+    noremap = true,
+    silent = true,
+    desc = "overwrite the jump to previous snippet",
+})
+
 return {}
