@@ -7,15 +7,15 @@ local keymaps = vim.keymap -- for convenience
 
 -- Copy the C++ template to a new file
 keymaps.set("n", "<leader>cp", modules.copy_cpp_basic_template, {
-	desc = "Copy the C++ template to a new file",
+    desc = "Copy the C++ template to a new file",
 })
 
 -- Compile and run the C++ file
 keymaps.set("n", "<leader>cc", modules.compile_run_cpp_file, {
-	desc = "Compile and run the C++ file",
+    desc = "Compile and run the C++ file",
 })
 
 -- Opening the input.txt and output.txt files
 keymaps.set("n", "<leader>sp", modules.toggle_input_output_files, {
-	desc = "Open the input.txt and output.txt files",
+    desc = "Open the input.txt and output.txt files",
 })
