@@ -111,9 +111,7 @@ local opts = {
                     kind_icon = {
                         text = function (ctx)
                             local icon = ctx.kind_icon
-                            if
-                                vim.tbl_contains({ "path" }, ctx.source_name)
-                            then
+                            if vim.tbl_contains({ "path" }, ctx.source_name) then
                                 local dev_icon, _ = devicons.get_icon(ctx.label)
                                 if dev_icon then
                                     icon = dev_icon
