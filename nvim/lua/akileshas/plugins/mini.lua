@@ -2,6 +2,7 @@
 local dependencies = {
     edit = {
         ai = {},
+        comment = {},
     },
     flow = {},
     ui = {},
@@ -12,6 +13,7 @@ local dependencies = {
 local init = {
     edit = {
         ai = function () end,
+        comment = function () end,
     },
     flow = {},
     ui = {},
@@ -35,6 +37,20 @@ local opts = {
             n_lines = 1000,
             search_method = "cover_or_next",
             silent = false,
+        },
+        comment = {
+            options = {
+                custom_commentstring = nil,
+                ignore_blank_line = false,
+                start_of_line = false,
+                pad_comment_parts = true,
+            },
+            mappings = {
+                comment = "gc",
+                comment_line = "gcc",
+                comment_visual = "gc",
+                textobject = "gc",
+            },
         },
     },
     flow = {},
@@ -104,6 +120,7 @@ local config = {
 local keys = {
     edit = {
         ai = {},
+        comment = {},
     },
     flow = {},
     ui = {},
@@ -130,6 +147,22 @@ return {
             opts = opts.edit.ai,
             config = config.edit.ai,
             keys = keys.edit.ai,
+        },
+        {
+            "echasnovski/mini.comment",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.edit.comment,
+            init = init.edit.comment,
+            opts = opts.edit.comment,
+            keys = keys.edit.comment,
         },
     },
 
