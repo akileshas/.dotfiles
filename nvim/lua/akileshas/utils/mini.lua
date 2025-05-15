@@ -60,7 +60,7 @@ M.pairs = function (opts)
         local before = line:sub(1, cursor[2])
 
         if opts.markdown and o == "`" and bo.filetype == "markdown" and before:match("^%s*``") then
-            return "`\n```" .. api.nvim_replace_termcodes("<up>", true, true, true)
+            return "`\n```" .. api.nvim_replace_termcodes("<Up>", true, true, true)
         end
 
         if opts.python and o == [["]] and bo.filetype == "python" and before:match([[""$]]) then
