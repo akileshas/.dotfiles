@@ -81,23 +81,23 @@ local opts = {
         },
         operators = {
             evaluate = {
-                prefix = ",=",
+                prefix = ",o=",
                 func = nil,
             },
             exchange = {
-                prefix = ",x",
+                prefix = ",ox",
                 reindent_linewise = true,
             },
             multiply = {
-                prefix = ",m",
+                prefix = ",om",
                 func = nil,
             },
             replace = {
-                prefix = ",r",
+                prefix = ",or",
                 reindent_linewise = true,
             },
             sort = {
-                prefix = ",s",
+                prefix = ",os",
                 func = nil,
             },
         },
