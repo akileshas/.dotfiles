@@ -47,6 +47,10 @@
 - use `ripgrep` to search files instead of `grep`
 - use `fd` to search files instead of `find`
 - use `gdb-dashboard` to view `gdb` output
+- use `serie` to view the git log
+- use `rgr` for ripgrep replace
+- use `rgf` for ripgrep fuzzy finder
+- use `netscanner` for network scanning [ cmd: `sudo netscanner` ]
 
 
 for luarocks support in nvim use the cmd:
