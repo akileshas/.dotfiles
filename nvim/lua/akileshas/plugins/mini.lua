@@ -168,6 +168,11 @@ local opts = {
                 split = "",
                 join = "",
             },
+            detect = {
+                brackets = nil,
+                separator = ",",
+                exclude_regions = nil,
+            },
         },
     },
     flow = {},
@@ -231,6 +236,38 @@ local config = {
             local mini_utils = require("akileshas.utils.mini")
 
             mini_utils.pairs(opts)
+        end,
+        splitjoin = function (_, opts)
+            local MiniSplitjoin = require("mini.splitjoin")
+
+            local gen_hook = MiniSplitjoin.gen_hook
+            local bracket = {
+                brackets = {
+                    "%b{}",
+                    "%b()",
+                    "%b[]",
+                },
+            }
+
+            local add_sep_bracket = gen_hook.add_trailing_separator(bracket)
+            local del_sep_bracket = gen_hook.del_trailing_separator(bracket)
+            local pad_bracket = gen_hook.pad_brackets(bracket)
+
+            opts.split = {
+                hooks_pre = {},
+                hooks_post = {
+                    add_sep_bracket,
+                },
+            }
+            opts.join = {
+                hooks_pre = {},
+                hooks_post = {
+                    del_sep_bracket,
+                    pad_bracket,
+                },
+            }
+
+            MiniSplitjoin.setup(opts)
         end,
     },
     flow = {},
@@ -394,6 +431,7 @@ return {
             dependencies = dependencies.edit.splitjoin,
             init = init.edit.splitjoin,
             opts = opts.edit.splitjoin,
+            config = config.edit.splitjoin,
             keys = keys.edit.splitjoin,
         },
     },
