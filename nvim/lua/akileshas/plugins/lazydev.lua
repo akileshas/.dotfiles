@@ -39,6 +39,10 @@ local opts = {
             path = "mini.pairs",
             words = { "MiniPairs" },
         },
+        {
+            path = "mini.splitjoin",
+            words = { "MiniSplitjoin" },
+        },
     },
 }
 
