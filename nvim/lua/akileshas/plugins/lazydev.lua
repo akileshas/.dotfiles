@@ -31,6 +31,10 @@ local opts = {
             path = "mini.move",
             words = { "MiniMove" },
         },
+        {
+            path = "mini.operators",
+            words = { "MiniOperators" },
+        },
     },
 }
 
