@@ -63,6 +63,10 @@ M.pairs = function (opts)
             return "`\n```" .. api.nvim_replace_termcodes("<up>", true, true, true)
         end
 
+        if opts.python and o == [["]] and bo.filetype == "python" and before:match([[""$]]) then
+            return [[""""]] .. api.nvim_replace_termcodes("<Left><Left><Left>", true, true, true)
+        end
+
         if opts.skip_next and next ~= "" and next:match(opts.skip_next) then
             return o
         end
