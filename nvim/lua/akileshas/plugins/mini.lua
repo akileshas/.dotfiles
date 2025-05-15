@@ -4,6 +4,7 @@ local dependencies = {
         ai = {},
         comment = {},
         move = {},
+        operators = {},
     },
     flow = {},
     ui = {},
@@ -16,6 +17,7 @@ local init = {
         ai = function () end,
         comment = function () end,
         move = function () end,
+        operators = function () end,
     },
     flow = {},
     ui = {},
@@ -71,6 +73,28 @@ local opts = {
             },
             options = {
                 reindent_linewise = true,
+            },
+        },
+        operators = {
+            evaluate = {
+                prefix = ",=",
+                func = nil,
+            },
+            exchange = {
+                prefix = ",x",
+                reindent_linewise = true,
+            },
+            multiply = {
+                prefix = ",m",
+                func = nil,
+            },
+            replace = {
+                prefix = ",r",
+                reindent_linewise = true,
+            },
+            sort = {
+                prefix = ",s",
+                func = nil,
             },
         },
     },
@@ -184,6 +208,7 @@ local keys = {
                 desc = "move line up",
             },
         },
+        operators = {},
     },
     flow = {},
     ui = {},
@@ -242,6 +267,22 @@ return {
             init = init.edit.move,
             opts = opts.edit.move,
             keys = keys.edit.move,
+        },
+        {
+            "echasnovski/mini.operators",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.edit.operators,
+            init = init.edit.operators,
+            opts = opts.edit.operators,
+            keys = keys.edit.operators,
         },
     },
 
