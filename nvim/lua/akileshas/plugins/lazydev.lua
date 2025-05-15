@@ -35,6 +35,10 @@ local opts = {
             path = "mini.operators",
             words = { "MiniOperators" },
         },
+        {
+            path = "mini.pairs",
+            words = { "MiniPairs" },
+        },
     },
 }
 
