@@ -2,6 +2,7 @@
 local api = vim.api
 local bo = vim.bo
 local fn = vim.fn
+local treesitter = vim.treesitter
 
 local M = {}
 
@@ -60,6 +61,25 @@ M.pairs = function (opts)
 
         if opts.markdown and o == "`" and bo.filetype == "markdown" and before:match("^%s*``") then
             return "`\n```" .. api.nvim_replace_termcodes("<up>", true, true, true)
+        end
+
+        if opts.skip_next and next ~= "" and next:match(opts.skip_next) then
+            return o
+        end
+
+        if opts.skip_ts and #opts.skip_ts > 0 then
+            local ok, captures = pcall(
+                treesitter.get_captures_at_pos,
+                0,
+                cursor[1] - 1,
+                math.max(cursor[2] - 1, 0)
+            )
+
+            for _, capture in ipairs(ok and captures or {}) do
+                if vim.tbl_contains(opts.skip_ts, capture.capture) then
+                    return o
+                end
+            end
         end
 
         return open(pair, neigh_pattern)
