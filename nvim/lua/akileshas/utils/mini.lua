@@ -43,6 +43,7 @@ end
 
 M.pairs = function (opts)
     local MiniPairs = require("mini.pairs")
+
     local open = MiniPairs.open
 
     MiniPairs.setup(opts)
