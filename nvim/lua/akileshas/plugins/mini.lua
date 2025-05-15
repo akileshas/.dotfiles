@@ -105,6 +105,10 @@ local opts = {
                 command = true,
                 terminal = false,
             },
+            skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+            skip_ts = { "string" },
+            markdown = true,
+            python = true,
         },
     },
     flow = {},
@@ -163,6 +167,11 @@ local config = {
             }
 
             MiniAi.setup(opts)
+        end,
+        pairs = function (_, opts)
+            local mini_utils = require("akileshas.utils.mini")
+
+            mini_utils.pairs(opts)
         end,
     },
     flow = {},
@@ -308,6 +317,7 @@ return {
             dependencies = dependencies.edit.pairs,
             init = init.edit.pairs,
             opts = opts.edit.pairs,
+            config = config.edit.pairs,
             keys = keys.edit.pairs,
         },
     },
