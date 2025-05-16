@@ -150,14 +150,14 @@ local opts = {
             priority = 1,
             only_scope = false,
             only_current = false,
-            char = "¦",
+            char = "▏",
         },
         scope = {
             enabled = true,
             priority = 200,
             underline = false,
             only_current = false,
-            char = "¦",
+            char = "▏",
         },
         chunk = {
             enabled = false,
