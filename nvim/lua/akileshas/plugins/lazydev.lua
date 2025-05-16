@@ -43,6 +43,14 @@ local opts = {
             path = "mini.splitjoin",
             words = { "MiniSplitjoin" },
         },
+        {
+            path = "mini.surround",
+            words = { "MiniSurround" },
+        },
+        {
+            path = "mini.trailspace",
+            words = { "MiniTrailspace" },
+        },
     },
 }
 
