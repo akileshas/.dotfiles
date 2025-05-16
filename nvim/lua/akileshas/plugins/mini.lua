@@ -13,7 +13,9 @@ local dependencies = {
         splitjoin = {},
         surround = {},
     },
-    flow = {},
+    flow = {
+        bracketed = {},
+    },
     ui = {
         trailspace = {},
     },
@@ -31,7 +33,9 @@ local init = {
         splitjoin = function () end,
         surround = function () end,
     },
-    flow = {},
+    flow = {
+        bracketed = {},
+    },
     ui = {
         trailspace = function () end,
     },
@@ -204,7 +208,9 @@ local opts = {
             silent = false,
         },
     },
-    flow = {},
+    flow = {
+        bracketed = {},
+    },
     ui = {
         trailspace = {
             only_in_normal_buffers = true,
@@ -378,7 +384,9 @@ local keys = {
         splitjoin = {},
         surround = {},
     },
-    flow = {},
+    flow = {
+        bracketed = {},
+    },
     ui = {
         trailspace = {},
     },
@@ -507,7 +515,11 @@ return {
     },
 
     -- general workflow
-    {},
+    {
+        {
+
+        },
+    },
 
     -- appearance
     {
