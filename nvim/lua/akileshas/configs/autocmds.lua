@@ -82,13 +82,12 @@ api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
--- strip trailing spaces before write
+-- convert tabs to spaces
 api.nvim_create_autocmd({ "BufWritePre" }, {
     group = utils.reset_augroup("strip_space_and_retab"),
     pattern = { "*" },
     callback = function ()
         if bo.filetype ~= "oil" then
-            cmd([[%s/\s\+$//e]])
             cmd("retab")
         end
     end,

@@ -1,3 +1,7 @@
+-- for convenience
+local api = vim.api
+local bo = vim.bo
+
 -- plugin dependencies
 local dependencies = {
     edit = {
@@ -202,7 +206,9 @@ local opts = {
     },
     flow = {},
     ui = {
-        trailspace = {},
+        trailspace = {
+            only_in_normal_buffers = true,
+        },
     },
     etc = {},
 }
@@ -298,7 +304,25 @@ local config = {
         end,
     },
     flow = {},
-    ui = {},
+    ui = {
+        trailspace = function (_, opts)
+            local MiniTrailspace = require("mini.trailspace")
+            local utils = require("akileshas.utils")
+
+            api.nvim_create_autocmd({ "BufWritePre" }, {
+                group = utils.reset_augroup("mini_trailspace"),
+                pattern = { "*" },
+                callback = function ()
+                    if bo.filetype ~= "oil" then
+                        MiniTrailspace.trim()
+                        MiniTrailspace.trim_last_lines()
+                    end
+                end,
+            })
+
+            MiniTrailspace.setup(opts)
+        end,
+    },
     etc = {},
 }
 
@@ -501,6 +525,7 @@ return {
             dependencies = dependencies.ui.trailspace,
             init = init.ui.trailspace,
             opts = opts.ui.trailspace,
+            config = config.ui.trailspace,
             keys = keys.ui.trailspace,
         },
     },
