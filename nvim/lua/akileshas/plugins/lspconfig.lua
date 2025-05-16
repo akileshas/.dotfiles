@@ -426,7 +426,7 @@ local config = function (_, opts)
                 desc = "jump to previous diagnostic",
             },
             {
-                "]]",
+                "]r",
                 mode = { "n" },
                 function ()
                     Snacks.words.jump(v.count1, false)
@@ -434,7 +434,7 @@ local config = function (_, opts)
                 desc = "jump to next reference",
             },
             {
-                "[[",
+                "[r",
                 mode = { "n" },
                 function ()
                     Snacks.words.jump(-v.count1, false)
