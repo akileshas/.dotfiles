@@ -49,17 +49,17 @@ local opts = {
             silent = false,
         },
         comment = {
-            options = {
-                custom_commentstring = nil,
-                ignore_blank_line = false,
-                start_of_line = false,
-                pad_comment_parts = true,
-            },
             mappings = {
                 comment = "gc",
                 comment_line = "gcc",
                 comment_visual = "gc",
                 textobject = "gc",
+            },
+            options = {
+                custom_commentstring = nil,
+                ignore_blank_line = false,
+                start_of_line = false,
+                pad_comment_parts = true,
             },
             hooks = {
                 pre = function () end,
@@ -233,11 +233,11 @@ local config = {
                     { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>" },
                     { "^<.->().*()</[^/]->$" },
                 },
-                w = {
+                k = {
                     { "%f[%w]%w+" },
                     { "^().*()$" },
                 },
-                W = {
+                K = {
                     { "%f[%S]%S+" },
                     { "^().*()$" },
                 },
