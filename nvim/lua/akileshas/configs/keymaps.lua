@@ -61,13 +61,13 @@ keymap.set({ "n", "v", "x" }, "-", "<C-x>", {
     desc = "decrement number",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-w>v", "<C-w>v", {
+keymap.set({ "n", "v", "x" }, "<C-w>\\", "<C-w>v", {
     noremap = true,
     silent = true,
     desc = "split window vertically",
 })
 
-keymap.set({ "n", "v", "x" }, "<C-w>s", "<C-w>s", {
+keymap.set({ "n", "v", "x" }, "<C-w>-", "<C-w>s", {
     noremap = true,
     silent = true,
     desc = "split window horizontally",
