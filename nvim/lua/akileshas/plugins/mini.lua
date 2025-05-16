@@ -10,7 +10,9 @@ local dependencies = {
         surround = {},
     },
     flow = {},
-    ui = {},
+    ui = {
+        trailspace = {},
+    },
     etc = {},
 }
 
@@ -26,7 +28,9 @@ local init = {
         surround = function () end,
     },
     flow = {},
-    ui = {},
+    ui = {
+        trailspace = function () end,
+    },
     etc = {},
 }
 
@@ -197,7 +201,9 @@ local opts = {
         },
     },
     flow = {},
-    ui = {},
+    ui = {
+        trailspace = {},
+    },
     etc = {},
 }
 
@@ -349,7 +355,9 @@ local keys = {
         surround = {},
     },
     flow = {},
-    ui = {},
+    ui = {
+        trailspace = {},
+    },
     etc = {},
 }
 
@@ -478,7 +486,24 @@ return {
     {},
 
     -- appearance
-    {},
+    {
+        {
+            "echasnovski/mini.trailspace",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.ui.trailspace,
+            init = init.ui.trailspace,
+            opts = opts.ui.trailspace,
+            keys = keys.ui.trailspace,
+        },
+    },
 
     -- other
     {},
