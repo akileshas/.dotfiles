@@ -34,7 +34,7 @@ local init = {
         surround = function () end,
     },
     flow = {
-        bracketed = {},
+        bracketed = function () end,
     },
     ui = {
         trailspace = function () end,
@@ -517,7 +517,20 @@ return {
     -- general workflow
     {
         {
-
+            "echasnovski/mini.bracketed",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.flow.bracketed,
+            init = init.flow.bracketed,
+            opts = opts.flow.bracketed,
+            keys = keys.flow.bracketed,
         },
     },
 
