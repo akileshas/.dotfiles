@@ -512,8 +512,8 @@ local keys = {
                 function ()
                     ui.select(
                         {
-                            "horizontal",
-                            "vertical",
+                            "vertical split",
+                            "horizontal split",
                             "tab",
                         },
                         {
@@ -524,15 +524,61 @@ local keys = {
                                 return
                             end
 
-                            MiniGit.show_at_cursor({
-                                split = choice,
-                            })
+                            local MiniGit = require("mini.git")
+
+                            local split_map = {
+                                ["vertical split"] = "vertical",
+                                ["horizontal split"] = "horizontal",
+                                ["tab"] = "tab",
+                            }
+                            local split = split_map[choice]
+
+                            if split then
+                                MiniGit.show_at_cursor({
+                                    split = split,
+                                })
+                            end
                         end
                     )
                 end,
                 noremap = true,
                 silent = true,
                 desc = "show git related data depending on context",
+            },
+            {
+                "<leader>gbf",
+                mode = { "n" },
+                function ()
+                    ui.select(
+                        {
+                            "vertical split",
+                            "horizontal split",
+                            "tab",
+                        },
+                        {
+                            prompt = "open git blame in:",
+                        },
+                        function (choice)
+                            if choice == nil then
+                                return
+                            end
+
+                            local split_map = {
+                                ["vertical split"] = "vertical",
+                                ["horizontal split"] = "horizontal",
+                                ["tab"] = "tab",
+                            }
+                            local split = split_map[choice]
+
+                            if split then
+                                cmd(split .. " Git blame -- %:p")
+                            end
+                        end
+                    )
+                end,
+                noremap = true,
+                silent = true,
+                desc = "show git blame of current file",
             },
         },
     },
