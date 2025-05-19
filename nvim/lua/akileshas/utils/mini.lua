@@ -91,4 +91,95 @@ M.pairs = function (opts)
     end
 end
 
+M.active_statusline = function ()
+    local MiniStatusline = require("mini.statusline")
+
+    local active_opts = {
+        mode = {
+            trunc_width = 120,
+        },
+        git = {
+            trunc_width = 40,
+        },
+        diff = {
+            trunc_width = 75,
+        },
+        diagnostics = {
+            trunc_width = 75,
+            signs = {
+                ERROR = "E",
+                WARN = "W",
+                INFO = "I",
+                HINT = "H",
+            },
+        },
+        lsp = {
+            trunc_width = 75,
+        },
+        filename = {
+            trunc_width = 140,
+        },
+        fileinfo = {
+            trunc_width = 120,
+        },
+        search = {
+            trunc_width = 75,
+        },
+        location = {
+            trunc_width = 75,
+        },
+    }
+
+    local mode, mode_hl = MiniStatusline.section_mode(active_opts.mode)
+    local git = MiniStatusline.section_git(active_opts.git)
+    local diff = MiniStatusline.section_diff(active_opts.diff)
+    local diagnostics = MiniStatusline.section_diagnostics(active_opts.diagnostics)
+    local lsp = MiniStatusline.section_lsp(active_opts.lsp)
+    local filename = MiniStatusline.section_filename(active_opts.filename)
+    local fileinfo = MiniStatusline.section_fileinfo(active_opts.fileinfo)
+    local search = MiniStatusline.section_searchcount(active_opts.search)
+    local location = MiniStatusline.section_location(active_opts.location)
+
+    local groups = {
+        {
+            hl = mode_hl,
+            strings = {
+                mode,
+            },
+        },
+        {
+            hl = "MiniStatuslineDevinfo",
+            strings = {
+                git,
+                diff,
+                diagnostics,
+                lsp,
+            },
+        },
+        "%<",
+        {
+            hl = "MiniStatuslineFilename",
+            strings = {
+                filename,
+            },
+        },
+        "%=",
+        {
+            hl = "MiniStatuslineFileinfo",
+            strings = {
+                fileinfo,
+            },
+        },
+        {
+            hl = mode_hl,
+            strings = {
+                search,
+                location,
+            },
+        },
+    }
+
+    return MiniStatusline.combine_groups(groups)
+end
+
 return M
