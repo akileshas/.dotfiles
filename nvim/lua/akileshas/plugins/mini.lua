@@ -277,7 +277,7 @@ local opts = {
                 timeout = 30000,
             },
             command = {
-                split = "auto",
+                split = "tab",
             },
         },
     },
