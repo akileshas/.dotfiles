@@ -23,6 +23,11 @@ local dependencies = {
         git = {},
     },
     ui = {
+        statusline = {
+            {
+                "nvim-tree/nvim-web-devicons",
+            },
+        },
         trailspace = {},
     },
     etc = {},
@@ -44,6 +49,7 @@ local init = {
         git = function () end,
     },
     ui = {
+        statusline = function () end,
         trailspace = function () end,
     },
     etc = {},
@@ -285,6 +291,9 @@ local opts = {
         },
     },
     ui = {
+        statusline = {
+
+        },
         trailspace = {
             only_in_normal_buffers = true,
         },
@@ -583,6 +592,7 @@ local keys = {
         },
     },
     ui = {
+        statusline = {},
         trailspace = {},
     },
     etc = {},
@@ -748,6 +758,21 @@ return {
 
     -- appearance
     {
+        {
+            "echasnovski/mini.statusline",
+            version = "*",
+            enabled = true,
+            lazy = false,
+            priority = 100,
+            event = {},
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.ui.statusline,
+            init = init.ui.statusline,
+            opts = opts.ui.statusline,
+            keys = keys.ui.statusline,
+        },
         {
             "echasnovski/mini.trailspace",
             version = "*",
