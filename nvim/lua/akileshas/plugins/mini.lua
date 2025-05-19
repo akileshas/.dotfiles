@@ -2,6 +2,7 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
+local opt_local = vim.opt_local
 
 -- plugin dependencies
 local dependencies = {
@@ -270,7 +271,15 @@ local opts = {
                 options = {},
             },
         },
-        git = {},
+        git = {
+            job = {
+                git_executable = "git",
+                timeout = 30000,
+            },
+            command = {
+                split = "auto",
+            },
+        },
     },
     ui = {
         trailspace = {
@@ -373,10 +382,18 @@ local config = {
     flow = {
         git = function (_, opts)
             local MiniGit = require("mini.git")
+            local utils = require("akileshas.utils")
 
             -- set folding in git related filetypes
-            local diff_folds = "foldmethod=expr foldexpr=v:lua.MiniGit.diff_foldexpr() foldlevel=0"
-            cmd("au FileType git,diff setlocal " .. diff_folds)
+            api.nvim_create_autocmd({ "FileType" }, {
+                group = utils.reset_augroup("mini_git_folding"),
+                pattern = { "git", "diff" },
+                callback = function ()
+                    opt_local.foldmethod = "expr"
+                    opt_local.foldexpr = [[v:lua.MiniGit.diff_foldexpr()]]
+                    opt_local.foldlevel = 0
+                end,
+            })
 
             MiniGit.setup(opts)
         end,
