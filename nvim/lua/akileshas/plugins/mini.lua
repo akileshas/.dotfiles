@@ -2,7 +2,10 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
+local fn = vim.fn
 local opt_local = vim.opt_local
+local ui = vim.ui
+local wo = vim.wo
 
 -- plugin dependencies
 local dependencies = {
@@ -384,6 +387,27 @@ local config = {
             local MiniGit = require("mini.git")
             local utils = require("akileshas.utils")
 
+            local align_blame = function (au_data)
+                if au_data.data.git_subcommand ~= "blame" then
+                    return
+                end
+
+                local win_src = au_data.data.win_source
+                wo.wrap = false
+
+                fn.winrestview({
+                    topline = fn.line('w0', win_src),
+                })
+
+                api.nvim_win_set_cursor( 0, {
+                    fn.line('.', win_src),
+                    0,
+                })
+
+                wo[win_src].scrollbind = true
+                wo.scrollbind = true
+            end
+
             -- set folding in git related filetypes
             api.nvim_create_autocmd({ "FileType" }, {
                 group = utils.reset_augroup("mini_git_folding"),
@@ -393,6 +417,13 @@ local config = {
                     opt_local.foldexpr = [[v:lua.MiniGit.diff_foldexpr()]]
                     opt_local.foldlevel = 0
                 end,
+            })
+
+            -- align blame output with source
+            api.nvim_create_autocmd({ "User" }, {
+                group = utils.reset_augroup("mini_git_blame_align"),
+                pattern = "MiniGitCommandSplit",
+                callback = align_blame,
             })
 
             MiniGit.setup(opts)
@@ -474,7 +505,36 @@ local keys = {
     },
     flow = {
         bracketed = {},
-        git = {},
+        git = {
+            {
+                "<leader>gc",
+                mode = { "n", "v", "x" },
+                function ()
+                    ui.select(
+                        {
+                            "horizontal",
+                            "vertical",
+                            "tab",
+                        },
+                        {
+                            prompt = "open git context in:",
+                        },
+                        function (choice)
+                            if choice == nil then
+                                return
+                            end
+
+                            MiniGit.show_at_cursor({
+                                split = choice,
+                            })
+                        end
+                    )
+                end,
+                noremap = true,
+                silent = true,
+                desc = "show git related data depending on context",
+            },
+        },
     },
     ui = {
         trailspace = {},
