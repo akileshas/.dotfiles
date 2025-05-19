@@ -292,7 +292,11 @@ local opts = {
     },
     ui = {
         statusline = {
-
+            content = {
+                active = nil,
+                inactive = nil,
+            },
+            use_icons = true,
         },
         trailspace = {
             only_in_normal_buffers = true,
@@ -439,6 +443,11 @@ local config = {
         end,
     },
     ui = {
+        statusline = function (_, opts)
+            local MiniStatusline = require("mini.statusline")
+
+            MiniStatusline.setup(opts)
+        end,
         trailspace = function (_, opts)
             local MiniTrailspace = require("mini.trailspace")
             local utils = require("akileshas.utils")
@@ -762,15 +771,17 @@ return {
             "echasnovski/mini.statusline",
             version = "*",
             enabled = true,
-            lazy = false,
-            priority = 100,
-            event = {},
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
             cmd = {},
             ft = {},
             build = {},
             dependencies = dependencies.ui.statusline,
             init = init.ui.statusline,
             opts = opts.ui.statusline,
+            config = config.ui.statusline,
             keys = keys.ui.statusline,
         },
         {
