@@ -15,6 +15,7 @@ local dependencies = {
     },
     flow = {
         bracketed = {},
+        git = {},
     },
     ui = {
         trailspace = {},
@@ -35,6 +36,7 @@ local init = {
     },
     flow = {
         bracketed = function () end,
+        git = function () end,
     },
     ui = {
         trailspace = function () end,
@@ -267,6 +269,7 @@ local opts = {
                 options = {},
             },
         },
+        git = {},
     },
     ui = {
         trailspace = {
@@ -366,7 +369,13 @@ local config = {
             MiniSplitjoin.setup(opts)
         end,
     },
-    flow = {},
+    flow = {
+        git = function (_, opts)
+            local MiniGit = require("mini.git")
+
+            MiniGit.setup(opts)
+        end,
+    },
     ui = {
         trailspace = function (_, opts)
             local MiniTrailspace = require("mini.trailspace")
@@ -443,6 +452,7 @@ local keys = {
     },
     flow = {
         bracketed = {},
+        git = {},
     },
     ui = {
         trailspace = {},
@@ -588,6 +598,23 @@ return {
             init = init.flow.bracketed,
             opts = opts.flow.bracketed,
             keys = keys.flow.bracketed,
+        },
+        {
+            "echasnovski/mini-git",
+            version = "*",
+            enabled = true,
+            lazy = true,
+            event = {
+                "VeryLazy",
+            },
+            cmd = {},
+            ft = {},
+            build = {},
+            dependencies = dependencies.flow.git,
+            init = init.flow.git,
+            opts = opts.flow.git,
+            config = config.flow.git,
+            keys = keys.flow.git,
         },
     },
 
