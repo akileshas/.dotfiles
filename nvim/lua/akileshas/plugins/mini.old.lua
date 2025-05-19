@@ -121,22 +121,17 @@ local keys = {
 
 -- plugin configurations
 return {
-    -- appearance
-    {
-        {
-            "echasnovski/mini.statusline",
-            version = "*",
-            enabled = true,
-            lazy = false,
-            priority = 100,
-            event = {},
-            cmd = {},
-            ft = {},
-            build = {},
-            dependencies = dependencies.ui.statusline,
-            init = init.ui.statusline,
-            opts = opts.ui.statusline,
-            keys = keys.ui.statusline,
-        },
-    },
+    "echasnovski/mini.statusline",
+    version = "*",
+    enabled = true,
+    lazy = false,
+    priority = 100,
+    event = {},
+    cmd = {},
+    ft = {},
+    build = {},
+    dependencies = dependencies.ui.statusline,
+    init = init.ui.statusline,
+    opts = opts.ui.statusline,
+    keys = keys.ui.statusline,
 }
