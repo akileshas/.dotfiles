@@ -294,7 +294,6 @@ local opts = {
     ui = {
         statusline = {
             content = {
-                active = nil,
                 inactive = nil,
             },
             use_icons = true,
@@ -447,8 +446,9 @@ local config = {
     ui = {
         statusline = function (_, opts)
             local MiniStatusline = require("mini.statusline")
+            local mini_utils = require("akileshas.utils.mini")
 
-            -- set the laststatus option
+            opts.content.active = mini_utils.active_statusline
             opt.laststatus = 3
 
             MiniStatusline.setup(opts)
