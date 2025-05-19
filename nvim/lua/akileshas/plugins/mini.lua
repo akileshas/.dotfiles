@@ -3,6 +3,7 @@ local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
 local fn = vim.fn
+local opt = vim.opt
 local opt_local = vim.opt_local
 local ui = vim.ui
 local wo = vim.wo
@@ -297,6 +298,7 @@ local opts = {
                 inactive = nil,
             },
             use_icons = true,
+            set_vim_settings = true,
         },
         trailspace = {
             only_in_normal_buffers = true,
@@ -445,6 +447,9 @@ local config = {
     ui = {
         statusline = function (_, opts)
             local MiniStatusline = require("mini.statusline")
+
+            -- set the laststatus option
+            opt.laststatus = 3
 
             MiniStatusline.setup(opts)
         end,
