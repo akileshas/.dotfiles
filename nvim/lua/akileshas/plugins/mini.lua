@@ -1,6 +1,7 @@
 -- for convenience
 local api = vim.api
 local bo = vim.bo
+local cmd = vim.cmd
 
 -- plugin dependencies
 local dependencies = {
@@ -372,6 +373,10 @@ local config = {
     flow = {
         git = function (_, opts)
             local MiniGit = require("mini.git")
+
+            -- set folding in git related filetypes
+            local diff_folds = "foldmethod=expr foldexpr=v:lua.MiniGit.diff_foldexpr() foldlevel=0"
+            cmd("au FileType git,diff setlocal " .. diff_folds)
 
             MiniGit.setup(opts)
         end,
