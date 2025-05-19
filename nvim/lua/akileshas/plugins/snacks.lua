@@ -314,7 +314,7 @@ local opts = {
 local keys = {
     -- git keymaps
     {
-        "<leader>gb",
+        "<leader>gbl",
         mode = { "n" },
         function ()
             Snacks.git.blame_line()
