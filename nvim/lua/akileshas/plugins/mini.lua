@@ -375,20 +375,15 @@ local config = {
                 },
             }
 
-            local add_sep_bracket = gen_hook.add_trailing_separator(bracket)
-            local del_sep_bracket = gen_hook.del_trailing_separator(bracket)
             local pad_bracket = gen_hook.pad_brackets(bracket)
 
             opts.split = {
                 hooks_pre = {},
-                hooks_post = {
-                    add_sep_bracket,
-                },
+                hooks_post = {},
             }
             opts.join = {
                 hooks_pre = {},
                 hooks_post = {
-                    del_sep_bracket,
                     pad_bracket,
                 },
             }
@@ -532,7 +527,49 @@ local keys = {
         },
         operators = {},
         pairs = {},
-        splitjoin = {},
+        splitjoin = {
+            {
+                ",gS",
+                mode = { "n", "v", "x" },
+                function ()
+                    local MiniSplitjoin = require("mini.splitjoin")
+
+                    local gen_hook = MiniSplitjoin.gen_hook
+                    local bracket = {
+                        brackets = {
+                            "%b{}",
+                            "%b()",
+                            "%b[]",
+                        },
+                    }
+
+                    local add_sep_bracket = gen_hook.add_trailing_separator(bracket)
+                    local del_sep_bracket = gen_hook.del_trailing_separator(bracket)
+                    local pad_bracket = gen_hook.pad_brackets(bracket)
+
+                    local opts = {
+                        split = {
+                            hooks_pre = {},
+                            hooks_post = {
+                                add_sep_bracket,
+                            },
+                        },
+                        join = {
+                            hooks_pre = {},
+                            hooks_post = {
+                                del_sep_bracket,
+                                pad_bracket,
+                            },
+                        },
+                    }
+
+                    return MiniSplitjoin.toggle(opts)
+                end,
+                noremap = true,
+                silent = true,
+                desc = "toggle split/join",
+            },
+        },
         surround = {},
     },
     flow = {
