@@ -293,9 +293,7 @@ local opts = {
     },
     ui = {
         statusline = {
-            content = {
-                inactive = nil,
-            },
+            content = {},
             use_icons = true,
             set_vim_settings = true,
         },
