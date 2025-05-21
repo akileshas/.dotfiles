@@ -450,7 +450,7 @@ local config = function (_, opts)
         pcall(keymap.del, { "x" }, "gra")
 
         -- mapping all the keys
-        utils.map_all(keys)
+        utils.map_keys(keys)
     end
 
     -- function to setup an lsp server
@@ -560,7 +560,7 @@ local config = function (_, opts)
     }
 
     -- mapping all the keys
-    utils.map_all(keys)
+    utils.map_keys(keys)
 end
 
 -- plugin keys

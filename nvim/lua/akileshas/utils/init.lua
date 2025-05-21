@@ -4,7 +4,7 @@ local keymap = vim.keymap
 
 local M = {}
 
-M.map = function (mode, lhs, rhs, opts)
+M.map_key = function (mode, lhs, rhs, opts)
     opts = vim.tbl_deep_extend("force", {
         noremap = true,
         silent = true,
@@ -13,8 +13,8 @@ M.map = function (mode, lhs, rhs, opts)
     keymap.set(mode, lhs, rhs, opts)
 end
 
-M.map_all = function (keymaps)
-    for _, key in ipairs(keymaps) do
+M.map_keys = function (keys)
+    for _, key in ipairs(keys) do
         local mode = key.mode or { "n" }
         local lhs = key[1]
         local rhs = nil
@@ -32,7 +32,7 @@ M.map_all = function (keymaps)
             end
         end
 
-        M.map(mode, lhs, rhs, opts)
+        M.map_key(mode, lhs, rhs, opts)
     end
 end
 
