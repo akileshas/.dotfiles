@@ -94,7 +94,7 @@ end
 M.active_statusline = function ()
     local MiniStatusline = require("mini.statusline")
 
-    local active_opts = {
+    local opts = {
         mode = {
             trunc_width = 120,
         },
@@ -130,15 +130,15 @@ M.active_statusline = function ()
         },
     }
 
-    local mode, mode_hl = MiniStatusline.section_mode(active_opts.mode)
-    local git = MiniStatusline.section_git(active_opts.git)
-    local diff = MiniStatusline.section_diff(active_opts.diff)
-    local diagnostics = MiniStatusline.section_diagnostics(active_opts.diagnostics)
-    local lsp = MiniStatusline.section_lsp(active_opts.lsp)
-    local filename = MiniStatusline.section_filename(active_opts.filename)
-    local fileinfo = MiniStatusline.section_fileinfo(active_opts.fileinfo)
-    local search = MiniStatusline.section_searchcount(active_opts.search)
-    local location = MiniStatusline.section_location(active_opts.location)
+    local mode, mode_hl = MiniStatusline.section_mode(opts.mode)
+    local git = MiniStatusline.section_git(opts.git)
+    local diff = MiniStatusline.section_diff(opts.diff)
+    local diagnostics = MiniStatusline.section_diagnostics(opts.diagnostics)
+    local lsp = MiniStatusline.section_lsp(opts.lsp)
+    local filename = MiniStatusline.section_filename(opts.filename)
+    local fileinfo = MiniStatusline.section_fileinfo(opts.fileinfo)
+    local search = MiniStatusline.section_searchcount(opts.search)
+    local location = MiniStatusline.section_location(opts.location)
 
     local groups = {
         {
@@ -177,6 +177,22 @@ M.active_statusline = function ()
                 location,
             },
         },
+    }
+
+    return MiniStatusline.combine_groups(groups)
+end
+
+M.inactive_statusline = function ()
+    local MiniStatusline = require("mini.statusline")
+
+    local groups = {
+        {
+            hl = "MiniStatuslineInactive",
+            strings = {
+                "%F",
+            },
+        },
+        "%=",
     }
 
     return MiniStatusline.combine_groups(groups)
