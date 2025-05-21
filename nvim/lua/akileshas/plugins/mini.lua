@@ -485,6 +485,8 @@ local keys = {
                 "<M-h>",
                 mode = { "i" },
                 function ()
+                    local MiniMove = require("mini.move")
+
                     MiniMove.move_line("left")
                 end,
                 noremap = true,
@@ -495,6 +497,8 @@ local keys = {
                 "<M-l>",
                 mode = { "i" },
                 function ()
+                    local MiniMove = require("mini.move")
+
                     MiniMove.move_line("right")
                 end,
                 noremap = true,
@@ -505,6 +509,8 @@ local keys = {
                 "<M-j>",
                 mode = { "i" },
                 function ()
+                    local MiniMove = require("mini.move")
+
                     MiniMove.move_line("down")
                 end,
                 noremap = true,
@@ -515,6 +521,8 @@ local keys = {
                 "<M-k>",
                 mode = { "i" },
                 function ()
+                    local MiniMove = require("mini.move")
+
                     MiniMove.move_line("up")
                 end,
                 noremap = true,
