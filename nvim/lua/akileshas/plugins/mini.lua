@@ -201,6 +201,14 @@ local opts = {
                 separator = ",",
                 exclude_regions = nil,
             },
+            split = {
+                hooks_pre = {},
+                hooks_post = {},
+            },
+            join = {
+                hooks_pre = {},
+                hooks_post = {},
+            },
         },
         surround = {
             mappings = {
@@ -363,33 +371,6 @@ local config = {
 
             mini_utils.pairs(opts)
         end,
-        splitjoin = function (_, opts)
-            local MiniSplitjoin = require("mini.splitjoin")
-
-            local gen_hook = MiniSplitjoin.gen_hook
-            local bracket = {
-                brackets = {
-                    "%b{}",
-                    "%b()",
-                    "%b[]",
-                },
-            }
-
-            local pad_bracket = gen_hook.pad_brackets(bracket)
-
-            opts.split = {
-                hooks_pre = {},
-                hooks_post = {},
-            }
-            opts.join = {
-                hooks_pre = {},
-                hooks_post = {
-                    pad_bracket,
-                },
-            }
-
-            MiniSplitjoin.setup(opts)
-        end,
     },
     flow = {
         git = function (_, opts)
@@ -529,7 +510,7 @@ local keys = {
         pairs = {},
         splitjoin = {
             {
-                ",gS",
+                ",gs",
                 mode = { "n", "v", "x" },
                 function ()
                     local MiniSplitjoin = require("mini.splitjoin")
@@ -567,7 +548,43 @@ local keys = {
                 end,
                 noremap = true,
                 silent = true,
-                desc = "toggle split/join",
+                desc = "toggle split/join with padding & separator",
+            },
+            {
+                ",gS",
+                mode = { "n", "v", "x" },
+                function ()
+                    local MiniSplitjoin = require("mini.splitjoin")
+
+                    local gen_hook = MiniSplitjoin.gen_hook
+                    local bracket = {
+                        brackets = {
+                            "%b{}",
+                            "%b()",
+                            "%b[]",
+                        },
+                    }
+
+                    local pad_bracket = gen_hook.pad_brackets(bracket)
+
+                    local opts = {
+                        split = {
+                            hooks_pre = {},
+                            hooks_post = {},
+                        },
+                        join = {
+                            hooks_pre = {},
+                            hooks_post = {
+                                pad_bracket,
+                            },
+                        },
+                    }
+
+                    MiniSplitjoin.toggle(opts)
+                end,
+                noremap = true,
+                silent = true,
+                desc = "toggle split/join with padding",
             },
         },
         surround = {},
@@ -758,7 +775,6 @@ return {
             dependencies = dependencies.edit.splitjoin,
             init = init.edit.splitjoin,
             opts = opts.edit.splitjoin,
-            config = config.edit.splitjoin,
             keys = keys.edit.splitjoin,
         },
         {
