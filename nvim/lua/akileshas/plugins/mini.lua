@@ -293,9 +293,11 @@ local opts = {
     },
     ui = {
         statusline = {
-            content = {},
+            content = {
+                active = nil,
+                inactive = nil,
+            },
             use_icons = true,
-            set_vim_settings = true,
         },
         trailspace = {
             only_in_normal_buffers = true,
@@ -444,10 +446,10 @@ local config = {
     ui = {
         statusline = function (_, opts)
             local MiniStatusline = require("mini.statusline")
-            local mini_utils = require("akileshas.utils.mini")
+            -- local mini_utils = require("akileshas.utils.mini")
 
-            opts.content.active = mini_utils.active_statusline
-            opts.content.inactive = mini_utils.inactive_statusline
+            -- opts.content.active = mini_utils.active_statusline
+            -- opts.content.inactive = mini_utils.inactive_statusline
             opt.laststatus = 3
 
             MiniStatusline.setup(opts)
