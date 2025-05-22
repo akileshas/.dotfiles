@@ -36,6 +36,16 @@ M.map_keys = function (keys)
     end
 end
 
+M.set_hl = function (group, opts)
+    api.nvim_set_hl(0, group, opts)
+end
+
+M.set_hls = function (highlights)
+    for group, opts in pairs(highlights) do
+        M.set_hl(group, opts)
+    end
+end
+
 M.augroup = function (name, opts)
     return api.nvim_create_augroup(
         "akileshas_" .. name,
