@@ -2,6 +2,7 @@
 local api = vim.api
 local b = vim.b
 local bo = vim.bo
+local cmd = vim.cmd
 local fn = vim.fn
 local treesitter = vim.treesitter
 local v = vim.v
@@ -32,6 +33,157 @@ M.foldtext = function ()
     local folded_lines = v.foldend - v.foldstart + 1
 
     return "+--- " .. folded_lines .. " lines: " .. first_line .. " ..."
+end
+
+M.tabline = function ()
+    local tabline = ""
+
+    local name_count = {}
+    local tab_bufnames = {}
+
+    for tabnr = 1, fn.tabpagenr("$") do
+        local buflist = fn.tabpagebuflist(tabnr)
+        local winnr = fn.tabpagewinnr(tabnr)
+        local bufnr = buflist[winnr]
+        local bufname = fn.bufname(bufnr)
+        local name = fn.fnamemodify(bufname, ":t")
+        local filetype = bo[bufnr].filetype
+        local buftype = bo[bufnr].buftype
+
+        if name == "" and filetype == "" and buftype == "" then
+            name = "no name"
+        elseif name == "bash" and buftype == "terminal" then
+            name = "term"
+        elseif filetype == "snacks_dashboard" then
+            name = "dashboard"
+        elseif filetype == "snacks_notif" then
+            name = "notification"
+        elseif filetype == "oil" then
+            name = "oil"
+        elseif filetype == "help" then
+            name = "help"
+        elseif name == "" then
+            name = buftype ~= "" and buftype or filetype
+        end
+
+        tab_bufnames[tabnr] = name
+        name_count[name] = (name_count[name] or 0) + 1
+    end
+
+    local tablabel = function (tabnr)
+        local devicons = require("nvim-web-devicons")
+
+        local buflist = fn.tabpagebuflist(tabnr)
+        local winnr = fn.tabpagewinnr(tabnr)
+        local bufnr = buflist[winnr]
+        local bufname = fn.bufname(bufnr)
+        local name = fn.fnamemodify(bufname, ":t")
+        local filetype = bo[bufnr].filetype
+        local buftype = bo[bufnr].buftype
+        local modified = bo[bufnr].modified
+        local is_current = (tabnr == fn.tabpagenr())
+
+        if name == "" and filetype == "" and buftype == "" then
+            name = "no name"
+        elseif name == "bash" and buftype == "terminal" then
+            name = "term"
+        elseif filetype == "snacks_dashboard" then
+            name = "dashboard"
+        elseif filetype == "snacks_notif" then
+            name = "notification"
+        elseif filetype == "oil" then
+            name = "oil"
+        elseif filetype == "help" then
+            name = "help"
+        elseif name == "" then
+            name = buftype ~= "" and buftype or filetype
+        end
+
+        local count_str = ""
+
+        if name_count[name] then
+            local seen = 0
+            for i = 1, tabnr do
+                if tab_bufnames[i] == name then
+                    seen = seen + 1
+                end
+            end
+            count_str = string.format("(%d)", seen)
+        end
+
+        local icon = devicons.get_icon_by_filetype(filetype)
+
+        if not icon then
+            icon = ({
+                prompt = "",
+                dashboard = "󰕮",
+                notification = "󰍡",
+                oil = "",
+                new = "",
+                scratch = "",
+                term = "",
+                help = "󰋖",
+            })[name] or ""
+        end
+
+        local hl_group = is_current
+            and (modified and "TabLineModifiedActive" or "TabLineActive")
+            or (modified and "TabLineModifiedInactive" or "TabLineInactive")
+
+        local suffix = is_current and "*" or "-"
+
+        return string.format(
+            "%%#%s# %s [%s]%s%s ",
+            hl_group,
+            icon,
+            name,
+            count_str,
+            suffix
+        )
+    end
+
+    for tabnr = 1, fn.tabpagenr("$") do
+        tabline = tabline .. tablabel(tabnr)
+    end
+
+    tabline = tabline .. "%#TabLineFill#%T"
+
+    -- custom highlight group
+    api.nvim_set_hl(0, "TabLineSel", {
+        bg = "#3B4261",
+        fg = "#C0CAF5",
+    })
+
+    api.nvim_set_hl(0, "TabLine", {
+        bg = "#16161E",
+        fg = "#C0CAF5",
+    })
+
+    api.nvim_set_hl(0, "TabLineFill", {
+        bg = "#15161E",
+    })
+
+    api.nvim_set_hl(0, "TabLineActive", {
+        bg = "#3B4261",
+        fg = "#C0CAF5",
+    })
+
+    api.nvim_set_hl(0, "TabLineInactive", {
+        bg = "#16161E",
+        fg = "#C0CAF5",
+    })
+
+    api.nvim_set_hl(0, "TabLineModifiedActive", {
+        bg = "#3B4261",
+        fg = "#E0AF68",
+    })
+
+    api.nvim_set_hl(0, "TabLineModifiedInactive", {
+        bg = "#16161E",
+        fg = "#E0AF68",
+    })
+
+    return tabline
 end
 
 return M
