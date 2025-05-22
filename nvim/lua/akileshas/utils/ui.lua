@@ -38,8 +38,12 @@ end
 M.tabline = function ()
     local tabline = ""
 
-    local name_count = {}
+    local previous_tabnr = 1
+
+    local name_counts = {}
     local tab_bufnames = {}
+
+    local utils = require("akileshas.utils")
 
     for tabnr = 1, fn.tabpagenr("$") do
         local buflist = fn.tabpagebuflist(tabnr)
@@ -67,7 +71,7 @@ M.tabline = function ()
         end
 
         tab_bufnames[tabnr] = name
-        name_count[name] = (name_count[name] or 0) + 1
+        name_counts[name] = (name_counts[name] or 0) + 1
     end
 
     local tablabel = function (tabnr)
@@ -99,19 +103,26 @@ M.tabline = function ()
             name = buftype ~= "" and buftype or filetype
         end
 
+        local suffix = ""
         local count_str = ""
 
-        if name_count[name] then
+        local icon = devicons.get_icon_by_filetype(filetype)
+
+        if tabnr == fn.tabpagenr() then
+            suffix = "*"
+        elseif tabnr == previous_tabnr then
+            suffix = "-"
+        end
+
+       if name_counts[name] then
             local seen = 0
-            for i = 1, tabnr do
-                if tab_bufnames[i] == name then
+            for tab = 1, tabnr do
+                if tab_bufnames[tab] == name then
                     seen = seen + 1
                 end
             end
             count_str = string.format("(%d)", seen)
         end
-
-        local icon = devicons.get_icon_by_filetype(filetype)
 
         if not icon then
             icon = ({
@@ -129,8 +140,6 @@ M.tabline = function ()
         local hl_group = is_current
             and (modified and "TabLineModifiedActive" or "TabLineActive")
             or (modified and "TabLineModifiedInactive" or "TabLineInactive")
-
-        local suffix = is_current and "*" or "-"
 
         return string.format(
             "%%#%s# %s [%s]%s%s ",
@@ -181,6 +190,14 @@ M.tabline = function ()
     api.nvim_set_hl(0, "TabLineModifiedInactive", {
         bg = "#16161E",
         fg = "#E0AF68",
+    })
+
+    -- custom autocmd
+    api.nvim_create_autocmd({ "TabLeave" }, {
+        group = utils.reset_augroup("update_previous_tabnr"),
+        callback = function ()
+            previous_tabnr = fn.tabpagenr()
+        end
     })
 
     return tabline
