@@ -11,11 +11,15 @@ INTERNAL="eDP-1"
 EXTERNAL=$(xrandr | grep " connected" | grep -v "$INTERNAL" | cut -d " " -f1)
 
 if [ -n "$EXTERNAL" ]; then
-    # TO see the monitor config run `xrandr` command
     # External monitor is connected; set it to the right of the internal display
     xrandr --output "$INTERNAL" --mode 1920x1200 --primary --output "$EXTERNAL" --auto --right-of "$INTERNAL"
     feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 else
-    # Only internal monitor is connected; turn off other outputs
-    xrandr --output "$INTERNAL" --auto --output "$EXTERNAL" --off
+    # Only internal monitor is connected
+    xrandr --output "$INTERNAL" --auto
+
+    # Optionally turn off known external outputs explicitly
+    for OUT in HDMI-1-0 DP-1-0 DP-1-1 DP-1-2 DP-1-3 DP-1-4; do
+        xrandr --output "$OUT" --off
+    done
 fi
