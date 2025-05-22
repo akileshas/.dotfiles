@@ -38,11 +38,12 @@ M.foldtext = function ()
 end
 
 M.tabline = function ()
+    -- for convenience
     local tabline = ""
-
     local name_counts = {}
     local tab_bufnames = {}
 
+    local devicons = require("nvim-web-devicons")
     local utils = require("akileshas.utils")
 
     for tabnr = 1, fn.tabpagenr("$") do
@@ -75,8 +76,6 @@ M.tabline = function ()
     end
 
     local tablabel = function (tabnr)
-        local devicons = require("nvim-web-devicons")
-
         local buflist = fn.tabpagebuflist(tabnr)
         local winnr = fn.tabpagewinnr(tabnr)
         local bufnr = buflist[winnr]
@@ -198,6 +197,151 @@ M.tabline = function ()
         callback = function ()
             previous_tabnr = fn.tabpagenr()
         end
+    })
+
+    return tabline
+end
+
+M.refactor_tabline = function ()
+    -- for convenience
+    local tabline = ""
+    local name_counts = {}
+    local tab_bufnames = {}
+
+    local devicons = require("nvim-web-devicons")
+    local utils = require("akileshas.utils")
+
+    local tabinfo = function (tabnr)
+        local buflist = fn.tabpagebuflist(tabnr)
+        local winnr = fn.tabpagewinnr(tabnr)
+        local bufnr = buflist[winnr]
+        local bufname = fn.bufname(bufnr)
+        local name = fn.fnamemodify(bufname, ":t")
+        local filetype = bo[bufnr].filetype
+        local buftype = bo[bufnr].buftype
+        local modified = bo[bufnr].modified
+
+        if name == "" and filetype == "" and buftype == "" then
+            name = "no name"
+        elseif name == "bash" and buftype == "terminal" then
+            name = "term"
+        elseif filetype == "snacks_dashboard" then
+            name = "dashboard"
+        elseif filetype == "snacks_notif" then
+            name = "notification"
+        elseif filetype == "oil" then
+            name = "oil"
+        elseif filetype == "help" then
+            name = "help"
+        elseif name == "" then
+            name = buftype ~= "" and buftype or filetype
+        end
+
+        return {
+            name = name,
+            filetype = filetype,
+            modified = modified,
+        }
+    end
+
+    local tablabel = function (tabnr)
+        local info = tabinfo(tabnr)
+        local name = info.name
+        local filetype = info.filetype
+        local modified = info.modified
+        local is_current = (tabnr == fn.tabpagenr())
+
+        local suffix = is_current and "*" or (tabnr == previous_tabnr and "-" or "")
+        local count_str = ""
+
+        if name_counts[name] then
+            local seen = 0
+            for tab = 1, tabnr do
+                if tab_bufnames[tab] == name then
+                    seen = seen + 1
+                end
+            end
+            count_str = string.format("(%d)", seen)
+        end
+
+        local icon = devicons.get_icon_by_filetype(info.filetype) or ({
+            prompt = "",
+            dashboard = "󰕮",
+            notification = "󰍡",
+            oil = "",
+            new = "",
+            scratch = "",
+            term = "",
+            help = "󰋖",
+        })[name] or ""
+
+        local hl_group = is_current
+            and (modified and "TabLineModifiedActive" or "TabLineActive")
+            or (modified and "TabLineModifiedInactive" or "TabLineInactive")
+
+        return string.format(
+            "%%#%s# %s [%s]%s%s ",
+            hl_group,
+            icon,
+            name,
+            count_str,
+            suffix
+        )
+    end
+
+    for tabnr = 1, fn.tabpagenr("$") do
+        local info = tabinfo(tabnr)
+        local name = info.name
+
+        tab_bufnames[tabnr] = name
+        name_counts[name] = (name_counts[name] or 0) + 1
+    end
+
+    for tabnr = 1, fn.tabpagenr("$") do
+        tabline = tabline .. tablabel(tabnr)
+    end
+
+    tabline = tabline .. "%#TabLineFill#%T"
+
+    -- custom highlight group
+    local highlights = {
+        TabLineSel = {
+            bg = "#3B4261",
+            fg = "#C0CAF5",
+        },
+        TabLine = {
+            bg = "#16161E",
+            fg = "#C0CAF5",
+        },
+        TabLineFill = {
+            bg = "#15161E",
+        },
+        TabLineActive = {
+            bg = "#3B4261",
+            fg = "#C0CAF5",
+        },
+        TabLineInactive = {
+            bg = "#16161E",
+            fg = "#C0CAF5",
+        },
+        TabLineModifiedActive = {
+            bg = "#3B4261",
+            fg = "#E0AF68",
+        },
+        TabLineModifiedInactive = {
+            bg = "#16161E",
+            fg = "#E0AF68",
+        },
+    }
+
+    utils.set_hls(highlights)
+
+    -- track previous tab
+    api.nvim_create_autocmd({ "TabLeave" }, {
+        group = utils.reset_augroup("update_previous_tabnr"),
+        callback = function()
+            previous_tabnr = fn.tabpagenr()
+        end,
     })
 
     return tabline
