@@ -7,6 +7,8 @@ local fn = vim.fn
 local treesitter = vim.treesitter
 local v = vim.v
 
+local previous_tabnr = 1
+
 local M = {}
 
 M.foldexpr = function ()
@@ -37,8 +39,6 @@ end
 
 M.tabline = function ()
     local tabline = ""
-
-    local previous_tabnr = 1
 
     local name_counts = {}
     local tab_bufnames = {}
