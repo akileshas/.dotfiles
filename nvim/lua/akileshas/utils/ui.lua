@@ -37,7 +37,7 @@ M.foldtext = function ()
     return "+--- " .. folded_lines .. " lines: " .. first_line .. " ..."
 end
 
-M.refactor_tabline = function ()
+M.tabline = function ()
     -- for convenience
     local tabline = ""
     local name_counts = {}
