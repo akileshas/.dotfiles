@@ -2,6 +2,7 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
+local log = vim.log
 local ui = vim.ui
 
 local trouble_open = function (base_cmd, prompt)
@@ -36,7 +37,11 @@ local trouble_open = function (base_cmd, prompt)
 end
 
 -- plugin dependencies
-local dependencies = {}
+local dependencies = {
+    {
+        "echasnovski/mini.bracketed",
+    },
+}
 
 -- plugin init function
 local init = function ()
@@ -153,6 +158,60 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "toggle qflist (trouble)",
+    },
+    {
+        "]q",
+        mode = { "n" },
+        function ()
+            local trouble = require("trouble")
+
+            if trouble.is_open() then
+                trouble.next({
+                    skip_groups = true,
+                    jump = true,
+                })
+            else
+                local MiniBracketed = require("mini.bracketed")
+
+                local ok, err = pcall(function ()
+                    MiniBracketed.quickfix("forward")
+                end)
+
+                if not ok then
+                    vim.notify(err, log.levels.ERROR)
+                end
+            end
+        end,
+        noremap = true,
+        silent = true,
+        desc = "jump to next trouble / quickfix item",
+    },
+    {
+        "[q",
+        mode = { "n" },
+        function ()
+            local trouble = require("trouble")
+
+            if trouble.is_open() then
+                trouble.prev({
+                    skip_groups = true,
+                    jump = true,
+                })
+            else
+                local MiniBracketed = require("mini.bracketed")
+
+                local ok, err = pcall(function ()
+                    MiniBracketed.quickfix("backward")
+                end)
+
+                if not ok then
+                    vim.notify(err, log.levels.ERROR)
+                end
+            end
+        end,
+        noremap = true,
+        silent = true,
+        desc = "jump to previous trouble / quickfix item",
     },
 }
 
