@@ -109,6 +109,19 @@ local keys = {
         desc = "toggle symbols (trouble)",
     },
     {
+        "<leader>xS",
+        mode = { "n" },
+        function ()
+            trouble_open(
+                "Trouble lsp_document_symbols toggle focus=false",
+                "window position for lsp symbols (trouble)"
+            )
+        end,
+        noremap = true,
+        silent = true,
+        desc = "toggle lsp symbols (trouble)",
+    },
+    {
         "<leader>xl",
         mode = { "n" },
         function ()
