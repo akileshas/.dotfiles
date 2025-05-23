@@ -22,6 +22,7 @@ opt.showtabline = 1
 opt.signcolumn = "yes:1"
 opt.sidescroll = 11
 opt.sidescrolloff = 11
+opt.tabline = [[%!v:lua.require("akileshas.utils.ui").tabline()]]
 opt.termguicolors = true
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"
