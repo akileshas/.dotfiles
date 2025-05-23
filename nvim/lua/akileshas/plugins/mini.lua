@@ -548,7 +548,7 @@ local keys = {
                 end,
                 noremap = true,
                 silent = true,
-                desc = "toggle split/join with padding & separator",
+                desc = "toggle split / join with padding & separator",
             },
             {
                 ",gS",
@@ -584,7 +584,7 @@ local keys = {
                 end,
                 noremap = true,
                 silent = true,
-                desc = "toggle split/join with padding",
+                desc = "toggle split / join with padding",
             },
         },
         surround = {},

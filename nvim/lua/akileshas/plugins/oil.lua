@@ -88,7 +88,7 @@ local opts = {
             toggle_details,
             mode = { "n" },
             nowait = true,
-            desc = "toggle the file/directory details ( premissions, size, last_modified_date )",
+            desc = "toggle the file / directory details ( premissions, size, last_modified_date )",
         },
     },
     view_options = {
