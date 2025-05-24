@@ -1,3 +1,6 @@
+-- for convenience
+local fn = vim.fn
+
 -- plugin dependencies
 local dependencies = {}
 
@@ -44,6 +47,41 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "flash treesitter",
+    },
+    {
+        ",fw",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                pattern = fn.expand("<cword>"),
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump word under cursor",
+    },
+    {
+        ",fl",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                search = {
+                    mode = "search",
+                    max_length = 0,
+                },
+                label = {
+                    after = { 0, 0 },
+                },
+                pattern = "^",
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump line",
     },
     {
         "r",
