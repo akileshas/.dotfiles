@@ -91,6 +91,20 @@ local keys = {
         desc = "flash jump line",
     },
     {
+        ",fr",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                continue = true,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash resume",
+    },
+    {
         "r",
         mode = { "o" },
         function ()
