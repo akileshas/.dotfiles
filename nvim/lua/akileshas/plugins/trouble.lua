@@ -192,12 +192,12 @@ local keys = {
             else
                 local MiniBracketed = require("mini.bracketed")
 
-                local ok, err = pcall(function ()
+                local ok, error = pcall(function ()
                     MiniBracketed.quickfix("forward")
                 end)
 
                 if not ok then
-                    vim.notify(err, log.levels.ERROR)
+                    vim.notify(error, log.levels.ERROR)
                 end
             end
         end,
@@ -219,12 +219,12 @@ local keys = {
             else
                 local MiniBracketed = require("mini.bracketed")
 
-                local ok, err = pcall(function ()
+                local ok, error = pcall(function ()
                     MiniBracketed.quickfix("backward")
                 end)
 
                 if not ok then
-                    vim.notify(err, log.levels.ERROR)
+                    vim.notify(error, log.levels.ERROR)
                 end
             end
         end,
