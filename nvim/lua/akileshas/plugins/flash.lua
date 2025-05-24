@@ -1,4 +1,6 @@
 -- for convenience
+local api = vim.api
+local diagnostic = vim.diagnostic
 local fn = vim.fn
 
 -- plugin dependencies
@@ -89,6 +91,28 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "flash jump line",
+    },
+    {
+        ",fd",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                action = function (match, state)
+                    api.nvim_win_call(match.win, function ()
+                        api.nvim_win_set_cursor(match.win, match.pos)
+                        diagnostic.open_float({
+                            border = "rounded",
+                        })
+                    end)
+                    state:restore()
+                end,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump to diagnostics",
     },
     {
         ",fr",
