@@ -5,35 +5,41 @@ local cmd = vim.cmd
 local log = vim.log
 local ui = vim.ui
 
-local trouble_open = function (base_cmd, prompt)
-    ui.select(
-        {
-            "left",
-            "right",
-            "bottom",
-            "top",
-        },
-        {
-            prompt = prompt,
-        },
-        function (choice)
-            if choice == nil then
-                return
-            end
+local trouble_open = function (mode, base_cmd, prompt)
+    local trouble = require("trouble")
 
-            local position_map = {
-                ["left"] = "left",
-                ["right"] = "right",
-                ["bottom"] = "bottom",
-                ["top"] = "top",
-            }
-            local position = position_map[choice]
+    if not trouble.is_open({ mode = mode }) then
+        ui.select(
+            {
+                "left",
+                "right",
+                "bottom",
+                "top",
+            },
+            {
+                prompt = prompt,
+            },
+            function (choice)
+                if choice == nil then
+                    return
+                end
 
-            if position then
-                cmd(base_cmd .. " win.position=" .. position)
+                local position_map = {
+                    ["left"] = "left",
+                    ["right"] = "right",
+                    ["bottom"] = "bottom",
+                    ["top"] = "top",
+                }
+                local position = position_map[choice]
+
+                if position then
+                    cmd(base_cmd .. " win.position=" .. position)
+                end
             end
-        end
-    )
+        )
+    else
+        cmd(base_cmd)
+    end
 end
 
 -- plugin dependencies
@@ -79,6 +85,7 @@ local keys = {
         mode = { "n" },
         function ()
             trouble_open(
+                "diagnostics",
                 "Trouble diagnostics toggle focus=false",
                 "window position for diagnostics (trouble)"
             )
@@ -92,6 +99,7 @@ local keys = {
         mode = { "n" },
         function ()
             trouble_open(
+                "diagnostics",
                 "Trouble diagnostics toggle focus=false filter.buf=0",
                 "window position for diagnostics (trouble)"
             )
@@ -105,6 +113,7 @@ local keys = {
         mode = { "n" },
         function ()
             trouble_open(
+                "symbols",
                 "Trouble symbols toggle focus=false",
                 "window position for symbols (trouble)"
             )
@@ -118,6 +127,7 @@ local keys = {
         mode = { "n" },
         function ()
             trouble_open(
+                "lsp_document_symbols",
                 "Trouble lsp_document_symbols toggle focus=false",
                 "window position for lsp symbols (trouble)"
             )
@@ -131,6 +141,7 @@ local keys = {
         mode = { "n" },
         function ()
             trouble_open(
+                "lsp",
                 "Trouble lsp toggle focus=false",
                 "open position for lsp (trouble)"
             )
@@ -143,7 +154,7 @@ local keys = {
         "<leader>xL",
         mode = { "n" },
         function ()
-            cmd("Trouble loclist toggle")
+            cmd("Trouble loclist toggle focus=false")
         end,
         noremap = true,
         silent = true,
@@ -153,7 +164,7 @@ local keys = {
         "<leader>xq",
         mode = { "n" },
         function ()
-            cmd("Trouble qflist toggle")
+            cmd("Trouble qflist toggle focus=false")
         end,
         noremap = true,
         silent = true,
