@@ -2,11 +2,24 @@
 local api = vim.api
 local bo = vim.bo
 local cmd = vim.cmd
+local fn = vim.fn
 local log = vim.log
 local ui = vim.ui
 
+local is_list_empty = function (list)
+    return not list or #list == 0
+end
+
 local trouble_open = function (mode, base_cmd, prompt)
     local trouble = require("trouble")
+
+    if mode == "loclist" and is_list_empty(fn.getloclist(0)) then
+        vim.notify("`loclist` is empty !!!", log.levels.WARN)
+        return
+    elseif (mode == "qflist" or mode == "quickfix") and is_list_empty(fn.getqflist()) then
+        vim.notify("`qflist` is empty !!!", log.levels.WARN)
+        return
+    end
 
     if not trouble.is_open({ mode = mode }) then
         ui.select(
