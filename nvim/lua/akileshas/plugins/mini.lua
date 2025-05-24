@@ -603,7 +603,7 @@ local keys = {
                             "tab",
                         },
                         {
-                            prompt = "open git context in:",
+                            prompt = "layout for git context (MiniGit)",
                         },
                         function (choice)
                             if choice == nil then
@@ -642,7 +642,7 @@ local keys = {
                             "tab",
                         },
                         {
-                            prompt = "open git blame in:",
+                            prompt = "layout for git blame (MiniGit)",
                         },
                         function (choice)
                             if choice == nil then
