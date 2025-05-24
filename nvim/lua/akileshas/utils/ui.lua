@@ -174,7 +174,7 @@ M.tabline = function ()
     -- track previous tab
     api.nvim_create_autocmd({ "TabLeave" }, {
         group = utils.reset_augroup("update_previous_tabnr"),
-        callback = function()
+        callback = function ()
             previous_tabnr = fn.tabpagenr()
         end,
     })
