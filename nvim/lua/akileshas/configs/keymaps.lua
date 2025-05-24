@@ -202,16 +202,4 @@ keymap.set({ "i", "s" }, "<S-Tab>", "<S-Tab>", {
     desc = "overwrite the jump to previous snippet",
 })
 
-keymap.set({ "n", "x", "o" }, ",", ",", {
-    noremap = true,
-    silent = true,
-    desc = "overwrite the flash previous jump",
-})
-
-keymap.set({ "n", "x", "o" }, ";", ";", {
-    noremap = true,
-    silent = true,
-    desc = "overwrite the flash next jump",
-})
-
 return {}
