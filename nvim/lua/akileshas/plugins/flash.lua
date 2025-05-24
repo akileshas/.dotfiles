@@ -8,7 +8,14 @@ local dependencies = {}
 local init = function () end
 
 -- plugin opts
-local opts = {}
+local opts = {
+    modes = {
+        char = {
+            jump_labels = true,
+            keys = { "f", "F", "t", "T" },
+        },
+    },
+}
 
 -- plugin keys
 local keys = {
