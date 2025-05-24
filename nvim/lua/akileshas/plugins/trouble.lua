@@ -57,7 +57,7 @@ local init = function ()
     api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
         group = utils.reset_augroup("auto_open_trouble_quickfix"),
         callback = function ()
-            cmd("Trouble qflist open")
+            cmd("Trouble qflist open focus=false")
         end,
     })
 
@@ -68,7 +68,7 @@ local init = function ()
             if bo[event.buf].buftype == "quickfix" then
                 vim.schedule(function ()
                     cmd("cclose")
-                    cmd("Trouble qflist open")
+                    cmd("Trouble qflist open focus=false")
                 end)
             end
         end,
@@ -143,7 +143,7 @@ local keys = {
             trouble_open(
                 "lsp",
                 "Trouble lsp toggle focus=false",
-                "open position for lsp (trouble)"
+                "window position for lsp (trouble)"
             )
         end,
         noremap = true,
@@ -154,7 +154,11 @@ local keys = {
         "<leader>xL",
         mode = { "n" },
         function ()
-            cmd("Trouble loclist toggle focus=false")
+            trouble_open(
+                "loclist",
+                "Trouble loclist toggle focus=false",
+                "window position for loclist (trouble)"
+            )
         end,
         noremap = true,
         silent = true,
@@ -164,7 +168,11 @@ local keys = {
         "<leader>xq",
         mode = { "n" },
         function ()
-            cmd("Trouble qflist toggle focus=false")
+            trouble_open(
+                "qflist",
+                "Trouble qflist toggle focus=false",
+                "window position for qflist (trouble)"
+            )
         end,
         noremap = true,
         silent = true,
