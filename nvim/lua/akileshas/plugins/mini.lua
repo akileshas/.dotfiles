@@ -511,7 +511,7 @@ local keys = {
         splitjoin = {
             {
                 ",gs",
-                mode = { "n", "v", "x" },
+                mode = { "n", "x" },
                 function ()
                     local MiniSplitjoin = require("mini.splitjoin")
 
@@ -552,7 +552,7 @@ local keys = {
             },
             {
                 ",gS",
-                mode = { "n", "v", "x" },
+                mode = { "n", "x" },
                 function ()
                     local MiniSplitjoin = require("mini.splitjoin")
 
@@ -594,7 +594,7 @@ local keys = {
         git = {
             {
                 "<leader>gc",
-                mode = { "n", "v", "x" },
+                mode = { "n", "x" },
                 function ()
                     ui.select(
                         {

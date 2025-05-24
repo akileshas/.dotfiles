@@ -16,7 +16,7 @@ local opts = {
 local keys = {
     {
         "<leader>tc",
-        mode = { "n", "v", "x" },
+        mode = { "n", "x" },
         function ()
             -- for convernience
             local stay_centered = require("stay-centered")

@@ -337,7 +337,7 @@ local keys = {
     },
     {
         "<leader>go",
-        mode = { "n", "v", "x" },
+        mode = { "n", "x" },
         function ()
             Snacks.gitbrowse.open()
         end,
