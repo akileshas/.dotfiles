@@ -98,8 +98,8 @@ local opts = {
                 incremental = false,
             },
             label = {
-                before = true,
                 after = true,
+                before = true,
                 style = "inline",
             },
             highlight = {
@@ -126,8 +126,8 @@ local opts = {
                 motion = false,
             },
             label = {
-                before = true,
                 after = true,
+                before = true,
                 style = "inline",
             },
         },
