@@ -1,5 +1,6 @@
 -- for convenience
 local api = vim.api
+local bo = vim.bo
 local diagnostic = vim.diagnostic
 local fn = vim.fn
 
@@ -354,6 +355,55 @@ local keys = {
     },
 }
 
+-- plugin specs
+local specs = {
+    {
+        "folke/snacks.nvim",
+        opts = {
+            picker = {
+                win = {
+                    input = {
+                        keys = {
+                            ["<M-j>"] = {
+                                "flash",
+                                mode = { "n", "i" },
+                                desc = "flash jump",
+                            },
+                        },
+                    },
+                },
+                actions = {
+                    flash = function (picker)
+                        local flash = require("flash")
+
+                        flash.jump({
+                            pattern = "^",
+                            label = {
+                                after = { 0, 0 },
+                                before = false,
+                                style = "overlay",
+                            },
+                            search = {
+                                mode = "search",
+                                exclude = {
+                                    function (win)
+                                        return bo[api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list"
+                                    end,
+                                },
+                            },
+                            action = function (match)
+                                local idx = picker.list:row2idx(match.pos[1])
+
+                                picker.list:_move(idx, true, true)
+                            end,
+                        })
+                    end,
+                },
+            },
+        },
+    },
+}
+
 -- plugin configurations
 return {
     "folke/flash.nvim",
@@ -370,4 +420,5 @@ return {
     init = init,
     opts = opts,
     keys = keys,
+    specs = specs,
 }
