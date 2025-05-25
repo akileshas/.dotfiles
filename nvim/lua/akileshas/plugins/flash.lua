@@ -282,6 +282,8 @@ local keys = {
                 },
                 label = {
                     after = { 0, 0 },
+                    before = false,
+                    style = "overlay",
                 },
                 pattern = "^",
             })
