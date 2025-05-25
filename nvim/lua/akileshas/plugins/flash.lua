@@ -11,11 +11,139 @@ local init = function () end
 
 -- plugin opts
 local opts = {
-    modes = {
-        char = {
-            jump_labels = true,
-            keys = { "f", "F", "t", "T" },
+    search = {
+        multi_window = true,
+        forward = true,
+        wrap = true,
+        mode = "search",
+        incremental = false,
+        max_length = false,
+    },
+    jump = {
+        jumplist = true,
+        pos = "start",
+        history = false,
+        register = false,
+        nohlsearch = false,
+        autojump = false,
+    },
+    label = {
+        uppercase = true,
+        current = true,
+        after = false,
+        before = true,
+        style = "inline",
+        reuse = "lowercase",
+        distance = true,
+        min_pattern_length = 0,
+        rainbow = {
+            enabled = false,
+            shade = 5,
         },
+    },
+    highlight = {
+        backdrop = true,
+        matches = true,
+        priority = 5000,
+    },
+    continue = false,
+    modes = {
+        search = {
+            enabled = false,
+            highlight = {
+                backdrop = false,
+                matches = true,
+            },
+            jump = {
+                jumplist = true,
+                pos = "start",
+                history = true,
+                register = true,
+                nohlsearch = false,
+                autojump = false,
+            },
+        },
+        char = {
+            enabled = true,
+            autohide = false,
+            jump_labels = true,
+            multi_line = true,
+            keys = { "f", "F", "t", "T" },
+            search = {
+                wrap = false,
+            },
+            highlight = {
+                backdrop = true,
+                matches = true,
+            },
+            jump = {
+                jumplist = true,
+                pos = "start",
+                history = false,
+                register = false,
+                nohlsearch = false,
+                autojump = false,
+            },
+        },
+        treesitter = {
+            jump = {
+                jumplist = true,
+                pos = "range",
+                history = false,
+                register = false,
+                nohlsearch = false,
+                autojump = false,
+            },
+            search = {
+                incremental = false,
+            },
+            label = {
+                before = true,
+                after = true,
+                style = "inline",
+            },
+            highlight = {
+                backdrop = false,
+                matches = false,
+            },
+        },
+        treesitter_search = {
+            jump = {
+                jumplist = true,
+                pos = "range",
+                history = false,
+                register = false,
+                nohlsearch = false,
+                autojump = false,
+            },
+            search = {
+                multi_window = true,
+                wrap = true,
+                incremental = false,
+            },
+            remote_op = {
+                restore = true,
+                motion = false,
+            },
+            label = {
+                before = true,
+                after = true,
+                style = "inline",
+            },
+        },
+        remote = {
+            remote_op = {
+                restore = true,
+                motion = true,
+            },
+        },
+    },
+    prompt = {
+        enabled = true,
+    },
+    remote_op = {
+        restore = false,
+        motion = false,
     },
 }
 
