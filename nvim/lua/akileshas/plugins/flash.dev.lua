@@ -15,7 +15,6 @@ local opts = {
     modes = {
         treesitter = {
             jump = {
-                pos = "range",
                 autojump = false,
             },
         },
