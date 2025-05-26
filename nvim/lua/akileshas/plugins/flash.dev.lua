@@ -106,6 +106,18 @@ local keys = {
         silent = true,
         desc = "flash jump",
     },
+    {
+        ",fS",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.treesitter_search()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash treesitter search",
+    },
 }
 
 -- plugin specs
