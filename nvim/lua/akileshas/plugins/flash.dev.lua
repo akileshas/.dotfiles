@@ -244,6 +244,18 @@ local keys = {
         silent = true,
         desc = "flash resume",
     },
+    {
+        "r",
+        mode = { "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.remote()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash remote",
+    },
 }
 
 -- plugin specs
