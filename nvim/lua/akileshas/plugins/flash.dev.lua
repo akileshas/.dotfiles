@@ -1,0 +1,110 @@
+-- for convenience
+local api = vim.api
+local bo = vim.bo
+local diagnostic = vim.diagnostic
+local fn = vim.fn
+
+-- plugin dependencies
+local dependencies = {}
+
+-- plugin init function
+local init = function () end
+
+-- plugin opts
+local opts = {}
+
+-- plugin keys
+local keys = {
+    {
+        ",fa",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            local format = function (opts)
+                return {
+                    {
+                        opts.match.label1,
+                        "FlashMatch",
+                    },
+                    {
+                        opts.match.label2,
+                        "FlashLabel",
+                    },
+                }
+            end
+
+            flash.jump({
+                search = {
+                    mode = "search",
+                },
+                label = {
+                    uppercase = false,
+                    after = false,
+                    before = { 0, 0 },
+                    style = "overlay",
+                    format = format,
+                },
+                pattern = [[\<]],
+                action = function (match, state)
+                    state:hide()
+                    flash.jump({
+                        search = {
+                            max_length = 0,
+                        },
+                        highlight = {
+                            matches = false,
+                        },
+                        label = {
+                            format = format,
+                        },
+                        matcher = function (win)
+                            return vim.tbl_filter(function (m)
+                                return m.label == match.label and m.win == win
+                            end, state.results)
+                        end,
+                        labeler = function (matches)
+                            for _, m in ipairs(matches) do
+                                m.label = m.label2
+                            end
+                        end,
+                    })
+                end,
+                labeler = function (matches, state)
+                    local labels = state:labels()
+
+                    for m, match in ipairs(matches) do
+                        match.label1 = labels[math.floor((m - 1) / #labels) + 1]
+                        match.label2 = labels[(m - 1) % #labels + 1]
+                        match.label = match.label1
+                    end
+                end,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash all",
+    },
+}
+
+-- plugin specs
+local specs = {}
+
+-- plugin configurations
+return {
+    "folke/flash.nvim",
+    version = "*",
+    enabled = true,
+    lazy = true,
+    event = {
+        "VeryLazy",
+    },
+    cmd = {},
+    ft = {},
+    build = {},
+    dependencies = dependencies,
+    init = init,
+    opts = opts,
+    keys = keys,
+    specs = specs,
+}
