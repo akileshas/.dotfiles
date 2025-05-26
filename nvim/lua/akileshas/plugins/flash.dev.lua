@@ -32,6 +32,13 @@ local opts = {
                     and fn.reg_recording() == ""
             end,
         },
+        search = {
+            label = {
+                after = false,
+                before = true,
+                style = "inline",
+            },
+        },
         treesitter = {
             jump = {
                 autojump = false,
