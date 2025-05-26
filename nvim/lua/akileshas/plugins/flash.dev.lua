@@ -271,7 +271,62 @@ local keys = {
 }
 
 -- plugin specs
-local specs = {}
+local specs = {
+    {
+        "folke/snacks.nvim",
+        opts = {
+            picker = {
+                win = {
+                    input = {
+                        keys = {
+                            ["<M-j>"] = {
+                                "flash",
+                                mode = { "n", "i" },
+                                desc = "flash jump",
+                            },
+                        },
+                    },
+                },
+                actions = {
+                    flash = function (picker)
+                        local flash = require("flash")
+
+                        flash.jump({
+                            label = {
+                                after = false,
+                                before = true,
+                                style = "inline",
+                            },
+                            highlight = {
+                                matches = false,
+                                groups = {
+                                    current = "FlashLabel",
+                                },
+                            },
+                            prompt = {
+                                enabled = false,
+                            },
+                            pattern = "^",
+                            search = {
+                                mode = "search",
+                                exclude = {
+                                    function (win)
+                                        return bo[api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list"
+                                    end,
+                                },
+                            },
+                            action = function (match)
+                                local idx = picker.list:row2idx(match.pos[1])
+
+                                picker.list:_move(idx, true, true)
+                            end,
+                        })
+                    end,
+                },
+            },
+        },
+    },
+}
 
 -- plugin configurations
 return {
