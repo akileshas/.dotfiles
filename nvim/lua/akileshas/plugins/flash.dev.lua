@@ -50,6 +50,7 @@ local keys = {
             flash.jump({
                 search = {
                     mode = "search",
+                    max_length = 0,
                 },
                 label = {
                     uppercase = false,
@@ -196,6 +197,9 @@ local keys = {
                     groups = {
                         current = "FlashLabel",
                     },
+                },
+                prompt = {
+                    enabled = false,
                 },
                 pattern = "^",
             })
