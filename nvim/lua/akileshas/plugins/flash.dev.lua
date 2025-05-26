@@ -83,7 +83,7 @@ local keys = {
         end,
         noremap = true,
         silent = true,
-        desc = "flash all",
+        desc = "flash jump 2d",
     },
     {
         ",fs",
