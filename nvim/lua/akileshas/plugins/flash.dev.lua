@@ -17,6 +17,9 @@ local opts = {
             jump = {
                 autojump = false,
             },
+            prompt = {
+                enabled = false,
+            },
         },
     },
 }
