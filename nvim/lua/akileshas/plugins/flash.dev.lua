@@ -30,12 +30,17 @@ local keys = {
         function ()
             local flash = require("flash")
 
-            local format = function (opts)
+            local format1 = function (opts)
                 return {
                     {
                         opts.match.label1,
-                        "FlashMatch",
+                        "FlashLabel",
                     },
+                }
+            end
+
+            local format2 = function (opts)
+                return {
                     {
                         opts.match.label2,
                         "FlashLabel",
@@ -50,22 +55,35 @@ local keys = {
                 label = {
                     uppercase = false,
                     after = false,
-                    before = { 0, 0 },
-                    style = "overlay",
-                    format = format,
+                    before = true,
+                    style = "inline",
+                    format = format1,
                 },
-                pattern = [[\<]],
+                highlight = {
+                    matches = false,
+                },
+                prompt = {
+                    enabled = false,
+                },
+                pattern = [[\<\|\>]],
                 action = function (match, state)
                     state:hide()
                     flash.jump({
                         search = {
                             max_length = 0,
                         },
+                        label = {
+                            uppercase = false,
+                            after = false,
+                            before = true,
+                            style = "inline",
+                            format = format2,
+                        },
                         highlight = {
                             matches = false,
                         },
-                        label = {
-                            format = format,
+                        prompt = {
+                            enabled = false,
                         },
                         matcher = function (win)
                             return vim.tbl_filter(function (m)
