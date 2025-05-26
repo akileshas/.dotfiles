@@ -256,6 +256,18 @@ local keys = {
         silent = true,
         desc = "flash remote",
     },
+    {
+        "<C-z>",
+        mode = { "c" },
+        function ()
+            local flash = require("flash")
+
+            flash.toggle()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "toggle flash search",
+    },
 }
 
 -- plugin specs
