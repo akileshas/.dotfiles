@@ -3,6 +3,7 @@ local api = vim.api
 local bo = vim.bo
 local diagnostic = vim.diagnostic
 local fn = vim.fn
+local v = vim.v
 
 -- plugin dependencies
 local dependencies = {}
@@ -13,6 +14,24 @@ local init = function () end
 -- plugin opts
 local opts = {
     modes = {
+        char = {
+            jump_labels = true,
+            keys = { "f", "F", "t", "T" },
+            label = {
+                after = false,
+                before = true,
+                style = "inline",
+            },
+            config = function (opts)
+                opts.autohide = opts.autohide
+                    or (fn.mode(true):find("no")
+                        and v.operator == "y")
+
+                opts.jump_labels = opts.jump_labels
+                    and fn.reg_executing() == ""
+                    and fn.reg_recording() == ""
+            end,
+        },
         treesitter = {
             jump = {
                 autojump = false,
