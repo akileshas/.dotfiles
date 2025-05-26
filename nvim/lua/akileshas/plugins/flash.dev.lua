@@ -85,6 +85,27 @@ local keys = {
         silent = true,
         desc = "flash all",
     },
+    {
+        ",fs",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                search = {
+                    mode = "search",
+                },
+                label = {
+                    after = false,
+                    before = true,
+                    style = "inline",
+                },
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump",
+    },
 }
 
 -- plugin specs
