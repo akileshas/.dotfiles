@@ -11,7 +11,16 @@ local dependencies = {}
 local init = function () end
 
 -- plugin opts
-local opts = {}
+local opts = {
+    modes = {
+        treesitter = {
+            jump = {
+                pos = "range",
+                autojump = false,
+            },
+        },
+    },
+}
 
 -- plugin keys
 local keys = {
@@ -117,6 +126,18 @@ local keys = {
         noremap = true,
         silent = true,
         desc = "flash treesitter search",
+    },
+    {
+        ",ft",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.treesitter()
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash treesitter",
     },
 }
 
