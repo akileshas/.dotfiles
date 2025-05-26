@@ -230,6 +230,20 @@ local keys = {
         silent = true,
         desc = "flash jump to diagnostics",
     },
+    {
+        ",fr",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                continue = true,
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash resume",
+    },
 }
 
 -- plugin specs
