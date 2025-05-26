@@ -175,6 +175,35 @@ local keys = {
         silent = true,
         desc = "flash jump word under cursor",
     },
+    {
+        ",fl",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                search = {
+                    mode = "search",
+                    max_length = 0,
+                },
+                label = {
+                    after = false,
+                    before = true,
+                    style = "inline",
+                },
+                highlight = {
+                    matches = false,
+                    groups = {
+                        current = "FlashLabel",
+                    },
+                },
+                pattern = "^",
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump line",
+    },
 }
 
 -- plugin specs
