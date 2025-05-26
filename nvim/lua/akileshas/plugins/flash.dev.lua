@@ -156,6 +156,25 @@ local keys = {
         silent = true,
         desc = "flash treesitter",
     },
+    {
+        ",fw",
+        mode = { "n", "x", "o" },
+        function ()
+            local flash = require("flash")
+
+            flash.jump({
+                label = {
+                    after = false,
+                    before = true,
+                    style = "inline",
+                },
+                pattern = fn.expand("<cword>"),
+            })
+        end,
+        noremap = true,
+        silent = true,
+        desc = "flash jump word under cursor",
+    },
 }
 
 -- plugin specs
