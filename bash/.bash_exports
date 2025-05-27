@@ -204,7 +204,7 @@ fd --type directory --hidden --no-ignore --no-ignore-parent --ignore-case --foll
 "
 
 # Qt Environment Variables
-export QT_STYLE_OVERRIDE=adwaita-dark
+export QT_STYLE_OVERRIDE=fusion
 export QT_QPA_PLATFORMTHEME=qt6ct
 
 # For Haskell
