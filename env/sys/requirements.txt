@@ -197,3 +197,10 @@ pnpm
 inotify-tools
 php
 composer
+clang
+llvm
+llvm-libs
+openmp
+tinygo
+bear
+intel-graphics-compiler
