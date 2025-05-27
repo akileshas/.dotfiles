@@ -38,7 +38,7 @@ pamixer
 feh
 imv
 ffmpeg
-mpv
+vlc
 cheese
 pavucontrol
 vim

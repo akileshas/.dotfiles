@@ -48,8 +48,8 @@ export CHROME_EXECUTABLE=/usr/bin/google-chrome-canary
 # pnpm path
 export PNPM_HOME="/home/akileshas/.local/share/pnpm"
 case ":$PATH:" in
-	*":$PNPM_HOME:"*) ;;
-	*) export PATH="$PNPM_HOME:$PATH" ;;
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # luarocks path
@@ -116,7 +116,7 @@ export FILE_MANAGER="yazi"
 export IMAGE_VIEWER="imv"
 
 # Set the default video player
-export VIDEO_PLAYER="mpv"
+export VIDEO_PLAYER="vlc"
 
 # Set the default reader
 export READER="firefox-developer-edition"
