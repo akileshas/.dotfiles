@@ -197,3 +197,12 @@ pnpm
 inotify-tools
 php
 composer
+libva-intel-driver
+libva-nvidia-driver
+libva-utils
+libvdpau
+libvdpau-va-gl
+libvarlink
+libvirt
+vala
+intel-media-driver
