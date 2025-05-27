@@ -42,6 +42,7 @@ python-libvcs
 lib32-libva
 lib32-libva-intel-driver
 lib32-libvdpau
+lib32-nvidia-cg-toolkit
 lib32-libvorbis
 lib32-libvpx
 lib32-mesa
@@ -51,6 +52,13 @@ libva-intel-driver
 lib32-libva-intel-driver
 yt-dlp
 nvidia-container-toolkit
+libxnvctrl
+nvhpc
+nvhpc-comm-libs
+nvhpc-compilers
+nvidia-cg-toolkit
+nvidia-prime
+nvidia-settings
 android-studio
 obs-studio
 obsidian
