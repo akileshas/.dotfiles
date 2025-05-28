@@ -113,3 +113,4 @@ openpgl
 openvkl
 xf86-video-intel
 whois
+lib32-libxrandr
