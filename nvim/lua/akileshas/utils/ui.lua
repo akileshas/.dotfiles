@@ -117,7 +117,7 @@ M.tabline = function ()
             or (modified and "TabLineModifiedInactive" or "TabLineInactive")
 
         return string.format(
-            "%%@v:lua.to_tab_%d@%%#%s# %s [%s]%s%s ",
+            "%%@v:lua.to_tab_%d@%%#%s# %s [%s]%s%s %%T",
             tabnr,
             hl_group,
             icon,
