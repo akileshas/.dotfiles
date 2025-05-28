@@ -117,7 +117,8 @@ M.tabline = function ()
             or (modified and "TabLineModifiedInactive" or "TabLineInactive")
 
         return string.format(
-            "%%#%s# %s [%s]%s%s ",
+            "%%@v:lua.to_tab_%d@%%#%s# %s [%s]%s%s ",
+            tabnr,
             hl_group,
             icon,
             name,
@@ -135,6 +136,10 @@ M.tabline = function ()
     end
 
     for tabnr = 1, fn.tabpagenr("$") do
+        _G["to_tab_" .. tabnr] = function ()
+            cmd("tabnext " .. tabnr)
+        end
+
         tabline = tabline .. tablabel(tabnr)
     end
 
