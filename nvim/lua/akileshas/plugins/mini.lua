@@ -426,7 +426,6 @@ local config = {
 
             -- opts.content.active = mini_utils.active_statusline
             -- opts.content.inactive = mini_utils.inactive_statusline
-            opt.laststatus = 3
 
             MiniStatusline.setup(opts)
         end,
