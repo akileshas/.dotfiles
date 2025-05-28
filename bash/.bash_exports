@@ -116,7 +116,7 @@ export FILE_MANAGER="yazi"
 export IMAGE_VIEWER="imv"
 
 # Set the default video player
-export VIDEO_PLAYER="vlc"
+export VIDEO_PLAYER="mpv"
 
 # Set the default reader
 export READER="firefox-developer-edition"
