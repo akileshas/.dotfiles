@@ -68,6 +68,8 @@ M.tabline = function ()
             name = "oil"
         elseif filetype == "help" then
             name = "help"
+        elseif buftype == "nofile" then
+            name = filetype
         elseif name == "" then
             name = buftype ~= "" and buftype or filetype
         end
