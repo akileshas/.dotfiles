@@ -1,6 +1,7 @@
 [user]
     name = akileshas
     email = akileshas.ai@gmail.com
+    signingkey = /home/akileshas/.ssh/id_ed25519.pub
 
 [alias]
     ps = push
@@ -101,12 +102,21 @@
     diffFilter = delta --color-only
 
 [credential "https://github.com"]
-    helper = 
+    helper =
     helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-    helper = 
+    helper =
     helper = !/usr/bin/gh auth git-credential
 
 [credential]
     helper = store
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgSign = true
+
+[gpg]
+    format = ssh
