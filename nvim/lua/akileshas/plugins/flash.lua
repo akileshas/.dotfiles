@@ -14,14 +14,21 @@ local init = function () end
 -- plugin opts
 local opts = {
     modes = {
-        char = {
-            jump_labels = true,
-            keys = { "f", "F", "t", "T" },
+        search = {
             label = {
                 after = false,
                 before = true,
                 style = "inline",
             },
+        },
+        char = {
+            jump_labels = true,
+            label = {
+                after = false,
+                before = true,
+                style = "inline",
+            },
+            keys = { "f", "F", "t", "T" },
             config = function (opts)
                 opts.autohide = opts.autohide
                     or (fn.mode(true):find("no")
@@ -31,13 +38,6 @@ local opts = {
                     and fn.reg_executing() == ""
                     and fn.reg_recording() == ""
             end,
-        },
-        search = {
-            label = {
-                after = false,
-                before = true,
-                style = "inline",
-            },
         },
         treesitter = {
             jump = {
