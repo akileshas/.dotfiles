@@ -57,16 +57,6 @@ keymap.set("n", "<A-0>", "<cmd>tablast<CR>", {
     desc = "Go to last tab",
 })
 
--- buffer management
--- switch to next buffer
-keymap.set("n", "<leader>bn", "<cmd>bn<CR>", {
-    desc = "Switch to next buffer",
-})
--- switch to previous buffer
-keymap.set("n", "<leader>bp", "<cmd>bp<CR>", {
-    desc = "Switch to previous buffer",
-})
-
 -- join lines
 keymap.set("n", "J", "mzJ`z", {
     desc = "Join lines and keep cursor position",
