@@ -212,6 +212,9 @@ export PATH=$HOME/.ghcup/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 
+# GPG keys
+export GPG_TTY=$(tty)
+
 #################################################
 #                      END                      #
 #################################################
