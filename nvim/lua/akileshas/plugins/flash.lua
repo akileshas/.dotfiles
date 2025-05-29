@@ -91,14 +91,15 @@ local keys = {
                 highlight = {
                     matches = false,
                 },
+                pattern = [[\<\|\>]],
                 prompt = {
                     enabled = false,
                 },
-                pattern = [[\<\|\>]],
                 action = function (match, state)
                     state:hide()
                     flash.jump({
                         search = {
+                            mode = "search",
                             max_length = 0,
                         },
                         label = {
@@ -227,10 +228,10 @@ local keys = {
                         current = "FlashLabel",
                     },
                 },
+                pattern = "^",
                 prompt = {
                     enabled = false,
                 },
-                pattern = "^",
             })
         end,
         noremap = true,
@@ -243,6 +244,7 @@ local keys = {
         function ()
             local flash = require("flash")
 
+            -- TODO: want to update accordingly my need!!!
             flash.jump({
                 action = function (match, state)
                     api.nvim_win_call(match.win, function ()
@@ -321,6 +323,15 @@ local specs = {
                         local flash = require("flash")
 
                         flash.jump({
+                            search = {
+                                mode = "search",
+                                exclude = {
+                                    function (win)
+                                        return bo[api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list"
+                                    end,
+                                },
+                                max_length = 0,
+                            },
                             label = {
                                 after = false,
                                 before = true,
@@ -332,17 +343,9 @@ local specs = {
                                     current = "FlashLabel",
                                 },
                             },
+                            pattern = "^",
                             prompt = {
                                 enabled = false,
-                            },
-                            pattern = "^",
-                            search = {
-                                mode = "search",
-                                exclude = {
-                                    function (win)
-                                        return bo[api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list"
-                                    end,
-                                },
                             },
                             action = function (match)
                                 local idx = picker.list:row2idx(match.pos[1])
