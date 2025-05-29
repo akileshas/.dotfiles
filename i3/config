@@ -67,9 +67,6 @@ exec_always --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec_always --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Starting the picom compositor
-exec_always --no-startup-id picom
-
 # Starting the dunst notification daemon
 exec_always --no-startup-id dunst
 

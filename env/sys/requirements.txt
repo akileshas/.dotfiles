@@ -67,7 +67,6 @@ xdg-desktop-portal-gtk
 i3blocks
 i3lock
 i3status
-picom
 git
 git-delta
 git-lfs
