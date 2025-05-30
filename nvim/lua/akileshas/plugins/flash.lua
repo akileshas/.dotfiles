@@ -250,6 +250,14 @@ local keys = {
 
             -- TODO: want to update accordingly my need!!!
             flash.jump({
+                search = {
+                    mode = "search",
+                },
+                label = {
+                    after = false,
+                    before = true,
+                    style = "inline",
+                },
                 action = function (match, state)
                     api.nvim_win_call(match.win, function ()
                         api.nvim_win_set_cursor(match.win, match.pos)
