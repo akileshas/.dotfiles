@@ -15,6 +15,9 @@ local init = function () end
 local opts = {
     modes = {
         search = {
+            search = {
+                trigger = ",",
+            },
             label = {
                 after = false,
                 before = true,
@@ -151,6 +154,7 @@ local keys = {
             flash.jump({
                 search = {
                     mode = "search",
+                    trigger = ",",
                 },
                 label = {
                     after = false,
