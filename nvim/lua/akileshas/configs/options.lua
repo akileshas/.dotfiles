@@ -1,4 +1,3 @@
--- for convenience
 local opt = vim.opt
 
 local indent = 4
