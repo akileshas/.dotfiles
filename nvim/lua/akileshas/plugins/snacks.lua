@@ -913,6 +913,9 @@ local keys = {
     },
 }
 
+-- plugin specs
+local specs = {}
+
 -- plugin configurations
 return {
     "folke/snacks.nvim",
@@ -928,4 +931,5 @@ return {
     init = init,
     opts = opts,
     keys = keys,
+    specs = specs,
 }
