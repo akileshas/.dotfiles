@@ -1,4 +1,3 @@
--- for convenience
 local api = vim.api
 local fn = vim.fn
 local log = vim.log
