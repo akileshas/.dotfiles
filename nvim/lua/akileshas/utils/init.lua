@@ -1,4 +1,3 @@
--- for convenience
 local api = vim.api
 local keymap = vim.keymap
 
@@ -36,20 +35,46 @@ M.map_keys = function (keys)
     end
 end
 
-M.set_hl = function (group, opts)
-    api.nvim_set_hl(0, group, opts)
+M.set_hl = function (name, val)
+    val = val or {}
+
+    api.nvim_set_hl(0, name, val)
 end
 
-M.set_hls = function (highlights)
-    for group, opts in pairs(highlights) do
-        M.set_hl(group, opts)
+M.set_hls = function (hls)
+    for _, hl in ipairs(hls) do
+        local name = hl.name
+        local val = hl.val or {}
+
+        M.set_hl(name, val)
+    end
+end
+
+M.create_autocmd = function (event, opts)
+    opts = opts or {
+        callback = function () end,
+    }
+
+    api.nvim_create_autocmd(event, opts)
+end
+
+M.create_autocmds = function (autocmds)
+    for _, autocmd in ipairs(autocmds) do
+        local event = autocmd.event
+        local opts = autocmd.opts or {
+            callback = function () end,
+        }
+
+        M.create_autocmd(event, opts)
     end
 end
 
 M.augroup = function (name, opts)
+    opts = opts or {}
+
     return api.nvim_create_augroup(
         "akileshas_" .. name,
-        opts or {}
+        opts
     )
 end
 
