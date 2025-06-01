@@ -1,4 +1,3 @@
--- for convenience
 local api = vim.api
 local b = vim.b
 local bo = vim.bo
@@ -38,7 +37,6 @@ M.foldtext = function ()
 end
 
 M.tabline = function ()
-    -- for convenience
     local tabline = ""
     local name_counts = {}
     local tab_bufnames = {}
