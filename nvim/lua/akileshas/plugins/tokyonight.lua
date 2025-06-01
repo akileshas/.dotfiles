@@ -1,4 +1,3 @@
--- for convenience
 local cmd = vim.cmd
 
 -- custom theme colors
@@ -19,6 +18,7 @@ end
 -- plugin opts
 local opts = {
     style = "night",
+    light_style = "day",
     transparent = true,
     terminal_colors = true,
     styles = {
@@ -29,24 +29,19 @@ local opts = {
         sidebars = "transparent",
         floats = "transparent",
     },
+    day_brightness = 0.3,
     dim_inactive = false,
     lualine_bold = true,
-    cache = true,
     on_colors = on_colors,
     on_highlights = on_highlights,
+    cache = true,
 }
-
--- plugin config function
-local config = function (_, opts)
-    -- for convenience
-    local tokyonight = require("tokyonight")
-
-    -- configure tokyonight
-    tokyonight.setup(opts)
-end
 
 -- plugin keys
 local keys = {}
+
+-- plugin specs
+local specs = {}
 
 -- plugin configurations
 return {
@@ -62,6 +57,6 @@ return {
     dependencies = dependencies,
     init = init,
     opts = opts,
-    config = config,
     keys = keys,
+    specs = specs,
 }
