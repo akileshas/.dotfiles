@@ -13,8 +13,8 @@ mkdir -p ~/personal \
          ~/documents/papers \
          ~/downloads \
          ~/repos \
-         ~/pictures \
-         ~/pictures/screenshots \
+         ~/images \
+         ~/images/screenshots \
          ~/videos \
          ~/videos/obs \
          ~/tmp
