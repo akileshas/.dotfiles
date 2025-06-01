@@ -571,7 +571,7 @@ return {
     "neovim/nvim-lspconfig",
     version = "*",
     enabled = true,
-    lazy = true,
+    lazy = not true,
     event = {
         "BufReadPost",
         "BufNewFile",

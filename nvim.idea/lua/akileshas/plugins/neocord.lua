@@ -40,4 +40,5 @@ return {
     init = init,
     opts = opts,
     keys = keys,
+    optional = true,
 }
