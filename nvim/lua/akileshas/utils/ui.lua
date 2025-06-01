@@ -19,6 +19,7 @@ M.foldexpr = function ()
         if bo[buf].filetype == "" then
             return "0"
         end
+
         if bo[buf].filetype:find("dashboard") then
             b[buf].ts_folds = false
         else
@@ -91,11 +92,13 @@ M.tabline = function ()
 
         if name_counts[name] then
             local seen = 0
+
             for tab = 1, tabnr do
                 if tab_bufnames[tab] == name then
                     seen = seen + 1
                 end
             end
+
             count_str = string.format("(%d)", seen)
         end
 
@@ -145,32 +148,53 @@ M.tabline = function ()
 
     -- custom highlight group
     local highlights = {
-        TabLineSel = {
-            bg = "#3B4261",
-            fg = "#C0CAF5",
+        {
+            name = "TabLineSel",
+            val = {
+                bg = "#3B4261",
+                fg = "#C0CAF5",
+            },
         },
-        TabLine = {
-            bg = "#16161E",
-            fg = "#C0CAF5",
+        {
+            name = "TabLine",
+            val = {
+                bg = "#16161E",
+                fg = "#C0CAF5",
+            },
         },
-        TabLineFill = {
-            bg = "#15161E",
+        {
+            name = "TabLineFill",
+            val = {
+                bg = "#15161E",
+            },
         },
-        TabLineActive = {
-            bg = "#3B4261",
-            fg = "#C0CAF5",
+        {
+            name = "TabLineActive",
+            val = {
+                bg = "#3B4261",
+                fg = "#C0CAF5",
+            },
         },
-        TabLineInactive = {
-            bg = "#16161E",
-            fg = "#C0CAF5",
+        {
+            name = "TabLineInactive",
+            val = {
+                bg = "#16161E",
+                fg = "#C0CAF5",
+            },
         },
-        TabLineModifiedActive = {
-            bg = "#3B4261",
-            fg = "#E0AF68",
+        {
+            name = "TabLineModifiedActive",
+            val = {
+                bg = "#3B4261",
+                fg = "#E0AF68",
+            },
         },
-        TabLineModifiedInactive = {
-            bg = "#16161E",
-            fg = "#E0AF68",
+        {
+            name = "TabLineModifiedInactive",
+            val = {
+                bg = "#16161E",
+                fg = "#E0AF68",
+            },
         },
     }
 
