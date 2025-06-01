@@ -167,7 +167,7 @@ opt.titlestring = "[nvim](%f)"
 -- undo
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
-opt.undolevels = 1000000000
+opt.undolevels = 100000
 
 -- wrapping
 opt.breakindent = true
