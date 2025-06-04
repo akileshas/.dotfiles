@@ -220,7 +220,8 @@ _main () {
             _sync
             ;;
         --check )
-            _check
+            shift
+            _check "$@"
             ;;
         --setup )
             _setup
