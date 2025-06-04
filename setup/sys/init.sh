@@ -155,6 +155,10 @@ _setup () {
     __link ~/.dotfiles/git/.gitconfig ~/.gitconfig "file"
     __link ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
 
+    for v in 2.0 3.0 4.0; do
+        __link ~/.dotfiles/gtk/gtk-$v ~/.config/gtk-$v "dir"
+    done
+
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
 }
