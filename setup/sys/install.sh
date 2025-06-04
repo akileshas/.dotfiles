@@ -19,4 +19,11 @@ if ! command -v paru &> /dev/null; then
     exit 1
 fi
 
+# updating and synchronizing the system
+echo
+echo "updating and synchronizing the system..."
+sudo pacman -Syu
+paru -Syu
+echo "updating and synchronizing the system... done."
+
 echo && echo "installling the required packages for my system... done. ;)"
