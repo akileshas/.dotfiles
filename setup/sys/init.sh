@@ -15,10 +15,7 @@ PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
 ## global functions
 _init () {
-    if [[ -z $(command -v paru) ]]; then
-        echo && echo "[!!] error: 'paru' is not installed !!!"
-        exit 1
-    fi
+    _check
 
     echo && echo "[::] info: updating and synchronizing the system ..."
     sudo pacman -Syu --noconfirm
@@ -28,8 +25,17 @@ _init () {
     sudo -v
 }
 
+_check () {
+    echo && echo "[::] info: checking requirements ..."
+    if [[ -z $(command -v paru) ]]; then
+        echo && echo "[!!] error: 'paru' is not installed !!!"
+        exit 1
+    fi
+    echo "[::] info: checking requirements ... done."
+}
+
 _setup () {
-    _init()
+    _init
 
     echo && echo "[#!](akileshas@ASA) info: setting up my system ..."
     _install "$FONTS_FILE_PATH" "fonts"
@@ -37,7 +43,19 @@ _setup () {
     echo && echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
 }
 
-_main () {}
+_main () {
+    case "$1" in
+        "" )
+            _init
+            ;;
+        --check )
+            _check
+            ;;
+        --setup )
+            _setup
+            ;;
+    esac
+}
 
 ## helper functions
 _install () {
@@ -55,3 +73,6 @@ _install () {
     [[ "$type" == "fonts" ]] && sudo fc-cache -fv
     echo "[::] info: installing ${type} ... done."
 }
+
+## script entry
+_main "$@"
