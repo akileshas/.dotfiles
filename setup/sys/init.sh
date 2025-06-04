@@ -36,8 +36,8 @@ __activate () {
     echo
     echo "[::] info: activating $service ..."
     [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
-    sudo systemctl enable --now "$name"
-    sudo systemctl start --now "$name"
+    sudo systemctl enable --now "$service"
+    sudo systemctl start --now "$service"
     echo "[::] info: activating $service ... done."
     echo
 }
@@ -72,8 +72,8 @@ __link () {
 
 ## global variables
 HOST=$(hostnamectl hostname)
-FONTS_FILE_PATH="~/.dotfiles/setup/sys/pkglist/fonts.txt"
-PKGS_FILE_PATH="~/.dotfiles/setup/sys/pkglist/pkgs.txt"
+FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
+PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
 ## global functions
 _init () {
@@ -143,6 +143,17 @@ _setup () {
     sudo grub-mkconfig -o /boot/grub/grub.cfg
     echo "[::] info: updating grub ... done."
     echo
+
+    __link ~/.dotfiles/i3 ~/.config/i3 "dir"
+    __link ~/.dotfiles/kitty ~/.config/kitty "dir"
+    __link ~/.dotfiles/lazygit ~/.config/lazygit "dir"
+    __link ~/.dotfiles/rofi ~/.config/rofi "dir"
+    __link ~/.dotfiles/starship ~/.config/starship "dir"
+    __link ~/.dotfiles/bash/.bashrc ~/.bashrc "file"
+    __link ~/.dotfiles/bash/.bash_logout ~/.bash_logout "file"
+    __link ~/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
+    __link ~/.dotfiles/git/.gitconfig ~/.gitconfig "file"
+    __link ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
 
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
