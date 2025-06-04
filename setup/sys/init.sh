@@ -60,6 +60,7 @@ __link () {
             echo "[::] info: removed '${dst}' !!!"
         else
             echo "[::] info: skipped linking '${dst##*/}' config !!!"
+            echo
             return
         fi
     fi
