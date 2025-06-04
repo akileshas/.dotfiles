@@ -22,8 +22,8 @@ fi
 # updating and synchronizing the system
 echo
 echo "updating and synchronizing the system..."
-sudo pacman -Syu
-paru -Syu
+sudo pacman -Syu --noconfirm
+paru -Syu --noconfirm
 echo "updating and synchronizing the system... done."
 
 echo && echo "installling the required packages for my system... done. ;)"
