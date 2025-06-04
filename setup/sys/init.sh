@@ -9,21 +9,23 @@
 
 
 
+# obtaining `sudo` privileges access
+sudo -v
+
 # starting the installation script
-echo "installing the required packages for my system..."
+echo && echo "[#!](akileshas@ASA) setting up my system ..."
 
 # checking if `paru` is installed
 if ! command -v paru &> /dev/null; then
-    echo
-    echo "error: 'paru' is not installed !!!"
+    echo && echo "[!!] error: 'paru' is not installed !!!"
     exit 1
 fi
 
 # updating and synchronizing the system
-echo
-echo "updating and synchronizing the system..."
+echo && echo "[::] updating and synchronizing the system ..."
 sudo pacman -Syu --noconfirm
 paru -Syu --noconfirm
-echo "updating and synchronizing the system... done."
+echo "[::] updating and synchronizing the system ... done."
 
-echo && echo "installling the required packages for my system... done. ;)"
+echo
+echo "[#!](akileshas@ASA) setting up my system ... done. ;)"
