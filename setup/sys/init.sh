@@ -29,7 +29,7 @@ _init () {
 _check () {
     echo && echo "[::] checking requirements ..."
 
-    if [[ -z $(command -v paru) ]]; then
+    if [[ -n $(command -v paru) ]]; then
         echo "[>>](paru) check: passed !!!"
     else
         echo "[>>](paru) check: failed !!!"
