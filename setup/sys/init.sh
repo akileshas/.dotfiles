@@ -48,18 +48,18 @@ __link () {
     local type="$3"
 
     echo
-    echo "[::] info: linking ${dst##*/} ..."
+    echo "[::] info: linking '${dst##*/}' config ..."
 
     if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
         echo "[~!] warn: '${dst}' exists !!!"
-        read -p "[::] info: remove ? [y/N] " confirm
+        read -p "[::] info: remove it ? [y/N] " confirm
         confirm="${confirm,,}"
 
         if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
             rm -rf "$dst"
             echo "[::] info: removed '${dst}' !!!"
         else
-            echo "[::] info: skipped '${dst}' !!!"
+            echo "[::] info: skipped linking '${dst##*/}' config !!!"
             return
         fi
     fi
