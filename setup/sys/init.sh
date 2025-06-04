@@ -4,7 +4,7 @@
 
 #! author           => akileshas
 #! created on       => 04-06-2025
-#! last modified on => 04-06-2025
+#! last modified on => 05-06-2025
 #! description      => my system (akileshas@ASA) setup script
 
 
@@ -16,7 +16,7 @@ __install () {
 
     if [[ ! -f "$file_path" ]]; then
         echo
-        echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
+        echo "[~!] warn: skipping $type install — file not found: '$file_path' !!!"
         echo
         return
     fi
