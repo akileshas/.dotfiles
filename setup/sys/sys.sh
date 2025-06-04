@@ -92,6 +92,7 @@ _init () {
     sudo -v
 
     local check_args=()
+    local skip_sync=0
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -104,6 +105,10 @@ _init () {
                     shift 2
                 fi
                 ;;
+            --skip-sync )
+                skip_sync=1
+                shift
+                ;;
             * )
                 echo "[!!] error: unknown option '$1'"
                 echo
@@ -113,7 +118,12 @@ _init () {
     done
 
     _check "${check_args[@]}"
-    _sync
+
+    if [[ $skip_sync -eq 0 ]]; then
+        _sync
+    else
+        echo "[::] info: skipping system synchronization !!!"
+    fi
 }
 
 _check () {
