@@ -11,8 +11,8 @@
 
 ## global variables
 HOST=$(hostnamectl hostname)
-FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
-PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
+FONTS_FILE_PATH="~/.dotfiles/setup/sys/pkglist/fonts.txt"
+PKGS_FILE_PATH="~/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
 ## global functions
 _init () {
@@ -137,6 +137,33 @@ __activate () {
     sudo systemctl enable --now "$name"
     sudo systemctl start --now "$name"
     echo "[::] info: activating $service ... done."
+    echo
+}
+
+__link () {
+    local src="$1"
+    local dst="$2"
+    local type="$3"
+
+    echo
+    echo "[::] info: linking ${dst##*/} ..."
+
+    if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
+        echo "[~!] warn: '${dst}' exists !!!"
+        read -p "[::] info: remove ? [y/N] " confirm
+        confirm="${confirm,,}"
+        if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
+            rm -rf "$dst"
+            echo "[::] info: removed '${dst}' !!!"
+        else
+            echo "[::] info: skipped '${dst}' !!!"
+            return
+        fi
+    fi
+
+    ln -s "$src" "$dst"
+
+    echo "[::] info: linking ${dst##*/} ... done."
     echo
 }
 
