@@ -24,7 +24,7 @@ _init () {
 
 _check () {
     echo
-    echo "[::] checking requirements ..."
+    echo "[::] info: checking requirements ..."
 
     if [[ -n $(command -v paru) ]]; then
         echo "[>>](paru) check: passed !!!"
