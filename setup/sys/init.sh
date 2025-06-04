@@ -9,6 +9,67 @@
 
 
 
+## helper functions
+__install () {
+    local file_path="$1"
+    local type="$2"
+
+    if [[ ! -f "$file_path" ]]; then
+        echo
+        echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
+        echo
+        return
+    fi
+
+    echo
+    echo "[::] info: installing ${type} ..."
+    mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
+    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
+    [[ "$type" == "fonts" ]] && sudo fc-cache -fv
+    echo "[::] info: installing ${type} ... done."
+    echo
+}
+
+__activate () {
+    local service="$1"
+
+    echo
+    echo "[::] info: activating $service ..."
+    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
+    sudo systemctl enable --now "$name"
+    sudo systemctl start --now "$name"
+    echo "[::] info: activating $service ... done."
+    echo
+}
+
+__link () {
+    local src="$1"
+    local dst="$2"
+    local type="$3"
+
+    echo
+    echo "[::] info: linking ${dst##*/} ..."
+
+    if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
+        echo "[~!] warn: '${dst}' exists !!!"
+        read -p "[::] info: remove ? [y/N] " confirm
+        confirm="${confirm,,}"
+
+        if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
+            rm -rf "$dst"
+            echo "[::] info: removed '${dst}' !!!"
+        else
+            echo "[::] info: skipped '${dst}' !!!"
+            return
+        fi
+    fi
+
+    ln -s "$src" "$dst"
+
+    echo "[::] info: linking ${dst##*/} ... done."
+    echo
+}
+
 ## global variables
 HOST=$(hostnamectl hostname)
 FONTS_FILE_PATH="~/.dotfiles/setup/sys/pkglist/fonts.txt"
@@ -105,67 +166,6 @@ _main () {
             _setup
             ;;
     esac
-}
-
-## helper functions
-__install () {
-    local file_path="$1"
-    local type="$2"
-
-    if [[ ! -f "$file_path" ]]; then
-        echo
-        echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
-        echo
-        return
-    fi
-
-    echo
-    echo "[::] info: installing ${type} ..."
-    mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
-    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
-    [[ "$type" == "fonts" ]] && sudo fc-cache -fv
-    echo "[::] info: installing ${type} ... done."
-    echo
-}
-
-__activate () {
-    local service="$1"
-
-    echo
-    echo "[::] info: activating $service ..."
-    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
-    sudo systemctl enable --now "$name"
-    sudo systemctl start --now "$name"
-    echo "[::] info: activating $service ... done."
-    echo
-}
-
-__link () {
-    local src="$1"
-    local dst="$2"
-    local type="$3"
-
-    echo
-    echo "[::] info: linking ${dst##*/} ..."
-
-    if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
-        echo "[~!] warn: '${dst}' exists !!!"
-        read -p "[::] info: remove ? [y/N] " confirm
-        confirm="${confirm,,}"
-
-        if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
-            rm -rf "$dst"
-            echo "[::] info: removed '${dst}' !!!"
-        else
-            echo "[::] info: skipped '${dst}' !!!"
-            return
-        fi
-    fi
-
-    ln -s "$src" "$dst"
-
-    echo "[::] info: linking ${dst##*/} ... done."
-    echo
 }
 
 ## script entry
