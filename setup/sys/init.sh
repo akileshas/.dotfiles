@@ -73,6 +73,8 @@ _setup () {
     echo "[#!](akileshas@ASA) info: setting up my system ..."
     __install "$FONTS_FILE_PATH" "fonts"
     __install  "$PKGS_FILE_PATH" "packages"
+    __activate "bluetooth"
+    __activate "paccache.timer"
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
 }
@@ -115,6 +117,18 @@ __install () {
     [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
     [[ "$type" == "fonts" ]] && sudo fc-cache -fv
     echo "[::] info: installing ${type} ... done."
+    echo
+}
+
+__activate () {
+    local service="$1"
+
+    echo
+    echo "[::] info: activating $service ..."
+    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
+    sudo systemctl enable --now "$name"
+    sudo systemctl start --now "$name"
+    echo "[::] info: activating $service ... done."
     echo
 }
 
