@@ -104,8 +104,13 @@ _check () {
     while [[ $# -gt 0 ]]; do
         case "$1" in
             --exclude )
-                IFS=',' read -ra exclude_list <<< "$2"
-                shift 2
+                if [[ -z "$2" || "$2" == --* ]]; then
+                    exclude_list=()
+                    shift
+                else
+                    IFS=',' read -ra exclude_list <<< "$2"
+                    shift 2
+                fi
                 ;;
             * )
                 echo "[!!] error: unknown option '$1' !!!"
