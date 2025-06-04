@@ -10,6 +10,7 @@
 
 
 ## global variables
+HOST=$(hostnamectl hostname)
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
 PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
@@ -26,11 +27,32 @@ _init () {
 }
 
 _check () {
-    echo && echo "[::] info: checking requirements ..."
+    echo && echo "[::] checking requirements ..."
+
     if [[ -z $(command -v paru) ]]; then
+        echo "[>>](paru) check: passed !!!"
+    else
+        echo "[>>](paru) check: failed !!!"
         echo && echo "[!!] error: 'paru' is not installed !!!"
         exit 1
     fi
+
+    if [[ "$USER" == "akileshas" ]]; then
+        echo "[>>](user) check: passed !!!"
+    else
+        echo "[>>](user) check: failed !!!"
+        echo && echo "[!!] error: user must be 'akileshas' (got: '$USER')"
+        exit 1
+    fi
+
+    if [[ "$HOST" == "ASA" ]]; then
+        echo "[>>](host) check: passed !!!"
+    else
+        echo "[>>](host) check: failed !!!"
+        echo && echo "[!!] error: host must be 'ASA' (got: '$HOST')"
+        exit 1
+    fi
+
     echo "[::] info: checking requirements ... done."
 }
 
@@ -46,6 +68,9 @@ _setup () {
 _main () {
     case "$1" in
         "" )
+            _init
+            ;;
+        --init )
             _init
             ;;
         --check )
