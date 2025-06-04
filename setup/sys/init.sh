@@ -2,7 +2,7 @@
 
 
 
-#! autor            => akileshas
+#! author           => akileshas
 #! created on       => 04-06-2025
 #! last modified on => 04-06-2025
 #! description      => my system (akileshas@ASA) setup script
@@ -71,8 +71,8 @@ _setup () {
 
     echo
     echo "[#!](akileshas@ASA) info: setting up my system ..."
-    _install "$FONTS_FILE_PATH" "fonts"
-    _install  "$PKGS_FILE_PATH" "packages"
+    __install "$FONTS_FILE_PATH" "fonts"
+    __install  "$PKGS_FILE_PATH" "packages"
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
 }
@@ -98,7 +98,7 @@ _main () {
 }
 
 ## helper functions
-_install () {
+__install () {
     local file_path="$1"
     local type="$2"
 
