@@ -18,20 +18,23 @@ _install() {
     local file_path="$1"
     local type="$2"
 
-    [[ -f "$file_path" ]] || return
+    if [[ ! -f "$file_path" ]]; then
+        echo && echo "[~!] warn: skipping $type install — file not found: $file_path"
+        return
+    fi
 
-    echo && echo "[::] installing ${type} ..."
+    echo && echo "[::] info: installing ${type} ..."
     mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
     [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
     [[ "$type" == "fonts" ]] && sudo fc-cache -fv
-    echo "[::] installing ${type} ... done."
+    echo "[::] info: installing ${type} ... done."
 }
 
 ## obtaining `sudo` privileges access
 sudo -v
 
 ## starting the installation script
-echo && echo "[#!](akileshas@ASA) setting up my system ..."
+echo && echo "[#!](akileshas@ASA) info: setting up my system ..."
 
 ## checking if `paru` is installed
 if [[ -z $(command -v paru) ]]; then
@@ -40,10 +43,10 @@ if [[ -z $(command -v paru) ]]; then
 fi
 
 ## updating and synchronizing the system
-echo && echo "[::] updating and synchronizing the system ..."
+echo && echo "[::] info: updating and synchronizing the system ..."
 sudo pacman -Syu --noconfirm
 paru -Syu --noconfirm
-echo "[::] updating and synchronizing the system ... done."
+echo "[::] info: updating and synchronizing the system ... done."
 
 ## installing the required fonts
 _install "$FONTS_FILE_PATH" "fonts"
@@ -51,4 +54,4 @@ _install "$FONTS_FILE_PATH" "fonts"
 ## installing the required packages
 _install  "$PKGS_FILE_PATH" "packages"
 
-echo && echo "[#!](akileshas@ASA) setting up my system ... done. ;)"
+echo && echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
