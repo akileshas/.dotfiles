@@ -9,9 +9,22 @@
 
 
 
-## declaring the global variables
+## global variables
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
 PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
+
+## global functions
+_init() {
+    if [[ -z $(command -v paru) ]]; then
+        echo && echo "[!!] error: 'paru' is not installed !!!"
+        exit 1
+    fi
+
+    echo && echo "[::] info: updating and synchronizing the system ..."
+    sudo pacman -Syu --noconfirm
+    paru -Syu --noconfirm
+    echo "[::] info: updating and synchronizing the system ... done."
+}
 
 ## helper functions
 _install() {
@@ -35,18 +48,6 @@ sudo -v
 
 ## starting the installation script
 echo && echo "[#!](akileshas@ASA) info: setting up my system ..."
-
-## checking if `paru` is installed
-if [[ -z $(command -v paru) ]]; then
-    echo && echo "[!!] error: 'paru' is not installed !!!"
-    exit 1
-fi
-
-## updating and synchronizing the system
-echo && echo "[::] info: updating and synchronizing the system ..."
-sudo pacman -Syu --noconfirm
-paru -Syu --noconfirm
-echo "[::] info: updating and synchronizing the system ... done."
 
 ## installing the required fonts
 _install "$FONTS_FILE_PATH" "fonts"
