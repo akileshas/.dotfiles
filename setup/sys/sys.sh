@@ -91,7 +91,28 @@ PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 _init () {
     sudo -v
 
-    _check
+    local check_args=()
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --check-exclude )
+                if [[ -z "$2" || "$2" == --* ]]; then
+                    check_args+=( --exclude )
+                    shift
+                else
+                    check_args+=( --exclude "$2" )
+                    shift 2
+                fi
+                ;;
+            * )
+                echo "[!!] error: unknown option '$1'"
+                echo
+                exit 1
+                ;;
+        esac
+    done
+
+    _check "${check_args[@]}"
     _sync
 }
 
@@ -214,7 +235,8 @@ _main () {
             _init
             ;;
         --init )
-            _init
+            shift
+            _init "$@"
             ;;
         --sync )
             _sync
