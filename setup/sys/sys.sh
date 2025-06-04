@@ -71,6 +71,17 @@ __link () {
     echo
 }
 
+__is_excluded () {
+    local item="$1"
+    shift
+
+    for excluded in "$@"; do
+        [[ "$excluded" == "$item" ]] && return 0
+    done
+
+    return 1
+}
+
 ## global variables
 HOST=$(hostnamectl hostname)
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
@@ -88,31 +99,59 @@ _check () {
     echo
     echo "[::] info: checking requirements ..."
 
-    if [[ -n $(command -v paru) ]]; then
-        echo "[>>](paru) check: passed !!!"
+    local exclude_list=()
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --exclude )
+                IFS=',' read -ra exclude_list <<< "$2"
+                shift 2
+                ;;
+            * )
+                echo "[!!] error: unknown option '$1' !!!"
+                echo
+                exit 1
+                ;;
+        esac
+    done
+
+    if __is_excluded "paru" "${exclude_list[@]}"; then
+        echo "[::](paru) check: excluded !!!"
     else
-        echo "[>>](paru) check: failed !!!"
-        echo "[!!] error: 'paru' is not installed !!!"
-        echo
-        exit 1
+        if [[ -n $(command -v paru) ]]; then
+            echo "[>>](paru) check: passed !!!"
+        else
+            echo "[>>](paru) check: failed !!!"
+            echo "[!!] error: 'paru' is not installed !!!"
+            echo
+            exit 1
+        fi
     fi
 
-    if [[ "$USER" == "akileshas" ]]; then
-        echo "[>>](user) check: passed !!!"
+    if __is_excluded "user" "${exclude_list[@]}"; then
+        echo "[::](user) check: excluded !!!"
     else
-        echo "[>>](user) check: failed !!!"
-        echo "[!!] error: user must be 'akileshas' (got: '$USER')"
-        echo
-        exit 1
+        if [[ "$USER" == "akileshas" ]]; then
+            echo "[>>](user) check: passed !!!"
+        else
+            echo "[>>](user) check: failed !!!"
+            echo "[!!] error: user must be 'akileshas' (got: '$USER') !!!"
+            echo
+            exit 1
+        fi
     fi
 
-    if [[ "$HOST" == "ASA" ]]; then
-        echo "[>>](host) check: passed !!!"
+    if __is_excluded "host" "${exclude_list[@]}"; then
+        echo "[::](host) check: excluded !!!"
     else
-        echo "[>>](host) check: failed !!!"
-        echo "[!!] error: host must be 'ASA' (got: '$HOST')"
-        echo
-        exit 1
+        if [[ "$HOST" == "ASA" ]]; then
+            echo "[>>](host) check: passed !!!"
+        else
+            echo "[>>](host) check: failed !!!"
+            echo "[!!] error: host must be 'ASA' (got: '$HOST') !!!"
+            echo
+            exit 1
+        fi
     fi
 
     echo "[::] info: checking requirements ... done."
@@ -180,6 +219,11 @@ _main () {
             ;;
         --setup )
             _setup
+            ;;
+        * )
+            echo "[!!] error: unknown option '$1' !!!"
+            echo
+            exit 1
             ;;
     esac
 }
