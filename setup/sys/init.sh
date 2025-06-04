@@ -152,6 +152,7 @@ __link () {
         echo "[~!] warn: '${dst}' exists !!!"
         read -p "[::] info: remove ? [y/N] " confirm
         confirm="${confirm,,}"
+
         if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
             rm -rf "$dst"
             echo "[::] info: removed '${dst}' !!!"
