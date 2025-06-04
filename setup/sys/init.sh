@@ -16,24 +16,22 @@ PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
 ## global functions
 _init () {
-    _check
-
-    echo && echo "[::] info: updating and synchronizing the system ..."
-    sudo pacman -Syu --noconfirm
-    paru -Syu --noconfirm
-    echo "[::] info: updating and synchronizing the system ... done."
-
     sudo -v
+
+    _check
+    _sync
 }
 
 _check () {
-    echo && echo "[::] checking requirements ..."
+    echo
+    echo "[::] checking requirements ..."
 
     if [[ -n $(command -v paru) ]]; then
         echo "[>>](paru) check: passed !!!"
     else
         echo "[>>](paru) check: failed !!!"
-        echo && echo "[!!] error: 'paru' is not installed !!!"
+        echo "[!!] error: 'paru' is not installed !!!"
+        echo
         exit 1
     fi
 
@@ -41,7 +39,8 @@ _check () {
         echo "[>>](user) check: passed !!!"
     else
         echo "[>>](user) check: failed !!!"
-        echo && echo "[!!] error: user must be 'akileshas' (got: '$USER')"
+        echo "[!!] error: user must be 'akileshas' (got: '$USER')"
+        echo
         exit 1
     fi
 
@@ -49,20 +48,33 @@ _check () {
         echo "[>>](host) check: passed !!!"
     else
         echo "[>>](host) check: failed !!!"
-        echo && echo "[!!] error: host must be 'ASA' (got: '$HOST')"
+        echo "[!!] error: host must be 'ASA' (got: '$HOST')"
+        echo
         exit 1
     fi
 
     echo "[::] info: checking requirements ... done."
+    echo
+}
+
+_sync () {
+    echo
+    echo "[::] info: updating and synchronizing the system ..."
+    sudo pacman -Syu --noconfirm
+    paru -Syu --noconfirm
+    echo "[::] info: updating and synchronizing the system ... done."
+    echo
 }
 
 _setup () {
     _init
 
-    echo && echo "[#!](akileshas@ASA) info: setting up my system ..."
+    echo
+    echo "[#!](akileshas@ASA) info: setting up my system ..."
     _install "$FONTS_FILE_PATH" "fonts"
     _install  "$PKGS_FILE_PATH" "packages"
-    echo && echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
+    echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
+    echo
 }
 
 _main () {
@@ -72,6 +84,9 @@ _main () {
             ;;
         --init )
             _init
+            ;;
+        --sync )
+            _sync
             ;;
         --check )
             _check
@@ -88,15 +103,19 @@ _install () {
     local type="$2"
 
     if [[ ! -f "$file_path" ]]; then
-        echo && echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
+        echo
+        echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
+        echo
         return
     fi
 
-    echo && echo "[::] info: installing ${type} ..."
+    echo
+    echo "[::] info: installing ${type} ..."
     mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
     [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
     [[ "$type" == "fonts" ]] && sudo fc-cache -fv
     echo "[::] info: installing ${type} ... done."
+    echo
 }
 
 ## script entry
