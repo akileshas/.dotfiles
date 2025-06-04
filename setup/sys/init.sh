@@ -88,7 +88,7 @@ _install () {
     local type="$2"
 
     if [[ ! -f "$file_path" ]]; then
-        echo && echo "[~!] warn: skipping $type install — file not found: $file_path"
+        echo && echo "[~!] warn: skipping $type install — file not found: $file_path !!!"
         return
     fi
 
