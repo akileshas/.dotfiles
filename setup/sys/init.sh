@@ -10,7 +10,8 @@
 
 
 ## declaring the global variables
-FILE_PATH="/home/$USER/.dotfiles/setup/sys/pkglist/pkgs.txt"
+FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
+PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
 ## obtaining `sudo` privileges access
 sudo -v
@@ -30,10 +31,21 @@ sudo pacman -Syu --noconfirm
 paru -Syu --noconfirm
 echo "[::] updating and synchronizing the system ... done."
 
+## installing the required fonts
+if [[ -f "$FONTS_FILE_PATH" ]]; then
+    echo && echo "[::] installing the required fonts ..."
+    mapfile -t fonts < <(grep -vE '^\s*#|^\s*$' "$FONTS_FILE_PATH")
+    if [[ ${#fonts[@]} -gt 0 ]]; then
+        paru -S --noconfirm "${fonts[@]}"
+    fi
+    sudo fc-cache -fv
+    echo "[::] installing the required fonts ... done."
+fi
+
 ## installing the required packages
-if [[ -f "$FILE_PATH" ]]; then
+if [[ -f "$PKGS_FILE_PATH" ]]; then
     echo && echo "[::] installing the required packages ..."
-    mapfile -t pkgs < <(grep -vE '^\s*#|^\s*$' "$FILE_PATH")
+    mapfile -t pkgs < <(grep -vE '^\s*#|^\s*$' "$PKGS_FILE_PATH")
     if [[ ${#pkgs[@]} -gt 0 ]]; then
         paru -S --noconfirm "${pkgs[@]}"
     fi
