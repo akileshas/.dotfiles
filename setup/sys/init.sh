@@ -71,10 +71,18 @@ _setup () {
 
     echo
     echo "[#!](akileshas@ASA) info: setting up my system ..."
+
     __install "$FONTS_FILE_PATH" "fonts"
     __install  "$PKGS_FILE_PATH" "packages"
     __activate "bluetooth"
     __activate "paccache.timer"
+
+    echo
+    echo "[::] info: updating grub ..."
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    echo "[::] info: updating grub ... done."
+    echo
+
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
 }
