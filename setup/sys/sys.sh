@@ -52,7 +52,7 @@ __link () {
 
     if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
         echo "[~!] warn: '${dst}' exists !!!"
-        read -p "[::] info: remove it ? [y/N] " confirm
+        read -rp "[::] info: remove it ? [y/N] " confirm
         confirm="${confirm,,}"
 
         if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
