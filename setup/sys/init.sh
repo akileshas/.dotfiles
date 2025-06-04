@@ -13,6 +13,20 @@
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
 PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
 
+## helper functions
+_install() {
+    local file_path="$1"
+    local type="$2"
+
+    [[ -f "$file_path" ]] || return
+
+    echo && echo "[::] installing ${type} ..."
+    mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
+    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
+    [[ "$type" == "fonts" ]] && sudo fc-cache -fv
+    echo "[::] installing ${type} ... done."
+}
+
 ## obtaining `sudo` privileges access
 sudo -v
 
@@ -32,24 +46,9 @@ paru -Syu --noconfirm
 echo "[::] updating and synchronizing the system ... done."
 
 ## installing the required fonts
-if [[ -f "$FONTS_FILE_PATH" ]]; then
-    echo && echo "[::] installing the required fonts ..."
-    mapfile -t fonts < <(grep -vE '^\s*#|^\s*$' "$FONTS_FILE_PATH")
-    if [[ ${#fonts[@]} -gt 0 ]]; then
-        paru -S --noconfirm "${fonts[@]}"
-    fi
-    sudo fc-cache -fv
-    echo "[::] installing the required fonts ... done."
-fi
+_install "$FONTS_FILE_PATH" "fonts"
 
 ## installing the required packages
-if [[ -f "$PKGS_FILE_PATH" ]]; then
-    echo && echo "[::] installing the required packages ..."
-    mapfile -t pkgs < <(grep -vE '^\s*#|^\s*$' "$PKGS_FILE_PATH")
-    if [[ ${#pkgs[@]} -gt 0 ]]; then
-        paru -S --noconfirm "${pkgs[@]}"
-    fi
-    echo "[::] installing the required packages ... done."
-fi
+_install  "$PKGS_FILE_PATH" "packages"
 
 echo && echo "[#!](akileshas@ASA) setting up my system ... done. ;)"
