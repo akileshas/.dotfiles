@@ -204,6 +204,38 @@ _sync () {
     echo
 }
 
+_pre () {
+    echo
+    echo "[#!](akileshas@ASA) info: preparing my system ..."
+
+    echo
+    echo "[::] info: creating directories ..."
+    mkdir -p ~/personal \
+            ~/work \
+            ~/work/dev \
+            ~/documents \
+            ~/documents/books \
+            ~/documents/papers \
+            ~/downloads \
+            ~/repos \
+            ~/images \
+            ~/images/screenshots \
+            ~/videos \
+            ~/videos/obs \
+            ~/tmp
+    echo "[::] info: creating directories ... done."
+    echo
+
+    echo
+    echo "[::] info: creating files ..."
+    touch ~/.bash_keys
+    echo "[::] info: creating files ... done."
+    echo
+
+    echo "[#!](akileshas@ASA) info: preparing my system ... done."
+    echo
+}
+
 _setup () {
     _init
 
