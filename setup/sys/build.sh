@@ -36,8 +36,10 @@ __activate () {
     echo
     echo "[::] info: activating $service ..."
     [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
+    [[ "$service" == "ufw" ]] && sudo ufw enable
     sudo systemctl enable --now "$service"
     sudo systemctl start --now "$service"
+    [[ "$service" == "ufw" ]] && sudo ufw status verbose
     echo "[::] info: activating $service ... done."
     echo
 }
@@ -275,6 +277,26 @@ _setup () {
     echo
 }
 
+_post () {
+    _init
+
+    echo
+    echo "[#!](akileshas@ASA) info: finalizing my system ..."
+
+    __install "$POST_PKGS_FILE_PATH" "packages"
+    __activate "ufw"
+
+    echo
+    echo "[::] info: setting rust environment ..."
+    rustup default stable
+    rustup update
+    echo "[::] info: setting rust environment ... done."
+    echo
+
+    echo "[#!](akileshas@ASA) info: finalizing my system ... done. ;)"
+    echo
+}
+
 _main () {
     case "$1" in
         "" )
@@ -296,6 +318,9 @@ _main () {
             ;;
         --setup )
             _setup
+            ;;
+        --post )
+            _post
             ;;
         * )
             echo "[!!] error: unknown option '$1' !!!"
