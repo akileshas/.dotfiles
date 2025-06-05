@@ -99,14 +99,10 @@ _init () {
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --check-exclude )
-                if [[ -z "$2" || "$2" == --* ]]; then
-                    check_args+=( --exclude )
-                    shift
-                else
-                    check_args+=( --exclude "$2" )
-                    shift 2
-                fi
+            --check-exclude=* )
+                value="${1#--check-exclude=}"
+                check_args+=( "--exclude=${value}" )
+                shift
                 ;;
             --skip-sync )
                 skip_sync=1
@@ -138,14 +134,14 @@ _check () {
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --exclude )
-                if [[ -z "$2" || "$2" == --* ]]; then
-                    exclude_list=()
-                    shift
+            --exclude=* )
+                value="${1#--exclude=}"
+                if [[ -n "$value" ]]; then
+                    IFS=',' read -ra exclude_list <<< "$value"
                 else
-                    IFS=',' read -ra exclude_list <<< "$2"
-                    shift 2
+                    exclude_list=()
                 fi
+                shift
                 ;;
             * )
                 echo "[!!] error: unknown option '$1' !!!"
@@ -208,7 +204,7 @@ _sync () {
 }
 
 _pre () {
-    _init --check-exclude host
+    _init --check-exclude=host
 
     echo
     echo "[#!](akileshas@ASA) info: preparing my system ..."
