@@ -321,6 +321,7 @@ _main () {
     case "$1" in
         --help | -h )
             _usage
+            shift
             exit 0
             ;;
     esac
