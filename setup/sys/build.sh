@@ -110,7 +110,7 @@ _init () {
                 shift
                 ;;
             * )
-                echo "[!!] error: unknown option '$1'"
+                echo "[!!] error: unknown option '$1' !!!"
                 echo
                 exit 1
                 ;;
