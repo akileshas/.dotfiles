@@ -106,9 +106,14 @@ _init () {
 
     local check_args=()
     local skip_sync=0
+    local skip_check=0
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
+            --skip-check )
+                skip_check=1
+                shift
+                ;;
             --check-exclude=* )
                 value="${1#--check-exclude=}"
                 check_args+=( "--exclude=${value}" )
@@ -127,7 +132,13 @@ _init () {
         esac
     done
 
-    _check "${check_args[@]}"
+    if [[ $skip_check -eq 0 ]]; then
+        _check "${check_args[@]}"
+    else
+        echo
+        echo "[::] info: skipping check !!!"
+        echo
+    fi
 
     if [[ $skip_sync -eq 0 ]]; then
         _sync
