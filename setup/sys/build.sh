@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 
@@ -301,27 +301,27 @@ _main () {
         "" )
             _init
             ;;
-        --init )
+        init )
             shift
             _init "$@"
             ;;
-        --sync )
+        sync )
             _sync
             shift
             ;;
-        --check )
+        check )
             shift
             _check "$@"
             ;;
-        --pre )
+        pre )
             _pre
             shift
             ;;
-        --setup )
+        setup )
             _setup
             shift
             ;;
-        --post )
+        post )
             _post
             shift
             ;;
