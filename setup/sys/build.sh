@@ -298,6 +298,9 @@ _post () {
 }
 
 _main () {
+    echo
+    echo "[\$_] info: building the system ..."
+
     case "$1" in
         "" )
             _init
@@ -308,6 +311,7 @@ _main () {
             ;;
         --sync )
             _sync
+            shift
             ;;
         --check )
             shift
@@ -315,12 +319,15 @@ _main () {
             ;;
         --pre )
             _pre
+            shift
             ;;
         --setup )
             _setup
+            shift
             ;;
         --post )
             _post
+            shift
             ;;
         * )
             echo "[!!] error: unknown option '$1' !!!"
@@ -328,6 +335,9 @@ _main () {
             exit 1
             ;;
     esac
+
+    echo "[\$_] info: building the system ... done. [ʘ‿ʘ]"
+    echo
 }
 
 ## script entry
