@@ -248,7 +248,7 @@ _setup () {
     echo "[#!](akileshas@ASA) info: setting up my system ..."
 
     __install "$FONTS_FILE_PATH" "fonts"
-    __install  "$BASE_PKGS_FILE_PATH" "packages"
+    __install  "$BASE_PKGS_FILE_PATH" "base packages"
     __activate "bluetooth"
     __activate "paccache.timer"
 
@@ -283,7 +283,7 @@ _post () {
     echo
     echo "[#!](akileshas@ASA) info: finalizing my system ..."
 
-    __install "$POST_PKGS_FILE_PATH" "packages"
+    __install "$POST_PKGS_FILE_PATH" "post packages"
     __activate "ufw"
 
     echo
