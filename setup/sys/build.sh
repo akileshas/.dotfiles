@@ -369,30 +369,37 @@ _main () {
     case "$1" in
         "" )
             _init
+            exit 0
             ;;
         init )
             shift
             _init "$@"
+            exit 0
             ;;
         sync )
             _sync
             shift
+            exit 0
             ;;
         check )
             shift
             _check "$@"
+            exit 0
             ;;
         pre )
             _pre
             shift
+            exit 0
             ;;
         setup )
             _setup
             shift
+            exit 0
             ;;
         post )
             _post
             shift
+            exit 0
             ;;
         * )
             echo "[!!] error: unknown option '$1' !!!"
