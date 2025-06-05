@@ -111,6 +111,7 @@ _init () {
             * )
                 echo "[!!] error: unknown option '$1' !!!"
                 echo
+                shift
                 exit 1
                 ;;
         esac
@@ -146,6 +147,7 @@ _check () {
             * )
                 echo "[!!] error: unknown option '$1' !!!"
                 echo
+                shift
                 exit 1
                 ;;
         esac
@@ -360,6 +362,7 @@ _main () {
         * )
             echo "[!!] error: unknown option '$1' !!!"
             echo
+            shift
             exit 1
             ;;
     esac
