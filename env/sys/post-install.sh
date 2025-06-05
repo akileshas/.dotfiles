@@ -3,19 +3,6 @@
 # starting the post-installation script
 echo "Post-Installing the required packages for my system..."
 
-# checking if `paru` is installed
-if ! command -v paru &>/dev/null; then
-    echo
-    echo "Error: 'paru' is not installed"
-    echo "Please install 'paru' and run the script again"
-    exit 1
-fi
-
-# updating and syncing the system
-echo && echo "Updating and Syncing the system..."
-sudo pacman -Syu
-paru -Syu
-
 # path to requirements file
 file_path="/home/$USER/.dotfiles/env/sys/post-requirements.txt"
 
