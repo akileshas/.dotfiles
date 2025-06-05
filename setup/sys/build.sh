@@ -123,6 +123,7 @@ _init () {
         _sync
     else
         echo "[::] info: skipping system synchronization !!!"
+        echo
     fi
 }
 
