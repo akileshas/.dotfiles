@@ -10,6 +10,20 @@
 
 
 ## helper functions
+__activate () {
+    local service="$1"
+
+    echo
+    echo "[::] info: activating $service ..."
+    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
+    [[ "$service" == "ufw" ]] && sudo ufw enable
+    sudo systemctl enable --now "$service"
+    sudo systemctl start --now "$service"
+    [[ "$service" == "ufw" ]] && sudo ufw status verbose
+    echo "[::] info: activating $service ... done."
+    echo
+}
+
 __install () {
     local file_path="$1"
     local type="$2"
@@ -30,18 +44,15 @@ __install () {
     echo
 }
 
-__activate () {
-    local service="$1"
+__is_excluded () {
+    local item="$1"
+    shift
 
-    echo
-    echo "[::] info: activating $service ..."
-    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
-    [[ "$service" == "ufw" ]] && sudo ufw enable
-    sudo systemctl enable --now "$service"
-    sudo systemctl start --now "$service"
-    [[ "$service" == "ufw" ]] && sudo ufw status verbose
-    echo "[::] info: activating $service ... done."
-    echo
+    for excluded in "$@"; do
+        [[ "$excluded" == "$item" ]] && return 0
+    done
+
+    return 1
 }
 
 __link () {
@@ -71,17 +82,6 @@ __link () {
 
     echo "[::] info: linking '${dst##*/}' config ... done."
     echo
-}
-
-__is_excluded () {
-    local item="$1"
-    shift
-
-    for excluded in "$@"; do
-        [[ "$excluded" == "$item" ]] && return 0
-    done
-
-    return 1
 }
 
 __ping () {
