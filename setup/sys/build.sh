@@ -334,7 +334,7 @@ _usage () {
     echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
     echo "      --skip-sync             skip system sync step."
     echo "  sync                        sync system time and update mirrors/packages."
-    echo "  check [options]             run pre-flight checks (paru, user, host)."
+    echo "  check [options]             run pre-flight checks (paru, user, host, ping)."
     echo "      --exclude=items         exclude checks (comma-separated: paru,user,host)."
     echo "  pre                         pre-install setup (e.g. enabling services)."
     echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
