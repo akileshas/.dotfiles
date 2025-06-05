@@ -84,6 +84,16 @@ __is_excluded () {
     return 1
 }
 
+__ping () {
+    local host="$1"
+
+    if ping -c 1 -W 1 "$host" &> /dev/null; then
+        echo "reached"
+    else
+        echo "unreached"
+    fi
+}
+
 ## global variables
 HOST=$(hostnamectl hostname)
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.pkgs"
@@ -187,6 +197,19 @@ _check () {
         else
             echo "[>>](host) check: failed !!!"
             echo "[!!] error: host must be 'ASA' (got: '$HOST') !!!"
+            echo
+            exit 1
+        fi
+    fi
+
+    if __is_excluded "ping" "${exclude_list[@]}"; then
+        echo "[::](ping) check: excluded !!!"
+    else
+        if [[ $(__ping "archlinux.org") == "reached" ]]; then
+            echo "[>>](ping) check: passed !!!"
+        else
+            echo "[>>](ping) check: failed !!!"
+            echo "[!!] error: disconnected !!!"
             echo
             exit 1
         fi
