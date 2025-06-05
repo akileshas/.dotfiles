@@ -234,7 +234,7 @@ _pre () {
     echo "[::] info: creating files ... done."
     echo
 
-    echo "[#!](akileshas@ASA) info: preparing my system ... done."
+    echo "[#!](akileshas@ASA) info: preparing my system ... done. ;)"
     echo
 }
 
