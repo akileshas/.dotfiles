@@ -85,7 +85,7 @@ __is_excluded () {
 ## global variables
 HOST=$(hostnamectl hostname)
 FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.txt"
-PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/pkgs.txt"
+BASE_PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/base.pkgs"
 
 ## global functions
 _init () {
@@ -245,7 +245,7 @@ _setup () {
     echo "[#!](akileshas@ASA) info: setting up my system ..."
 
     __install "$FONTS_FILE_PATH" "fonts"
-    __install  "$PKGS_FILE_PATH" "packages"
+    __install  "$BASE_PKGS_FILE_PATH" "packages"
     __activate "bluetooth"
     __activate "paccache.timer"
 

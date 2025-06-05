@@ -1,3 +1,0 @@
-kitty
-neovim
-intel-ucode
