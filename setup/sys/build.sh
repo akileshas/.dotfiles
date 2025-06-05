@@ -343,6 +343,7 @@ _usage () {
     echo "commands:"
     echo "  init [options]              initialize system (runs checks and optionally syncs)."
     echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
+    echo "      --skip-check            skip checks step."
     echo "      --skip-sync             skip system sync step."
     echo "  sync                        sync system time and update mirrors/packages."
     echo "  check [options]             run pre-flight checks (paru, user, host, ping)."
