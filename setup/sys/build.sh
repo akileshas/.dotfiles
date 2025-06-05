@@ -105,18 +105,18 @@ _init () {
     sudo -v
 
     local check_args=()
-    local skip_sync=0
     local skip_check=0
+    local skip_sync=0
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
-            --skip-check )
-                skip_check=1
-                shift
-                ;;
             --check-exclude=* )
                 value="${1#--check-exclude=}"
                 check_args+=( "--exclude=${value}" )
+                shift
+                ;;
+            --skip-check )
+                skip_check=1
                 shift
                 ;;
             --skip-sync )
@@ -137,7 +137,7 @@ _init () {
     else
         echo
         echo "[::] info: skipping check !!!"
-        echo
+        [[ $skip_sync -eq 1 ]] && echo
     fi
 
     if [[ $skip_sync -eq 0 ]]; then
@@ -187,19 +187,6 @@ _check () {
         fi
     fi
 
-    if __is_excluded "user" "${exclude_list[@]}"; then
-        echo "[::](user) check: excluded !!!"
-    else
-        if [[ "$USER" == "akileshas" ]]; then
-            echo "[>>](user) check: passed !!!"
-        else
-            echo "[>>](user) check: failed !!!"
-            echo "[!!] error: user must be 'akileshas' (got: '$USER') !!!"
-            echo
-            exit 1
-        fi
-    fi
-
     if __is_excluded "host" "${exclude_list[@]}"; then
         echo "[::](host) check: excluded !!!"
     else
@@ -208,6 +195,19 @@ _check () {
         else
             echo "[>>](host) check: failed !!!"
             echo "[!!] error: host must be 'ASA' (got: '$HOST') !!!"
+            echo
+            exit 1
+        fi
+    fi
+
+    if __is_excluded "user" "${exclude_list[@]}"; then
+        echo "[::](user) check: excluded !!!"
+    else
+        if [[ "$USER" == "akileshas" ]]; then
+            echo "[>>](user) check: passed !!!"
+        else
+            echo "[>>](user) check: failed !!!"
+            echo "[!!] error: user must be 'akileshas' (got: '$USER') !!!"
             echo
             exit 1
         fi
@@ -284,12 +284,6 @@ _setup () {
     __activate "bluetooth"
     __activate "paccache.timer"
 
-    echo
-    echo "[::] info: updating grub ..."
-    sudo grub-mkconfig -o /boot/grub/grub.cfg
-    echo "[::] info: updating grub ... done."
-    echo
-
     __link ~/.dotfiles/i3 ~/.config/i3 "dir"
     __link ~/.dotfiles/kitty ~/.config/kitty "dir"
     __link ~/.dotfiles/lazygit ~/.config/lazygit "dir"
@@ -304,6 +298,12 @@ _setup () {
     for v in 2.0 3.0 4.0; do
         __link ~/.dotfiles/gtk/gtk-$v ~/.config/gtk-$v "dir"
     done
+
+    echo
+    echo "[::] info: updating grub ..."
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    echo "[::] info: updating grub ... done."
+    echo
 
     echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
     echo
