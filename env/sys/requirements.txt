@@ -46,7 +46,6 @@ perl-image-exiftool
 navi
 procs
 dust
-broot
 mc
 asciinema
 tree-sitter

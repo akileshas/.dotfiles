@@ -91,9 +91,6 @@ if command -v /bin/fzf &>/dev/null; then
     eval "$(fzf --bash)"
 fi
 
-# Source the `broot` shell script
-validate_source ~/.config/broot/launcher/bash/br
-
 ### --- Activating some features of the `bash` shell --- ###
 
 # Enable the `extglob` shell option

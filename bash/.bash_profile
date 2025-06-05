@@ -13,11 +13,6 @@ fi
 export QT_STYLE_OVERRIDE=fusion
 export QT_QPA_PLATFORMTHEME=qt6ct
 
-# Sourcing the `broot` shell script
-if [ -f /home/akileshas/.config/broot/launcher/bash/br ]; then
-    source /home/akileshas/.config/broot/launcher/bash/br
-fi
-
 #################################################
 #                      END                      #
 #################################################
