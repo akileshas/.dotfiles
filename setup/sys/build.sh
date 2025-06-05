@@ -69,7 +69,7 @@ __link () {
 
     ln -s "$src" "$dst"
 
-    echo "[::] info: linking ${dst##*/} ... done."
+    echo "[::] info: linking '${dst##*/}' config ... done."
     echo
 }
 
@@ -345,9 +345,9 @@ _usage () {
     echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
     echo "      --skip-check            skip checks step."
     echo "      --skip-sync             skip system sync step."
-    echo "  sync                        sync system time and update mirrors/packages."
     echo "  check [options]             run pre-flight checks (paru, user, host, ping)."
     echo "      --exclude=items         exclude checks (comma-separated: paru,user,host)."
+    echo "  sync                        sync system time and update mirrors/packages."
     echo "  pre                         pre-install setup (e.g. enabling services)."
     echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
     echo "  post                        post-setup steps (e.g. enable services, cleanup)."
