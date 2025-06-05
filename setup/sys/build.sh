@@ -293,7 +293,38 @@ _post () {
     echo
 }
 
+_usage () {
+    echo
+    echo "'akileshas@ASA' system setup script"
+    echo
+    echo "usage:"
+    echo "  bash ./build.sh [options]"
+    echo "  bash ./build.sh [command] [options]"
+    echo
+    echo "options:"
+    echo "  -h, --help                  show help message."
+    echo
+    echo "commands:"
+    echo "  init [options]              initialize system (runs checks and optionally syncs)."
+    echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
+    echo "      --skip-sync             skip system sync step."
+    echo "  sync                        sync system time and update mirrors/packages."
+    echo "  check [options]             run pre-flight checks (paru, user, host)."
+    echo "      --exclude=items         exclude checks (comma-separated: paru,user,host)."
+    echo "  pre                         pre-install setup (e.g. enabling services)."
+    echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
+    echo "  post                        post-setup steps (e.g. enable services, cleanup)."
+    echo
+}
+
 _main () {
+    case "$1" in
+        --help | -h )
+            _usage
+            exit 0
+            ;;
+    esac
+
     echo
     echo "[\$_] info: building the system ..."
 
