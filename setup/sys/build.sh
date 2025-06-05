@@ -288,6 +288,9 @@ _main () {
             shift
             _check "$@"
             ;;
+        --pre )
+            _pre
+            ;;
         --setup )
             _setup
             ;;
