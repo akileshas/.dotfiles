@@ -287,6 +287,7 @@ _setup () {
     __link ~/.dotfiles/i3 ~/.config/i3 "dir"
     __link ~/.dotfiles/kitty ~/.config/kitty "dir"
     __link ~/.dotfiles/lazygit ~/.config/lazygit "dir"
+    __link ~/.dotfiles/mpv ~/.config/mpv "dir"
     __link ~/.dotfiles/rofi ~/.config/rofi "dir"
     __link ~/.dotfiles/starship ~/.config/starship "dir"
     __link ~/.dotfiles/bash/.bashrc ~/.bashrc "file"
