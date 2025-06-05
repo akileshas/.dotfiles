@@ -205,6 +205,8 @@ _sync () {
 }
 
 _pre () {
+    _init --check-exclude host
+
     echo
     echo "[#!](akileshas@ASA) info: preparing my system ..."
 
