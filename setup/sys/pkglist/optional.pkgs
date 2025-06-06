@@ -4,8 +4,8 @@ adwaita-icon-theme-legacy
 adwaita-qt4
 adwaita-qt5
 adwaita-qt6
+jdk17-openjdk
 qt5ct
 qt6ct
-jdk17-openjdk
-zed
 rsync
+zed
