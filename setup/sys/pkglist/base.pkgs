@@ -1,5 +1,5 @@
 advcpmv
-aic94xx-firmware
+# aic94xx-firmware
 aria2
 asciinema
 ast-firmware
@@ -153,7 +153,7 @@ ueberzugpp
 ufw
 unrar
 unzip
-upd72020x-fw
+# upd72020x-fw
 wd719x-firmware
 wget
 xclip
