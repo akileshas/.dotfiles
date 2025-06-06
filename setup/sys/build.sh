@@ -30,15 +30,20 @@ __install () {
 
     if [[ ! -f "${file_path}" ]]; then
         echo
-        echo "[~!] warn: skipping ${type} install — file not found: '${file_path}' !!!"
+        echo "[!!] error: file not found: '${file_path}' !!!"
+        echo "[!!] error: installing ${type} failed !!!"
         echo
-        return
+        exit 1
     fi
 
     echo
     echo "[::] info: installing ${type} ..."
     mapfile -t items < <(grep -vE "^\s*#|^\s*$" "${file_path}")
-    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
+    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}" || {
+        echo "[!!] error: installing ${type} failed !!!"
+        echo
+        exit 1
+    }
     [[ "${type}" == "fonts" ]] && sudo fc-cache -fv
     echo "[::] info: installing ${type} ... done."
     echo
@@ -66,7 +71,7 @@ __link () {
     if [[ -L "${dst}" && "$(readlink "${dst}")" == "${src}" ]]; then
         echo "[::] info: skipped linking '${dst}' config - already linked !!!."
         echo
-        return
+        return 0
     fi
 
     if [[ "${type}" == "dir" && -d "${dst}" ]] || [[ "${type}" == "file" && -f "${dst}" ]]; then
@@ -80,7 +85,7 @@ __link () {
         else
             echo "[::] info: skipped linking '${dst##*/}' config !!!"
             echo
-            return
+            return 0
         fi
     fi
 
