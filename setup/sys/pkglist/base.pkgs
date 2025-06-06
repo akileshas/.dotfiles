@@ -1,5 +1,6 @@
+#aic94xx-firmware
+#upd72020x-fw
 advcpmv
-# aic94xx-firmware
 aria2
 asciinema
 ast-firmware
@@ -153,13 +154,13 @@ ueberzugpp
 ufw
 unrar
 unzip
-# upd72020x-fw
 wd719x-firmware
 wget
 xclip
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdotool
+xorg-xinput
 xorg-xrandr
 xsel
 yarn
