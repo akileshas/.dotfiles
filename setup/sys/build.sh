@@ -11,71 +11,71 @@
 
 ## helper functions
 __activate () {
-    local service="$1"
+    local service="${1}"
 
     echo
-    echo "[::] info: activating $service ..."
-    [[ "$service" == "bluetooth" ]] && sudo modprobe btusb
-    [[ "$service" == "ufw" ]] && sudo ufw enable
-    sudo systemctl enable --now "$service"
-    sudo systemctl start --now "$service"
-    [[ "$service" == "ufw" ]] && sudo ufw status verbose
-    echo "[::] info: activating $service ... done."
+    echo "[::] info: activating ${service} ..."
+    [[ "${service}" == "bluetooth" ]] && sudo modprobe btusb
+    [[ "${service}" == "ufw" ]] && sudo ufw enable
+    sudo systemctl enable --now "${service}"
+    sudo systemctl start --now "${service}"
+    [[ "${service}" == "ufw" ]] && sudo ufw status verbose
+    echo "[::] info: activating ${service} ... done."
     echo
 }
 
 __install () {
-    local file_path="$1"
-    local type="$2"
+    local file_path="${1}"
+    local type="${2}"
 
-    if [[ ! -f "$file_path" ]]; then
+    if [[ ! -f "${file_path}" ]]; then
         echo
-        echo "[~!] warn: skipping $type install — file not found: '$file_path' !!!"
+        echo "[~!] warn: skipping ${type} install — file not found: '${file_path}' !!!"
         echo
         return
     fi
 
     echo
     echo "[::] info: installing ${type} ..."
-    mapfile -t items < <(grep -vE "^\s*#|^\s*$" "$file_path")
+    mapfile -t items < <(grep -vE "^\s*#|^\s*$" "${file_path}")
     [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}"
-    [[ "$type" == "fonts" ]] && sudo fc-cache -fv
+    [[ "${type}" == "fonts" ]] && sudo fc-cache -fv
     echo "[::] info: installing ${type} ... done."
     echo
 }
 
 __is_excluded () {
-    local item="$1"
+    local item="${1}"
     shift
 
     for excluded in "$@"; do
-        [[ "$excluded" == "$item" ]] && return 0
+        [[ "${excluded}" == "${item}" ]] && return 0
     done
 
     return 1
 }
 
 __link () {
-    local src="$1"
-    local dst="$2"
-    local type="$3"
+    local src="${1}"
+    local dst="${2}"
+    local type="${3}"
 
     echo
     echo "[::] info: linking '${dst##*/}' config ..."
 
-    if [[ -L "$dst" && "$(readlink "$dst")" == "$src" ]]; then
+    if [[ -L "${dst}" && "$(readlink "${dst}")" == "${src}" ]]; then
         echo "[::] info: skipped linking '${dst}' config - already linked !!!."
         echo
         return
     fi
 
-    if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
+    if [[ "${type}" == "dir" && -d "${dst}" ]] || [[ "${type}" == "file" && -f "${dst}" ]]; then
         echo "[~!] warn: '${dst}' config exists !!!"
         read -rp "[::] info: remove it ? [y/N] " confirm
         confirm="${confirm,,}"
 
-        if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
-            rm -rf "$dst"
+        if [[ "${confirm}" == "y" || "${confirm}" == "yes" ]]; then
+            rm -rf "${dst}"
             echo "[::] info: removed '${dst}' config !!!"
         else
             echo "[::] info: skipped linking '${dst##*/}' config !!!"
@@ -84,16 +84,16 @@ __link () {
         fi
     fi
 
-    ln -s "$src" "$dst"
+    ln -s "${src}" "${dst}"
 
     echo "[::] info: linking '${dst##*/}' config ... done."
     echo
 }
 
 __ping () {
-    local host="$1"
+    local host="${1}"
 
-    if ping -c 1 -W 1 "$host" &> /dev/null; then
+    if ping -c 1 -W 1 "${host}" &> /dev/null; then
         echo "reached"
     else
         echo "unreached"
@@ -102,9 +102,9 @@ __ping () {
 
 ## global variables
 HOST=$(hostnamectl hostname)
-FONTS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/fonts.pkgs"
-BASE_PKGS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/base.pkgs"
-POST_PKGS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/post.pkgs"
+FONTS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/fonts.pkgs"
+BASE_PKGS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/base.pkgs"
+POST_PKGS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/post.pkgs"
 
 ## global functions
 _init () {
@@ -115,10 +115,10 @@ _init () {
     local skip_sync=0
 
     while [[ $# -gt 0 ]]; do
-        case "$1" in
+        case "${1}" in
             --check-exclude=* )
                 value="${1#--check-exclude=}"
-                check_args+=( "--exclude=${value}" )
+                check_args+=("--exclude=${value}")
                 shift
                 ;;
             --skip-check )
@@ -130,7 +130,7 @@ _init () {
                 shift
                 ;;
             * )
-                echo "[!!] error: unknown option '$1' !!!"
+                echo "[!!] error: unknown option '${1}' !!!"
                 echo
                 shift
                 exit 1
@@ -138,15 +138,15 @@ _init () {
         esac
     done
 
-    if [[ $skip_check -eq 0 ]]; then
+    if [[ ${skip_check} -eq 0 ]]; then
         _check "${check_args[@]}"
     else
         echo
         echo "[::] info: skipping check !!!"
-        [[ $skip_sync -eq 1 ]] && echo
+        [[ ${skip_sync} -eq 1 ]] && echo
     fi
 
-    if [[ $skip_sync -eq 0 ]]; then
+    if [[ ${skip_sync} -eq 0 ]]; then
         _sync
     else
         echo "[::] info: skipping system synchronization !!!"
@@ -161,18 +161,18 @@ _check () {
     local exclude_list=()
 
     while [[ $# -gt 0 ]]; do
-        case "$1" in
+        case "${1}" in
             --exclude=* )
                 value="${1#--exclude=}"
-                if [[ -n "$value" ]]; then
-                    IFS=',' read -ra exclude_list <<< "$value"
+                if [[ -n "${value}" ]]; then
+                    IFS=',' read -ra exclude_list <<< "${value}"
                 else
                     exclude_list=()
                 fi
                 shift
                 ;;
             * )
-                echo "[!!] error: unknown option '$1' !!!"
+                echo "[!!] error: unknown option '${1}' !!!"
                 echo
                 shift
                 exit 1
@@ -196,11 +196,11 @@ _check () {
     if __is_excluded "host" "${exclude_list[@]}"; then
         echo "[::](host) check: excluded !!!"
     else
-        if [[ "$HOST" == "ASA" ]]; then
+        if [[ "${HOST}" == "ASA" ]]; then
             echo "[>>](host) check: passed !!!"
         else
             echo "[>>](host) check: failed !!!"
-            echo "[!!] error: host must be 'ASA' (got: '$HOST') !!!"
+            echo "[!!] error: host must be 'ASA' (got: '${HOST}') !!!"
             echo
             exit 1
         fi
@@ -209,11 +209,11 @@ _check () {
     if __is_excluded "user" "${exclude_list[@]}"; then
         echo "[::](user) check: excluded !!!"
     else
-        if [[ "$USER" == "akileshas" ]]; then
+        if [[ "${USER}" == "akileshas" ]]; then
             echo "[>>](user) check: passed !!!"
         else
             echo "[>>](user) check: failed !!!"
-            echo "[!!] error: user must be 'akileshas' (got: '$USER') !!!"
+            echo "[!!] error: user must be 'akileshas' (got: '${USER}') !!!"
             echo
             exit 1
         fi
@@ -285,8 +285,8 @@ _setup () {
     echo
     echo "[#!](akileshas@ASA) info: setting up my system ..."
 
-    __install "$FONTS_FILE_PATH" "fonts"
-    __install  "$BASE_PKGS_FILE_PATH" "base packages"
+    __install "${FONTS_FILE_PATH}" "fonts"
+    __install  "${BASE_PKGS_FILE_PATH}" "base packages"
     __activate "bluetooth"
     __activate "paccache.timer"
 
@@ -303,7 +303,7 @@ _setup () {
     __link ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
 
     for v in 2.0 3.0 4.0; do
-        __link ~/.dotfiles/gtk/gtk-$v ~/.config/gtk-$v "dir"
+        __link ~/.dotfiles/gtk/gtk-${v} ~/.config/gtk-${v} "dir"
     done
 
     echo
@@ -322,7 +322,7 @@ _post () {
     echo
     echo "[#!](akileshas@ASA) info: finalizing my system ..."
 
-    __install "$POST_PKGS_FILE_PATH" "post packages"
+    __install "${POST_PKGS_FILE_PATH}" "post packages"
     __activate "ufw"
 
     echo
@@ -362,7 +362,7 @@ _usage () {
 }
 
 _main () {
-    case "$1" in
+    case "${1}" in
         --help | -h )
             _usage
             shift
@@ -373,7 +373,7 @@ _main () {
     echo
     echo "[\$_] info: building the system ..."
 
-    case "$1" in
+    case "${1}" in
         "" )
             _init
             exit 0
@@ -409,7 +409,7 @@ _main () {
             exit 0
             ;;
         * )
-            echo "[!!] error: unknown option '$1' !!!"
+            echo "[!!] error: unknown option '${1}' !!!"
             echo
             shift
             exit 1
