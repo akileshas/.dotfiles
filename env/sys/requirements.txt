@@ -1,12 +1,3 @@
-i2c-tools
-libqalculate
-qalculate-gtk
-scc
-cloc
-bottom
-bandwhich
-axel
-playerctl
 aic94xx-firmware
 ast-firmware
 linux-firmware-qlogic
@@ -30,19 +21,6 @@ procs
 dust
 mc
 asciinema
-tree-sitter
-tree-sitter-bash
-tree-sitter-c
-tree-sitter-cli
-tree-sitter-javascript
-tree-sitter-lua
-tree-sitter-markdown
-tree-sitter-python
-tree-sitter-query
-tree-sitter-rust
-tree-sitter-vim
-tree-sitter-vimdoc
-tree
 tre-command-bin
 diff-so-fancy
 fortune-mod
@@ -63,7 +41,6 @@ ntfs-3g
 flac
 jasper
 pacman-contrib
-sof-firmware
 lsscsi
 cabal-fmt
 cabal-install
@@ -77,4 +54,3 @@ cbonsai
 tectonic
 texlive-core
 binutils
-inotify-tools
