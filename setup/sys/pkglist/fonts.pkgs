@@ -1,3 +1,8 @@
+adobe-source-han-sans-cn-fonts
+adobe-source-han-serif-cn-fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
 otf-aurulent-nerd
 otf-codenewroman-nerd
 otf-comicshanns-nerd
@@ -61,12 +66,7 @@ ttf-sourcecodepro-nerd
 ttf-space-mono-nerd
 ttf-terminus-nerd
 ttf-tinos-nerd
-ttf-ubuntu-mono-nerd
-ttf-ubuntu-nerd
+ttf-ubuntu-mono-nerd ttf-ubuntu-nerd
 ttf-victor-mono-nerd
 ttf-zed-mono-nerd
-noto-fonts-emoji
-noto-fonts noto-fonts-cjk
 wqy-zenhei
-adobe-source-han-sans-cn-fonts
-adobe-source-han-serif-cn-fonts
