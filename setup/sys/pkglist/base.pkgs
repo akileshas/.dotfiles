@@ -145,5 +145,19 @@ rsync
 exfat-utils
 fuse-exfat
 ntfs-3g
+flac
+jasper
+pacman-contrib
+texlive-core
+tectonic
+cbonsai-git
+ghostscript
+ueberzugpp
+poppler
+haskell-language-server-static
+lsscsi
+fortune-mod
+fortune-mod-bofh-excuses
+fortune-mod-matrix
 
 intel-ucode
