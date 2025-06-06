@@ -126,5 +126,24 @@ tree-sitter-query
 tree-sitter-rust
 tree-sitter-vim
 tree-sitter-vimdoc
+most
+less
+duf
+ncdu
+dua-cli
+procs
+dust
+asciinema
+cowsay
+lolcat
+sl
+figlet
+p7zip
+unrar
+tar
+rsync
+exfat-utils
+fuse-exfat
+ntfs-3g
 
 intel-ucode
