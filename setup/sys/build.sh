@@ -251,7 +251,7 @@ _sync () {
 }
 
 _pre () {
-    _init --check-exclude=host
+    _init --check-exclude=paru,host --skip-sync
 
     echo
     echo "[#!](akileshas@ASA) info: preparing my system ..."
