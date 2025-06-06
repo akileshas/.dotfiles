@@ -1,7 +1,7 @@
 # Torch with cuda support.
 --extra-index-url https://download.pytorch.org/whl/cu121
 torch
-torchvision 
+torchvision
 torchaudio
 torch-xla
 pytorch-lightning
