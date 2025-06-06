@@ -160,3 +160,12 @@ fortune-mod
 fortune-mod-bofh-excuses
 fortune-mod-matrix
 intel-ucode
+aic94xx-firmware
+ast-firmware
+linux-firmware-qlogic
+linux-firmware-bnx2x
+linux-firmware-liquidio
+linux-firmware-mellanox
+linux-firmware-nfp
+wd719x-firmware
+upd72020x-fw
