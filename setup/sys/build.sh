@@ -63,14 +63,20 @@ __link () {
     echo
     echo "[::] info: linking '${dst##*/}' config ..."
 
+    if [[ -L "$dst" && "$(readlink "$dst")" == "$src" ]]; then
+        echo "[::] info: skipped linking '${dst}' config - already linked !!!."
+        echo
+        return
+    fi
+
     if [[ "$type" == "dir" && -d "$dst" ]] || [[ "$type" == "file" && -f "$dst" ]]; then
-        echo "[~!] warn: '${dst}' exists !!!"
+        echo "[~!] warn: '${dst}' config exists !!!"
         read -rp "[::] info: remove it ? [y/N] " confirm
         confirm="${confirm,,}"
 
         if [[ "$confirm" == "y" || "$confirm" == "yes" ]]; then
             rm -rf "$dst"
-            echo "[::] info: removed '${dst}' !!!"
+            echo "[::] info: removed '${dst}' config !!!"
         else
             echo "[::] info: skipped linking '${dst##*/}' config !!!"
             echo
