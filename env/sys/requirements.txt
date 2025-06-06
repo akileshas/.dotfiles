@@ -6,17 +6,12 @@ linux-firmware-liquidio
 linux-firmware-mellanox
 linux-firmware-nfp
 wd719x-firmware
-libcutensor
-cusparselt
-openssh
 speedtest-cli
 most
 less
 duf
 ncdu
 dua-cli
-rm-improved-bin
-navi
 procs
 dust
 mc
@@ -53,4 +48,3 @@ ueberzugpp
 cbonsai
 tectonic
 texlive-core
-binutils
