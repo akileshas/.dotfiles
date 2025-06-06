@@ -102,9 +102,9 @@ __ping () {
 
 ## global variables
 HOST=$(hostnamectl hostname)
-FONTS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/fonts.pkgs"
-BASE_PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/base.pkgs"
-POST_PKGS_FILE_PATH="/home/akileshas/.dotfiles/setup/sys/pkglist/post.pkgs"
+FONTS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/fonts.pkgs"
+BASE_PKGS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/base.pkgs"
+POST_PKGS_FILE_PATH="$HOME/.dotfiles/setup/sys/pkglist/post.pkgs"
 
 ## global functions
 _init () {
