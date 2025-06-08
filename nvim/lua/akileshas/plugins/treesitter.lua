@@ -51,6 +51,7 @@ local opts = {
     auto_install = true,
     ignore_install = {
         "ipkg",
+        "gdshader",
     },
     highlight = {
         enable = true,
