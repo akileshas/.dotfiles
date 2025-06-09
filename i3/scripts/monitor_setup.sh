@@ -12,7 +12,7 @@ EXTERNAL=$(xrandr | grep " connected" | grep -v "$INTERNAL" | cut -d " " -f1)
 
 if [ -n "$EXTERNAL" ]; then
     # External monitor is connected; set it to the right of the internal display
-    xrandr --output "$INTERNAL" --mode 1920x1200 --primary --output "$EXTERNAL" --auto --right-of "$INTERNAL"
+    xrandr --output "$INTERNAL" --mode 1920x1200 --primary --output "$EXTERNAL" --auto --left-of "$INTERNAL"
     feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 else
     # Only internal monitor is connected
