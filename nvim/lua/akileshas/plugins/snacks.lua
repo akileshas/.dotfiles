@@ -262,6 +262,9 @@ local opts = {
     },
     terminal = {
         enabled = true,
+        win = {
+            border = "rounded",
+        },
     },
     toggle = {
         enabled = false,
@@ -905,7 +908,7 @@ local keys = {
         "<C-x>",
         mode = { "n" },
         function ()
-            Snacks.terminal.toggle()
+            Snacks.terminal.toggle("bash")
         end,
         noremap = true,
         silent = true,

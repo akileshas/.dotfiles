@@ -42,7 +42,7 @@ local keys = {
         desc = "add file to harpoon",
     },
     {
-        "<C-a>",
+        "<C-s>",
         mode = { "n" },
         function ()
             -- for convenience
