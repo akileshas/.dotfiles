@@ -301,6 +301,7 @@ _setup () {
     __link ~/.dotfiles/mpv ~/.config/mpv "dir"
     __link ~/.dotfiles/rofi ~/.config/rofi "dir"
     __link ~/.dotfiles/starship ~/.config/starship "dir"
+    __link ~/.dotfiles/warpd ~/.config/warpd "dir"
     __link ~/.dotfiles/bash/.bashrc ~/.bashrc "file"
     __link ~/.dotfiles/bash/.bash_logout ~/.bash_logout "file"
     __link ~/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
