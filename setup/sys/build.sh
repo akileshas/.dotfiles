@@ -349,9 +349,6 @@ _usage () {
     echo "  bash ./build.sh [options]"
     echo "  bash ./build.sh [command] [options]"
     echo
-    echo "options:"
-    echo "  -h, --help                  show help message."
-    echo
     echo "commands:"
     echo "  init [options]              initialize system (runs checks and optionally syncs)."
     echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
@@ -363,6 +360,9 @@ _usage () {
     echo "  pre                         pre-install setup (e.g. enabling services)."
     echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
     echo "  post                        post-setup steps (e.g. enable services, cleanup)."
+    echo
+    echo "options:"
+    echo "  -h, --help                  show help message."
     echo
 }
 
