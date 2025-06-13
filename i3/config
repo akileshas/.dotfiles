@@ -79,6 +79,9 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 # Sources the global environment variables
 exec_always --no-startup-id sh -c 'source ~/.dotfiles/i3/variables.sh'
 
+# Starting the warpd
+exec_always --no-startup-id warpd
+
 # ----------- END -----------
 
 
