@@ -51,6 +51,8 @@
 - use `rgr` for ripgrep replace
 - use `rgf` for ripgrep fuzzy finder
 - use `netscanner` for network scanning [ cmd: `sudo netscanner` ]
+- use `viu` for image viewing
+- use `gotop` for system monitoring
 
 
 for luarocks support in nvim use the cmd:
