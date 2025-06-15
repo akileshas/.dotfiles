@@ -280,6 +280,9 @@ bindsym $mod+Shift+Escape exec --no-startup-id exec ~/.dotfiles/i3/scripts/suspe
 # For Discord
 assign [class="discord"] 11
 
+# For Slack
+assign [class="Slack"] 11
+
 # For Obsidian
 assign [class="obsidian"] 10
 
