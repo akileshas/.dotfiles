@@ -293,6 +293,6 @@ assign [class="obs"] 9
 for_window [class="Qalculate"] floating enable, move position 949 29
 
 # For ONLYOFFICE Desktop Editors
-assign [class="ONLYOFFICE Desktop Editors"] 8
+assign [class="ONLYOFFICE"] 8
 
 # ----------- END -----------
