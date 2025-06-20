@@ -1,5 +1,5 @@
-#aic94xx-firmware
-#upd72020x-fw
+aic94xx-firmware
+upd72020x-fw
 advcpmv
 aria2
 asciinema
@@ -76,7 +76,7 @@ less
 libcutensor
 libcutensor-common
 libqalculate
-linux-firmware-bnx2x
+#linux-firmware-bnx2x
 linux-firmware-liquidio
 linux-firmware-mellanox
 linux-firmware-nfp
