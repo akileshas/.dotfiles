@@ -15,7 +15,6 @@ wheel
 optuna
 optunahub
 cmaes
-theano
 statsmodels
 gputil
 cupy-cuda12x
