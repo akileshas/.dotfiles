@@ -80,7 +80,7 @@ exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
 exec_always --no-startup-id sh -c 'source ~/.dotfiles/i3/variables.sh'
 
 # Starting the warpd
-exec_always --no-startup-id warpd
+exec_always --no-startup-id sh -c 'sleep 11 && warpd'
 
 # ----------- END -----------
 
