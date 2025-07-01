@@ -86,6 +86,9 @@ alias chpp="~/.dotfiles/bash/scripts/toggle_power_profile.sh"
 alias chmp="~/.dotfiles/bash/scripts/monitor_position.sh"
 alias ggs-chmp="~/.dotfiles/bash/scripts/ggs/monitor_position.sh"
 
+# Setting the Keyboard
+alias stkb="~/.dotfiles/bash/scripts/set_keyboard.sh"
+
 # Load the LazyGit
 alias lg="lazygit"
 
