@@ -58,3 +58,8 @@ fi
 if [ -f "$HOME/.dotfiles/bash/scripts/tmux_functions.sh" ]; then
     . "$HOME/.dotfiles/bash/scripts/tmux_functions.sh"
 fi
+
+# Source the `nix`
+if [[ -f "/etc/profile.d/nix.sh" ]]; then
+    . "/etc/profile.d/nix.sh"
+fi
