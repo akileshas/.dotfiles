@@ -104,15 +104,19 @@ t() {
     # Define required directories
     required_dirs=(
         ~/repos
+        ~/repos/codecrafters
         ~/personal
         ~/work
         ~/work/dev
+        ~/work/man
         ~/tmp
         ~/documents
         ~/downloads
+        ~/obsidian
+        ~/images
+        ~/videos
+        ~/videos/man
         ~/.dotfiles
-        ~/Documents
-        ~/Downloads/Projects
     )
 
     # Define directories to ignore
