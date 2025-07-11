@@ -57,11 +57,11 @@ int main() {
 
     int tc = 1; // Number of test cases
     // Uncomment the next line if the number of test cases is provided as input
-    /* cin >> tc; */
+    // cin >> tc;
 
     for (int t = 1; t <= tc; t++) {
         // Uncomment the following line if the case number should be output
-        /* cout << "Case #" << t << ": "; */
+        // cout << "Case #" << t << ": ";
         solve();
     }
 
