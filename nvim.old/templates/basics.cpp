@@ -47,8 +47,8 @@ void solve() {
 
 int main() {
 #ifndef ONLINE_JUDGE
-    freopen("/home/akileshas/personal/AlgoX/input.txt", "r", stdin);
-    freopen("/home/akileshas/personal/AlgoX/output.txt", "w", stdout);
+    freopen("/home/akileshas/repos/algoX/input.txt", "r", stdin);
+    freopen("/home/akileshas/repos/algoX/output.txt", "w", stdout);
 #endif
 
     ios_base::sync_with_stdio(0);
