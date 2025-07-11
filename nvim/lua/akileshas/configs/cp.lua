@@ -4,7 +4,7 @@ local M = {}
 function M.copy_cpp_basic_template()
     -- Define the source and target directories
     local source_file = vim.fn.expand("/home/akileshas/.dotfiles/nvim.old/templates/basics.cpp")
-    local target_dir = "/home/akileshas/repos/algoX/cf"
+    local target_dir = "/home/akileshas/repos/algoX/cf/"
 
     -- for convenience
     local fn = vim.fn
