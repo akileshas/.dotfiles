@@ -1,7 +1,7 @@
 local M = {}
 
 -- Aliases
-local fn, api, cmd, notify = vim.fn, vim.api, vim.cmd, vim.notify
+local fn, api, cmd = vim.fn, vim.api, vim.cmd
 
 -- Paths
 local home = fn.expand("~")
@@ -17,7 +17,8 @@ end
 -- Create new file from template in dated folder
 function M.copy_cpp_basic_template()
     if fn.filereadable(tmpl_path) == 0 then
-        return api.nvim_err_writeln("Missing template: " .. tmpl_path)
+        fn.writefile({ "Missing template: " .. tmpl_path }, output_file)
+        return
     end
 
     local date = os.date("%Y-%m-%d")
@@ -37,10 +38,12 @@ end
 -- Compile and run the current buffer using C++23
 function M.compile_and_run_cpp()
     if vim.bo.filetype ~= "cpp" then
-        return notify("Not a C++ file", vim.log.levels.WARN)
+        fn.writefile({ "Not a C++ file" }, output_file)
+        return
     end
     if not fn.getcwd():find("algoX", 1, true) then
-        return notify("Use inside algoX project", vim.log.levels.WARN)
+        fn.writefile({ "Use inside algoX project" }, output_file)
+        return
     end
 
     cmd.write()
@@ -50,7 +53,7 @@ function M.compile_and_run_cpp()
     local compile_cmd = ("g++ -O2 -std=c++23 -DLOCAL %s -o %s"):format(
         fn.shellescape(src), fn.shellescape(bin)
     )
-    local compile_out = fn.system(compile_cmd)
+    local compile_out = fn.systemlist(compile_cmd)
 
     if fn.filereadable(bin) == 1 then
         ensure_dir(base_dir)
@@ -59,17 +62,17 @@ function M.compile_and_run_cpp()
         )
         fn.system(run_cmd)
         os.remove(bin)
-
         cmd.checktime(fn.fnameescape(output_file))
     else
-        api.nvim_err_writeln("Compilation failed:\n" .. compile_out)
+        fn.writefile(compile_out, output_file)
+        cmd.checktime(fn.fnameescape(output_file))
     end
 end
 
 -- Toggle input/output window splits
 function M.toggle_input_output()
     if vim.bo.filetype ~= "cpp" or not fn.getcwd():find("algoX", 1, true) then
-        return notify("It's for Competitive Programming.", vim.log.levels.WARN)
+        return
     end
 
     local wins = {}
@@ -94,3 +97,5 @@ end
 vim.keymap.set("n", "<leader>cp", M.copy_cpp_basic_template, { desc = "Copy C++ template" })
 vim.keymap.set("n", "<leader>cc", M.compile_and_run_cpp, { desc = "Compile & run C++23" })
 vim.keymap.set("n", "<leader>sp", M.toggle_input_output, { desc = "Toggle input/output windows" })
+
+return M
