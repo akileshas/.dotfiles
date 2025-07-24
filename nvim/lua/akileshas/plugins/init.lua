@@ -20,10 +20,6 @@ return {
         lazy = true,
     },
     {
-        "giuxtaposition/blink-cmp-copilot",
-        lazy = true,
-    },
-    {
         "nvim-treesitter/nvim-treesitter-textobjects",
         lazy = true,
     },
