@@ -63,3 +63,7 @@ fi
 if [[ -f "/etc/profile.d/nix.sh" ]]; then
     . "/etc/profile.d/nix.sh"
 fi
+
+if [[ -f "$HOME/.local/share/bob/env/env.sh" ]]; then
+    . "$HOME/.local/share/bob/env/env.sh"
+fi
