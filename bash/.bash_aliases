@@ -63,7 +63,7 @@ alias bye="sudo shutdown -h now"
 
 # Alias for the Mirrors
 alias ls-mir="bat /etc/pacman.d/mirrorlist"
-alias upd-mir="sudo reflector --verbose --latest 11 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+alias upd-mir="sudo reflector --verbose --latest 25 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 
 # Aliases for managing orphan packages
 alias ls-orph="sudo pacman -Qdt"
