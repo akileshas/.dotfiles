@@ -97,7 +97,7 @@ export CODEEDITOR="nvim"
 export GIT_EDITOR="nvim"
 
 # Set the default pager
-export PAGER="vimpager"
+export PAGER="bat"
 
 # Set the default man pager
 export MANPAGER="nvim +Man!"
