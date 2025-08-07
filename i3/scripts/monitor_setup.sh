@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Check if the host is ASA
-if [ "$(hostnamectl hostname)" != "ASA" ]; then
-    echo "This script is only intended to run on the host 'ASA'. Exiting."
+# Check if the host is asa
+if [ "$(hostnamectl hostname)" != "asa" ]; then
+    echo "This script is only intended to run on the host 'asa'. Exiting."
     exit 1
 fi
 

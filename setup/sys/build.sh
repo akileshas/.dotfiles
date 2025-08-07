@@ -4,8 +4,8 @@
 
 #! author           => akileshas
 #! created on       => 04-06-2025
-#! last modified on => 06-06-2025
-#! description      => my system (akileshas@ASA) setup script
+#! last modified on => 07-08-2025
+#! description      => my system (akileshas@asa) setup script
 
 
 
@@ -201,11 +201,11 @@ _check () {
     if __is_excluded "host" "${exclude_list[@]}"; then
         echo "[::](host) check: excluded !!!"
     else
-        if [[ "${HOST}" == "ASA" ]]; then
+        if [[ "${HOST}" == "asa" ]]; then
             echo "[>>](host) check: passed !!!"
         else
             echo "[>>](host) check: failed !!!"
-            echo "[!!] error: host must be 'ASA' (got: '${HOST}') !!!"
+            echo "[!!] error: host must be 'asa' (got: '${HOST}') !!!"
             echo
             exit 1
         fi
@@ -254,7 +254,7 @@ _pre () {
     _init --check-exclude=paru,host --skip-sync
 
     echo
-    echo "[#!](akileshas@ASA) info: preparing my system ..."
+    echo "[#!](akileshas@asa) info: preparing my system ..."
 
     echo
     echo "[::] info: creating directories ..."
@@ -280,7 +280,7 @@ _pre () {
     echo "[::] info: creating files ... done."
     echo
 
-    echo "[#!](akileshas@ASA) info: preparing my system ... done. ;)"
+    echo "[#!](akileshas@asa) info: preparing my system ... done. ;)"
     echo
 }
 
@@ -288,7 +288,7 @@ _setup () {
     _init
 
     echo
-    echo "[#!](akileshas@ASA) info: setting up my system ..."
+    echo "[#!](akileshas@asa) info: setting up my system ..."
 
     __install "${FONTS_FILE_PATH}" "fonts"
     __install  "${BASE_PKGS_FILE_PATH}" "base packages"
@@ -318,7 +318,7 @@ _setup () {
     echo "[::] info: updating grub ... done."
     echo
 
-    echo "[#!](akileshas@ASA) info: setting up my system ... done. ;)"
+    echo "[#!](akileshas@asa) info: setting up my system ... done. ;)"
     echo
 }
 
@@ -326,7 +326,7 @@ _post () {
     _init
 
     echo
-    echo "[#!](akileshas@ASA) info: finalizing my system ..."
+    echo "[#!](akileshas@asa) info: finalizing my system ..."
 
     __install "${POST_PKGS_FILE_PATH}" "post packages"
     __activate "ufw"
@@ -338,13 +338,13 @@ _post () {
     echo "[::] info: setting rust environment ... done."
     echo
 
-    echo "[#!](akileshas@ASA) info: finalizing my system ... done. ;)"
+    echo "[#!](akileshas@asa) info: finalizing my system ... done. ;)"
     echo
 }
 
 _usage () {
     echo
-    echo "'akileshas@ASA' system setup script"
+    echo "'akileshas@asa' system setup script"
     echo
     echo "usage:"
     echo "  bash ./build.sh [options]"
