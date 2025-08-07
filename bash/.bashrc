@@ -54,8 +54,6 @@ validate_source "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
 # MiniConda initialization
 if [ "$(hostnamectl hostname)" = "asa" ]; then
     validate_source "$HOME/.dotfiles/bash/scripts/miniconda.sh"
-elif [ "$(hostnamectl hostname)" = "GGS" ]; then
-    validate_source "$HOME/.dotfiles/bash/scripts/ggs/miniconda.sh"
 fi
 
 # NVM initialization
