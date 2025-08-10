@@ -93,7 +93,7 @@ up() {
 
 # reading the hexa value of a file
 hexaread() {
-    hexdump -C "$1" | nvimpager
+    hexdump -C "$1" | nvim
 }
 
 # Function to get the local IP address
