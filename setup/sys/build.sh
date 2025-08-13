@@ -294,6 +294,7 @@ _setup () {
     __install  "${BASE_PKGS_FILE_PATH}" "base packages"
     __activate "bluetooth"
     __activate "paccache.timer"
+    __activate "power-profiles-daemon"
 
     __link ~/.dotfiles/i3 ~/.config/i3 "dir"
     __link ~/.dotfiles/kitty ~/.config/kitty "dir"
