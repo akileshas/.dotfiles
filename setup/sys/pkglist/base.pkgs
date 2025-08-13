@@ -1,6 +1,5 @@
-aic94xx-firmware
-upd72020x-fw
 advcpmv
+aic94xx-firmware
 aria2
 asciinema
 ast-firmware
@@ -76,7 +75,7 @@ less
 libcutensor
 libcutensor-common
 libqalculate
-#linux-firmware-bnx2x
+linux-firmware-bnx2x
 linux-firmware-liquidio
 linux-firmware-mellanox
 linux-firmware-nfp
@@ -87,6 +86,7 @@ lolcat
 lsscsi
 maim
 man-db
+maven
 most
 mpv
 nccl
@@ -153,6 +153,7 @@ ueberzugpp
 ufw
 unrar
 unzip
+upd72020x-fw
 wd719x-firmware
 wget
 xclip
