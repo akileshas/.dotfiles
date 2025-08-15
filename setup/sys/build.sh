@@ -334,7 +334,7 @@ _post () {
 
     echo
     echo "[::] info: setting rust environment ..."
-    rustup default stable
+    rustup default nightly
     rustup update
     echo "[::] info: setting rust environment ... done."
     echo
