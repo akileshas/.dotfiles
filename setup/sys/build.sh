@@ -427,5 +427,5 @@ _main () {
     echo
 }
 
-## script entry
+
 _main "$@"
