@@ -90,7 +90,7 @@
 
 [core]
     editor = nvim
-    pager = nvim
+    pager = bat
 
 [diff]
     tool = nvimdiff
