@@ -29,6 +29,7 @@ cudss
 curl
 cusparselt
 devtools
+dosfstools
 dua-cli
 duf
 dunst
