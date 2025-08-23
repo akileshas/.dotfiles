@@ -182,7 +182,6 @@ export FZF_DEFAULT_OPTS="
   --prompt=\"$PROMPT\"
   --layout=reverse
   --ignore-case
-  --info right
   --height 21%
   --tabstop=4
   --border
