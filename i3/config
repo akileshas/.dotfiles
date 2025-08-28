@@ -18,6 +18,7 @@ bar {
     position top
     # status_command i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
     status_command exec i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
+    output eDP-1
 
     # colors for the bar
     colors {
