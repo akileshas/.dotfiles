@@ -279,21 +279,21 @@ bindsym $mod+Shift+Escape exec --no-startup-id exec ~/.dotfiles/i3/scripts/suspe
 # ----------- Window Rule's -----------
 
 # For Discord
-assign [class="discord"] 10
+assign [class="discord"] 11
 
 # For Slack
-assign [class="Slack"] 10
+assign [class="Slack"] 11
 
 # For Obsidian
-assign [class="obsidian"] 9
+assign [class="obsidian"] 10
 
 # For OBS Studio
-assign [class="obs"] 8
+assign [class="obs"] 9
 
 # For Qalculate
 for_window [class="Qalculate"] floating enable, move position 949 29
 
 # For ONLYOFFICE Desktop Editors
-assign [class="ONLYOFFICE"] 7
+assign [class="ONLYOFFICE"] 8
 
 # ----------- END -----------
