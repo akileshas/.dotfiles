@@ -5,8 +5,8 @@ BUILTIN_KEYBOARD="AT Translated Set 2 keyboard"
 
 # List of candidate external keyboards
 EXTERNAL_KEYBOARDS=(
-    "BY Tech Gaming Keyboard Consumer Control"
-    "CX 2.4G Wireless Receiver Consumer Control"
+    "BY Tech Gaming KB"
+    "Compx 2.4G Wireless Receiver"
 )
 
 # Get ID of built-in keyboard
