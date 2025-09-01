@@ -308,6 +308,7 @@ _setup () {
     __link ~/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
     __link ~/.dotfiles/git/.gitconfig ~/.gitconfig "file"
     __link ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
+    __link ~/.dotfiles/rtorrent/.rtorrent.rc ~/.rtorrent.rc "file"
 
     for v in 2.0 3.0 4.0; do
         __link ~/.dotfiles/gtk/gtk-${v} ~/.config/gtk-${v} "dir"
