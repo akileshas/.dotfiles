@@ -117,6 +117,7 @@ t() {
         ~/videos
         ~/videos/man
         ~/.dotfiles
+        ~/.nixdots
     )
 
     # Define directories to ignore
