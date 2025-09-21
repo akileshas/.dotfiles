@@ -1,0 +1,6 @@
+(
+    mpd_host: "127.0.0.1",
+    mpd_port: 6600,
+    ui_theme: "default",
+    auto_update: true,
+)
