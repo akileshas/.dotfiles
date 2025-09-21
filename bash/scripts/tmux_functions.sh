@@ -116,6 +116,7 @@ t() {
         ~/images
         ~/videos
         ~/videos/man
+        ~/music
         ~/.dotfiles
         ~/.nixdots
     )
