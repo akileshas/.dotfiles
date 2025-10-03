@@ -67,9 +67,6 @@ if command -v /bin/starship &>/dev/null; then
     eval "$(starship init bash)"
 fi
 
-# Setting the PS1 prompt
-PS1='[\u@\h \W]\$ '
-
 ### --- Useful Cmdline tools --- ###
 
 # Activating the `zoxide` tool for directory navigation ( better than `cd` )
