@@ -103,6 +103,7 @@ t() {
 
     # Define required directories
     required_dirs=(
+        ~/dev
         ~/repos
         ~/repos/codecrafters
         ~/personal
