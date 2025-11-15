@@ -214,6 +214,7 @@ bindsym $mod+Ctrl+r restart
 
 # Open the firefox-developer-edition browser
 bindsym $mod+b exec firefox-developer-edition
+bindsym $mod+Shift+b exec helium-browser
 
 # Open the zen browser
 bindsym $mod+z exec zen-browser
