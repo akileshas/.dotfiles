@@ -560,7 +560,7 @@ local keys = {
         function ()
             Snacks.picker.grep({
                 hidden = true,
-                ignored = true,
+                -- ignored = true,
                 follow = true,
                 regex = true,
                 live = true,
