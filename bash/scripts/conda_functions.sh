@@ -44,7 +44,7 @@ pa() {
             column -t |
             fzf --border=rounded \
                 --height=21 \
-                --tmux center,50%,50%
+                --tmux center,80%,60%
     )
 
     # If the choice is not empty, activate the environment
