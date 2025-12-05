@@ -32,7 +32,7 @@ alias bd="cd -"
 # Editor aliases
 alias v="nvim"
 alias sv="sudo nvim"
-alias code="code-insiders"
+# alias code="code-insiders"
 
 # Exit the terminal
 alias x="exit"
