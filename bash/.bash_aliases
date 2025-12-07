@@ -11,9 +11,9 @@ alias wtf='sudo $(history -p !!)'
 alias fk="fuck"
 
 # Updating and Cleaning the packages
-alias upd="sudo pacman -Syu && paru -Syu"
-alias fupd="sudo pacman -Syyu && paru -Syyu"
-alias cln="sudo pacman -Sc && sudo pacman -Scc && paru -Sc && paru -Scc && sudo journalctl --vacuum-size=100M"
+alias upd="sudo pacman -Syu && paru -Syu && yay -Syu"
+alias fupd="sudo pacman -Syyu && paru -Syyu && yay -Syyu"
+alias cln="sudo pacman -Sc && sudo pacman -Scc && paru -Sc && paru -Scc && yay -Sc && yay -Scc && sudo journalctl --vacuum-size=100M"
 
 # Jumping to up directory
 alias rt="cd /"
