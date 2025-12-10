@@ -258,19 +258,47 @@ _pre () {
 
     echo
     echo "[::] info: creating directories ..."
-    mkdir -p ~/personal \
-            ~/work \
-            ~/work/dev \
-            ~/documents \
-            ~/documents/books \
-            ~/documents/papers \
-            ~/downloads \
-            ~/repos \
-            ~/images \
-            ~/images/screenshots \
-            ~/videos \
-            ~/videos/obs \
-            ~/tmp
+    mkdir -p ~/Desktop \
+            ~/Documents \
+            ~/Documents/Books \
+            ~/Documents/Papers \
+            ~/Documents/Vault \
+            ~/Documents/Vault/Personal \
+            ~/Documents/Vault/Work \
+            ~/Downloads \
+            ~/Music \
+            ~/Music/Playlist \
+            ~/Music/Track \
+            ~/Pictures \
+            ~/Pictures/Vault \
+            ~/Pictures/Wallpaper \
+            ~/Pictures/Screenshots \
+            ~/Public \
+            ~/Templates \
+            ~/Videos \
+            ~/Videos/OBS \
+            ~/Videos/Man \
+            ~/dev \
+            ~/dev/env \
+            ~/dev/repos \
+            ~/dev/mirrors \
+            ~/dev/orgs \
+            ~/dev/orgs/deepomni \
+            ~/dev/orgs/deepomni/repos \
+            ~/dev/orgs/deepomni/forks \
+            ~/dev/orgs/deepomni/mirrors \
+            ~/dev/orgs/deepomni/tmp \
+            ~/dev/orgs/pytorch \
+            ~/dev/orgs/pytorch/repos \
+            ~/dev/orgs/pytorch/forks \
+            ~/dev/orgs/pytorch/mirrors \
+            ~/dev/orgs/pytorch/tmp \
+            ~/dev/orgs/tinygrad \
+            ~/dev/orgs/tinygrad/repos \
+            ~/dev/orgs/tinygrad/forks \
+            ~/dev/orgs/tinygrad/mirrors \
+            ~/dev/orgs/tinygrad/tmp \
+            ~/dev/tmp
     echo "[::] info: creating directories ... done."
     echo
 
