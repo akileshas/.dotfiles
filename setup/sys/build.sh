@@ -39,7 +39,7 @@ __install () {
     echo
     echo "[::] info: installing ${type} ..."
     mapfile -t items < <(grep -vE "^\s*#|^\s*$" "${file_path}")
-    [[ ${#items[@]} -gt 0 ]] && paru -S --noconfirm "${items[@]}" || {
+    [[ ${#items[@]} -gt 0 ]] && yay -S --noconfirm "${items[@]}" || {
         echo "[!!] error: installing ${type} failed !!!"
         echo
         exit 1
@@ -185,14 +185,14 @@ _check () {
         esac
     done
 
-    if __is_excluded "paru" "${exclude_list[@]}"; then
-        echo "[::](paru) check: excluded !!!"
+    if __is_excluded "yay" "${exclude_list[@]}"; then
+        echo "[::](yay) check: excluded !!!"
     else
-        if [[ -n $(command -v paru) ]]; then
-            echo "[>>](paru) check: passed !!!"
+        if [[ -n $(command -v yay) ]]; then
+            echo "[>>](yay) check: passed !!!"
         else
-            echo "[>>](paru) check: failed !!!"
-            echo "[!!] error: 'paru' is not installed !!!"
+            echo "[>>](yay) check: failed !!!"
+            echo "[!!] error: 'yay' is not installed !!!"
             echo
             exit 1
         fi
@@ -244,14 +244,14 @@ _check () {
 _sync () {
     echo
     echo "[::] info: updating and synchronizing the system ..."
-    sudo pacman -Syu --noconfirm
-    paru -Syu --noconfirm
+    sudo pacman -Syyu --noconfirm
+    yay -Syyu --noconfirm
     echo "[::] info: updating and synchronizing the system ... done."
     echo
 }
 
 _pre () {
-    _init --check-exclude=paru,host --skip-sync
+    _init --check-exclude=yay,host --skip-sync
 
     echo
     echo "[#!](akileshas@asa) info: preparing my system ..."
@@ -384,11 +384,11 @@ _usage () {
     echo
     echo "commands:"
     echo "  init [options]              initialize system (runs checks and optionally syncs)."
-    echo "      --check-exclude=items   exclude checks (comma-separated: paru,user,host)."
+    echo "      --check-exclude=items   exclude checks (comma-separated: yay,user,host)."
     echo "      --skip-check            skip checks step."
     echo "      --skip-sync             skip system sync step."
-    echo "  check [options]             run pre-flight checks (paru, user, host, ping)."
-    echo "      --exclude=items         exclude checks (comma-separated: paru,user,host)."
+    echo "  check [options]             run pre-flight checks (yay, user, host, ping)."
+    echo "      --exclude=items         exclude checks (comma-separated: yay,user,host)."
     echo "  sync                        sync system time and update mirrors/packages."
     echo "  pre                         pre-install setup (e.g. enabling services)."
     echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
