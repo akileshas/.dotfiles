@@ -157,7 +157,7 @@ alias cp777='chmod -R 777'
 alias extract="atool"
 
 # Open the TODO file
-alias todo="nvim ~/obsidian/TODO.md"
+alias todo="nvim ~/dev/obsidian/TODO.md"
 
 # For adb
 alias adb="~/Android/Sdk/platform-tools/adb"
