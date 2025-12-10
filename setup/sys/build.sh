@@ -304,7 +304,7 @@ _pre () {
 
     echo
     echo "[::] info: creating files ..."
-    touch ~/.bash_keys
+    echo "#!/usr/bin/env bash" > ~/.bash_keys
     echo "[::] info: creating files ... done."
     echo
 
