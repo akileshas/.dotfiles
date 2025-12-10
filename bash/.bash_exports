@@ -11,12 +11,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PF_ASCII=linux
 
 # Set the path of the statship shell prompt
-export STARSHIP_CONFIG="$HOME/.dotfiles/starship/starship.toml"
+export STARSHIP_CONFIG="$HOME/dev/env/.dotfiles/starship/starship.toml"
 
 # Set the path for the git config
-# export GIT_CONFIG="$HOME/.dotfiles/git/.gitconfig"
-# export GIT_CONFIG_SYSTEM="$HOME/.dotfiles/git/.gitconfig"
-# export GIT_CONFIG_GLOBAL="$HOME/.dotfiles/git/.gitconfig"
+# export GIT_CONFIG="$HOME/dev/env/.dotfiles/git/.gitconfig"
+# export GIT_CONFIG_SYSTEM="$HOME/dev/env/.dotfiles/git/.gitconfig"
+# export GIT_CONFIG_GLOBAL="$HOME/dev/env/.dotfiles/git/.gitconfig"
 
 # Set the path for the CUDA toolkit, cuDNN library and cuSPARSELt library
 export CUDA_PATH=/opt/cuda

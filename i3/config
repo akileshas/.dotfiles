@@ -16,8 +16,8 @@ font pango:Monospace 9
 
 bar {
     position top
-    # status_command i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
-    status_command exec i3blocks -c ~/.dotfiles/i3/i3blocks/i3blocks.conf
+    # status_command i3blocks -c ~/dev/env/.dotfiles/i3/i3blocks/i3blocks.conf
+    status_command exec i3blocks -c ~/dev/env/.dotfiles/i3/i3blocks/i3blocks.conf
 
     # colors for the bar
     colors {
@@ -54,7 +54,7 @@ client.urgent           #b10f26 #b10f26 #f5e6e8 #b10f26 #b10f26
 exec_always --no-startup-id setxkbmap -option ctrl:swapcaps
 
 # Enable tap-to-click and natural scrolling for the touchpad
-exec_always --no-startup-id ~/.dotfiles/i3/scripts/touchpad_setup.sh
+exec_always --no-startup-id ~/dev/env/.dotfiles/i3/scripts/touchpad_setup.sh
 
 # Start the NetworkManager applet
 exec_always --no-startup-id nm-applet
@@ -71,13 +71,13 @@ exec_always --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id dunst
 
 # Detect the external monitor and set the display configuration
-exec_always --no-startup-id ~/.dotfiles/i3/scripts/monitor_setup.sh
+exec_always --no-startup-id ~/dev/env/.dotfiles/i3/scripts/monitor_setup.sh
 
 # Setting the Wallpaper
-exec_always --no-startup-id feh --bg-fill ~/.dotfiles/i3/wallpaper/hi.png
+exec_always --no-startup-id feh --bg-fill ~/dev/env/.dotfiles/i3/wallpaper/hi.png
 
 # Sources the global environment variables
-exec_always --no-startup-id sh -c 'source ~/.dotfiles/i3/variables.sh'
+exec_always --no-startup-id sh -c 'source ~/dev/env/.dotfiles/i3/variables.sh'
 
 # Starting the warpd
 exec_always --no-startup-id sh -c 'sleep 11 && warpd'
@@ -241,8 +241,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +3%
 bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 
 # For touchpad toggle
-bindsym XF86TouchpadOff exec --no-startup-id ~/.dotfiles/i3/scripts/touchpad_toggle.sh
-bindsym XF86TouchpadOn exec --no-startup-id ~/.dotfiles/i3/scripts/touchpad_toggle.sh
+bindsym XF86TouchpadOff exec --no-startup-id ~/dev/env/.dotfiles/i3/scripts/touchpad_toggle.sh
+bindsym XF86TouchpadOn exec --no-startup-id ~/dev/env/.dotfiles/i3/scripts/touchpad_toggle.sh
 
 # Screenshots
 bindsym Print exec --no-startup-id sh -c 'maim ~/images/screenshots/$(date +%Y-%m-%d_%H:%M:%S).png'
@@ -267,10 +267,10 @@ bindsym $mod+Shift+space focus mode_toggle
 floating_modifier $mod
 
 # i3lock screen
-bindsym $mod+Escape exec --no-startup-id i3lock -i ~/.dotfiles/images/fuck-society.png -c 000000
+bindsym $mod+Escape exec --no-startup-id i3lock -i ~/dev/env/.dotfiles/images/fuck-society.png -c 000000
 
 # Lock and Suspend the screen
-bindsym $mod+Shift+Escape exec --no-startup-id exec ~/.dotfiles/i3/scripts/suspend.sh
+bindsym $mod+Shift+Escape exec --no-startup-id exec ~/dev/env/.dotfiles/i3/scripts/suspend.sh
 
 # ----------- END -----------
 

@@ -4,7 +4,7 @@
 
 #! author           => akileshas
 #! created on       => 04-06-2025
-#! last modified on => 07-08-2025
+#! last modified on => 11-12-2025
 #! description      => my system (akileshas@asa) setup script
 
 
@@ -107,9 +107,9 @@ __ping () {
 
 ## global variables
 HOST=$(hostnamectl hostname)
-FONTS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/fonts.pkgs"
-BASE_PKGS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/base.pkgs"
-POST_PKGS_FILE_PATH="${HOME}/.dotfiles/setup/sys/pkglist/post.pkgs"
+FONTS_FILE_PATH="${HOME}/dev/env/.dotfiles/setup/sys/pkglist/fonts.pkgs"
+BASE_PKGS_FILE_PATH="${HOME}/dev/env/.dotfiles/setup/sys/pkglist/base.pkgs"
+POST_PKGS_FILE_PATH="${HOME}/dev/env/.dotfiles/setup/sys/pkglist/post.pkgs"
 
 ## global functions
 _init () {
@@ -324,24 +324,24 @@ _setup () {
     __activate "paccache.timer"
     __activate "power-profiles-daemon"
 
-    __link ~/.dotfiles/i3 ~/.config/i3 "dir"
-    __link ~/.dotfiles/kitty ~/.config/kitty "dir"
-    __link ~/.dotfiles/lazygit ~/.config/lazygit "dir"
-    __link ~/.dotfiles/mpv ~/.config/mpv "dir"
-    __link ~/.dotfiles/rofi ~/.config/rofi "dir"
-    __link ~/.dotfiles/starship ~/.config/starship "dir"
-    __link ~/.dotfiles/warpd ~/.config/warpd "dir"
-    __link ~/.dotfiles/bash/.profile ~/.profile "file"
-    __link ~/.dotfiles/bash/.bashrc ~/.bashrc "file"
-    __link ~/.dotfiles/bash/.bash_login ~/.bash_login "file"
-    __link ~/.dotfiles/bash/.bash_logout ~/.bash_logout "file"
-    __link ~/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
-    __link ~/.dotfiles/git/.gitconfig ~/.gitconfig "file"
-    __link ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
-    __link ~/.dotfiles/rtorrent/.rtorrent.rc ~/.rtorrent.rc "file"
+    __link ~/dev/env/.dotfiles/i3 ~/.config/i3 "dir"
+    __link ~/dev/env/.dotfiles/kitty ~/.config/kitty "dir"
+    __link ~/dev/env/.dotfiles/lazygit ~/.config/lazygit "dir"
+    __link ~/dev/env/.dotfiles/mpv ~/.config/mpv "dir"
+    __link ~/dev/env/.dotfiles/rofi ~/.config/rofi "dir"
+    __link ~/dev/env/.dotfiles/starship ~/.config/starship "dir"
+    __link ~/dev/env/.dotfiles/warpd ~/.config/warpd "dir"
+    __link ~/dev/env/.dotfiles/bash/.profile ~/.profile "file"
+    __link ~/dev/env/.dotfiles/bash/.bashrc ~/.bashrc "file"
+    __link ~/dev/env/.dotfiles/bash/.bash_login ~/.bash_login "file"
+    __link ~/dev/env/.dotfiles/bash/.bash_logout ~/.bash_logout "file"
+    __link ~/dev/env/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
+    __link ~/dev/env/.dotfiles/git/.gitconfig ~/.gitconfig "file"
+    __link ~/dev/env/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
+    __link ~/dev/env/.dotfiles/rtorrent/.rtorrent.rc ~/.rtorrent.rc "file"
 
     for v in 2.0 3.0 4.0; do
-        __link ~/.dotfiles/gtk/gtk-${v} ~/.config/gtk-${v} "dir"
+        __link ~/dev/env/.dotfiles/gtk/gtk-${v} ~/.config/gtk-${v} "dir"
     done
 
     echo

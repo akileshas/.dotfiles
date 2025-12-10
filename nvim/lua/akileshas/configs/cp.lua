@@ -6,7 +6,7 @@ local fn, api, cmd = vim.fn, vim.api, vim.cmd
 -- Paths
 local home = fn.expand("~")
 local base_dir = home .. "/repos/algoX"
-local tmpl_path = home .. "/.dotfiles/nvim.old/templates/basics.cpp"
+local tmpl_path = home .. "/dev/env/.dotfiles/nvim.old/templates/basics.cpp"
 local input_file = base_dir .. "/input.txt"
 local output_file = base_dir .. "/output.txt"
 

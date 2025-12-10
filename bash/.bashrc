@@ -49,11 +49,11 @@ if [[ $interactiveShellTest > 0 ]]; then bind "set completion-ignore-case on"; f
 # if [[ $interactiveShellTest > 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
 # Source the custom script for additional configurations
-validate_source "$HOME/.dotfiles/bash/scripts/bash_sources.sh"
+validate_source "$HOME/dev/env/.dotfiles/bash/scripts/bash_sources.sh"
 
 # MiniConda initialization
 if [ "$(hostnamectl hostname)" = "asa" ]; then
-    validate_source "$HOME/.dotfiles/bash/scripts/miniconda.sh"
+    validate_source "$HOME/dev/env/.dotfiles/bash/scripts/miniconda.sh"
 fi
 
 # NVM initialization
@@ -115,13 +115,13 @@ set -o vi
 ### --- Customizing the `bash` shell bindings --- ###
 
 # Finally soucing the `bash_bindings` file
-validate_source "$HOME/.dotfiles/bash/.bash_bindings"
+validate_source "$HOME/dev/env/.dotfiles/bash/.bash_bindings"
 
 ### --- Greeting's --- ###
 
 # Executing the Greeting script
 # Check if the file exists and execute it
-source "$HOME/.dotfiles/bash/scripts/greeting.sh"
+source "$HOME/dev/env/.dotfiles/bash/scripts/greeting.sh"
 
 # Stopping the timer
 total_end_time=$(date +%s.%N)

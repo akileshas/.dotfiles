@@ -76,13 +76,13 @@ alias cls-orph="pacman -Qdqt | sudo pacman -Rns -"
 alias cls-cache="echo 1 | sudo tee /proc/sys/vm/drop_caches > /dev/null"
 
 # Switching the Power Profile
-alias chpp="~/.dotfiles/bash/scripts/toggle_power_profile.sh"
+alias chpp="~/dev/env/.dotfiles/bash/scripts/toggle_power_profile.sh"
 
 # Switching the Monitor Position
-alias chmp="~/.dotfiles/bash/scripts/monitor_position.sh"
+alias chmp="~/dev/env/.dotfiles/bash/scripts/monitor_position.sh"
 
 # Setting the Keyboard
-alias setkb="~/.dotfiles/bash/scripts/set_keyboard.sh"
+alias setkb="~/dev/env/.dotfiles/bash/scripts/set_keyboard.sh"
 
 # Load the LazyGit
 alias lg="lazygit"
@@ -114,27 +114,27 @@ alias paste="xsel --clipboard --output"
 alias now="date '+%Y-%m-%d %A %I:%M:%S %p %Z'"
 
 # Reload the bash configuration
-alias rbrc="source ~/.dotfiles/bash/.bashrc"
-alias rbpf="source ~/.dotfiles/bash/.bash_profile"
-alias rblo="source ~/.dotfiles/bash/.bash_logout"
-alias rbal="source ~/.dotfiles/bash/.bash_aliases"
-alias rbfn="source ~/.dotfiles/bash/.bash_functions"
-alias rbexp="source ~/.dotfiles/bash/.bash_exports"
-alias rbbnd="source ~/.dotfiles/bash/.bash_bindings"
+alias rbrc="source ~/dev/env/.dotfiles/bash/.bashrc"
+alias rbpf="source ~/dev/env/.dotfiles/bash/.bash_profile"
+alias rblo="source ~/dev/env/.dotfiles/bash/.bash_logout"
+alias rbal="source ~/dev/env/.dotfiles/bash/.bash_aliases"
+alias rbfn="source ~/dev/env/.dotfiles/bash/.bash_functions"
+alias rbexp="source ~/dev/env/.dotfiles/bash/.bash_exports"
+alias rbbnd="source ~/dev/env/.dotfiles/bash/.bash_bindings"
 alias rbkey="source ~/.bash_keys"
 
 # Edit the bash configuration
-alias ebrc="nvim ~/.dotfiles/bash/.bashrc"
-alias ebpf="nvim ~/.dotfiles/bash/.bash_profile"
-alias eblo="nvim ~/.dotfiles/bash/.bash_logout"
-alias ebal="nvim ~/.dotfiles/bash/.bash_aliases"
-alias ebfn="nvim ~/.dotfiles/bash/.bash_functions"
-alias ebexp="nvim ~/.dotfiles/bash/.bash_exports"
-alias ebbnd="nvim ~/.dotfiles/bash/.bash_bindings"
+alias ebrc="nvim ~/dev/env/.dotfiles/bash/.bashrc"
+alias ebpf="nvim ~/dev/env/.dotfiles/bash/.bash_profile"
+alias eblo="nvim ~/dev/env/.dotfiles/bash/.bash_logout"
+alias ebal="nvim ~/dev/env/.dotfiles/bash/.bash_aliases"
+alias ebfn="nvim ~/dev/env/.dotfiles/bash/.bash_functions"
+alias ebexp="nvim ~/dev/env/.dotfiles/bash/.bash_exports"
+alias ebbnd="nvim ~/dev/env/.dotfiles/bash/.bash_bindings"
 alias ebkey="nvim ~/.bash_keys"
 
 # Bash Notes
-alias bn="nvim ~/.dotfiles/bash/bash_notes.md"
+alias bn="nvim ~/dev/env/.dotfiles/bash/bash_notes.md"
 
 # Alert for long running commands
 alias alert='
@@ -223,22 +223,22 @@ alias pdm="udisksctl mount -b"
 alias pdum="udisksctl unmount -b"
 
 # i3 configuration files
-alias i3cf="nvim ~/.dotfiles/i3/config"
+alias i3cf="nvim ~/dev/env/.dotfiles/i3/config"
 
 # list the all mounted drives
 alias lmd="lsscsi"
 
 # For editing the python development packages
-alias eprq="nvim ~/.dotfiles/env/py/requirements-common.txt"
-alias eprq-tf="nvim ~/.dotfiles/env/py/requirements-tf-cuda.txt"
-alias eprq-torch="nvim ~/.dotfiles/env/py/requirements-torch-cuda.txt"
-alias eprq-jax="nvim ~/.dotfiles/env/py/requirements-jax-cuda.txt"
+alias eprq="nvim ~/dev/env/.dotfiles/env/py/requirements-common.txt"
+alias eprq-tf="nvim ~/dev/env/.dotfiles/env/py/requirements-tf-cuda.txt"
+alias eprq-torch="nvim ~/dev/env/.dotfiles/env/py/requirements-torch-cuda.txt"
+alias eprq-jax="nvim ~/dev/env/.dotfiles/env/py/requirements-jax-cuda.txt"
 
 # For install the python development packages
-alias iprq="pip install -r ~/.dotfiles/env/py/requirements-common.txt"
-alias iprq-tf="pip install -r ~/.dotfiles/env/py/requirements-tf-cuda.txt"
-alias iprq-torch="pip install -r ~/.dotfiles/env/py/requirements-torch-cuda.txt"
-alias iprq-jax="pip install -r ~/.dotfiles/env/py/requirements-jax-cuda.txt"
+alias iprq="pip install -r ~/dev/env/.dotfiles/env/py/requirements-common.txt"
+alias iprq-tf="pip install -r ~/dev/env/.dotfiles/env/py/requirements-tf-cuda.txt"
+alias iprq-torch="pip install -r ~/dev/env/.dotfiles/env/py/requirements-torch-cuda.txt"
+alias iprq-jax="pip install -r ~/dev/env/.dotfiles/env/py/requirements-jax-cuda.txt"
 
 # Tree Grow Live
 alias liv="cbonsai -liv"

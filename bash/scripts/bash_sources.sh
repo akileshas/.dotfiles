@@ -29,7 +29,7 @@ if [ -d /etc/bash_completion.d ]; then
     done
 fi
 
-# List of files to check and source from ~/.dotfiles/bash
+# List of files to check and source from ~/dev/env/.dotfiles/bash
 # Check if the file exists and source it
 bash_files=(
     "bash_aliases"
@@ -39,8 +39,8 @@ bash_files=(
 )
 
 for file in "${bash_files[@]}"; do
-    if [ -f "$HOME/.dotfiles/bash/.$file" ]; then
-        . "$HOME/.dotfiles/bash/.$file"
+    if [ -f "$HOME/dev/env/.dotfiles/bash/.$file" ]; then
+        . "$HOME/dev/env/.dotfiles/bash/.$file"
     fi
 done
 
@@ -50,13 +50,13 @@ if [ -f "$HOME/.bash_keys" ]; then
 fi
 
 # Source the python virtual environment activation script
-if [ -f "$HOME/.dotfiles/bash/scripts/conda_functions.sh" ]; then
-    . "$HOME/.dotfiles/bash/scripts/conda_functions.sh"
+if [ -f "$HOME/dev/env/.dotfiles/bash/scripts/conda_functions.sh" ]; then
+    . "$HOME/dev/env/.dotfiles/bash/scripts/conda_functions.sh"
 fi
 
 # Source the `tmux` functions
-if [ -f "$HOME/.dotfiles/bash/scripts/tmux_functions.sh" ]; then
-    . "$HOME/.dotfiles/bash/scripts/tmux_functions.sh"
+if [ -f "$HOME/dev/env/.dotfiles/bash/scripts/tmux_functions.sh" ]; then
+    . "$HOME/dev/env/.dotfiles/bash/scripts/tmux_functions.sh"
 fi
 
 # Source the `nix`
