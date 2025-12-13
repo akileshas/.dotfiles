@@ -280,6 +280,8 @@ _pre () {
             ~/Videos/Man \
             ~/dev \
             ~/dev/env \
+            ~/dev/env/bin \
+            ~/dev/env/completion \
             ~/dev/repos \
             ~/dev/mirrors \
             ~/dev/orgs \
