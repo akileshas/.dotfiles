@@ -157,10 +157,7 @@ alias cp777='chmod -R 777'
 alias extract="atool"
 
 # Open the TODO file
-alias todo="nvim ~/dev/obsidian/TODO.md"
-
-# For adb
-alias adb="~/Android/Sdk/platform-tools/adb"
+alias todo="nvim ~/dev/obsidian/todo.md"
 
 # Ping the Google
 alias pgle="ping google.com -c 11"
