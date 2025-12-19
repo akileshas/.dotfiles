@@ -23,11 +23,11 @@ cloc
 composer
 cowsay
 cuda
-cuda-tools
 cudnn
 cudss
 curl
 cusparselt
+cutensor
 devtools
 dosfstools
 dua-cli
@@ -73,8 +73,6 @@ jq
 kitty
 lazygit
 less
-libcutensor
-libcutensor-common
 libqalculate
 linux-firmware-bnx2x
 linux-firmware-liquidio
