@@ -313,6 +313,18 @@ _pre () {
     echo
 }
 
+_install_fonts () {
+    _init
+
+    echo
+    echo "[#!](akileshas@asa) info: installing system fonts ..."
+
+    __install "${FONTS_FILE_PATH}" "fonts"
+
+    echo "[#!](akileshas@asa) info: installing system fonts ... done. ;)"
+    echo
+}
+
 _setup () {
     _init
 
@@ -447,6 +459,11 @@ _main () {
             shift
             exit 0
             ;;
+        install-fonts )
+          _install_fonts
+          shift
+          exit 0
+          ;;
         * )
             echo "[!!] error: unknown option '${1}' !!!"
             echo
