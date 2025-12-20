@@ -61,7 +61,6 @@ git-lfs
 github-cli
 go
 gping
-haskell-language-server-static
 htop
 imv
 inotify-tools
@@ -92,7 +91,6 @@ nccl
 ncdu
 neovim
 net-tools
-networkmanager-openvpn
 nodejs
 npm
 ntfs-3g
@@ -102,7 +100,6 @@ nvhpc-compilers
 nvidia-cg-toolkit
 nvm
 nvtop
-openvpn
 os-prober
 p7zip
 pacman-contrib
