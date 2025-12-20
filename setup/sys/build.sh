@@ -3,7 +3,7 @@
 
 
 #! author           => akileshas
-#! last modified on => 11-12-2025
+#! last modified on => 20-12-2025
 #! description      => my system (akileshas@asa) setup script
 
 
@@ -313,18 +313,6 @@ _pre () {
     echo
 }
 
-_install_fonts () {
-    _init
-
-    echo
-    echo "[#!](akileshas@asa) info: installing system fonts ..."
-
-    __install "${FONTS_FILE_PATH}" "fonts"
-
-    echo "[#!](akileshas@asa) info: installing system fonts ... done. ;)"
-    echo
-}
-
 _setup () {
     _init
 
@@ -387,6 +375,18 @@ _post () {
     echo
 }
 
+_install_fonts () {
+    _init
+
+    echo
+    echo "[#!](akileshas@asa) info: installing system fonts ..."
+
+    __install "${FONTS_FILE_PATH}" "fonts"
+
+    echo "[#!](akileshas@asa) info: installing system fonts ... done. ;)"
+    echo
+}
+
 _usage () {
     echo
     echo "'akileshas@asa' system setup script"
@@ -406,6 +406,7 @@ _usage () {
     echo "  pre                         pre-install setup (e.g. enabling services)."
     echo "  setup                       run main setup logic (install packages, fonts, link dotfiles)."
     echo "  post                        post-setup steps (e.g. enable services, cleanup)."
+    echo "  install-fonts               install system fonts."
     echo
     echo "options:"
     echo "  -h, --help                  show help message."
