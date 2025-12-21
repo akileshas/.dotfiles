@@ -31,7 +31,6 @@ alias bd="cd -"
 # Editor aliases
 alias v="nvim"
 alias sv="sudo nvim"
-# alias code="code-insiders"
 
 # Exit the terminal
 alias x="exit"
@@ -87,16 +86,9 @@ alias setkb="~/dev/env/.dotfiles/bash/scripts/set_keyboard.sh"
 # Load the LazyGit
 alias lg="lazygit"
 
-# Load the LazyDocker
-alias ld="lazydocker"
-
 # For the fortune
 alias fortune="/usr/bin/fortune | cowsay | lolcat"
 alias fortune-linux="/usr/bin/fortune | cowsay -f tux | lolcat"
-
-# Set a alias for Bastard Operator From Hell (bofh)
-alias bofh="/usr/bin/fortune bofh-excuses | cowsay | lolcat"
-alias bofh-linux="/usr/bin/fortune bofh-excuses | cowsay -f tux | lolcat"
 
 # Alias for history
 alias hst="history | nvim"
@@ -144,14 +136,6 @@ else
     notify-send --urgency=critical -i error "✖ Command Failed" "$(history | tail -n1 | sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'' )";
 fi
 '
-
-# alias chmod commands
-alias cpmx='chmod a+x'
-alias cp000='chmod -R 000'
-alias cp644='chmod -R 644'
-alias cp666='chmod -R 666'
-alias cp755='chmod -R 755'
-alias cp777='chmod -R 777'
 
 # Extracting the compressed files
 alias extract="atool"
@@ -201,10 +185,6 @@ alias meta="exiftool"
 
 # For duplicates
 alias dup="fdupes -r"
-
-# For the disk usage
-alias df="duf"
-alias du="ncdu"
 
 # For monitoring the bandwidth
 alias band="sudo bandwhich"
