@@ -1,10 +1,8 @@
 cmake
 discord
-docker
 httpie
 httpie-desktop-bin
 intel-gpu-tools
-lazydocker
 ngrok
 nvidia-container-toolkit
 nvidia-prime
