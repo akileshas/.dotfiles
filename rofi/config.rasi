@@ -6,7 +6,7 @@ configuration {
 }
 
 * {
-    font:                       "Jetbrains Mono 12";
+    font:                       "Ubuntu 18";
     foreground:                 #f8f8f2;
     background-color:           #000000;
     active-background:          #0f7db1;
