@@ -103,12 +103,12 @@ t() {
 
     # Define required directories
     required_dirs=(
+        ~/dev
         ~/Documents
         ~/Downloads
         ~/Music
         ~/Pictures
         ~/Videos
-        ~/dev
     )
 
     # Define directories to ignore
