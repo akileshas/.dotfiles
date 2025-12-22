@@ -296,4 +296,7 @@ for_window [class="Qalculate"] floating enable, move position 949 29
 # For ONLYOFFICE Desktop Editors
 assign [class="ONLYOFFICE"] 8
 
+# For ProtonVPN
+for_window [class="Protonvpn-app"] floating enable
+
 # ----------- END -----------
