@@ -3,6 +3,7 @@ discord
 httpie
 httpie-desktop-bin
 intel-gpu-tools
+lib32-nvidia-utils
 ngrok
 nvidia-container-toolkit
 nvidia-prime
