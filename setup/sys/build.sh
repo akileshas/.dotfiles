@@ -321,6 +321,8 @@ _setup () {
 
     __link ~/dev/env/.dotfiles/i3 ~/.config/i3 "dir"
     __link ~/dev/env/.dotfiles/kitty ~/.config/kitty "dir"
+    __link ~/dev/env/.dotfiles/jj ~/.config/jj "dir"
+    __link ~/dev/env/.dotfiles/git ~/.config/git "dir"
     __link ~/dev/env/.dotfiles/lazygit ~/.config/lazygit "dir"
     __link ~/dev/env/.dotfiles/mpv ~/.config/mpv "dir"
     __link ~/dev/env/.dotfiles/rofi ~/.config/rofi "dir"
@@ -331,7 +333,6 @@ _setup () {
     __link ~/dev/env/.dotfiles/bash/.bash_login ~/.bash_login "file"
     __link ~/dev/env/.dotfiles/bash/.bash_logout ~/.bash_logout "file"
     __link ~/dev/env/.dotfiles/bash/.bash_profile ~/.bash_profile "file"
-    __link ~/dev/env/.dotfiles/git/.gitconfig ~/.gitconfig "file"
     __link ~/dev/env/.dotfiles/tmux/.tmux.conf ~/.tmux.conf "file"
     __link ~/dev/env/.dotfiles/rtorrent/.rtorrent.rc ~/.rtorrent.rc "file"
 
