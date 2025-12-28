@@ -2,12 +2,6 @@
 
 
 
-#! author           => akileshas
-#! last modified on => 20-12-2025
-#! description      => my system (akileshas@asa) setup script
-
-
-
 ## helper functions
 __activate () {
     local service="${1}"
