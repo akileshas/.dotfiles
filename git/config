@@ -1,0 +1,77 @@
+[branch]
+  sort = -committerdate
+
+[color]
+  ui = auto
+
+[commit]
+  gpgSign = true
+  verbose = true
+
+[core]
+  autocrlf = input
+  compression = 9
+  editor = nvim
+  filemode = true
+  excludesfile = ~/.config/git/ignore
+  pager = nvimpager
+  preloadIndex = true
+  safecrlf = true
+
+[credential]
+  helper = store
+
+[credential "https://github.com/"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com/"]
+  helper =
+  helper = !/usr/bin/gh auth git-credential
+
+[diff]
+  algorithm = histogram
+  mnemonicPrefix = true
+  tool = nvimdiff
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+
+[gpg]
+  format = ssh
+
+[help]
+  autocorrect = prompt
+
+[init]
+  defaultBranch = master
+
+[interactive]
+  singlekey = true
+
+[maintenance]
+  auto = true
+  strategy = incremental
+
+[status]
+  branch = true
+  showStash = true
+
+[tag]
+  gpgSign = true
+  sort = -version:refname
+
+[url "git@github.com:"]
+  insteadOf = gh:
+
+[url "ssh://git@codeberg.org/"]
+  insteadOf = cb:
+
+[user]
+  email = akileshas.ai@gmail.com
+  name = Akilesh A S
+  signingkey = ~/.ssh/id_ed25519.pub
+  username = akileshas
