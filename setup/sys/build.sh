@@ -327,7 +327,6 @@ _setup () {
     __link ~/dev/env/.dotfiles/mpv ~/.config/mpv "dir"
     __link ~/dev/env/.dotfiles/rofi ~/.config/rofi "dir"
     __link ~/dev/env/.dotfiles/starship ~/.config/starship "dir"
-    __link ~/dev/env/.dotfiles/warpd ~/.config/warpd "dir"
     __link ~/dev/env/.dotfiles/bash/.profile ~/.profile "file"
     __link ~/dev/env/.dotfiles/bash/.bashrc ~/.bashrc "file"
     __link ~/dev/env/.dotfiles/bash/.bash_login ~/.bash_login "file"
