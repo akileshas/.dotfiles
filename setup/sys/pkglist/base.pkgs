@@ -1,8 +1,6 @@
 advcpmv
-aic94xx-firmware
 aria2
 asciinema
-ast-firmware
 atool
 axel
 bandwhich
@@ -67,15 +65,12 @@ jasper
 jdk-openjdk
 jdk21-openjdk
 jq
+jujutsu
 kitty
 lazygit
+lazyjj
 less
 libqalculate
-linux-firmware-bnx2x
-linux-firmware-liquidio
-linux-firmware-mellanox
-linux-firmware-nfp
-linux-firmware-qlogic
 llvm
 llvm-libs
 lolcat
@@ -147,9 +142,8 @@ ueberzugpp
 ufw
 unrar
 unzip
-upd72020x-fw
 uv
-wd719x-firmware
+wezterm
 wget
 xclip
 xdg-desktop-portal
