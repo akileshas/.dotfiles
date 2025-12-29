@@ -220,7 +220,7 @@ _check () {
     if __is_excluded "ping" "${exclude_list[@]}"; then
         echo "[::](ping) check: excluded !!!"
     else
-        if [[ $(__ping "archlinux.org") == "reached" ]]; then
+        if [[ $(__ping "8.8.8.8") == "reached" ]]; then
             echo "[>>](ping) check: passed !!!"
         else
             echo "[>>](ping) check: failed !!!"
